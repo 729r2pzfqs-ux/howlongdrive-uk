@@ -36,7 +36,7 @@ template = '''<!DOCTYPE html>
     <meta property="og:description" content="Driving time from {from_city} to {to_city}: {time}, {miles} miles">
     <meta property="og:image" content="https://howlongdrive.uk/assets/og-image.png">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-    <script type="application/ld+json">{{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{{"@type":"Question","name":"How long does it take to drive from {from_city} to {to_city}?","acceptedAnswer":{{"@type":"Answer","text":"The drive from {from_city} to {to_city} takes approximately {time} covering {miles} miles via {highway}."}}}},{{"@type":"Question","name":"How much does petrol cost for {from_city} to {to_city}?","acceptedAnswer":{{"@type":"Answer","text":"At 40 MPG and £1.40/litre, expect to spend approximately ${petrol_cost} on gas for this {miles}-mile trip."}}}},{{"@type":"Question","name":"What is the best time to drive from {from_city} to {to_city}?","acceptedAnswer":{{"@type":"Answer","text":"{best_time} to avoid heavy traffic."}}}}]}}</script>
+    <script type="application/ld+json">{{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{{"@type":"Question","name":"How long does it take to drive from {from_city} to {to_city}?","acceptedAnswer":{{"@type":"Answer","text":"The drive from {from_city} to {to_city} takes approximately {time} covering {miles} miles via {highway}."}}}},{{"@type":"Question","name":"How much does petrol cost for {from_city} to {to_city}?","acceptedAnswer":{{"@type":"Answer","text":"At 40 MPG and £1.40/litre, expect to spend approximately £{petrol_cost} on petrol for this {miles}-mile trip."}}}},{{"@type":"Question","name":"What is the best time to drive from {from_city} to {to_city}?","acceptedAnswer":{{"@type":"Answer","text":"{best_time} to avoid heavy traffic."}}}}]}}</script>
     <style>
         :root {{ --primary: #4B6E93; --primary-dark: #3a5775; --accent: #EFA24F; --green: #10B981; --bg: #f8fafc; --card: #fff; --text: #1e293b; --muted: #64748b; --border: #e2e8f0; }}
         * {{ margin: 0; padding: 0; box-sizing: border-box; }}
@@ -49,7 +49,7 @@ template = '''<!DOCTYPE html>
         nav {{ display: flex; align-items: center; gap: 1.5rem; }}
         nav a {{ color: var(--muted); text-decoration: none; font-size: 0.875rem; }}
         .ev-badge {{ background: var(--green); color: white; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 600; }}
-        .hamburger {{ display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }}
+        .close-btn {{ display: none; }} .hamburger {{ display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }}
         .close-btn {{ display: none; }}
         @media (max-width: 768px) {{
             .logo img {{ height: 60px; }} .logo span {{ display: none; }}
@@ -129,8 +129,8 @@ template = '''<!DOCTYPE html>
             <div class="stats">
                 <div class="stat"><div class="stat-value">{time}</div><div class="stat-label">Drive Time</div></div>
                 <div class="stat"><div class="stat-value">{miles}</div><div class="stat-label">Miles</div></div>
-                <div class="stat"><div class="stat-value">${petrol_cost}</div><div class="stat-label">Petrol Cost</div></div>
-                <div class="stat"><div class="stat-value">${tolls}</div><div class="stat-label">Tolls</div></div>
+                <div class="stat"><div class="stat-value">£{petrol_cost}</div><div class="stat-label">Petrol Cost</div></div>
+                <div class="stat"><div class="stat-value">£{tolls}</div><div class="stat-label">Tolls</div></div>
             </div>
             <a href="/route/{reverse_slug}/" class="cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M9 14l-4-4 4-4"/><path d="M5 10h11a4 4 0 110 8h-1"/></svg> Reverse</a>
             <a href="/ev/{slug}/" class="ev-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> EV Trip</a>
@@ -145,8 +145,8 @@ template = '''<!DOCTYPE html>
             </div>
             <div class="card">
                 <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 22V12a2 2 0 012-2h2a2 2 0 012 2v10M9 22V8a2 2 0 012-2h2a2 2 0 012 2v14M15 22V4a2 2 0 012-2h2a2 2 0 012 2v18"/></svg> Fuel Costs</h3>
-                <div class="row"><span>Gas (30 mpg)</span><span>~{litres} litres</span></div>
-                <div class="row"><span>Est. Cost</span><span>${petrol_cost}</span></div>
+                <div class="row"><span>Petrol (40 mpg)</span><span>~{litres} litres</span></div>
+                <div class="row"><span>Est. Cost</span><span>£{petrol_cost}</span></div>
             </div>
         </div>
         <div id="map"></div>
@@ -160,7 +160,7 @@ template = '''<!DOCTYPE html>
             </div>
             <div class="faq-item">
                 <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How much does petrol cost for {from_city} to {to_city}?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
-                <div class="faq-a">At 40 MPG and £1.40/litre, expect to spend approximately <strong>${petrol_cost}</strong> on gas for this {miles}-mile trip. You'll need about {litres} litres of fuel.</div>
+                <div class="faq-a">At 40 MPG and £1.40/litre, expect to spend approximately <strong>£{petrol_cost}</strong> on petrol for this {miles}-mile trip. You'll need about {litres} litres of fuel.</div>
             </div>
             <div class="faq-item">
                 <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is the best time to drive from {from_city} to {to_city}?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
@@ -233,9 +233,9 @@ for route in routes:
     
     # Toll answer
     if tolls > 10:
-        toll_answer = f"Yes, expect approximately <strong>${tolls}</strong> in tolls along this route. Consider getting an E-ZPass or similar transponder for faster toll payment."
+        toll_answer = f"Yes, expect approximately <strong>£{tolls}</strong> in tolls along this route. Consider getting an E-ZPass or similar transponder for faster toll payment."
     elif tolls > 0:
-        toll_answer = f"There may be minor tolls (around <strong>${tolls}</strong>) on parts of this route. Some sections have toll-free alternatives."
+        toll_answer = f"There may be minor tolls (around <strong>£{tolls}</strong>) on parts of this route. Some sections have toll-free alternatives."
     else:
         toll_answer = "This route is primarily toll-free, though some bridges or tunnels may have small fees."
     
