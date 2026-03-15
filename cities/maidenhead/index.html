@@ -36,9 +36,11 @@
         nav { display: flex; align-items: center; gap: 1.5rem; }
         nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; }
         nav a:hover { color: var(--primary); }
+        nav a:hover { color: var(--primary); }
         .ev-badge { background: var(--accent); color: white !important; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 600; }
         .close-btn { display: none; }
         .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+        .hamburger svg { width: 24px; height: 24px; color: var(--text); }
         .hamburger svg { width: 24px; height: 24px; color: var(--text); }
         .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 999; }
         .overlay.active { display: block; }
@@ -48,6 +50,7 @@
             .logo span { display: none; }
             nav { position: fixed; top: 0; right: -100%; width: 250px; height: 100vh; background: var(--card); flex-direction: column; justify-content: flex-start; padding: 5rem 2rem 2rem; box-shadow: -4px 0 20px rgba(0,0,0,0.1); transition: right 0.3s; z-index: 1000; }
             nav.active { right: 0; }
+            nav a { font-size: 1.1rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border); width: 100%; }
             nav a { font-size: 1.1rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border); width: 100%; }
             .hamburger { display: block; z-index: 1001; }
             .close-btn { display: block; position: absolute; top: 1rem; right: 1rem; background: none; border: none; cursor: pointer; padding: 0.5rem; }

@@ -45,19 +45,23 @@ template = '''<!DOCTYPE html>
         header {{ background: var(--card); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }}
         .header-inner {{ display: flex; justify-content: space-between; align-items: center; }}
         .logo {{ font-weight: 700; font-size: 1.5rem; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 0.75rem; }}
-        .logo img {{ height: 100px; width: auto; }}
+        .logo img {{ height: 80px; width: auto; }}
         nav {{ display: flex; align-items: center; gap: 1.5rem; }}
         nav a {{ color: var(--muted); text-decoration: none; font-size: 0.875rem; }}
+        nav a:hover {{ color: var(--primary); }}
         .ev-badge {{ background: var(--green); color: white; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 600; }}
         .close-btn {{ display: none; }} .hamburger {{ display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }}
+        .hamburger svg {{ width: 24px; height: 24px; color: var(--text); }}
         .close-btn {{ display: none; }}
         @media (max-width: 768px) {{
-            .logo img {{ height: 60px; }} .logo span {{ display: none; }}
+            .logo img {{ height: 50px; }} .logo span {{ display: none; }}
             nav {{ position: fixed; top: 0; right: -100%; width: 250px; height: 100vh; background: var(--card); flex-direction: column; padding: 5rem 2rem; transition: right 0.3s; z-index: 1000; }}
             nav.active {{ right: 0; }}
+            nav a {{ font-size: 1.1rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border); width: 100%; }}
             .hamburger {{ display: block; z-index: 1001; }}
-            .close-btn {{ display: block; position: absolute; top: 1rem; right: 1rem; background: none; border: none; }}
-            .overlay {{ display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 999; }}
+            .close-btn {{ display: block; position: absolute; top: 1rem; right: 1rem; background: none; border: none; cursor: pointer; padding: 0.5rem; }}
+            .close-btn svg {{ width: 24px; height: 24px; }}
+            .overlay {{ display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 999; }}
             .overlay.active {{ display: block; }}
             .stats {{ grid-template-columns: 1fr 1fr !important; }}
             .grid {{ grid-template-columns: 1fr !important; }}
