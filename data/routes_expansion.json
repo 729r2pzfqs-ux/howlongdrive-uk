@@ -1356,5 +1356,61 @@
     "time": "1h 10min",
     "miles": 60,
     "highway": "M80"
+  },
+  {
+    "from": "Land's End",
+    "to": "John O'Groats",
+    "time": "14h 30min",
+    "miles": 874,
+    "minutes": 870
+  },
+  {
+    "from": "John O'Groats",
+    "to": "Land's End",
+    "time": "14h 30min",
+    "miles": 874,
+    "minutes": 870
+  },
+  {
+    "from": "Land's End",
+    "to": "Bristol",
+    "time": "4h 30min",
+    "miles": 230,
+    "minutes": 270
+  },
+  {
+    "from": "Bristol",
+    "to": "Land's End",
+    "time": "4h 30min",
+    "miles": 230,
+    "minutes": 270
+  },
+  {
+    "from": "Inverness",
+    "to": "Isle of Skye",
+    "time": "2h 15min",
+    "miles": 110,
+    "minutes": 135
+  },
+  {
+    "from": "Isle of Skye",
+    "to": "Inverness",
+    "time": "2h 15min",
+    "miles": 110,
+    "minutes": 135
+  },
+  {
+    "from": "Cardiff",
+    "to": "Pembrokeshire",
+    "time": "2h 15min",
+    "miles": 100,
+    "minutes": 135
+  },
+  {
+    "from": "Pembrokeshire",
+    "to": "Cardiff",
+    "time": "2h 15min",
+    "miles": 100,
+    "minutes": 135
   }
 ]
