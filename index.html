@@ -190,47 +190,85 @@
             document.querySelector('.overlay').classList.toggle('active');
         }
         
-        // City list for autocomplete
+        // Smart search - only show valid routes
         const cities = typeof ROUTE_MAP !== 'undefined' ? Object.keys(ROUTE_MAP).sort() : [];
         let selectedFrom = '';
-        let selectedTo = '';
         
-        function setupDropdown(inputId, dropdownId, onSelect) {
-            const input = document.getElementById(inputId);
-            const dropdown = document.getElementById(dropdownId);
+        function getValidDestinations() {
+            if (!selectedFrom || !ROUTE_MAP[selectedFrom]) return [];
+            return ROUTE_MAP[selectedFrom].sort();
+        }
+        
+        function setupFromDropdown() {
+            const input = document.getElementById('from');
+            const dropdown = document.getElementById('from-dropdown');
             
             input.addEventListener('input', function() {
                 const val = this.value.toLowerCase();
-                if (val.length < 1) {
-                    dropdown.classList.remove('active');
-                    return;
-                }
+                if (val.length < 1) { dropdown.classList.remove('active'); return; }
                 
                 const matches = cities.filter(c => c.toLowerCase().includes(val)).slice(0, 8);
-                if (matches.length === 0) {
-                    dropdown.classList.remove('active');
-                    return;
-                }
+                if (matches.length === 0) { dropdown.classList.remove('active'); return; }
                 
                 dropdown.innerHTML = matches.map(c => 
-                    `<div class="dropdown-item" onclick="selectCity('${inputId}', '${dropdownId}', '${c}')">${c}</div>`
+                    `<div class="dropdown-item" onclick="selectFrom('${c}')">${c}</div>`
                 ).join('');
                 dropdown.classList.add('active');
             });
             
-            input.addEventListener('blur', () => {
-                setTimeout(() => dropdown.classList.remove('active'), 200);
-            });
+            input.addEventListener('blur', () => setTimeout(() => dropdown.classList.remove('active'), 200));
         }
         
-        function selectCity(inputId, dropdownId, city) {
-            document.getElementById(inputId).value = city;
-            document.getElementById(dropdownId).classList.remove('active');
-            if (inputId === 'from') {
-                selectedFrom = city;
-            } else {
-                selectedTo = city;
-            }
+        function setupToDropdown() {
+            const input = document.getElementById('to');
+            const dropdown = document.getElementById('to-dropdown');
+            
+            input.addEventListener('input', function() {
+                const val = this.value.toLowerCase();
+                const destinations = getValidDestinations();
+                
+                if (destinations.length === 0) {
+                    dropdown.innerHTML = '<div class="dropdown-item" style="color:#64748b">Select a "From" city first</div>';
+                    dropdown.classList.add('active');
+                    return;
+                }
+                
+                if (val.length < 1) { dropdown.classList.remove('active'); return; }
+                
+                const matches = destinations.filter(c => c.toLowerCase().includes(val)).slice(0, 8);
+                if (matches.length === 0) { 
+                    dropdown.innerHTML = '<div class="dropdown-item" style="color:#64748b">No routes found</div>';
+                    dropdown.classList.add('active');
+                    return; 
+                }
+                
+                dropdown.innerHTML = matches.map(c => 
+                    `<div class="dropdown-item" onclick="selectTo('${c}')">${c}</div>`
+                ).join('');
+                dropdown.classList.add('active');
+            });
+            
+            input.addEventListener('focus', function() {
+                if (!selectedFrom) {
+                    dropdown.innerHTML = '<div class="dropdown-item" style="color:#64748b">Select a "From" city first</div>';
+                    dropdown.classList.add('active');
+                }
+            });
+            
+            input.addEventListener('blur', () => setTimeout(() => dropdown.classList.remove('active'), 200));
+        }
+        
+        function selectFrom(city) {
+            document.getElementById('from').value = city;
+            document.getElementById('from-dropdown').classList.remove('active');
+            selectedFrom = city;
+            document.getElementById('to').value = '';
+            document.getElementById('to').focus();
+        }
+        
+        function selectTo(city) {
+            document.getElementById('to').value = city;
+            document.getElementById('to-dropdown').classList.remove('active');
         }
         
         function search() {
@@ -242,13 +280,11 @@
             }
         }
         
-        // Enter key to search
         document.getElementById('from').addEventListener('keypress', e => { if (e.key === 'Enter') document.getElementById('to').focus(); });
         document.getElementById('to').addEventListener('keypress', e => { if (e.key === 'Enter') search(); });
         
-        // Initialize dropdowns
-        setupDropdown('from', 'from-dropdown');
-        setupDropdown('to', 'to-dropdown');
+        setupFromDropdown();
+        setupToDropdown();
     </script>
 </body>
 </html>
