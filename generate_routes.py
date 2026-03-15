@@ -95,7 +95,7 @@ template = '''<!DOCTYPE html>
         .faq-a {{ padding: 0 1.25rem 1rem; font-size: 0.875rem; color: var(--muted); display: none; }}
         .faq-item.open .faq-a {{ display: block; }}
         
-        .related-section {{ background: var(--card); padding: 1.5rem; border-radius: 1rem; margin: 1.5rem 0; }}
+        .related-section {{ background: var(--card); padding: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border-radius: 1rem; margin: 1.5rem 0; }}
         .related-group {{ margin-bottom: 1.25rem; }}
         .related-group:last-child {{ margin-bottom: 0; }}
         .related-group h4 {{ font-size: 0.9rem; color: var(--muted); margin-bottom: 0.75rem; font-weight: 600; }}
@@ -248,7 +248,7 @@ for route in routes:
     os.makedirs(f'route/{slug}', exist_ok=True)
     
     # Generate Related Routes HTML
-    related_html = '<div class="related-section">'
+    related_html = '<div class="related-section"><h3 style="color: var(--primary); margin-bottom: 1.5rem; font-size: 1.1rem;">Related Routes</h3>'
     
     # More from same origin
     other_from = [x for x in routes_from[from_city] if x['to'] != to_city][:4]
