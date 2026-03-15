@@ -270,8 +270,8 @@ for route in routes:
     
     # City hub links
     related_html += f'''<div class="related-group"><h4>Explore Cities</h4><div class="related-links">
-        <a href="/city/{format_slug(from_city)}/">All routes from {from_city}</a>
-        <a href="/city/{format_slug(to_city)}/">All routes from {to_city}</a>
+        <a href="/cities/{format_slug(from_city)}/">All routes from {from_city}</a>
+        <a href="/cities/{format_slug(to_city)}/">All routes from {to_city}</a>
     </div></div>'''
     related_html += '</div>'
     

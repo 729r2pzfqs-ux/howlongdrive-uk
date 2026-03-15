@@ -91,7 +91,7 @@ template = '''<!DOCTYPE html>
         footer {{ text-align: center; padding: 2rem; color: var(--muted); font-size: 0.875rem; margin-top: 2rem; }}
         footer a {{ color: var(--primary); text-decoration: none; }}
     </style>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXC7PNTC4G"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-NXC7PNTC4G");</script></head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXC7PNTC4G"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag("js",new Date());gtag("config","G-NXC7PNTC4G");</script></head>
 <body>
     <header>
         <div class="container header-inner">
@@ -156,14 +156,14 @@ for city, city_route_list in city_routes.items():
                 <div class="route-time">{r['time']}</div>
             </a>'''
     
-    os.makedirs(f'city/{slug}', exist_ok=True)
+    os.makedirs(f'cities/{slug}', exist_ok=True)
     html = template.format(
         city=city, state=state, slug=slug,
         route_count=len(city_route_list),
         routes_html=routes_html
     )
     
-    with open(f'city/{slug}/index.html', 'w') as f:
+    with open(f'cities/{slug}/index.html', 'w') as f:
         f.write(html)
     count += 1
     print(f"✅ {city} ({len(city_route_list)} routes)")
