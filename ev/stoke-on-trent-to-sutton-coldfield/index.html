@@ -170,7 +170,7 @@
     <script>
         function toggleMenu(){document.getElementById('nav').classList.toggle('active');document.querySelector('.overlay').classList.toggle('active');}
         
-        var map = L.map('map').setView([52.783199999999994, -2.001], 7);
+        var map = L.map('map').setView([52.782849999999996, -2.00185], 7);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap'
         }).addTo(map);
@@ -181,9 +181,9 @@
         
         L.marker([53.0027, -2.1794], {icon: startIcon}).addTo(map).bindPopup('<b>Stoke-on-Trent</b><br>Start');
         
-        L.marker([52.5637, -1.8226], {icon: endIcon}).addTo(map).bindPopup('<b>Sutton Coldfield</b><br>Destination');
+        L.marker([52.563, -1.8243], {icon: endIcon}).addTo(map).bindPopup('<b>Sutton Coldfield</b><br>Destination');
         
-        var bounds = L.latLngBounds([[53.0027,-2.1794], [52.5637,-1.8226]]);
+        var bounds = L.latLngBounds([[53.0027,-2.1794], [52.563,-1.8243]]);
         map.fitBounds(bounds, {padding: [40, 40]});
     </script>
 </body>

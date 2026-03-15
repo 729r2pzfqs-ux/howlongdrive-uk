@@ -157,7 +157,7 @@
     <script>
         function toggleMenu(){document.getElementById('nav').classList.toggle('active');document.querySelector('.overlay').classList.toggle('active');}
         
-        var map = L.map('map').setView([53.75, -1.59645], 7);
+        var map = L.map('map').setView([53.75045, -1.59935], 7);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap'
         }).addTo(map);
@@ -165,10 +165,10 @@
         var startIcon = L.divIcon({className:'',html:'<div style="background:#4B6E93;width:24px;height:24px;border-radius:50%;border:3px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3)"></div>',iconSize:[24,24],iconAnchor:[12,12]});
         var endIcon = L.divIcon({className:'',html:'<div style="background:#EFA24F;width:24px;height:24px;border-radius:50%;border:3px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3)"></div>',iconSize:[24,24],iconAnchor:[12,12]});
         
-        L.marker([53.9591, -1.0815], {icon: startIcon}).addTo(map).bindPopup('<b>York</b><br>Start');
+        L.marker([53.96, -1.0873], {icon: startIcon}).addTo(map).bindPopup('<b>York</b><br>Start');
         L.marker([53.5409, -2.1114], {icon: endIcon}).addTo(map).bindPopup('<b>Oldham</b><br>Destination');
         
-        var bounds = L.latLngBounds([[53.9591,-1.0815], [53.5409,-2.1114]]);
+        var bounds = L.latLngBounds([[53.96,-1.0873], [53.5409,-2.1114]]);
         map.fitBounds(bounds, {padding: [40, 40]});
     </script>
 </body>

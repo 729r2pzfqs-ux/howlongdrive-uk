@@ -170,7 +170,7 @@
     <script>
         function toggleMenu(){document.getElementById('nav').classList.toggle('active');document.querySelector('.overlay').classList.toggle('active');}
         
-        var map = L.map('map').setView([54.74055, -1.3094000000000001], 7);
+        var map = L.map('map').setView([54.74015, -1.30905], 7);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap'
         }).addTo(map);
@@ -179,11 +179,11 @@
         var chargeIcon = L.divIcon({className:'',html:'<div style="background:#10B981;width:20px;height:20px;border-radius:50%;border:3px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3)"></div>',iconSize:[20,20],iconAnchor:[10,10]});
         var endIcon = L.divIcon({className:'',html:'<div style="background:#EF4444;width:24px;height:24px;border-radius:50%;border:3px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3)"></div>',iconSize:[24,24],iconAnchor:[12,12]});
         
-        L.marker([54.9069, -1.3838], {icon: startIcon}).addTo(map).bindPopup('<b>Sunderland</b><br>Start');
+        L.marker([54.9061, -1.3831], {icon: startIcon}).addTo(map).bindPopup('<b>Sunderland</b><br>Start');
         
         L.marker([54.5742, -1.235], {icon: endIcon}).addTo(map).bindPopup('<b>Middlesbrough</b><br>Destination');
         
-        var bounds = L.latLngBounds([[54.9069,-1.3838], [54.5742,-1.235]]);
+        var bounds = L.latLngBounds([[54.9061,-1.3831], [54.5742,-1.235]]);
         map.fitBounds(bounds, {padding: [40, 40]});
     </script>
 </body>

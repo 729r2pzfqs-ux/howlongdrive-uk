@@ -12,7 +12,7 @@
     <meta property="og:description" content="Driving time from Sheffield to Huddersfield: 0h 25min, 22 miles">
     <meta property="og:image" content="https://howlongdrive.uk/assets/og-image.png">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How long does it take to drive from Sheffield to Huddersfield?","acceptedAnswer":{"@type":"Answer","text":"The drive from Sheffield to Huddersfield takes approximately 0h 25min covering 22 miles via Interstate."}},{"@type":"Question","name":"How much does petrol cost for Sheffield to Huddersfield?","acceptedAnswer":{"@type":"Answer","text":"At 40 MPG and £1.40/litre, expect to spend approximately £2 on petrol for this 22-mile trip."}},{"@type":"Question","name":"What is the best time to drive from Sheffield to Huddersfield?","acceptedAnswer":{"@type":"Answer","text":"Early morning (6-8 AM) to avoid heavy traffic."}}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How long does it take to drive from Sheffield to Huddersfield?","acceptedAnswer":{"@type":"Answer","text":"The drive from Sheffield to Huddersfield takes approximately 0h 25min covering 22 miles via Interstate."}},{"@type":"Question","name":"How much does petrol cost for Sheffield to Huddersfield?","acceptedAnswer":{"@type":"Answer","text":"At 40 MPG and £1.40/litre, expect to spend approximately £2 on petrol for this 22-mile trip."}},{"@type":"Question","name":"What is the best time to drive from Sheffield to Huddersfield?","acceptedAnswer":{"@type":"Answer","text":"Late evening (8-10 PM) to avoid heavy traffic."}}]}</script>
     <style>
         :root { --primary: #4B6E93; --primary-dark: #3a5775; --accent: #EFA24F; --green: #10B981; --bg: #f8fafc; --card: #fff; --text: #1e293b; --muted: #64748b; --border: #e2e8f0; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -117,7 +117,7 @@
                 <div class="row"><span>Distance</span><span>22 miles (35 km)</span></div>
                 <div class="row"><span>Drive Time</span><span>0h 25min</span></div>
                 <div class="row"><span>Route</span><span>Interstate</span></div>
-                <div class="row"><span>Best Time</span><span>Early morning (6-8 AM)</span></div>
+                <div class="row"><span>Best Time</span><span>Late evening (8-10 PM)</span></div>
             </div>
             <div class="card">
                 <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 22V12a2 2 0 012-2h2a2 2 0 012 2v10M9 22V8a2 2 0 012-2h2a2 2 0 012 2v14M15 22V4a2 2 0 012-2h2a2 2 0 012 2v18"/></svg> Fuel Costs</h3>
@@ -140,7 +140,7 @@
             </div>
             <div class="faq-item">
                 <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is the best time to drive from Sheffield to Huddersfield?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
-                <div class="faq-a"><strong>Early morning (6-8 AM)</strong> to avoid heavy traffic. Weekday mornings before 7 AM or evenings after 7 PM typically have less congestion.</div>
+                <div class="faq-a"><strong>Late evening (8-10 PM)</strong> to avoid heavy traffic. Weekday mornings before 7 AM or evenings after 7 PM typically have less congestion.</div>
             </div>
             <div class="faq-item">
                 <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Are there tolls on the Sheffield to Huddersfield route?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
@@ -157,7 +157,7 @@
     <script>
         function toggleMenu(){document.getElementById('nav').classList.toggle('active');document.querySelector('.overlay').classList.toggle('active');}
         
-        var map = L.map('map').setView([53.51305000000001, -1.6249500000000001], 7);
+        var map = L.map('map').setView([53.513450000000006, -1.6275499999999998], 7);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap'
         }).addTo(map);
@@ -166,9 +166,9 @@
         var endIcon = L.divIcon({className:'',html:'<div style="background:#EFA24F;width:24px;height:24px;border-radius:50%;border:3px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3)"></div>',iconSize:[24,24],iconAnchor:[12,12]});
         
         L.marker([53.3811, -1.4701], {icon: startIcon}).addTo(map).bindPopup('<b>Sheffield</b><br>Start');
-        L.marker([53.645, -1.7798], {icon: endIcon}).addTo(map).bindPopup('<b>Huddersfield</b><br>Destination');
+        L.marker([53.6458, -1.785], {icon: endIcon}).addTo(map).bindPopup('<b>Huddersfield</b><br>Destination');
         
-        var bounds = L.latLngBounds([[53.3811,-1.4701], [53.645,-1.7798]]);
+        var bounds = L.latLngBounds([[53.3811,-1.4701], [53.6458,-1.785]]);
         map.fitBounds(bounds, {padding: [40, 40]});
     </script>
 </body>

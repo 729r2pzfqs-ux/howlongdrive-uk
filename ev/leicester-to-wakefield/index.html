@@ -170,7 +170,7 @@
     <script>
         function toggleMenu(){document.getElementById('nav').classList.toggle('active');document.querySelector('.overlay').classList.toggle('active');}
         
-        var map = L.map('map').setView([53.1601, -1.31875], 7);
+        var map = L.map('map').setView([53.159949999999995, -1.31875], 7);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap'
         }).addTo(map);
@@ -181,9 +181,9 @@
         
         L.marker([52.6369, -1.1398], {icon: startIcon}).addTo(map).bindPopup('<b>Leicester</b><br>Start');
         
-        L.marker([53.6833, -1.4977], {icon: endIcon}).addTo(map).bindPopup('<b>Wakefield</b><br>Destination');
+        L.marker([53.683, -1.4977], {icon: endIcon}).addTo(map).bindPopup('<b>Wakefield</b><br>Destination');
         
-        var bounds = L.latLngBounds([[52.6369,-1.1398], [53.6833,-1.4977]]);
+        var bounds = L.latLngBounds([[52.6369,-1.1398], [53.683,-1.4977]]);
         map.fitBounds(bounds, {padding: [40, 40]});
     </script>
 </body>

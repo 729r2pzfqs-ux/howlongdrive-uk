@@ -157,7 +157,7 @@
     <script>
         function toggleMenu(){document.getElementById('nav').classList.toggle('active');document.querySelector('.overlay').classList.toggle('active');}
         
-        var map = L.map('map').setView([53.32405, -1.6657], 7);
+        var map = L.map('map').setView([53.321749999999994, -1.6686], 7);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap'
         }).addTo(map);
@@ -166,9 +166,9 @@
         var endIcon = L.divIcon({className:'',html:'<div style="background:#EFA24F;width:24px;height:24px;border-radius:50%;border:3px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3)"></div>',iconSize:[24,24],iconAnchor:[12,12]});
         
         L.marker([52.9225, -1.4746], {icon: startIcon}).addTo(map).bindPopup('<b>Derby</b><br>Start');
-        L.marker([53.7256, -1.8568], {icon: endIcon}).addTo(map).bindPopup('<b>Halifax</b><br>Destination');
+        L.marker([53.721, -1.8626], {icon: endIcon}).addTo(map).bindPopup('<b>Halifax</b><br>Destination');
         
-        var bounds = L.latLngBounds([[52.9225,-1.4746], [53.7256,-1.8568]]);
+        var bounds = L.latLngBounds([[52.9225,-1.4746], [53.721,-1.8626]]);
         map.fitBounds(bounds, {padding: [40, 40]});
     </script>
 </body>

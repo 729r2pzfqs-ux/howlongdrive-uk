@@ -170,7 +170,7 @@
     <script>
         function toggleMenu(){document.getElementById('nav').classList.toggle('active');document.querySelector('.overlay').classList.toggle('active');}
         
-        var map = L.map('map').setView([55.858850000000004, -3.6826], 7);
+        var map = L.map('map').setView([55.8591, -3.6826], 7);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap'
         }).addTo(map);
@@ -181,9 +181,9 @@
         
         L.marker([55.9533, -3.1883], {icon: startIcon}).addTo(map).bindPopup('<b>Edinburgh</b><br>Start');
         
-        L.marker([55.7644, -4.1769], {icon: endIcon}).addTo(map).bindPopup('<b>East Kilbride</b><br>Destination');
+        L.marker([55.7649, -4.1769], {icon: endIcon}).addTo(map).bindPopup('<b>East Kilbride</b><br>Destination');
         
-        var bounds = L.latLngBounds([[55.9533,-3.1883], [55.7644,-4.1769]]);
+        var bounds = L.latLngBounds([[55.9533,-3.1883], [55.7649,-4.1769]]);
         map.fitBounds(bounds, {padding: [40, 40]});
     </script>
 </body>
