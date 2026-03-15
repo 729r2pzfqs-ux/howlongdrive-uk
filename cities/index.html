@@ -31,7 +31,7 @@
             nav .close-btn { display: block; align-self: flex-end; background: none; border: none; cursor: pointer; padding: 0.5rem; margin-bottom: 1rem; }
         }
         .hero-section { text-align: center; padding: 2rem 1rem; }
-        h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+        h1 { font-size: 1.75rem; margin-bottom: 0.5rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
         .subtitle { color: var(--muted); margin-bottom: 1.5rem; }
         .stats { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
         .stat { text-align: center; }
@@ -40,7 +40,7 @@
         .search-box { max-width: 500px; margin: 0 auto 2rem; }
         .search-box input { width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: 0.5rem; font-size: 1rem; }
         .section { margin-bottom: 2rem; }
-        .section h2 { font-size: 1.25rem; margin-bottom: 1rem; }
+        .section h2 { font-size: 1.1rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; }
         .card { background: var(--card); padding: 1rem; border-radius: 0.75rem; border: 1px solid var(--border); text-decoration: none; color: var(--text); text-align: center; }
         .card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
@@ -65,7 +65,7 @@
     
     <div class="container">
         <div class="hero-section">
-            <h1>🏙️ UK Cities</h1>
+            <h1><svg style="width:24px;height:24px;vertical-align:middle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4v18M13 21V3l6 3v15"/><path d="M9 9h1M9 13h1M9 17h1M17 9h1M17 13h1M17 17h1"/></svg> UK Cities</h1>
             <p class="subtitle">Find driving routes from 98 cities</p>
             
             <div class="stats">
@@ -80,7 +80,7 @@
         </div>
         
         <div class="section">
-            <h2>🏛️ Major Cities</h2>
+            <h2><svg style="width:24px;height:24px;vertical-align:middle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M8 10h.01M16 10h.01M12 10h.01M8 14h.01M16 14h.01M12 14h.01"/></svg> Major Cities</h2>
             <div class="grid">
                 <a href="/city/london/" class="card" data-search="London"><h3>London</h3><div class="meta">50 routes</div></a>
                 <a href="/city/manchester/" class="card" data-search="Manchester"><h3>Manchester</h3><div class="meta">24 routes</div></a>
@@ -97,7 +97,7 @@
         </div>
         
         <div class="section">
-            <h2>🏘️ Towns & Suburbs</h2>
+            <h2><svg style="width:24px;height:24px;vertical-align:middle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg> Towns & Suburbs</h2>
             <div class="grid">
                 <a href="/city/nottingham/" class="card" data-search="Nottingham"><h3>Nottingham</h3><div class="meta">6 routes</div></a>
                 <a href="/city/york/" class="card" data-search="York"><h3>York</h3><div class="meta">6 routes</div></a>
