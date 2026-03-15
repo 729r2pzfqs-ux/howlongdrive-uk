@@ -22,7 +22,7 @@ template = '''<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{from_city} to {to_city} EV Charging Stops | HowLongDrive</title>
+    <title>EV Road Trip: {from_city} to {to_city} - {charge_stops} Charging Stops, {miles} Miles</title>
     <meta name="description" content="Electric car trip from {from_city} to {to_city}: {miles} miles, {charge_stops} charging stops. {stops_desc}">
     <link rel="canonical" href="https://howlongdrive.uk/ev/{slug}/">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">

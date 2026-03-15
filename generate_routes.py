@@ -27,7 +27,7 @@ template = '''<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{from_city} to {to_city} Driving Time - {time}, {miles} miles | HowLongDrive</title>
+    <title>How Long to Drive from {from_city} to {to_city}? {time}, {miles} Miles</title>
     <meta name="description" content="How long to drive from {from_city} to {to_city}? {time} driving time, {miles} miles via {highway}. Get petrol costs, best times to drive, and route details.">
     <link rel="canonical" href="https://howlongdrive.uk/route/{slug}/">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
