@@ -1,0 +1,310 @@
+import json
+import os
+import math
+
+routes = []
+for f in ['data/routes.json', 'data/routes_expanded.json', 'data/routes_commute.json', 'data/routes_tourist.json', 'data/routes_airport.json', 'data/routes_small_cities.json', 'data/routes_major.json', 'data/routes_destinations.json', 'data/routes_newengland.json', 'data/routes_commute_expanded.json']:
+    if os.path.exists(f):
+        with open(f, 'r') as file:
+            routes.extend(json.load(file))
+
+with open('data/city_coords.json', 'r') as f:
+    coords = json.load(f)
+
+with open('data/route_waypoints.json', 'r') as f:
+    waypoints = json.load(f)
+
+EV_RANGE = 250
+CHARGE_TIME = 30
+
+template = '''<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{from_city} to {to_city} EV Charging Stops | HowLongDrive</title>
+    <meta name="description" content="Electric car trip from {from_city} to {to_city}: {miles} miles, {charge_stops} charging stops. {stops_desc}">
+    <link rel="canonical" href="https://howlongdrive.uk/ev/{slug}/">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <meta name="theme-color" content="#10B981">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <script type="application/ld+json">{{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{{"@type":"Question","name":"How many charging stops from {from_city} to {to_city}?","acceptedAnswer":{{"@type":"Answer","text":"You'll need approximately {charge_stops} charging stops for this {miles}-mile EV trip, assuming a 250-mile range per charge."}}}},{{"@type":"Question","name":"How long does the EV trip take from {from_city} to {to_city}?","acceptedAnswer":{{"@type":"Answer","text":"Total trip time is approximately {total_time}, including {time} driving and ~{charge_time} minutes of charging."}}}},{{"@type":"Question","name":"How much does it cost to drive an EV from {from_city} to {to_city}?","acceptedAnswer":{{"@type":"Answer","text":"Electricity cost is approximately ${ev_cost}, compared to ${gas_cost} for gas - saving you ${savings}."}}}}]}}</script>
+    <style>
+        :root {{ --primary: #10B981; --primary-dark: #059669; --accent: #EFA24F; --bg: #f8fafc; --card: #fff; --text: #1e293b; --muted: #64748b; --border: #e2e8f0; }}
+        * {{ margin: 0; padding: 0; box-sizing: border-box; }}
+        body {{ font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }}
+        .container {{ max-width: 900px; margin: 0 auto; padding: 0 1rem; }}
+        header {{ background: var(--card); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }}
+        .header-inner {{ display: flex; justify-content: space-between; align-items: center; }}
+        .logo {{ font-weight: 700; font-size: 1.5rem; color: #4B6E93; text-decoration: none; display: flex; align-items: center; gap: 0.75rem; }}
+        .logo img {{ height: 100px; width: auto; }}
+        nav {{ display: flex; align-items: center; gap: 1.5rem; }}
+        nav a {{ color: var(--muted); text-decoration: none; font-size: 0.875rem; }}
+        .ev-badge {{ background: var(--primary); color: white; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 600; }}
+        .hamburger {{ display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }}
+        .close-btn {{ display: none; }}
+        @media (max-width: 768px) {{
+            .logo img {{ height: 60px; }} .logo span {{ display: none; }}
+            nav {{ position: fixed; top: 0; right: -100%; width: 250px; height: 100vh; background: var(--card); flex-direction: column; padding: 5rem 2rem; transition: right 0.3s; z-index: 1000; }}
+            nav.active {{ right: 0; }}
+            .hamburger {{ display: block; z-index: 1001; }}
+            .close-btn {{ display: block; position: absolute; top: 1rem; right: 1rem; background: none; border: none; }}
+            .overlay {{ display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 999; }}
+            .overlay.active {{ display: block; }}
+            .stats {{ grid-template-columns: 1fr 1fr !important; }}
+            .grid {{ grid-template-columns: 1fr !important; }}
+        }}
+        .breadcrumb {{ font-size: 0.875rem; color: var(--muted); padding: 1rem 0; }}
+        .breadcrumb a {{ color: var(--primary); text-decoration: none; }}
+        .hero {{ background: linear-gradient(135deg, #10B981 0%, #059669 100%); padding: 2rem; border-radius: 1rem; margin-bottom: 1.5rem; color: white; }}
+        h1 {{ font-size: 1.5rem; margin-bottom: 0.5rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }}
+        h1 svg {{ width: 24px; height: 24px; }}
+        .subtitle {{ opacity: 0.9; margin-bottom: 1.5rem; font-size: 0.9rem; }}
+        .stats {{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; }}
+        .stat {{ text-align: center; padding: 1rem 0.5rem; background: rgba(255,255,255,0.15); border-radius: 0.5rem; }}
+        .stat-value {{ font-size: 1.5rem; font-weight: 700; }}
+        .stat-label {{ font-size: 0.75rem; opacity: 0.9; }}
+        .grid {{ display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }}
+        .card {{ background: var(--card); padding: 1.5rem; border-radius: 0.75rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }}
+        .card h3 {{ margin-bottom: 1rem; font-size: 0.9rem; color: var(--text); font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }}
+        .card h3 svg {{ width: 18px; height: 18px; color: var(--primary); }}
+        .row {{ display: flex; justify-content: space-between; padding: 0.6rem 0; border-bottom: 1px solid var(--border); font-size: 0.875rem; }}
+        .row:last-child {{ border: none; }}
+        .row span:first-child {{ color: var(--muted); display: flex; align-items: center; gap: 0.4rem; }}
+        .row span:first-child svg {{ width: 14px; height: 14px; }}
+        .row span:last-child {{ font-weight: 500; }}
+        .timeline {{ margin-top: 1.5rem; }}
+        .timeline-header {{ margin-bottom: 1rem; }}
+        .timeline-item {{ display: flex; gap: 1rem; padding: 0.75rem 0; border-left: 3px solid var(--primary); padding-left: 1.25rem; margin-left: 0.5rem; position: relative; }}
+        .timeline-item::before {{ content: ''; position: absolute; left: -7px; top: 1rem; width: 10px; height: 10px; background: var(--primary); border-radius: 50%; }}
+        .timeline-item.start::before {{ background: #3B82F6; }}
+        .timeline-item.end::before {{ background: #EF4444; }}
+        .timeline-content h4 {{ font-weight: 600; font-size: 0.9rem; margin-bottom: 0.15rem; display: flex; align-items: center; gap: 0.4rem; }}
+        .timeline-content h4 svg {{ width: 14px; height: 14px; }}
+        .timeline-content p {{ font-size: 0.8rem; color: var(--muted); }}
+        #map {{ height: 350px; border-radius: 0.75rem; margin-top: 1.5rem; }}
+        .cta {{ display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1.25rem; padding: 0.75rem 1.25rem; background: white; color: var(--primary); border-radius: 0.5rem; text-decoration: none; font-weight: 600; font-size: 0.875rem; }}
+        .gas-link {{ display: inline-flex; align-items: center; gap: 0.4rem; margin-left: 0.75rem; padding: 0.75rem 1.25rem; background: rgba(255,255,255,0.2); color: white; border-radius: 0.5rem; text-decoration: none; font-weight: 600; font-size: 0.875rem; }}
+        .faq {{ margin-top: 1.5rem; }}
+        .faq h2 {{ font-size: 1.1rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }}
+        .faq h2 svg {{ width: 20px; height: 20px; color: var(--primary); }}
+        .faq-item {{ background: var(--card); border-radius: 0.5rem; margin-bottom: 0.75rem; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }}
+        .faq-q {{ font-weight: 600; padding: 1rem 1.25rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; }}
+        .faq-q:hover {{ background: #f0fdf4; }}
+        .faq-q svg {{ width: 16px; height: 16px; color: var(--muted); transition: transform 0.2s; }}
+        .faq-item.open .faq-q svg {{ transform: rotate(180deg); }}
+        .faq-a {{ padding: 0 1.25rem 1rem; font-size: 0.875rem; color: var(--muted); display: none; }}
+        .faq-item.open .faq-a {{ display: block; }}
+        footer {{ text-align: center; padding: 2rem 1rem; color: var(--muted); font-size: 0.875rem; margin-top: 2rem; }}
+        footer a {{ color: var(--primary); text-decoration: none; }}
+        .green {{ color: #10B981; }}
+    </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXC7PNTC4G"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag("js",new Date());gtag("config","G-NXC7PNTC4G");</script></head>
+<body>
+    <header>
+        <div class="container header-inner">
+            <a href="/" class="logo"><img src="/assets/logo-header.png" alt="HowLongDrive"><span>HowLongDrive</span></a>
+            <button class="hamburger" onclick="toggleMenu()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:24px;height:24px"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+            <div class="overlay" onclick="toggleMenu()"></div>
+            <nav id="nav">
+                <button class="close-btn" style="display:none" onclick="toggleMenu()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:24px;height:24px"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+                <a href="/">Home</a>
+                <a href="/routes/">Routes</a>
+                <a href="/ev/" class="ev-badge">EV Trips</a>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <div class="breadcrumb"><a href="/">Home</a> / <a href="/ev/">EV Trips</a> / {from_city} to {to_city}</div>
+        <div class="hero">
+            <h1><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> {from_city} to {to_city}</h1>
+            <p class="subtitle">Electric Vehicle Road Trip</p>
+            <div class="stats">
+                <div class="stat"><div class="stat-value">{miles}</div><div class="stat-label">Miles</div></div>
+                <div class="stat"><div class="stat-value">{charge_stops}</div><div class="stat-label">Stops</div></div>
+                <div class="stat"><div class="stat-value">{total_time}</div><div class="stat-label">Total</div></div>
+                <div class="stat"><div class="stat-value">${ev_cost}</div><div class="stat-label">Cost</div></div>
+            </div>
+            <a href="/route/{slug}/" class="cta">View Gas Route</a>
+            <a href="/ev/{reverse_slug}/" class="gas-link">Return Trip</a>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> EV Trip Details</h3>
+                <div class="row"><span>Distance</span><span>{miles} miles</span></div>
+                <div class="row"><span>Drive Time</span><span>{time}</span></div>
+                <div class="row"><span>Charging Stops</span><span>{charge_stops}</span></div>
+                <div class="row"><span>Charging Time</span><span>~{charge_time} min</span></div>
+                <div class="row"><span>Total Trip</span><span>{total_time}</span></div>
+            </div>
+            <div class="card">
+                <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Cost Comparison</h3>
+                <div class="row"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> EV</span><span>${ev_cost}</span></div>
+                <div class="row"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 22V12a2 2 0 012-2h2a2 2 0 012 2v10M9 22V8a2 2 0 012-2h2a2 2 0 012 2v14"/></svg> Gas</span><span>${gas_cost}</span></div>
+                <div class="row"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg> Save</span><span class="green" style="font-weight:700">${savings}</span></div>
+            </div>
+        </div>
+        <div class="card timeline">
+            <div class="timeline-header">
+                <h3 style="margin:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;color:#10B981"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Recommended Charging Stops</h3>
+            </div>
+            {timeline_html}
+        </div>
+        <div id="map"></div>
+        
+        <div class="faq">
+            <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> EV Trip FAQ</h2>
+            <div class="faq-item open">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How many charging stops from {from_city} to {to_city}?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+                <div class="faq-a">You'll need approximately <strong>{charge_stops} charging stops</strong> for this {miles}-mile EV trip, assuming a 250-mile range per charge. {stops_desc}</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How long does the EV trip take?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+                <div class="faq-a">Total trip time is approximately <strong>{total_time}</strong>, including {time} of driving and ~{charge_time} minutes of charging stops.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How much does it cost vs gas?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+                <div class="faq-a">EV cost: <strong>${ev_cost}</strong> vs Gas: ${gas_cost}. You save <strong class="green">${savings}</strong> driving electric!</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Where can I charge along the route?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+                <div class="faq-a">{charger_answer}</div>
+            </div>
+        </div>
+    </div>
+    <footer><p>© 2026 <a href="/">HowLongDrive.uk</a></p></footer>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        function toggleMenu(){{document.getElementById('nav').classList.toggle('active');document.querySelector('.overlay').classList.toggle('active');}}
+        
+        var map = L.map('map').setView([{center_lat}, {center_lng}], {zoom});
+        L.tileLayer('https://{{s}}.tile.openstreetmap.org/{{z}}/{{x}}/{{y}}.png', {{
+            attribution: '© OpenStreetMap'
+        }}).addTo(map);
+        
+        var startIcon = L.divIcon({{className:'',html:'<div style="background:#3B82F6;width:24px;height:24px;border-radius:50%;border:3px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3)"></div>',iconSize:[24,24],iconAnchor:[12,12]}});
+        var chargeIcon = L.divIcon({{className:'',html:'<div style="background:#10B981;width:20px;height:20px;border-radius:50%;border:3px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3)"></div>',iconSize:[20,20],iconAnchor:[10,10]}});
+        var endIcon = L.divIcon({{className:'',html:'<div style="background:#EF4444;width:24px;height:24px;border-radius:50%;border:3px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3)"></div>',iconSize:[24,24],iconAnchor:[12,12]}});
+        
+        L.marker([{from_lat}, {from_lng}], {{icon: startIcon}}).addTo(map).bindPopup('<b>{from_city}</b><br>Start');
+        {waypoint_markers}
+        L.marker([{to_lat}, {to_lng}], {{icon: endIcon}}).addTo(map).bindPopup('<b>{to_city}</b><br>Destination');
+        
+        var bounds = L.latLngBounds([[{from_lat},{from_lng}], [{to_lat},{to_lng}]]);
+        map.fitBounds(bounds, {{padding: [40, 40]}});
+    </script>
+</body>
+</html>'''
+
+count = 0
+processed = set()
+
+for route in routes:
+    from_city = route['from']
+    to_city = route['to']
+    time = route['time']
+    miles = route['miles']
+    
+    slug = f"{from_city.lower().replace(' ', '-')}-to-{to_city.lower().replace(' ', '-')}"
+    if slug in processed: continue
+    processed.add(slug)
+    
+    if from_city not in coords or to_city not in coords:
+        continue
+    
+    reverse_slug = f"{to_city.lower().replace(' ', '-')}-to-{from_city.lower().replace(' ', '-')}"
+    charge_stops = max(0, math.ceil(miles / EV_RANGE) - 1)
+    charge_time = charge_stops * CHARGE_TIME
+    ev_cost = int(miles * 0.04)
+    gas_cost = int((miles / 30) * 3.5)
+    savings = gas_cost - ev_cost
+    
+    hours, mins = 0, 0
+    if 'h' in time:
+        parts = time.replace('min', '').split('h')
+        hours = int(parts[0])
+        mins = int(parts[1].strip()) if len(parts) > 1 and parts[1].strip() else 0
+    
+    total_mins = hours * 60 + mins + charge_time
+    total_time = f"{total_mins // 60}h {total_mins % 60}m"
+    
+    from_data = coords.get(from_city, {}); from_lat = from_data.get('lat', 0) if isinstance(from_data, dict) else from_data[0]; from_lng = from_data.get('lng', 0) if isinstance(from_data, dict) else from_data[1]
+    to_data = coords.get(to_city, {}); to_lat = to_data.get('lat', 0) if isinstance(to_data, dict) else to_data[0]; to_lng = to_data.get('lng', 0) if isinstance(to_data, dict) else to_data[1]
+    center_lat = (from_lat + to_lat) / 2
+    center_lng = (from_lng + to_lng) / 2
+    zoom = 5 if miles > 800 else (6 if miles > 400 else 7)
+    
+    route_waypoints = waypoints.get(slug, [])
+    
+    timeline_html = f'''
+            <div class="timeline-item start">
+                <div class="timeline-content">
+                    <h4><svg viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 10-16 0c0 3 2.7 7 8 11.7z"/></svg> {from_city}</h4>
+                    <p>Start with full charge</p>
+                </div>
+            </div>'''
+    
+    waypoint_markers = ""
+    stops_desc = ""
+    charger_answer = ""
+    
+    if charge_stops > 0 and route_waypoints:
+        stops_desc = "Recommended stops: " + ", ".join(route_waypoints[:charge_stops]) + "."
+        charger_answer = f"Recommended charging locations include <strong>{', '.join(route_waypoints[:charge_stops])}</strong>. Tesla Superchargers and major networks like Electrify America have stations along this route."
+        for i, wp in enumerate(route_waypoints[:charge_stops]):
+            timeline_html += f'''
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h4><svg viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> {wp}</h4>
+                    <p>Fast charge ~30 min</p>
+                </div>
+            </div>'''
+            if wp in coords:
+                wp_data = coords[wp]
+                if isinstance(wp_data, dict):
+                    wp_lat = wp_data.get('lat', 0)
+                    wp_lng = wp_data.get('lng', 0)
+                else:
+                    wp_lat, wp_lng = wp_data[0], wp_data[1]
+                waypoint_markers += f"L.marker([{wp_lat}, {wp_lng}], {{icon: chargeIcon}}).addTo(map).bindPopup('<b>{wp}</b><br>Charging Stop');\n        "
+    elif charge_stops > 0:
+        stops_desc = f"Plan for {charge_stops} charging stops along the route."
+        charger_answer = f"Multiple charging options available along major highways. Use PlugShare or your vehicle's navigation to find stations. Tesla Superchargers and Electrify America are common on this route."
+        for i in range(charge_stops):
+            ratio = (i + 1) / (charge_stops + 1)
+            stop_mile = int(miles * ratio)
+            timeline_html += f'''
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h4><svg viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> Charging Stop {i + 1}</h4>
+                    <p>~{stop_mile} mi · Fast charge ~30 min</p>
+                </div>
+            </div>'''
+    else:
+        stops_desc = "No charging stops needed - within single charge range!"
+        charger_answer = "This trip is within single-charge range for most EVs! You can complete it without stopping to charge, but consider topping up at your destination."
+    
+    timeline_html += f'''
+            <div class="timeline-item end">
+                <div class="timeline-content">
+                    <h4><svg viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg> {to_city}</h4>
+                    <p>{miles} mi · {total_time}</p>
+                </div>
+            </div>'''
+    
+    os.makedirs(f'ev/{slug}', exist_ok=True)
+    html = template.format(
+        from_city=from_city, to_city=to_city, time=time, miles=miles,
+        slug=slug, reverse_slug=reverse_slug, charge_stops=charge_stops,
+        charge_time=charge_time, ev_cost=ev_cost, gas_cost=gas_cost,
+        savings=savings, total_time=total_time, timeline_html=timeline_html,
+        from_lat=from_lat, from_lng=from_lng, to_lat=to_lat, to_lng=to_lng,
+        center_lat=center_lat, center_lng=center_lng, zoom=zoom,
+        waypoint_markers=waypoint_markers, stops_desc=stops_desc,
+        charger_answer=charger_answer
+    )
+    with open(f'ev/{slug}/index.html', 'w') as f:
+        f.write(html)
+    count += 1
+
+print(f"✅ Created {count} EV pages with FAQ")
