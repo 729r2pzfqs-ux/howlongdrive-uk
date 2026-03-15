@@ -2,7 +2,7 @@ import json
 import os
 
 routes = []
-for f in ['data/routes.json', 'data/routes_expanded.json', 'data/routes_commute.json', 'data/routes_tourist.json', 'data/routes_airport.json', 'data/routes_small_cities.json', 'data/routes_major.json', 'data/routes_destinations.json', 'data/routes_newengland.json', 'data/routes_commute_expanded.json']:
+for f in ['data/routes.json', 'data/routes_commute.json', 'data/routes_expansion.json']:
     if os.path.exists(f):
         with open(f, 'r') as file:
             routes.extend(json.load(file))
