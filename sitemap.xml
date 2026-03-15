@@ -1,248 +1,1003 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://howlongdrive.com/</loc>
-    <lastmod>2026-03-14</lastmod>
+    <loc>https://howlongdrive.uk/</loc>
+    <lastmod>2026-03-15</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/routes/</loc>
-    <lastmod>2026-03-14</lastmod>
+    <loc>https://howlongdrive.uk/routes/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/cities/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/ev/</loc>
+    <lastmod>2026-03-15</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/cities/</loc>
-    <lastmod>2026-03-14</lastmod>
+    <loc>https://howlongdrive.uk/cities/london/</loc>
+    <lastmod>2026-03-15</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/ev/</loc>
-    <lastmod>2026-03-14</lastmod>
+    <loc>https://howlongdrive.uk/cities/birmingham/</loc>
+    <lastmod>2026-03-15</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/about/</loc>
-    <lastmod>2026-03-14</lastmod>
+    <loc>https://howlongdrive.uk/cities/manchester/</loc>
+    <lastmod>2026-03-15</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/route/new-york-to-los-angeles/</loc>
-    <lastmod>2026-03-14</lastmod>
+    <loc>https://howlongdrive.uk/cities/glasgow/</loc>
+    <lastmod>2026-03-15</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/route/los-angeles-to-new-york/</loc>
-    <lastmod>2026-03-14</lastmod>
+    <loc>https://howlongdrive.uk/cities/edinburgh/</loc>
+    <lastmod>2026-03-15</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/route/new-york-to-miami/</loc>
-    <lastmod>2026-03-14</lastmod>
+    <loc>https://howlongdrive.uk/cities/liverpool/</loc>
+    <lastmod>2026-03-15</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/route/miami-to-new-york/</loc>
-    <lastmod>2026-03-14</lastmod>
+    <loc>https://howlongdrive.uk/cities/leeds/</loc>
+    <lastmod>2026-03-15</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/route/los-angeles-to-las-vegas/</loc>
-    <lastmod>2026-03-14</lastmod>
+    <loc>https://howlongdrive.uk/cities/bristol/</loc>
+    <lastmod>2026-03-15</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/route/las-vegas-to-los-angeles/</loc>
-    <lastmod>2026-03-14</lastmod>
+    <loc>https://howlongdrive.uk/cities/cardiff/</loc>
+    <lastmod>2026-03-15</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/route/new-york-to-chicago/</loc>
-    <lastmod>2026-03-14</lastmod>
+    <loc>https://howlongdrive.uk/cities/belfast/</loc>
+    <lastmod>2026-03-15</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/route/chicago-to-new-york/</loc>
-    <lastmod>2026-03-14</lastmod>
+    <loc>https://howlongdrive.uk/cities/newcastle/</loc>
+    <lastmod>2026-03-15</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/route/san-francisco-to-los-angeles/</loc>
-    <lastmod>2026-03-14</lastmod>
+    <loc>https://howlongdrive.uk/cities/sheffield/</loc>
+    <lastmod>2026-03-15</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/route/los-angeles-to-san-francisco/</loc>
-    <lastmod>2026-03-14</lastmod>
+    <loc>https://howlongdrive.uk/cities/nottingham/</loc>
+    <lastmod>2026-03-15</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/route/new-york-to-boston/</loc>
-    <lastmod>2026-03-14</lastmod>
+    <loc>https://howlongdrive.uk/cities/leicester/</loc>
+    <lastmod>2026-03-15</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/route/boston-to-new-york/</loc>
-    <lastmod>2026-03-14</lastmod>
+    <loc>https://howlongdrive.uk/cities/scottish-highlands/</loc>
+    <lastmod>2026-03-15</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/route/seattle-to-portland/</loc>
-    <lastmod>2026-03-14</lastmod>
+    <loc>https://howlongdrive.uk/cities/lake-district/</loc>
+    <lastmod>2026-03-15</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/route/portland-to-seattle/</loc>
-    <lastmod>2026-03-14</lastmod>
+    <loc>https://howlongdrive.uk/cities/cornwall/</loc>
+    <lastmod>2026-03-15</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/route/dallas-to-houston/</loc>
-    <lastmod>2026-03-14</lastmod>
+    <loc>https://howlongdrive.uk/cities/bath/</loc>
+    <lastmod>2026-03-15</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/route/houston-to-dallas/</loc>
-    <lastmod>2026-03-14</lastmod>
+    <loc>https://howlongdrive.uk/cities/york/</loc>
+    <lastmod>2026-03-15</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/route/atlanta-to-miami/</loc>
-    <lastmod>2026-03-14</lastmod>
+    <loc>https://howlongdrive.uk/cities/oxford/</loc>
+    <lastmod>2026-03-15</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/route/miami-to-atlanta/</loc>
-    <lastmod>2026-03-14</lastmod>
-    <priority>0.8</priority>
+    <loc>https://howlongdrive.uk/route/london-to-cambridge/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/route/chicago-to-detroit/</loc>
-    <lastmod>2026-03-14</lastmod>
-    <priority>0.8</priority>
+    <loc>https://howlongdrive.uk/route/london-to-oxford/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/route/detroit-to-chicago/</loc>
-    <lastmod>2026-03-14</lastmod>
-    <priority>0.8</priority>
+    <loc>https://howlongdrive.uk/route/london-to-bath/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/route/denver-to-las-vegas/</loc>
-    <lastmod>2026-03-14</lastmod>
-    <priority>0.8</priority>
+    <loc>https://howlongdrive.uk/route/london-to-york/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/route/las-vegas-to-denver/</loc>
-    <lastmod>2026-03-14</lastmod>
-    <priority>0.8</priority>
+    <loc>https://howlongdrive.uk/route/london-to-windsor/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/route/phoenix-to-los-angeles/</loc>
-    <lastmod>2026-03-14</lastmod>
-    <priority>0.8</priority>
+    <loc>https://howlongdrive.uk/route/london-to-stonehenge/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/route/los-angeles-to-phoenix/</loc>
-    <lastmod>2026-03-14</lastmod>
-    <priority>0.8</priority>
+    <loc>https://howlongdrive.uk/route/london-to-cotswolds/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/city/new-york/</loc>
-    <lastmod>2026-03-14</lastmod>
-    <priority>0.8</priority>
+    <loc>https://howlongdrive.uk/route/london-to-cornwall/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/city/los-angeles/</loc>
-    <lastmod>2026-03-14</lastmod>
-    <priority>0.8</priority>
+    <loc>https://howlongdrive.uk/route/london-to-lake-district/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/city/chicago/</loc>
-    <lastmod>2026-03-14</lastmod>
-    <priority>0.8</priority>
+    <loc>https://howlongdrive.uk/route/london-to-scottish-highlands/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/city/houston/</loc>
-    <lastmod>2026-03-14</lastmod>
-    <priority>0.8</priority>
+    <loc>https://howlongdrive.uk/route/london-to-luton/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/city/phoenix/</loc>
-    <lastmod>2026-03-14</lastmod>
-    <priority>0.8</priority>
+    <loc>https://howlongdrive.uk/route/london-to-heathrow-airport/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/city/dallas/</loc>
-    <lastmod>2026-03-14</lastmod>
-    <priority>0.8</priority>
+    <loc>https://howlongdrive.uk/route/london-to-gatwick-airport/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/city/san-francisco/</loc>
-    <lastmod>2026-03-14</lastmod>
-    <priority>0.8</priority>
+    <loc>https://howlongdrive.uk/route/london-to-stansted-airport/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/city/seattle/</loc>
-    <lastmod>2026-03-14</lastmod>
-    <priority>0.8</priority>
+    <loc>https://howlongdrive.uk/route/london-to-luton-airport/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/city/miami/</loc>
-    <lastmod>2026-03-14</lastmod>
-    <priority>0.8</priority>
+    <loc>https://howlongdrive.uk/route/london-to-birmingham/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/city/atlanta/</loc>
-    <lastmod>2026-03-14</lastmod>
-    <priority>0.8</priority>
+    <loc>https://howlongdrive.uk/route/london-to-manchester/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/ev/new-york-to-los-angeles/</loc>
-    <lastmod>2026-03-14</lastmod>
-    <priority>0.8</priority>
+    <loc>https://howlongdrive.uk/route/london-to-liverpool/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/ev/los-angeles-to-new-york/</loc>
-    <lastmod>2026-03-14</lastmod>
-    <priority>0.8</priority>
+    <loc>https://howlongdrive.uk/route/london-to-leeds/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/ev/new-york-to-miami/</loc>
-    <lastmod>2026-03-14</lastmod>
-    <priority>0.8</priority>
+    <loc>https://howlongdrive.uk/route/london-to-sheffield/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/ev/miami-to-new-york/</loc>
-    <lastmod>2026-03-14</lastmod>
-    <priority>0.8</priority>
+    <loc>https://howlongdrive.uk/route/london-to-bristol/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/ev/los-angeles-to-las-vegas/</loc>
-    <lastmod>2026-03-14</lastmod>
-    <priority>0.8</priority>
+    <loc>https://howlongdrive.uk/route/london-to-cardiff/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/ev/las-vegas-to-los-angeles/</loc>
-    <lastmod>2026-03-14</lastmod>
-    <priority>0.8</priority>
+    <loc>https://howlongdrive.uk/route/london-to-edinburgh/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/ev/new-york-to-chicago/</loc>
-    <lastmod>2026-03-14</lastmod>
-    <priority>0.8</priority>
+    <loc>https://howlongdrive.uk/route/london-to-glasgow/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/ev/chicago-to-new-york/</loc>
-    <lastmod>2026-03-14</lastmod>
-    <priority>0.8</priority>
+    <loc>https://howlongdrive.uk/route/london-to-newcastle/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/ev/san-francisco-to-los-angeles/</loc>
-    <lastmod>2026-03-14</lastmod>
-    <priority>0.8</priority>
+    <loc>https://howlongdrive.uk/route/birmingham-to-london/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://howlongdrive.com/ev/los-angeles-to-san-francisco/</loc>
-    <lastmod>2026-03-14</lastmod>
-    <priority>0.8</priority>
+    <loc>https://howlongdrive.uk/route/manchester-to-london/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/liverpool-to-london/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/leeds-to-london/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/edinburgh-to-london/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/glasgow-to-london/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/bristol-to-london/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/cardiff-to-london/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/newcastle-to-london/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/sheffield-to-london/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/cambridge-to-london/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/oxford-to-london/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/york-to-london/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/bath-to-london/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/windsor-to-london/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/stonehenge-to-london/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/cotswolds-to-london/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/cornwall-to-london/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/lake-district-to-london/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/scottish-highlands-to-london/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/luton-to-london/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/heathrow-airport-to-london/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/gatwick-airport-to-london/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/stansted-airport-to-london/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/luton-airport-to-london/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-brighton/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-southampton/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-portsmouth/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-bournemouth/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-nottingham/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-leicester/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-coventry/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-norwich/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-exeter/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-plymouth/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-sunderland/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-watford/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-croydon/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-bromley/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-enfield/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-romford/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-ilford/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-barking/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-wimbledon/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-kingston/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-richmond/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-ealing/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-harrow/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-wembley/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-slough/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-reading/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-guildford/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-woking/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-st-albans/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-chelmsford/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-dartford/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-gravesend/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-sevenoaks/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-epsom/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-swansea/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-milton-keynes/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-swindon/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-northampton/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-ipswich/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-peterborough/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-lincoln/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-gloucester/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-cheltenham/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-salisbury/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-winchester/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-eastbourne/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-hastings/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-dover/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-canterbury/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-maidstone/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-folkestone/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-margate/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-colchester/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-southend/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-basildon/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-harlow/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-stevenage/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-hemel-hempstead/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-high-wycombe/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-aylesbury/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-crawley/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-basingstoke/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-bracknell/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-maidenhead/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-newbury/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-taunton/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-torquay/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-poole/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-weymouth/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-barnstaple/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-truro/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-st-austell/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-penzance/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-falmouth/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-rugby/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-warwick/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-leamington-spa/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-stratford-upon-avon/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-loughborough/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-mansfield/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-newark/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-grantham/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-boston/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-skegness/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-newport/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-cwmbran/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-pontypridd/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-devon/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-harry-potter-studios/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-legoland-windsor/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-eden-project/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-warwick-castle/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-windsor-castle/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-blenheim-palace/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-canterbury-cathedral/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-jurassic-coast/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-roman-baths/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-kew-gardens/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-british-museum/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-tower-of-london/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-buckingham-palace/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-london-city-airport/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-southend-airport/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-east-midlands-airport/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-southampton-airport/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-cardiff-airport/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-exeter-airport/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-newquay-airport/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-peak-district/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-snowdonia/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-isle-of-skye/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-loch-ness/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-hadrians-wall/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-york-minster/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-chatsworth-house/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-alton-towers/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/london-to-blackpool-tower/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/nottingham-to-london/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/leicester-to-london/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/brighton-to-london/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/southampton-to-london/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/exeter-to-london/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/plymouth-to-london/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/watford-to-london/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/croydon-to-london/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howlongdrive.uk/route/bromley-to-london/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
   </url>
 </urlset>
