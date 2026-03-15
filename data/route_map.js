@@ -1,263 +1,4 @@
 const ROUTE_MAP = {
-  "Altrincham": [
-    "Manchester"
-  ],
-  "Barking": [
-    "London"
-  ],
-  "Birkenhead": [
-    "Liverpool"
-  ],
-  "Birmingham": [
-    "Birmingham Airport",
-    "Bristol",
-    "Bromsgrove",
-    "Cardiff",
-    "Coventry",
-    "Dudley",
-    "Leeds",
-    "Leicester",
-    "Liverpool",
-    "London",
-    "Manchester",
-    "Nottingham",
-    "Redditch",
-    "Sheffield",
-    "Solihull",
-    "Stoke-on-Trent",
-    "Sutton Coldfield",
-    "Tamworth",
-    "Walsall",
-    "West Bromwich",
-    "Wolverhampton",
-    "Worcester"
-  ],
-  "Birmingham Airport": [
-    "Birmingham"
-  ],
-  "Bolton": [
-    "Manchester"
-  ],
-  "Bootle": [
-    "Liverpool"
-  ],
-  "Brighton": [
-    "Gatwick Airport",
-    "London",
-    "Portsmouth",
-    "Southampton"
-  ],
-  "Bristol": [
-    "Bath",
-    "Birmingham",
-    "Bristol Airport",
-    "Cardiff",
-    "Clevedon",
-    "Exeter",
-    "Filton",
-    "Gloucester",
-    "Keynsham",
-    "London",
-    "Portishead",
-    "Swindon",
-    "Thornbury",
-    "Weston-super-Mare"
-  ],
-  "Bristol Airport": [
-    "Bristol"
-  ],
-  "Bromley": [
-    "London"
-  ],
-  "Bromsgrove": [
-    "Birmingham"
-  ],
-  "Bury": [
-    "Manchester"
-  ],
-  "Cambridge": [
-    "Ipswich",
-    "London",
-    "Norwich",
-    "Peterborough"
-  ],
-  "Cardiff": [
-    "Birmingham",
-    "Bristol",
-    "London",
-    "Newport",
-    "Swansea"
-  ],
-  "Chelmsford": [
-    "London"
-  ],
-  "Clevedon": [
-    "Bristol"
-  ],
-  "Clydebank": [
-    "Glasgow"
-  ],
-  "Coatbridge": [
-    "Glasgow"
-  ],
-  "Croydon": [
-    "London"
-  ],
-  "Dalkeith": [
-    "Edinburgh"
-  ],
-  "Dartford": [
-    "London"
-  ],
-  "Dewsbury": [
-    "Leeds"
-  ],
-  "Dudley": [
-    "Birmingham"
-  ],
-  "Dumbarton": [
-    "Glasgow"
-  ],
-  "Dunfermline": [
-    "Edinburgh"
-  ],
-  "Ealing": [
-    "London"
-  ],
-  "East Kilbride": [
-    "Glasgow"
-  ],
-  "Edinburgh": [
-    "Aberdeen",
-    "Dalkeith",
-    "Dundee",
-    "Dunfermline",
-    "Edinburgh Airport",
-    "Glasgow",
-    "Inverness",
-    "Kirkcaldy",
-    "Livingston",
-    "London",
-    "Manchester",
-    "Musselburgh",
-    "Newcastle",
-    "Perth",
-    "Stirling"
-  ],
-  "Edinburgh Airport": [
-    "Edinburgh"
-  ],
-  "Enfield": [
-    "London"
-  ],
-  "Epsom": [
-    "London"
-  ],
-  "Exeter": [
-    "Bristol",
-    "London",
-    "Plymouth",
-    "Torquay"
-  ],
-  "Filton": [
-    "Bristol"
-  ],
-  "Glasgow": [
-    "Aberdeen",
-    "Clydebank",
-    "Coatbridge",
-    "Dumbarton",
-    "Dundee",
-    "East Kilbride",
-    "Edinburgh",
-    "Glasgow Airport",
-    "Hamilton",
-    "Inverness",
-    "London",
-    "Manchester",
-    "Motherwell",
-    "Paisley",
-    "Perth",
-    "Stirling"
-  ],
-  "Glasgow Airport": [
-    "Glasgow"
-  ],
-  "Gravesend": [
-    "London"
-  ],
-  "Guildford": [
-    "London"
-  ],
-  "Halifax": [
-    "Leeds"
-  ],
-  "Hamilton": [
-    "Glasgow"
-  ],
-  "Harrow": [
-    "London"
-  ],
-  "Heathrow Airport": [
-    "London"
-  ],
-  "Huddersfield": [
-    "Leeds"
-  ],
-  "Ilford": [
-    "London"
-  ],
-  "Keynsham": [
-    "Bristol"
-  ],
-  "Kingston": [
-    "London"
-  ],
-  "Kirkcaldy": [
-    "Edinburgh"
-  ],
-  "Leeds": [
-    "Bradford",
-    "Dewsbury",
-    "Halifax",
-    "Harrogate",
-    "Huddersfield",
-    "Hull",
-    "London",
-    "Manchester",
-    "Middlesbrough",
-    "Newcastle",
-    "Otley",
-    "Pudsey",
-    "Sheffield",
-    "Wakefield",
-    "Wetherby",
-    "York"
-  ],
-  "Leicester": [
-    "Birmingham",
-    "Coventry",
-    "Derby",
-    "London",
-    "Nottingham"
-  ],
-  "Liverpool": [
-    "Birkenhead",
-    "Birmingham",
-    "Blackpool",
-    "Bootle",
-    "Chester",
-    "Leeds",
-    "London",
-    "Manchester",
-    "Preston",
-    "Southport",
-    "St Helens",
-    "Widnes"
-  ],
-  "Livingston": [
-    "Edinburgh"
-  ],
   "London": [
     "Barking",
     "Bath",
@@ -277,19 +18,24 @@ const ROUTE_MAP = {
     "Enfield",
     "Epsom",
     "Exeter",
+    "Gatwick Airport",
     "Glasgow",
     "Gravesend",
     "Guildford",
     "Harrow",
     "Heathrow Airport",
     "Ilford",
+    "Ipswich",
     "Kingston",
     "Leeds",
     "Leicester",
     "Liverpool",
     "Luton",
+    "Luton Airport",
     "Manchester",
+    "Milton Keynes",
     "Newcastle",
+    "Northampton",
     "Norwich",
     "Nottingham",
     "Oxford",
@@ -303,31 +49,60 @@ const ROUTE_MAP = {
     "Slough",
     "Southampton",
     "St Albans",
+    "Stansted Airport",
     "Sunderland",
+    "Swansea",
+    "Swindon",
     "Watford",
     "Wembley",
     "Wimbledon",
     "Woking",
     "York"
   ],
-  "Luton": [
-    "London"
-  ],
-  "Macclesfield": [
-    "Manchester"
+  "Birmingham": [
+    "Birmingham Airport",
+    "Bristol",
+    "Bromsgrove",
+    "Cardiff",
+    "Coventry",
+    "Derby",
+    "Dudley",
+    "Leeds",
+    "Leicester",
+    "Liverpool",
+    "London",
+    "Manchester",
+    "Milton Keynes",
+    "Northampton",
+    "Nottingham",
+    "Redditch",
+    "Sheffield",
+    "Solihull",
+    "Stoke-on-Trent",
+    "Sutton Coldfield",
+    "Swansea",
+    "Tamworth",
+    "Walsall",
+    "West Bromwich",
+    "Wolverhampton",
+    "Worcester"
   ],
   "Manchester": [
     "Altrincham",
     "Birmingham",
     "Blackpool",
     "Bolton",
+    "Bradford",
     "Bury",
     "Chester",
+    "Derby",
     "Edinburgh",
     "Glasgow",
     "Lake District",
     "Leeds",
+    "Leeds Bradford Airport",
     "Liverpool",
+    "Liverpool Airport",
     "London",
     "Macclesfield",
     "Manchester Airport",
@@ -338,18 +113,108 @@ const ROUTE_MAP = {
     "Salford",
     "Sheffield",
     "Stockport",
+    "Stoke-on-Trent",
     "Warrington",
     "Wigan",
+    "Wolverhampton",
     "York"
   ],
-  "Manchester Airport": [
-    "Manchester"
+  "Liverpool": [
+    "Belfast",
+    "Birkenhead",
+    "Birmingham",
+    "Blackpool",
+    "Bootle",
+    "Chester",
+    "Leeds",
+    "Liverpool Airport",
+    "London",
+    "Manchester",
+    "Preston",
+    "Southport",
+    "St Helens",
+    "Widnes"
   ],
-  "Motherwell": [
-    "Glasgow"
+  "Leeds": [
+    "Bradford",
+    "Dewsbury",
+    "Halifax",
+    "Harrogate",
+    "Huddersfield",
+    "Hull",
+    "Leeds Bradford Airport",
+    "London",
+    "Manchester",
+    "Middlesbrough",
+    "Newcastle",
+    "Otley",
+    "Pudsey",
+    "Sheffield",
+    "Wakefield",
+    "Wetherby",
+    "York"
   ],
-  "Musselburgh": [
-    "Edinburgh"
+  "Edinburgh": [
+    "Aberdeen",
+    "Belfast",
+    "Dalkeith",
+    "Dundee",
+    "Dunfermline",
+    "Edinburgh Airport",
+    "Glasgow",
+    "Inverness",
+    "Kirkcaldy",
+    "Livingston",
+    "London",
+    "Manchester",
+    "Musselburgh",
+    "Newcastle",
+    "Newcastle Airport",
+    "Perth",
+    "Stirling"
+  ],
+  "Glasgow": [
+    "Aberdeen",
+    "Belfast",
+    "Clydebank",
+    "Coatbridge",
+    "Dumbarton",
+    "Dundee",
+    "East Kilbride",
+    "Edinburgh",
+    "Glasgow Airport",
+    "Hamilton",
+    "Inverness",
+    "London",
+    "Manchester",
+    "Motherwell",
+    "Paisley",
+    "Perth",
+    "Stirling"
+  ],
+  "Bristol": [
+    "Bath",
+    "Birmingham",
+    "Bristol Airport",
+    "Cardiff",
+    "Clevedon",
+    "Exeter",
+    "Filton",
+    "Gloucester",
+    "Keynsham",
+    "London",
+    "Portishead",
+    "Swansea",
+    "Swindon",
+    "Thornbury",
+    "Weston-super-Mare"
+  ],
+  "Cardiff": [
+    "Birmingham",
+    "Bristol",
+    "London",
+    "Newport",
+    "Swansea"
   ],
   "Newcastle": [
     "Durham",
@@ -358,80 +223,67 @@ const ROUTE_MAP = {
     "London",
     "Manchester",
     "Middlesbrough",
+    "Newcastle Airport",
     "Sunderland",
     "York"
   ],
-  "Nottingham": [
-    "Birmingham",
-    "Derby",
-    "Leicester",
-    "Lincoln",
-    "London",
-    "Sheffield"
-  ],
-  "Oldham": [
-    "Manchester"
-  ],
-  "Otley": [
-    "Leeds"
-  ],
-  "Oxford": [
-    "Birmingham",
-    "Bristol",
-    "London",
-    "Swindon"
-  ],
-  "Paisley": [
-    "Glasgow"
-  ],
-  "Plymouth": [
-    "Bristol",
-    "Exeter",
-    "London",
-    "Newquay",
-    "Penzance"
-  ],
-  "Portishead": [
-    "Bristol"
-  ],
-  "Pudsey": [
-    "Leeds"
-  ],
-  "Reading": [
-    "London"
-  ],
-  "Redditch": [
-    "Birmingham"
-  ],
-  "Richmond": [
-    "London"
-  ],
-  "Rochdale": [
-    "Manchester"
-  ],
-  "Romford": [
-    "London"
-  ],
-  "Salford": [
-    "Manchester"
-  ],
-  "Sevenoaks": [
-    "London"
-  ],
   "Sheffield": [
     "Birmingham",
+    "Bradford",
+    "Derby",
     "Doncaster",
     "Leeds",
     "London",
     "Manchester",
     "Nottingham",
+    "Stoke-on-Trent",
     "York"
   ],
-  "Slough": [
-    "London"
+  "Nottingham": [
+    "Birmingham",
+    "Coventry",
+    "Derby",
+    "Leicester",
+    "Lincoln",
+    "London",
+    "Sheffield",
+    "Stoke-on-Trent"
   ],
-  "Solihull": [
-    "Birmingham"
+  "Leicester": [
+    "Birmingham",
+    "Coventry",
+    "Derby",
+    "London",
+    "Milton Keynes",
+    "Northampton",
+    "Nottingham"
+  ],
+  "Cambridge": [
+    "Ipswich",
+    "London",
+    "Luton",
+    "Milton Keynes",
+    "Northampton",
+    "Norwich",
+    "Oxford",
+    "Peterborough",
+    "Stansted Airport"
+  ],
+  "Oxford": [
+    "Birmingham",
+    "Bristol",
+    "Cambridge",
+    "London",
+    "Milton Keynes",
+    "Northampton",
+    "Reading",
+    "Swindon"
+  ],
+  "Brighton": [
+    "Gatwick Airport",
+    "London",
+    "Portsmouth",
+    "Southampton"
   ],
   "Southampton": [
     "Bournemouth",
@@ -440,69 +292,473 @@ const ROUTE_MAP = {
     "London",
     "Portsmouth"
   ],
-  "Southport": [
-    "Liverpool"
-  ],
-  "St Albans": [
-    "London"
-  ],
-  "St Helens": [
-    "Liverpool"
-  ],
-  "Stockport": [
-    "Manchester"
-  ],
-  "Sutton Coldfield": [
-    "Birmingham"
-  ],
-  "Tamworth": [
-    "Birmingham"
-  ],
-  "Thornbury": [
-    "Bristol"
-  ],
-  "Wakefield": [
-    "Leeds"
-  ],
-  "Walsall": [
-    "Birmingham"
-  ],
-  "Warrington": [
-    "Manchester"
-  ],
-  "Watford": [
-    "London"
-  ],
-  "Wembley": [
-    "London"
-  ],
-  "West Bromwich": [
-    "Birmingham"
-  ],
-  "Weston-super-Mare": [
-    "Bristol"
-  ],
-  "Wetherby": [
-    "Leeds"
-  ],
-  "Widnes": [
-    "Liverpool"
-  ],
-  "Wigan": [
-    "Manchester"
-  ],
-  "Wimbledon": [
-    "London"
-  ],
-  "Woking": [
-    "London"
-  ],
   "York": [
+    "Bradford",
     "Hull",
     "Leeds",
     "London",
     "Manchester",
     "Newcastle",
     "Scarborough"
+  ],
+  "Exeter": [
+    "Bristol",
+    "London",
+    "Plymouth",
+    "Torquay"
+  ],
+  "Plymouth": [
+    "Bristol",
+    "Exeter",
+    "London",
+    "Newquay",
+    "Penzance"
+  ],
+  "Watford": [
+    "London"
+  ],
+  "Croydon": [
+    "London"
+  ],
+  "Bromley": [
+    "London"
+  ],
+  "Enfield": [
+    "London"
+  ],
+  "Romford": [
+    "London"
+  ],
+  "Ilford": [
+    "London"
+  ],
+  "Barking": [
+    "London"
+  ],
+  "Wimbledon": [
+    "London"
+  ],
+  "Kingston": [
+    "London"
+  ],
+  "Richmond": [
+    "London"
+  ],
+  "Ealing": [
+    "London"
+  ],
+  "Harrow": [
+    "London"
+  ],
+  "Wembley": [
+    "London"
+  ],
+  "Slough": [
+    "London",
+    "Reading"
+  ],
+  "Reading": [
+    "Basingstoke",
+    "London",
+    "Newbury",
+    "Oxford",
+    "Slough",
+    "Swindon"
+  ],
+  "Guildford": [
+    "London"
+  ],
+  "Woking": [
+    "London"
+  ],
+  "St Albans": [
+    "London",
+    "Luton"
+  ],
+  "Luton": [
+    "Bedford",
+    "Cambridge",
+    "London",
+    "Milton Keynes",
+    "St Albans"
+  ],
+  "Chelmsford": [
+    "London"
+  ],
+  "Dartford": [
+    "London"
+  ],
+  "Gravesend": [
+    "London"
+  ],
+  "Sevenoaks": [
+    "London"
+  ],
+  "Epsom": [
+    "London"
+  ],
+  "Heathrow Airport": [
+    "London"
+  ],
+  "Stockport": [
+    "Manchester"
+  ],
+  "Salford": [
+    "Manchester"
+  ],
+  "Oldham": [
+    "Manchester"
+  ],
+  "Bolton": [
+    "Manchester"
+  ],
+  "Rochdale": [
+    "Manchester"
+  ],
+  "Bury": [
+    "Manchester"
+  ],
+  "Wigan": [
+    "Manchester"
+  ],
+  "Warrington": [
+    "Manchester"
+  ],
+  "Altrincham": [
+    "Manchester"
+  ],
+  "Macclesfield": [
+    "Manchester"
+  ],
+  "Manchester Airport": [
+    "Manchester"
+  ],
+  "Solihull": [
+    "Birmingham"
+  ],
+  "Sutton Coldfield": [
+    "Birmingham"
+  ],
+  "West Bromwich": [
+    "Birmingham"
+  ],
+  "Dudley": [
+    "Birmingham"
+  ],
+  "Walsall": [
+    "Birmingham"
+  ],
+  "Tamworth": [
+    "Birmingham"
+  ],
+  "Redditch": [
+    "Birmingham"
+  ],
+  "Bromsgrove": [
+    "Birmingham"
+  ],
+  "Birmingham Airport": [
+    "Birmingham"
+  ],
+  "Wakefield": [
+    "Leeds"
+  ],
+  "Huddersfield": [
+    "Leeds"
+  ],
+  "Halifax": [
+    "Leeds"
+  ],
+  "Dewsbury": [
+    "Leeds"
+  ],
+  "Pudsey": [
+    "Leeds"
+  ],
+  "Otley": [
+    "Leeds"
+  ],
+  "Wetherby": [
+    "Leeds"
+  ],
+  "East Kilbride": [
+    "Glasgow"
+  ],
+  "Paisley": [
+    "Glasgow"
+  ],
+  "Hamilton": [
+    "Glasgow"
+  ],
+  "Coatbridge": [
+    "Glasgow"
+  ],
+  "Motherwell": [
+    "Glasgow"
+  ],
+  "Clydebank": [
+    "Glasgow"
+  ],
+  "Dumbarton": [
+    "Glasgow"
+  ],
+  "Glasgow Airport": [
+    "Glasgow"
+  ],
+  "Livingston": [
+    "Edinburgh"
+  ],
+  "Musselburgh": [
+    "Edinburgh"
+  ],
+  "Dalkeith": [
+    "Edinburgh"
+  ],
+  "Dunfermline": [
+    "Edinburgh"
+  ],
+  "Kirkcaldy": [
+    "Edinburgh"
+  ],
+  "Edinburgh Airport": [
+    "Edinburgh"
+  ],
+  "Birkenhead": [
+    "Liverpool"
+  ],
+  "St Helens": [
+    "Liverpool"
+  ],
+  "Southport": [
+    "Liverpool"
+  ],
+  "Bootle": [
+    "Liverpool"
+  ],
+  "Widnes": [
+    "Liverpool"
+  ],
+  "Filton": [
+    "Bristol"
+  ],
+  "Weston-super-Mare": [
+    "Bristol"
+  ],
+  "Portishead": [
+    "Bristol"
+  ],
+  "Clevedon": [
+    "Bristol"
+  ],
+  "Thornbury": [
+    "Bristol"
+  ],
+  "Keynsham": [
+    "Bristol"
+  ],
+  "Bristol Airport": [
+    "Bristol"
+  ],
+  "Belfast": [
+    "Derry",
+    "Dublin",
+    "Edinburgh",
+    "Glasgow",
+    "Liverpool"
+  ],
+  "Dublin": [
+    "Belfast"
+  ],
+  "Derry": [
+    "Belfast"
+  ],
+  "Aberdeen": [
+    "Dundee",
+    "Edinburgh",
+    "Glasgow",
+    "Inverness",
+    "Perth"
+  ],
+  "Dundee": [
+    "Aberdeen",
+    "Edinburgh",
+    "Glasgow",
+    "Perth",
+    "St Andrews"
+  ],
+  "Inverness": [
+    "Aberdeen",
+    "Edinburgh",
+    "Glasgow"
+  ],
+  "Perth": [
+    "Aberdeen",
+    "Dundee",
+    "Edinburgh",
+    "Glasgow"
+  ],
+  "St Andrews": [
+    "Dundee"
+  ],
+  "Swansea": [
+    "Birmingham",
+    "Bristol",
+    "Cardiff",
+    "London"
+  ],
+  "Milton Keynes": [
+    "Birmingham",
+    "Cambridge",
+    "Leicester",
+    "London",
+    "Luton",
+    "Northampton",
+    "Oxford"
+  ],
+  "Northampton": [
+    "Birmingham",
+    "Cambridge",
+    "Coventry",
+    "Leicester",
+    "London",
+    "Milton Keynes",
+    "Oxford"
+  ],
+  "Coventry": [
+    "Birmingham",
+    "Leicester",
+    "London",
+    "Northampton",
+    "Nottingham",
+    "Warwick",
+    "Wolverhampton"
+  ],
+  "Warwick": [
+    "Coventry"
+  ],
+  "Bradford": [
+    "Harrogate",
+    "Leeds",
+    "Manchester",
+    "Sheffield",
+    "York"
+  ],
+  "Harrogate": [
+    "Bradford"
+  ],
+  "Portsmouth": [
+    "Bournemouth",
+    "Brighton",
+    "Chichester",
+    "London",
+    "Southampton",
+    "Winchester"
+  ],
+  "Chichester": [
+    "Portsmouth"
+  ],
+  "Winchester": [
+    "Portsmouth"
+  ],
+  "Bournemouth": [
+    "Portsmouth"
+  ],
+  "Derby": [
+    "Birmingham",
+    "Leicester",
+    "Manchester",
+    "Nottingham",
+    "Sheffield",
+    "Stoke-on-Trent"
+  ],
+  "Stoke-on-Trent": [
+    "Birmingham",
+    "Crewe",
+    "Derby",
+    "Manchester",
+    "Nottingham",
+    "Sheffield",
+    "Wolverhampton"
+  ],
+  "Norwich": [
+    "Cambridge",
+    "Ipswich",
+    "Kings Lynn",
+    "London",
+    "Peterborough"
+  ],
+  "Ipswich": [
+    "Bury St Edmunds",
+    "Cambridge",
+    "Colchester",
+    "London",
+    "Norwich"
+  ],
+  "Peterborough": [
+    "Norwich"
+  ],
+  "Kings Lynn": [
+    "Norwich"
+  ],
+  "Crewe": [
+    "Stoke-on-Trent"
+  ],
+  "Wolverhampton": [
+    "Birmingham",
+    "Coventry",
+    "Manchester",
+    "Shrewsbury",
+    "Stoke-on-Trent"
+  ],
+  "Shrewsbury": [
+    "Wolverhampton"
+  ],
+  "Swindon": [
+    "Bath",
+    "Bristol",
+    "London",
+    "Oxford",
+    "Reading"
+  ],
+  "Bath": [
+    "Swindon"
+  ],
+  "Colchester": [
+    "Ipswich"
+  ],
+  "Bury St Edmunds": [
+    "Ipswich"
+  ],
+  "Gatwick Airport": [
+    "Brighton",
+    "London"
+  ],
+  "Stansted Airport": [
+    "Cambridge",
+    "London"
+  ],
+  "Luton Airport": [
+    "London"
+  ],
+  "Liverpool Airport": [
+    "Liverpool",
+    "Manchester"
+  ],
+  "Newcastle Airport": [
+    "Edinburgh",
+    "Newcastle"
+  ],
+  "Leeds Bradford Airport": [
+    "Leeds",
+    "Manchester"
+  ],
+  "Basingstoke": [
+    "Reading"
+  ],
+  "Newbury": [
+    "Reading"
+  ],
+  "Bedford": [
+    "Luton"
   ]
 };
