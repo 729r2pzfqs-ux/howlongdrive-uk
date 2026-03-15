@@ -1191,20 +1191,6 @@
   },
   {
     "from": "Aberdeen",
-    "to": "Belfast",
-    "time": "4h 35min",
-    "miles": 231,
-    "highway": "A9"
-  },
-  {
-    "from": "Belfast",
-    "to": "Aberdeen",
-    "time": "4h 35min",
-    "miles": 231,
-    "highway": "A9"
-  },
-  {
-    "from": "Aberdeen",
     "to": "Leeds",
     "time": "4h 35min",
     "miles": 232,
@@ -1275,20 +1261,6 @@
   },
   {
     "from": "Dundee",
-    "to": "Belfast",
-    "time": "3h 25min",
-    "miles": 173,
-    "highway": "A9"
-  },
-  {
-    "from": "Belfast",
-    "to": "Dundee",
-    "time": "3h 25min",
-    "miles": 173,
-    "highway": "A9"
-  },
-  {
-    "from": "Dundee",
     "to": "Leeds",
     "time": "3h 50min",
     "miles": 192,
@@ -1355,20 +1327,6 @@
     "to": "Inverness",
     "time": "4h 0min",
     "miles": 200,
-    "highway": "A9"
-  },
-  {
-    "from": "Inverness",
-    "to": "Belfast",
-    "time": "4h 10min",
-    "miles": 210,
-    "highway": "A9"
-  },
-  {
-    "from": "Belfast",
-    "to": "Inverness",
-    "time": "4h 10min",
-    "miles": 210,
     "highway": "A9"
   },
   {
@@ -1496,76 +1454,6 @@
     "time": "2h 55min",
     "miles": 149,
     "highway": "A-roads"
-  },
-  {
-    "from": "Belfast",
-    "to": "Manchester",
-    "time": "3h 20min",
-    "miles": 168,
-    "highway": "M6"
-  },
-  {
-    "from": "Manchester",
-    "to": "Belfast",
-    "time": "3h 20min",
-    "miles": 168,
-    "highway": "M6"
-  },
-  {
-    "from": "Belfast",
-    "to": "Newcastle",
-    "time": "3h 25min",
-    "miles": 174,
-    "highway": "M6"
-  },
-  {
-    "from": "Newcastle",
-    "to": "Belfast",
-    "time": "3h 25min",
-    "miles": 174,
-    "highway": "M6"
-  },
-  {
-    "from": "Belfast",
-    "to": "Leeds",
-    "time": "3h 40min",
-    "miles": 185,
-    "highway": "M6"
-  },
-  {
-    "from": "Leeds",
-    "to": "Belfast",
-    "time": "3h 40min",
-    "miles": 185,
-    "highway": "M6"
-  },
-  {
-    "from": "Belfast",
-    "to": "Sheffield",
-    "time": "4h 0min",
-    "miles": 200,
-    "highway": "M6"
-  },
-  {
-    "from": "Sheffield",
-    "to": "Belfast",
-    "time": "4h 0min",
-    "miles": 200,
-    "highway": "A-roads"
-  },
-  {
-    "from": "Belfast",
-    "to": "Birmingham",
-    "time": "4h 25min",
-    "miles": 221,
-    "highway": "M6"
-  },
-  {
-    "from": "Birmingham",
-    "to": "Belfast",
-    "time": "4h 25min",
-    "miles": 221,
-    "highway": "M6"
   },
   {
     "from": "Coventry",
@@ -8687,20 +8575,6 @@
     "highway": "A-roads"
   },
   {
-    "from": "Carlisle",
-    "to": "Belfast",
-    "time": "2h 25min",
-    "miles": 121,
-    "highway": "M6"
-  },
-  {
-    "from": "Belfast",
-    "to": "Carlisle",
-    "time": "2h 25min",
-    "miles": 121,
-    "highway": "M6"
-  },
-  {
     "from": "Lancaster",
     "to": "Manchester",
     "time": "0h 50min",
@@ -13091,20 +12965,6 @@
   },
   {
     "from": "Stirling",
-    "to": "Belfast",
-    "time": "2h 35min",
-    "miles": 131,
-    "highway": "A9"
-  },
-  {
-    "from": "Belfast",
-    "to": "Stirling",
-    "time": "2h 35min",
-    "miles": 131,
-    "highway": "A9"
-  },
-  {
-    "from": "Stirling",
     "to": "Leeds",
     "time": "3h 40min",
     "miles": 186,
@@ -13171,20 +13031,6 @@
     "to": "Perth",
     "time": "2h 25min",
     "miles": 121,
-    "highway": "A9"
-  },
-  {
-    "from": "Perth",
-    "to": "Belfast",
-    "time": "3h 5min",
-    "miles": 158,
-    "highway": "A9"
-  },
-  {
-    "from": "Belfast",
-    "to": "Perth",
-    "time": "3h 5min",
-    "miles": 158,
     "highway": "A9"
   },
   {
@@ -13287,20 +13133,6 @@
   },
   {
     "from": "Dumfries",
-    "to": "Belfast",
-    "time": "1h 55min",
-    "miles": 98,
-    "highway": "A9"
-  },
-  {
-    "from": "Belfast",
-    "to": "Dumfries",
-    "time": "1h 55min",
-    "miles": 98,
-    "highway": "A9"
-  },
-  {
-    "from": "Dumfries",
     "to": "Liverpool",
     "time": "2h 20min",
     "miles": 118,
@@ -13382,20 +13214,6 @@
     "time": "1h 15min",
     "miles": 66,
     "highway": "M8/M9"
-  },
-  {
-    "from": "Ayr",
-    "to": "Belfast",
-    "time": "1h 30min",
-    "miles": 79,
-    "highway": "A9"
-  },
-  {
-    "from": "Belfast",
-    "to": "Ayr",
-    "time": "1h 30min",
-    "miles": 79,
-    "highway": "A9"
   },
   {
     "from": "Ayr",
@@ -13497,20 +13315,6 @@
   },
   {
     "from": "Kilmarnock",
-    "to": "Belfast",
-    "time": "1h 45min",
-    "miles": 90,
-    "highway": "A9"
-  },
-  {
-    "from": "Belfast",
-    "to": "Kilmarnock",
-    "time": "1h 45min",
-    "miles": 90,
-    "highway": "A9"
-  },
-  {
-    "from": "Kilmarnock",
     "to": "Newcastle",
     "time": "2h 25min",
     "miles": 121,
@@ -13595,20 +13399,6 @@
   },
   {
     "from": "Paisley",
-    "to": "Belfast",
-    "time": "2h 5min",
-    "miles": 105,
-    "highway": "A9"
-  },
-  {
-    "from": "Belfast",
-    "to": "Paisley",
-    "time": "2h 5min",
-    "miles": 105,
-    "highway": "A9"
-  },
-  {
-    "from": "Paisley",
     "to": "Newcastle",
     "time": "2h 30min",
     "miles": 125,
@@ -13690,20 +13480,6 @@
     "time": "0h 45min",
     "miles": 40,
     "highway": "M8/M9"
-  },
-  {
-    "from": "East Kilbride",
-    "to": "Belfast",
-    "time": "2h 5min",
-    "miles": 106,
-    "highway": "A9"
-  },
-  {
-    "from": "Belfast",
-    "to": "East Kilbride",
-    "time": "2h 5min",
-    "miles": 106,
-    "highway": "A9"
   },
   {
     "from": "East Kilbride",
@@ -13805,20 +13581,6 @@
   },
   {
     "from": "Livingston",
-    "to": "Belfast",
-    "time": "2h 35min",
-    "miles": 130,
-    "highway": "A9"
-  },
-  {
-    "from": "Belfast",
-    "to": "Livingston",
-    "time": "2h 35min",
-    "miles": 130,
-    "highway": "A9"
-  },
-  {
-    "from": "Livingston",
     "to": "Leeds",
     "time": "3h 15min",
     "miles": 164,
@@ -13903,20 +13665,6 @@
   },
   {
     "from": "Dunfermline",
-    "to": "Belfast",
-    "time": "2h 45min",
-    "miles": 141,
-    "highway": "A9"
-  },
-  {
-    "from": "Belfast",
-    "to": "Dunfermline",
-    "time": "2h 45min",
-    "miles": 141,
-    "highway": "A9"
-  },
-  {
-    "from": "Dunfermline",
     "to": "Leeds",
     "time": "3h 25min",
     "miles": 174,
@@ -13997,20 +13745,6 @@
     "to": "Kirkcaldy",
     "time": "1h 55min",
     "miles": 99,
-    "highway": "A9"
-  },
-  {
-    "from": "Kirkcaldy",
-    "to": "Belfast",
-    "time": "3h 0min",
-    "miles": 151,
-    "highway": "A9"
-  },
-  {
-    "from": "Belfast",
-    "to": "Kirkcaldy",
-    "time": "3h 0min",
-    "miles": 151,
     "highway": "A9"
   },
   {
@@ -14113,20 +13847,6 @@
   },
   {
     "from": "Falkirk",
-    "to": "Belfast",
-    "time": "2h 30min",
-    "miles": 129,
-    "highway": "A9"
-  },
-  {
-    "from": "Belfast",
-    "to": "Falkirk",
-    "time": "2h 30min",
-    "miles": 129,
-    "highway": "A9"
-  },
-  {
-    "from": "Falkirk",
     "to": "Leeds",
     "time": "3h 30min",
     "miles": 176,
@@ -14211,20 +13931,6 @@
   },
   {
     "from": "Motherwell",
-    "to": "Belfast",
-    "time": "2h 10min",
-    "miles": 112,
-    "highway": "A9"
-  },
-  {
-    "from": "Belfast",
-    "to": "Motherwell",
-    "time": "2h 10min",
-    "miles": 112,
-    "highway": "A9"
-  },
-  {
-    "from": "Motherwell",
     "to": "Leeds",
     "time": "3h 20min",
     "miles": 168,
@@ -14302,20 +14008,6 @@
   },
   {
     "from": "Newcastle",
-    "to": "Hamilton",
-    "time": "2h 10min",
-    "miles": 110,
-    "highway": "A9"
-  },
-  {
-    "from": "Hamilton",
-    "to": "Belfast",
-    "time": "2h 10min",
-    "miles": 110,
-    "highway": "A9"
-  },
-  {
-    "from": "Belfast",
     "to": "Hamilton",
     "time": "2h 10min",
     "miles": 110,
@@ -14588,90 +14280,6 @@
     "highway": "A-roads"
   },
   {
-    "from": "Llandudno",
-    "to": "Belfast",
-    "time": "2h 25min",
-    "miles": 123,
-    "highway": "M6"
-  },
-  {
-    "from": "Belfast",
-    "to": "Llandudno",
-    "time": "2h 25min",
-    "miles": 123,
-    "highway": "M6"
-  },
-  {
-    "from": "Bangor",
-    "to": "Liverpool",
-    "time": "0h 55min",
-    "miles": 49,
-    "highway": "M6"
-  },
-  {
-    "from": "Liverpool",
-    "to": "Bangor",
-    "time": "0h 55min",
-    "miles": 49,
-    "highway": "M6"
-  },
-  {
-    "from": "Bangor",
-    "to": "Manchester",
-    "time": "1h 35min",
-    "miles": 80,
-    "highway": "M6"
-  },
-  {
-    "from": "Manchester",
-    "to": "Bangor",
-    "time": "1h 35min",
-    "miles": 80,
-    "highway": "M6"
-  },
-  {
-    "from": "Bangor",
-    "to": "Birmingham",
-    "time": "2h 5min",
-    "miles": 107,
-    "highway": "M6"
-  },
-  {
-    "from": "Birmingham",
-    "to": "Bangor",
-    "time": "2h 5min",
-    "miles": 107,
-    "highway": "M6"
-  },
-  {
-    "from": "Bangor",
-    "to": "Sheffield",
-    "time": "2h 10min",
-    "miles": 110,
-    "highway": "M6"
-  },
-  {
-    "from": "Sheffield",
-    "to": "Bangor",
-    "time": "2h 10min",
-    "miles": 110,
-    "highway": "M62"
-  },
-  {
-    "from": "Bangor",
-    "to": "Leeds",
-    "time": "2h 15min",
-    "miles": 113,
-    "highway": "M6"
-  },
-  {
-    "from": "Leeds",
-    "to": "Bangor",
-    "time": "2h 15min",
-    "miles": 113,
-    "highway": "M6"
-  },
-  {
     "from": "Bangor",
     "to": "Belfast",
     "time": "2h 20min",
@@ -14684,34 +14292,6 @@
     "time": "2h 20min",
     "miles": 120,
     "highway": "M6"
-  },
-  {
-    "from": "Bangor",
-    "to": "Nottingham",
-    "time": "2h 30min",
-    "miles": 125,
-    "highway": "M6"
-  },
-  {
-    "from": "Nottingham",
-    "to": "Bangor",
-    "time": "2h 30min",
-    "miles": 125,
-    "highway": "A-roads"
-  },
-  {
-    "from": "Bangor",
-    "to": "Cardiff",
-    "time": "2h 30min",
-    "miles": 127,
-    "highway": "A-roads"
-  },
-  {
-    "from": "Cardiff",
-    "to": "Bangor",
-    "time": "2h 30min",
-    "miles": 127,
-    "highway": "A-roads"
   },
   {
     "from": "Aberystwyth",
@@ -15468,20 +15048,6 @@
     "time": "2h 5min",
     "miles": 107,
     "highway": "M8/M9"
-  },
-  {
-    "from": "Lake District",
-    "to": "Belfast",
-    "time": "2h 15min",
-    "miles": 114,
-    "highway": "M6"
-  },
-  {
-    "from": "Belfast",
-    "to": "Lake District",
-    "time": "2h 15min",
-    "miles": 114,
-    "highway": "M6"
   },
   {
     "from": "Stonehenge",
@@ -17150,20 +16716,6 @@
     "highway": "A9"
   },
   {
-    "from": "Hadrian's Wall",
-    "to": "Belfast",
-    "time": "2h 55min",
-    "miles": 149,
-    "highway": "A9"
-  },
-  {
-    "from": "Belfast",
-    "to": "Hadrian's Wall",
-    "time": "2h 55min",
-    "miles": 149,
-    "highway": "A9"
-  },
-  {
     "from": "York Minster",
     "to": "Leeds",
     "time": "0h 25min",
@@ -17431,20 +16983,6 @@
   },
   {
     "from": "Loch Ness",
-    "to": "Belfast",
-    "time": "3h 55min",
-    "miles": 197,
-    "highway": "A9"
-  },
-  {
-    "from": "Belfast",
-    "to": "Loch Ness",
-    "time": "3h 55min",
-    "miles": 197,
-    "highway": "A9"
-  },
-  {
-    "from": "Loch Ness",
     "to": "Leeds",
     "time": "5h 20min",
     "miles": 268,
@@ -17526,20 +17064,6 @@
     "time": "2h 55min",
     "miles": 147,
     "highway": "M8/M9"
-  },
-  {
-    "from": "Isle of Skye",
-    "to": "Belfast",
-    "time": "3h 40min",
-    "miles": 185,
-    "highway": "A9"
-  },
-  {
-    "from": "Belfast",
-    "to": "Isle of Skye",
-    "time": "3h 40min",
-    "miles": 185,
-    "highway": "A9"
   },
   {
     "from": "Isle of Skye",
@@ -17626,104 +17150,6 @@
     "highway": "A9"
   },
   {
-    "from": "Giant's Causeway",
-    "to": "Glasgow",
-    "time": "1h 55min",
-    "miles": 98,
-    "highway": "M8/M9"
-  },
-  {
-    "from": "Glasgow",
-    "to": "Giant's Causeway",
-    "time": "1h 55min",
-    "miles": 98,
-    "highway": "M8/M9"
-  },
-  {
-    "from": "Giant's Causeway",
-    "to": "Edinburgh",
-    "time": "2h 45min",
-    "miles": 139,
-    "highway": "M8/M9"
-  },
-  {
-    "from": "Edinburgh",
-    "to": "Giant's Causeway",
-    "time": "2h 45min",
-    "miles": 139,
-    "highway": "M8/M9"
-  },
-  {
-    "from": "Giant's Causeway",
-    "to": "Liverpool",
-    "time": "3h 45min",
-    "miles": 190,
-    "highway": "A9"
-  },
-  {
-    "from": "Liverpool",
-    "to": "Giant's Causeway",
-    "time": "3h 45min",
-    "miles": 190,
-    "highway": "A9"
-  },
-  {
-    "from": "Giant's Causeway",
-    "to": "Newcastle",
-    "time": "3h 50min",
-    "miles": 194,
-    "highway": "A9"
-  },
-  {
-    "from": "Newcastle",
-    "to": "Giant's Causeway",
-    "time": "3h 50min",
-    "miles": 194,
-    "highway": "A9"
-  },
-  {
-    "from": "Giant's Causeway",
-    "to": "Manchester",
-    "time": "4h 10min",
-    "miles": 210,
-    "highway": "A9"
-  },
-  {
-    "from": "Manchester",
-    "to": "Giant's Causeway",
-    "time": "4h 10min",
-    "miles": 210,
-    "highway": "A9"
-  },
-  {
-    "from": "Giant's Causeway",
-    "to": "Leeds",
-    "time": "4h 25min",
-    "miles": 222,
-    "highway": "A9"
-  },
-  {
-    "from": "Leeds",
-    "to": "Giant's Causeway",
-    "time": "4h 25min",
-    "miles": 222,
-    "highway": "A9"
-  },
-  {
-    "from": "Giant's Causeway",
-    "to": "Sheffield",
-    "time": "4h 45min",
-    "miles": 240,
-    "highway": "A9"
-  },
-  {
-    "from": "Sheffield",
-    "to": "Giant's Causeway",
-    "time": "4h 45min",
-    "miles": 240,
-    "highway": "A9"
-  },
-  {
     "from": "Titanic Belfast",
     "to": "Belfast",
     "time": "0h 0min",
@@ -17736,104 +17162,6 @@
     "time": "0h 0min",
     "miles": 1,
     "highway": "M6"
-  },
-  {
-    "from": "Titanic Belfast",
-    "to": "Glasgow",
-    "time": "2h 10min",
-    "miles": 109,
-    "highway": "M8/M9"
-  },
-  {
-    "from": "Glasgow",
-    "to": "Titanic Belfast",
-    "time": "2h 10min",
-    "miles": 109,
-    "highway": "M8/M9"
-  },
-  {
-    "from": "Titanic Belfast",
-    "to": "Edinburgh",
-    "time": "2h 50min",
-    "miles": 142,
-    "highway": "M8/M9"
-  },
-  {
-    "from": "Edinburgh",
-    "to": "Titanic Belfast",
-    "time": "2h 50min",
-    "miles": 142,
-    "highway": "M8/M9"
-  },
-  {
-    "from": "Titanic Belfast",
-    "to": "Liverpool",
-    "time": "2h 50min",
-    "miles": 145,
-    "highway": "M6"
-  },
-  {
-    "from": "Liverpool",
-    "to": "Titanic Belfast",
-    "time": "2h 50min",
-    "miles": 145,
-    "highway": "M6"
-  },
-  {
-    "from": "Titanic Belfast",
-    "to": "Manchester",
-    "time": "3h 20min",
-    "miles": 168,
-    "highway": "M6"
-  },
-  {
-    "from": "Manchester",
-    "to": "Titanic Belfast",
-    "time": "3h 20min",
-    "miles": 168,
-    "highway": "M6"
-  },
-  {
-    "from": "Titanic Belfast",
-    "to": "Newcastle",
-    "time": "3h 25min",
-    "miles": 173,
-    "highway": "M6"
-  },
-  {
-    "from": "Newcastle",
-    "to": "Titanic Belfast",
-    "time": "3h 25min",
-    "miles": 173,
-    "highway": "M6"
-  },
-  {
-    "from": "Titanic Belfast",
-    "to": "Leeds",
-    "time": "3h 40min",
-    "miles": 185,
-    "highway": "M6"
-  },
-  {
-    "from": "Leeds",
-    "to": "Titanic Belfast",
-    "time": "3h 40min",
-    "miles": 185,
-    "highway": "M6"
-  },
-  {
-    "from": "Titanic Belfast",
-    "to": "Sheffield",
-    "time": "3h 55min",
-    "miles": 199,
-    "highway": "M6"
-  },
-  {
-    "from": "Sheffield",
-    "to": "Titanic Belfast",
-    "time": "3h 55min",
-    "miles": 199,
-    "highway": "A-roads"
   },
   {
     "from": "Scottish Highlands",
@@ -17862,20 +17190,6 @@
     "time": "1h 55min",
     "miles": 99,
     "highway": "M8/M9"
-  },
-  {
-    "from": "Scottish Highlands",
-    "to": "Belfast",
-    "time": "3h 35min",
-    "miles": 180,
-    "highway": "A9"
-  },
-  {
-    "from": "Belfast",
-    "to": "Scottish Highlands",
-    "time": "3h 35min",
-    "miles": 180,
-    "highway": "A9"
   },
   {
     "from": "Scottish Highlands",
@@ -19447,20 +18761,6 @@
   },
   {
     "from": "Aberdeen Airport",
-    "to": "Belfast",
-    "time": "4h 35min",
-    "miles": 231,
-    "highway": "A9"
-  },
-  {
-    "from": "Belfast",
-    "to": "Aberdeen Airport",
-    "time": "4h 35min",
-    "miles": 231,
-    "highway": "A9"
-  },
-  {
-    "from": "Aberdeen Airport",
     "to": "Leeds",
     "time": "4h 40min",
     "miles": 236,
@@ -19559,20 +18859,6 @@
   },
   {
     "from": "Inverness Airport",
-    "to": "Belfast",
-    "time": "4h 15min",
-    "miles": 216,
-    "highway": "A9"
-  },
-  {
-    "from": "Belfast",
-    "to": "Inverness Airport",
-    "time": "4h 15min",
-    "miles": 216,
-    "highway": "A9"
-  },
-  {
-    "from": "Inverness Airport",
     "to": "Leeds",
     "time": "5h 30min",
     "miles": 276,
@@ -19642,104 +18928,6 @@
     "highway": "M6"
   },
   {
-    "from": "Belfast International",
-    "to": "Glasgow",
-    "time": "2h 15min",
-    "miles": 114,
-    "highway": "M8/M9"
-  },
-  {
-    "from": "Glasgow",
-    "to": "Belfast International",
-    "time": "2h 15min",
-    "miles": 114,
-    "highway": "M8/M9"
-  },
-  {
-    "from": "Belfast International",
-    "to": "Edinburgh",
-    "time": "2h 55min",
-    "miles": 149,
-    "highway": "M8/M9"
-  },
-  {
-    "from": "Edinburgh",
-    "to": "Belfast International",
-    "time": "2h 55min",
-    "miles": 149,
-    "highway": "M8/M9"
-  },
-  {
-    "from": "Belfast International",
-    "to": "Liverpool",
-    "time": "3h 5min",
-    "miles": 157,
-    "highway": "M6"
-  },
-  {
-    "from": "Liverpool",
-    "to": "Belfast International",
-    "time": "3h 5min",
-    "miles": 157,
-    "highway": "M6"
-  },
-  {
-    "from": "Belfast International",
-    "to": "Manchester",
-    "time": "3h 35min",
-    "miles": 180,
-    "highway": "M6"
-  },
-  {
-    "from": "Manchester",
-    "to": "Belfast International",
-    "time": "3h 35min",
-    "miles": 180,
-    "highway": "M6"
-  },
-  {
-    "from": "Belfast International",
-    "to": "Newcastle",
-    "time": "3h 40min",
-    "miles": 184,
-    "highway": "M6"
-  },
-  {
-    "from": "Newcastle",
-    "to": "Belfast International",
-    "time": "3h 40min",
-    "miles": 184,
-    "highway": "M6"
-  },
-  {
-    "from": "Belfast International",
-    "to": "Leeds",
-    "time": "3h 55min",
-    "miles": 198,
-    "highway": "M6"
-  },
-  {
-    "from": "Leeds",
-    "to": "Belfast International",
-    "time": "3h 55min",
-    "miles": 198,
-    "highway": "M6"
-  },
-  {
-    "from": "Belfast International",
-    "to": "Sheffield",
-    "time": "4h 10min",
-    "miles": 212,
-    "highway": "M6"
-  },
-  {
-    "from": "Sheffield",
-    "to": "Belfast International",
-    "time": "4h 10min",
-    "miles": 212,
-    "highway": "A-roads"
-  },
-  {
     "from": "Belfast City Airport",
     "to": "Belfast",
     "time": "0h 0min",
@@ -19752,104 +18940,6 @@
     "time": "0h 0min",
     "miles": 3,
     "highway": "M6"
-  },
-  {
-    "from": "Belfast City Airport",
-    "to": "Glasgow",
-    "time": "2h 5min",
-    "miles": 107,
-    "highway": "M8/M9"
-  },
-  {
-    "from": "Glasgow",
-    "to": "Belfast City Airport",
-    "time": "2h 5min",
-    "miles": 107,
-    "highway": "M8/M9"
-  },
-  {
-    "from": "Belfast City Airport",
-    "to": "Edinburgh",
-    "time": "2h 45min",
-    "miles": 140,
-    "highway": "M8/M9"
-  },
-  {
-    "from": "Edinburgh",
-    "to": "Belfast City Airport",
-    "time": "2h 45min",
-    "miles": 140,
-    "highway": "M8/M9"
-  },
-  {
-    "from": "Belfast City Airport",
-    "to": "Liverpool",
-    "time": "2h 50min",
-    "miles": 144,
-    "highway": "M6"
-  },
-  {
-    "from": "Liverpool",
-    "to": "Belfast City Airport",
-    "time": "2h 50min",
-    "miles": 144,
-    "highway": "M6"
-  },
-  {
-    "from": "Belfast City Airport",
-    "to": "Manchester",
-    "time": "3h 20min",
-    "miles": 167,
-    "highway": "M6"
-  },
-  {
-    "from": "Manchester",
-    "to": "Belfast City Airport",
-    "time": "3h 20min",
-    "miles": 167,
-    "highway": "M6"
-  },
-  {
-    "from": "Belfast City Airport",
-    "to": "Newcastle",
-    "time": "3h 25min",
-    "miles": 171,
-    "highway": "M6"
-  },
-  {
-    "from": "Newcastle",
-    "to": "Belfast City Airport",
-    "time": "3h 25min",
-    "miles": 171,
-    "highway": "M6"
-  },
-  {
-    "from": "Belfast City Airport",
-    "to": "Leeds",
-    "time": "3h 40min",
-    "miles": 184,
-    "highway": "M6"
-  },
-  {
-    "from": "Leeds",
-    "to": "Belfast City Airport",
-    "time": "3h 40min",
-    "miles": 184,
-    "highway": "M6"
-  },
-  {
-    "from": "Belfast City Airport",
-    "to": "Sheffield",
-    "time": "3h 55min",
-    "miles": 198,
-    "highway": "M6"
-  },
-  {
-    "from": "Sheffield",
-    "to": "Belfast City Airport",
-    "time": "3h 55min",
-    "miles": 198,
-    "highway": "A-roads"
   },
   {
     "from": "Exeter Airport",
@@ -32061,20 +31151,6 @@
   },
   {
     "from": "Chester",
-    "to": "Bangor",
-    "time": "1h 0min",
-    "miles": 51,
-    "highway": "M6"
-  },
-  {
-    "from": "Bangor",
-    "to": "Chester",
-    "time": "1h 0min",
-    "miles": 51,
-    "highway": "M6"
-  },
-  {
-    "from": "Chester",
     "to": "Peak District",
     "time": "0h 50min",
     "miles": 45,
@@ -43023,20 +42099,6 @@
   },
   {
     "from": "Birkenhead",
-    "to": "Bangor",
-    "time": "0h 55min",
-    "miles": 47,
-    "highway": "M6"
-  },
-  {
-    "from": "Bangor",
-    "to": "Birkenhead",
-    "time": "0h 55min",
-    "miles": 47,
-    "highway": "M6"
-  },
-  {
-    "from": "Birkenhead",
     "to": "Peak District",
     "time": "0h 55min",
     "miles": 49,
@@ -48693,20 +47755,6 @@
   },
   {
     "from": "Wrexham",
-    "to": "Bangor",
-    "time": "0h 55min",
-    "miles": 49,
-    "highway": "M6"
-  },
-  {
-    "from": "Bangor",
-    "to": "Wrexham",
-    "time": "0h 55min",
-    "miles": 49,
-    "highway": "M6"
-  },
-  {
-    "from": "Wrexham",
     "to": "Peak District",
     "time": "1h 0min",
     "miles": 53,
@@ -48777,20 +47825,6 @@
   },
   {
     "from": "Llandudno",
-    "to": "Bangor",
-    "time": "0h 15min",
-    "miles": 14,
-    "highway": "M6"
-  },
-  {
-    "from": "Bangor",
-    "to": "Llandudno",
-    "time": "0h 15min",
-    "miles": 14,
-    "highway": "M6"
-  },
-  {
-    "from": "Llandudno",
     "to": "Snowdonia",
     "time": "0h 30min",
     "miles": 28,
@@ -48815,34 +47849,6 @@
     "to": "Llandudno",
     "time": "0h 55min",
     "miles": 46,
-    "highway": "M6"
-  },
-  {
-    "from": "Bangor",
-    "to": "Aberystwyth",
-    "time": "1h 5min",
-    "miles": 56,
-    "highway": "M6"
-  },
-  {
-    "from": "Aberystwyth",
-    "to": "Bangor",
-    "time": "1h 5min",
-    "miles": 56,
-    "highway": "M6"
-  },
-  {
-    "from": "Bangor",
-    "to": "Snowdonia",
-    "time": "0h 25min",
-    "miles": 24,
-    "highway": "M6"
-  },
-  {
-    "from": "Snowdonia",
-    "to": "Bangor",
-    "time": "0h 25min",
-    "miles": 24,
     "highway": "M6"
   },
   {
