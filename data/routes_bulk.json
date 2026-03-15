@@ -50650,5 +50650,194 @@
     "time": "0h 15min",
     "miles": 14,
     "highway": "M6"
+  },
+  {
+    "from": "London",
+    "to": "Lake District",
+    "time": "5h 0min",
+    "miles": 270,
+    "highway": "M1/M6"
+  },
+  {
+    "from": "Lake District",
+    "to": "London",
+    "time": "5h 0min",
+    "miles": 270,
+    "highway": "M6/M1"
+  },
+  {
+    "from": "London",
+    "to": "Peak District",
+    "time": "3h 30min",
+    "miles": 170,
+    "highway": "M1"
+  },
+  {
+    "from": "Peak District",
+    "to": "London",
+    "time": "3h 30min",
+    "miles": 170,
+    "highway": "M1"
+  },
+  {
+    "from": "London",
+    "to": "Snowdonia",
+    "time": "5h 0min",
+    "miles": 250,
+    "highway": "M40/A5"
+  },
+  {
+    "from": "Snowdonia",
+    "to": "London",
+    "time": "5h 0min",
+    "miles": 250,
+    "highway": "A5/M40"
+  },
+  {
+    "from": "London",
+    "to": "Scottish Highlands",
+    "time": "9h 0min",
+    "miles": 520,
+    "highway": "M1/A9"
+  },
+  {
+    "from": "Scottish Highlands",
+    "to": "London",
+    "time": "9h 0min",
+    "miles": 520,
+    "highway": "A9/M1"
+  },
+  {
+    "from": "London",
+    "to": "Isle of Skye",
+    "time": "10h 0min",
+    "miles": 580,
+    "highway": "M1/A9"
+  },
+  {
+    "from": "Isle of Skye",
+    "to": "London",
+    "time": "10h 0min",
+    "miles": 580,
+    "highway": "A9/M1"
+  },
+  {
+    "from": "London",
+    "to": "Loch Ness",
+    "time": "8h 30min",
+    "miles": 480,
+    "highway": "M1/A9"
+  },
+  {
+    "from": "Loch Ness",
+    "to": "London",
+    "time": "8h 30min",
+    "miles": 480,
+    "highway": "A9/M1"
+  },
+  {
+    "from": "London",
+    "to": "Hadrian's Wall",
+    "time": "5h 30min",
+    "miles": 300,
+    "highway": "M1/A69"
+  },
+  {
+    "from": "Hadrian's Wall",
+    "to": "London",
+    "time": "5h 30min",
+    "miles": 300,
+    "highway": "A69/M1"
+  },
+  {
+    "from": "London",
+    "to": "York Minster",
+    "time": "4h 0min",
+    "miles": 210,
+    "highway": "M1/A1"
+  },
+  {
+    "from": "York Minster",
+    "to": "London",
+    "time": "4h 0min",
+    "miles": 210,
+    "highway": "A1/M1"
+  },
+  {
+    "from": "London",
+    "to": "Chatsworth House",
+    "time": "3h 30min",
+    "miles": 165,
+    "highway": "M1"
+  },
+  {
+    "from": "Chatsworth House",
+    "to": "London",
+    "time": "3h 30min",
+    "miles": 165,
+    "highway": "M1"
+  },
+  {
+    "from": "London",
+    "to": "Alton Towers",
+    "time": "3h 0min",
+    "miles": 155,
+    "highway": "M1/A50"
+  },
+  {
+    "from": "Alton Towers",
+    "to": "London",
+    "time": "3h 0min",
+    "miles": 155,
+    "highway": "A50/M1"
+  },
+  {
+    "from": "London",
+    "to": "Blackpool Tower",
+    "time": "4h 15min",
+    "miles": 240,
+    "highway": "M6"
+  },
+  {
+    "from": "Blackpool Tower",
+    "to": "London",
+    "time": "4h 15min",
+    "miles": 240,
+    "highway": "M6"
+  },
+  {
+    "from": "Birmingham",
+    "to": "Lake District",
+    "time": "2h 45min",
+    "miles": 150,
+    "highway": "M6"
+  },
+  {
+    "from": "Lake District",
+    "to": "Birmingham",
+    "time": "2h 45min",
+    "miles": 150,
+    "highway": "M6"
+  },
+  {
+    "from": "Manchester",
+    "to": "Lake District",
+    "time": "1h 30min",
+    "miles": 75,
+    "highway": "M6"
+  },
+  {
+    "from": "Bristol",
+    "to": "Lake District",
+    "time": "4h 0min",
+    "miles": 220,
+    "highway": "M5/M6"
+  },
+  {
+    "from": "Lake District",
+    "to": "Bristol",
+    "time": "4h 0min",
+    "miles": 220,
+    "highway": "M6/M5"
   }
 ]
