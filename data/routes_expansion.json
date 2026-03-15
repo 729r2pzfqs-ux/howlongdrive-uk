@@ -28,48 +28,6 @@
     "highway": "A6"
   },
   {
-    "from": "Belfast",
-    "to": "Glasgow",
-    "time": "5h 30min",
-    "miles": 160,
-    "highway": "Ferry + M8"
-  },
-  {
-    "from": "Glasgow",
-    "to": "Belfast",
-    "time": "5h 30min",
-    "miles": 160,
-    "highway": "Ferry + M8"
-  },
-  {
-    "from": "Belfast",
-    "to": "Edinburgh",
-    "time": "6h 0min",
-    "miles": 190,
-    "highway": "Ferry + M8/M9"
-  },
-  {
-    "from": "Edinburgh",
-    "to": "Belfast",
-    "time": "6h 0min",
-    "miles": 190,
-    "highway": "Ferry + M8/M9"
-  },
-  {
-    "from": "Belfast",
-    "to": "Liverpool",
-    "time": "6h 0min",
-    "miles": 210,
-    "highway": "Ferry + M62"
-  },
-  {
-    "from": "Liverpool",
-    "to": "Belfast",
-    "time": "6h 0min",
-    "miles": 210,
-    "highway": "Ferry + M62"
-  },
-  {
     "from": "Aberdeen",
     "to": "Edinburgh",
     "time": "2h 30min",
