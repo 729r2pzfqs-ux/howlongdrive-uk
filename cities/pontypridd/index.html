@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driving Times from Pontypridd - Routes & Distances | HowLongDrive</title>
+    <meta name="description" content="Find driving times from Pontypridd, United Kingdom. Browse 21 routes with distances, drive times, and fuel costs.">
+    <link rel="canonical" href="https://howlongdrive.uk/cities/pontypridd/">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <meta name="theme-color" content="#4B6E93">
+    <meta property="og:title" content="Driving Times from Pontypridd">
+    <meta property="og:description" content="Browse 21 driving routes from Pontypridd with distances, times, and costs.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://howlongdrive.uk/cities/pontypridd/">
+    <style>
+        :root { --primary: #4B6E93; --dark: #2D4356; --green: #22C55E; --muted: #6B7280; --bg: #F9FAFB; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: #1f2937; line-height: 1.6; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 1rem; }
+        header { background: var(--dark); padding: 0.75rem 0; position: sticky; top: 0; z-index: 100; }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; }
+        .logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; color: white; font-weight: 700; font-size: 1.1rem; }
+        .logo img { height: 80px; }
+        nav { display: flex; gap: 1.5rem; }
+        nav a { color: rgba(255,255,255,0.9); text-decoration: none; font-size: 0.95rem; }
+        nav a:hover { color: white; }
+        .ev-badge { background: var(--green); padding: 0.25rem 0.75rem; border-radius: 1rem; color: white !important; font-weight: 600; }
+        .hamburger { display: none; background: none; border: none; color: white; cursor: pointer; padding: 0.5rem; }
+        .close-btn { background: none; border: none; color: white; cursor: pointer; padding: 0.5rem; position: absolute; top: 1rem; right: 1rem; }
+        .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 998; }
+        @media (max-width: 768px) {
+            .hamburger { display: block; }
+            nav { position: fixed; top: 0; right: -280px; width: 280px; height: 100vh; background: var(--dark); flex-direction: column; padding: 4rem 2rem 2rem; z-index: 999; transition: right 0.3s; }
+            nav.open { right: 0; }
+            nav.open + .overlay { display: block; }
+            .close-btn { display: block !important; }
+        }
+        .hero { text-align: center; padding: 3rem 1rem; background: white; border-radius: 1rem; margin: 2rem 0; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .hero h1 { font-size: 2rem; color: var(--dark); display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+        .hero h1 svg { width: 32px; height: 32px; stroke: var(--primary); }
+        .subtitle { color: var(--muted); margin-top: 0.5rem; }
+        .stats { display: flex; justify-content: center; gap: 3rem; margin-top: 1.5rem; }
+        .stat-value { font-size: 2rem; font-weight: 700; color: var(--primary); }
+        .stat-label { font-size: 0.875rem; color: var(--muted); }
+        .routes-grid { display: grid; gap: 0.75rem; }
+        .route-card { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; background: white; border-radius: 0.5rem; text-decoration: none; color: inherit; box-shadow: 0 1px 2px rgba(0,0,0,0.05); transition: box-shadow 0.2s; }
+        .route-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .route-title { font-weight: 600; color: var(--dark); }
+        .route-meta { font-size: 0.875rem; color: var(--muted); margin-top: 0.25rem; }
+        .route-time { font-weight: 700; color: var(--primary); white-space: nowrap; }
+        .ev-link { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 2rem; padding: 0.75rem 1.5rem; background: var(--green); color: white; border-radius: 0.5rem; text-decoration: none; font-weight: 600; }
+        footer { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.875rem; margin-top: 2rem; }
+        footer a { color: var(--primary); text-decoration: none; }
+    </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXC7PNTC4G"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-NXC7PNTC4G");</script></head>
+<body>
+    <header>
+        <div class="container header-inner">
+            <a href="/" class="logo"><img src="/assets/logo-header.png" alt="HowLongDrive"><span>HowLongDrive</span></a>
+            <button class="hamburger" onclick="toggleMenu()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:24px;height:24px"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+            <div class="overlay" onclick="toggleMenu()"></div>
+            <nav id="nav">
+                <button class="close-btn" style="display:none" onclick="toggleMenu()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:24px;height:24px"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+                <a href="/">Home</a>
+                <a href="/routes/">Routes</a>
+                <a href="/cities/">Cities</a>
+                <a href="/ev/" class="ev-badge">EV Trips</a>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <div class="hero">
+            <h1><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 10-16 0c0 3 2.7 7 8 11.7z"/></svg> Pontypridd</h1>
+            <p class="subtitle">United Kingdom</p>
+            <div class="stats">
+                <div class="stat"><div class="stat-value">21</div><div class="stat-label">Destinations</div></div>
+            </div>
+        </div>
+        
+        <h2 style="margin-bottom:1rem">Driving Times from Pontypridd</h2>
+        <div class="routes-grid">
+
+            <a href="/route/pontypridd-to-cardiff/" class="route-card">
+                <div>
+                    <div class="route-title">Cardiff</div>
+                    <div class="route-meta">11 miles</div>
+                </div>
+                <div class="route-time">0h 10min</div>
+            </a>
+            <a href="/route/pontypridd-to-bristol/" class="route-card">
+                <div>
+                    <div class="route-title">Bristol</div>
+                    <div class="route-meta">34 miles</div>
+                </div>
+                <div class="route-time">0h 40min</div>
+            </a>
+            <a href="/route/pontypridd-to-birmingham/" class="route-card">
+                <div>
+                    <div class="route-title">Birmingham</div>
+                    <div class="route-meta">87 miles</div>
+                </div>
+                <div class="route-time">1h 40min</div>
+            </a>
+            <a href="/route/pontypridd-to-southampton/" class="route-card">
+                <div>
+                    <div class="route-title">Southampton</div>
+                    <div class="route-meta">97 miles</div>
+                </div>
+                <div class="route-time">1h 55min</div>
+            </a>
+            <a href="/route/pontypridd-to-leicester/" class="route-card">
+                <div>
+                    <div class="route-title">Leicester</div>
+                    <div class="route-meta">118 miles</div>
+                </div>
+                <div class="route-time">2h 20min</div>
+            </a>
+            <a href="/route/pontypridd-to-liverpool/" class="route-card">
+                <div>
+                    <div class="route-title">Liverpool</div>
+                    <div class="route-meta">126 miles</div>
+                </div>
+                <div class="route-time">2h 30min</div>
+            </a>
+            <a href="/route/pontypridd-to-nottingham/" class="route-card">
+                <div>
+                    <div class="route-title">Nottingham</div>
+                    <div class="route-meta">131 miles</div>
+                </div>
+                <div class="route-time">2h 35min</div>
+            </a>
+            <a href="/route/pontypridd-to-london/" class="route-card">
+                <div>
+                    <div class="route-title">London</div>
+                    <div class="route-meta">138 miles</div>
+                </div>
+                <div class="route-time">2h 45min</div>
+            </a>
+            <a href="/route/pontypridd-to-bath/" class="route-card">
+                <div>
+                    <div class="route-title">Bath</div>
+                    <div class="route-meta">45 miles</div>
+                </div>
+                <div class="route-time">0h 50min</div>
+            </a>
+            <a href="/route/pontypridd-to-swansea/" class="route-card">
+                <div>
+                    <div class="route-title">Swansea</div>
+                    <div class="route-meta">26 miles</div>
+                </div>
+                <div class="route-time">0h 30min</div>
+            </a>
+            <a href="/route/pontypridd-to-gloucester/" class="route-card">
+                <div>
+                    <div class="route-title">Gloucester</div>
+                    <div class="route-meta">51 miles</div>
+                </div>
+                <div class="route-time">1h 0min</div>
+            </a>
+            <a href="/route/pontypridd-to-cheltenham/" class="route-card">
+                <div>
+                    <div class="route-title">Cheltenham</div>
+                    <div class="route-meta">58 miles</div>
+                </div>
+                <div class="route-time">1h 5min</div>
+            </a>
+            <a href="/route/pontypridd-to-hereford/" class="route-card">
+                <div>
+                    <div class="route-title">Hereford</div>
+                    <div class="route-meta">41 miles</div>
+                </div>
+                <div class="route-time">0h 45min</div>
+            </a>
+            <a href="/route/pontypridd-to-taunton/" class="route-card">
+                <div>
+                    <div class="route-title">Taunton</div>
+                    <div class="route-meta">42 miles</div>
+                </div>
+                <div class="route-time">0h 50min</div>
+            </a>
+            <a href="/route/pontypridd-to-barnstaple/" class="route-card">
+                <div>
+                    <div class="route-title">Barnstaple</div>
+                    <div class="route-meta">48 miles</div>
+                </div>
+                <div class="route-time">0h 55min</div>
+            </a>
+            <a href="/route/pontypridd-to-carmarthen/" class="route-card">
+                <div>
+                    <div class="route-title">Carmarthen</div>
+                    <div class="route-meta">45 miles</div>
+                </div>
+                <div class="route-time">0h 50min</div>
+            </a>
+            <a href="/route/pontypridd-to-newport/" class="route-card">
+                <div>
+                    <div class="route-title">Newport</div>
+                    <div class="route-meta">15 miles</div>
+                </div>
+                <div class="route-time">0h 15min</div>
+            </a>
+            <a href="/route/pontypridd-to-cwmbran/" class="route-card">
+                <div>
+                    <div class="route-title">Cwmbran</div>
+                    <div class="route-meta">14 miles</div>
+                </div>
+                <div class="route-time">0h 15min</div>
+            </a>
+            <a href="/route/pontypridd-to-merthyr-tydfil/" class="route-card">
+                <div>
+                    <div class="route-title">Merthyr Tydfil</div>
+                    <div class="route-meta">10 miles</div>
+                </div>
+                <div class="route-time">0h 10min</div>
+            </a>
+            <a href="/route/pontypridd-to-roman-baths/" class="route-card">
+                <div>
+                    <div class="route-title">Roman Baths</div>
+                    <div class="route-meta">45 miles</div>
+                </div>
+                <div class="route-time">0h 50min</div>
+            </a>
+            <a href="/route/pontypridd-to-cardiff-airport/" class="route-card">
+                <div>
+                    <div class="route-title">Cardiff Airport</div>
+                    <div class="route-meta">14 miles</div>
+                </div>
+                <div class="route-time">0h 15min</div>
+            </a>
+        </div>
+        
+        <div style="text-align:center">
+            <a href="/ev/" class="ev-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                View EV Charging Routes
+            </a>
+        </div>
+    </div>
+    <footer><p>© 2026 <a href="/">HowLongDrive.uk</a></p></footer>
+    <script>function toggleMenu(){document.getElementById('nav').classList.toggle('open');}</script>
+</body>
+</html>

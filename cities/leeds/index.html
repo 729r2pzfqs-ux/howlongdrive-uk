@@ -1,53 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Driving Times from Leeds - Routes & Distances | HowLongDrive</title>
-    <meta name="description" content="Find driving times from Leeds, USA to other cities. Browse 16 routes with distances, drive times, and trip costs.">
-    <link rel="canonical" href="https://howlongdrive.uk/city/leeds/">
+    <meta name="description" content="Find driving times from Leeds, West Yorkshire. Browse 114 routes with distances, drive times, and fuel costs.">
+    <link rel="canonical" href="https://howlongdrive.uk/cities/leeds/">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <meta name="theme-color" content="#4B6E93">
     <meta property="og:title" content="Driving Times from Leeds">
-    <meta property="og:description" content="Find driving times from Leeds to other cities">
-    <meta property="og:image" content="https://howlongdrive.uk/assets/og-image.png">
+    <meta property="og:description" content="Browse 114 driving routes from Leeds with distances, times, and costs.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://howlongdrive.uk/cities/leeds/">
     <style>
-        :root { --primary: #4B6E93; --accent: #EFA24F; --bg: #f8fafc; --card: #fff; --text: #1e293b; --muted: #64748b; --border: #e2e8f0; --green: #10B981; }
+        :root { --primary: #4B6E93; --dark: #2D4356; --green: #22C55E; --muted: #6B7280; --bg: #F9FAFB; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: #1f2937; line-height: 1.6; }
         .container { max-width: 1000px; margin: 0 auto; padding: 0 1rem; }
-        header { background: var(--card); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
-        .header-inner { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-weight: 700; font-size: 1.5rem; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 0.75rem; }
-        .logo img { height: 100px; width: auto; }
-        nav { display: flex; align-items: center; gap: 1.5rem; }
-        nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; }
-        .ev-badge { background: var(--green); color: white; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 600; }
-        .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
-        .close-btn { display: none; }
+        header { background: var(--dark); padding: 0.75rem 0; position: sticky; top: 0; z-index: 100; }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; }
+        .logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; color: white; font-weight: 700; font-size: 1.1rem; }
+        .logo img { height: 80px; }
+        nav { display: flex; gap: 1.5rem; }
+        nav a { color: rgba(255,255,255,0.9); text-decoration: none; font-size: 0.95rem; }
+        nav a:hover { color: white; }
+        .ev-badge { background: var(--green); padding: 0.25rem 0.75rem; border-radius: 1rem; color: white !important; font-weight: 600; }
+        .hamburger { display: none; background: none; border: none; color: white; cursor: pointer; padding: 0.5rem; }
+        .close-btn { background: none; border: none; color: white; cursor: pointer; padding: 0.5rem; position: absolute; top: 1rem; right: 1rem; }
+        .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 998; }
         @media (max-width: 768px) {
-            .logo img { height: 60px; } .logo span { display: none; }
-            nav { position: fixed; top: 0; right: -100%; width: 250px; height: 100vh; background: var(--card); flex-direction: column; padding: 5rem 2rem; transition: right 0.3s; z-index: 1000; }
-            nav.active { right: 0; }
-            .hamburger { display: block; z-index: 1001; }
-            .close-btn { display: block; position: absolute; top: 1rem; right: 1rem; background: none; border: none; cursor: pointer; }
-            .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 999; }
-            .overlay.active { display: block; }
+            .hamburger { display: block; }
+            nav { position: fixed; top: 0; right: -280px; width: 280px; height: 100vh; background: var(--dark); flex-direction: column; padding: 4rem 2rem 2rem; z-index: 999; transition: right 0.3s; }
+            nav.open { right: 0; }
+            nav.open + .overlay { display: block; }
+            .close-btn { display: block !important; }
         }
-        .hero { background: var(--card); padding: 2rem; border-radius: 1rem; margin: 1.5rem 0; text-align: center; }
-        h1 { font-size: 2rem; margin-bottom: 0.5rem; display: flex; align-items: center; justify-content: center; gap: 0.75rem; }
-        h1 svg { width: 32px; height: 32px; color: var(--primary); }
-        .subtitle { color: var(--muted); }
-        .stats { display: flex; justify-content: center; gap: 2rem; margin-top: 1.5rem; }
-        .stat { text-align: center; }
-        .stat-value { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+        .hero { text-align: center; padding: 3rem 1rem; background: white; border-radius: 1rem; margin: 2rem 0; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .hero h1 { font-size: 2rem; color: var(--dark); display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+        .hero h1 svg { width: 32px; height: 32px; stroke: var(--primary); }
+        .subtitle { color: var(--muted); margin-top: 0.5rem; }
+        .stats { display: flex; justify-content: center; gap: 3rem; margin-top: 1.5rem; }
+        .stat-value { font-size: 2rem; font-weight: 700; color: var(--primary); }
         .stat-label { font-size: 0.875rem; color: var(--muted); }
-        .routes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
-        .route-card { background: var(--card); border-radius: 0.75rem; padding: 1.25rem; text-decoration: none; color: inherit; border: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
-        .route-card:hover { border-color: var(--primary); }
-        .route-title { font-weight: 600; }
-        .route-meta { color: var(--muted); font-size: 0.875rem; margin-top: 0.25rem; }
-        .route-time { font-weight: 600; color: var(--primary); font-size: 1.1rem; }
+        .routes-grid { display: grid; gap: 0.75rem; }
+        .route-card { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; background: white; border-radius: 0.5rem; text-decoration: none; color: inherit; box-shadow: 0 1px 2px rgba(0,0,0,0.05); transition: box-shadow 0.2s; }
+        .route-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .route-title { font-weight: 600; color: var(--dark); }
+        .route-meta { font-size: 0.875rem; color: var(--muted); margin-top: 0.25rem; }
+        .route-time { font-weight: 700; color: var(--primary); white-space: nowrap; }
         .ev-link { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 2rem; padding: 0.75rem 1.5rem; background: var(--green); color: white; border-radius: 0.5rem; text-decoration: none; font-weight: 600; }
         footer { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.875rem; margin-top: 2rem; }
         footer a { color: var(--primary); text-decoration: none; }
@@ -71,21 +71,42 @@
     <div class="container">
         <div class="hero">
             <h1><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 10-16 0c0 3 2.7 7 8 11.7z"/></svg> Leeds</h1>
-            <p class="subtitle">USA</p>
+            <p class="subtitle">West Yorkshire</p>
             <div class="stats">
-                <div class="stat"><div class="stat-value">16</div><div class="stat-label">Destinations</div></div>
+                <div class="stat"><div class="stat-value">114</div><div class="stat-label">Destinations</div></div>
             </div>
         </div>
         
         <h2 style="margin-bottom:1rem">Driving Times from Leeds</h2>
         <div class="routes-grid">
-            
-            <a href="/route/leeds-to-pudsey/" class="route-card">
+
+            <a href="/route/leeds-to-london/" class="route-card">
                 <div>
-                    <div class="route-title">Pudsey</div>
-                    <div class="route-meta">5 miles</div>
+                    <div class="route-title">London</div>
+                    <div class="route-meta">195 miles</div>
                 </div>
-                <div class="route-time">0h 15min</div>
+                <div class="route-time">3h 45min</div>
+            </a>
+            <a href="/route/leeds-to-manchester/" class="route-card">
+                <div>
+                    <div class="route-title">Manchester</div>
+                    <div class="route-meta">45 miles</div>
+                </div>
+                <div class="route-time">1h 0min</div>
+            </a>
+            <a href="/route/leeds-to-sheffield/" class="route-card">
+                <div>
+                    <div class="route-title">Sheffield</div>
+                    <div class="route-meta">35 miles</div>
+                </div>
+                <div class="route-time">0h 45min</div>
+            </a>
+            <a href="/route/leeds-to-york/" class="route-card">
+                <div>
+                    <div class="route-title">York</div>
+                    <div class="route-meta">25 miles</div>
+                </div>
+                <div class="route-time">0h 30min</div>
             </a>
             <a href="/route/leeds-to-bradford/" class="route-card">
                 <div>
@@ -94,6 +115,34 @@
                 </div>
                 <div class="route-time">0h 25min</div>
             </a>
+            <a href="/route/leeds-to-harrogate/" class="route-card">
+                <div>
+                    <div class="route-title">Harrogate</div>
+                    <div class="route-meta">20 miles</div>
+                </div>
+                <div class="route-time">0h 30min</div>
+            </a>
+            <a href="/route/leeds-to-hull/" class="route-card">
+                <div>
+                    <div class="route-title">Hull</div>
+                    <div class="route-meta">60 miles</div>
+                </div>
+                <div class="route-time">1h 10min</div>
+            </a>
+            <a href="/route/leeds-to-newcastle/" class="route-card">
+                <div>
+                    <div class="route-title">Newcastle</div>
+                    <div class="route-meta">95 miles</div>
+                </div>
+                <div class="route-time">1h 45min</div>
+            </a>
+            <a href="/route/leeds-to-middlesbrough/" class="route-card">
+                <div>
+                    <div class="route-title">Middlesbrough</div>
+                    <div class="route-meta">60 miles</div>
+                </div>
+                <div class="route-time">1h 15min</div>
+            </a>
             <a href="/route/leeds-to-wakefield/" class="route-card">
                 <div>
                     <div class="route-title">Wakefield</div>
@@ -101,12 +150,33 @@
                 </div>
                 <div class="route-time">0h 20min</div>
             </a>
+            <a href="/route/leeds-to-huddersfield/" class="route-card">
+                <div>
+                    <div class="route-title">Huddersfield</div>
+                    <div class="route-meta">18 miles</div>
+                </div>
+                <div class="route-time">0h 30min</div>
+            </a>
+            <a href="/route/leeds-to-halifax/" class="route-card">
+                <div>
+                    <div class="route-title">Halifax</div>
+                    <div class="route-meta">15 miles</div>
+                </div>
+                <div class="route-time">0h 30min</div>
+            </a>
             <a href="/route/leeds-to-dewsbury/" class="route-card">
                 <div>
                     <div class="route-title">Dewsbury</div>
                     <div class="route-meta">10 miles</div>
                 </div>
                 <div class="route-time">0h 20min</div>
+            </a>
+            <a href="/route/leeds-to-pudsey/" class="route-card">
+                <div>
+                    <div class="route-title">Pudsey</div>
+                    <div class="route-meta">5 miles</div>
+                </div>
+                <div class="route-time">0h 15min</div>
             </a>
             <a href="/route/leeds-to-otley/" class="route-card">
                 <div>
@@ -122,83 +192,702 @@
                 </div>
                 <div class="route-time">0h 25min</div>
             </a>
-            <a href="/route/leeds-to-halifax/" class="route-card">
+            <a href="/route/leeds-to-bradford/" class="route-card">
                 <div>
-                    <div class="route-title">Halifax</div>
-                    <div class="route-meta">15 miles</div>
+                    <div class="route-title">Bradford</div>
+                    <div class="route-meta">10 miles</div>
                 </div>
-                <div class="route-time">0h 30min</div>
+                <div class="route-time">0h 25min</div>
             </a>
-            <a href="/route/leeds-to-huddersfield/" class="route-card">
+            <a href="/route/leeds-to-leeds-bradford-airport/" class="route-card">
                 <div>
-                    <div class="route-title">Huddersfield</div>
-                    <div class="route-meta">18 miles</div>
+                    <div class="route-title">Leeds Bradford Airport</div>
+                    <div class="route-meta">10 miles</div>
                 </div>
-                <div class="route-time">0h 30min</div>
+                <div class="route-time">0h 20min</div>
             </a>
-            <a href="/route/leeds-to-harrogate/" class="route-card">
+            <a href="/route/leeds-to-nottingham/" class="route-card">
                 <div>
-                    <div class="route-title">Harrogate</div>
-                    <div class="route-meta">20 miles</div>
+                    <div class="route-title">Nottingham</div>
+                    <div class="route-meta">61 miles</div>
                 </div>
-                <div class="route-time">0h 30min</div>
+                <div class="route-time">1h 10min</div>
             </a>
-            <a href="/route/leeds-to-york/" class="route-card">
+            <a href="/route/leeds-to-liverpool/" class="route-card">
                 <div>
-                    <div class="route-title">York</div>
-                    <div class="route-meta">25 miles</div>
+                    <div class="route-title">Liverpool</div>
+                    <div class="route-meta">65 miles</div>
                 </div>
-                <div class="route-time">0h 30min</div>
+                <div class="route-time">1h 15min</div>
             </a>
-            <a href="/route/leeds-to-sheffield/" class="route-card">
+            <a href="/route/leeds-to-leicester/" class="route-card">
                 <div>
-                    <div class="route-title">Sheffield</div>
-                    <div class="route-meta">35 miles</div>
+                    <div class="route-title">Leicester</div>
+                    <div class="route-meta">82 miles</div>
+                </div>
+                <div class="route-time">1h 35min</div>
+            </a>
+            <a href="/route/leeds-to-birmingham/" class="route-card">
+                <div>
+                    <div class="route-title">Birmingham</div>
+                    <div class="route-meta">92 miles</div>
+                </div>
+                <div class="route-time">1h 50min</div>
+            </a>
+            <a href="/route/leeds-to-edinburgh/" class="route-card">
+                <div>
+                    <div class="route-title">Edinburgh</div>
+                    <div class="route-meta">162 miles</div>
+                </div>
+                <div class="route-time">3h 10min</div>
+            </a>
+            <a href="/route/leeds-to-glasgow/" class="route-card">
+                <div>
+                    <div class="route-title">Glasgow</div>
+                    <div class="route-meta">179 miles</div>
+                </div>
+                <div class="route-time">3h 30min</div>
+            </a>
+            <a href="/route/leeds-to-cambridge/" class="route-card">
+                <div>
+                    <div class="route-title">Cambridge</div>
+                    <div class="route-meta">130 miles</div>
+                </div>
+                <div class="route-time">2h 35min</div>
+            </a>
+            <a href="/route/leeds-to-aberdeen/" class="route-card">
+                <div>
+                    <div class="route-title">Aberdeen</div>
+                    <div class="route-meta">232 miles</div>
+                </div>
+                <div class="route-time">4h 35min</div>
+            </a>
+            <a href="/route/leeds-to-dundee/" class="route-card">
+                <div>
+                    <div class="route-title">Dundee</div>
+                    <div class="route-meta">192 miles</div>
+                </div>
+                <div class="route-time">3h 50min</div>
+            </a>
+            <a href="/route/leeds-to-inverness/" class="route-card">
+                <div>
+                    <div class="route-title">Inverness</div>
+                    <div class="route-meta">275 miles</div>
+                </div>
+                <div class="route-time">5h 30min</div>
+            </a>
+            <a href="/route/leeds-to-belfast/" class="route-card">
+                <div>
+                    <div class="route-title">Belfast</div>
+                    <div class="route-meta">185 miles</div>
+                </div>
+                <div class="route-time">3h 40min</div>
+            </a>
+            <a href="/route/leeds-to-wolverhampton/" class="route-card">
+                <div>
+                    <div class="route-title">Wolverhampton</div>
+                    <div class="route-meta">87 miles</div>
+                </div>
+                <div class="route-time">1h 40min</div>
+            </a>
+            <a href="/route/leeds-to-stoke-on-trent/" class="route-card">
+                <div>
+                    <div class="route-title">Stoke-on-Trent</div>
+                    <div class="route-meta">61 miles</div>
+                </div>
+                <div class="route-time">1h 10min</div>
+            </a>
+            <a href="/route/leeds-to-derby/" class="route-card">
+                <div>
+                    <div class="route-title">Derby</div>
+                    <div class="route-meta">61 miles</div>
+                </div>
+                <div class="route-time">1h 10min</div>
+            </a>
+            <a href="/route/leeds-to-norwich/" class="route-card">
+                <div>
+                    <div class="route-title">Norwich</div>
+                    <div class="route-meta">143 miles</div>
+                </div>
+                <div class="route-time">2h 50min</div>
+            </a>
+            <a href="/route/leeds-to-ipswich/" class="route-card">
+                <div>
+                    <div class="route-title">Ipswich</div>
+                    <div class="route-meta">165 miles</div>
+                </div>
+                <div class="route-time">3h 15min</div>
+            </a>
+            <a href="/route/leeds-to-peterborough/" class="route-card">
+                <div>
+                    <div class="route-title">Peterborough</div>
+                    <div class="route-meta">101 miles</div>
+                </div>
+                <div class="route-time">2h 0min</div>
+            </a>
+            <a href="/route/leeds-to-blackpool/" class="route-card">
+                <div>
+                    <div class="route-title">Blackpool</div>
+                    <div class="route-meta">61 miles</div>
+                </div>
+                <div class="route-time">1h 10min</div>
+            </a>
+            <a href="/route/leeds-to-bolton/" class="route-card">
+                <div>
+                    <div class="route-title">Bolton</div>
+                    <div class="route-meta">39 miles</div>
                 </div>
                 <div class="route-time">0h 45min</div>
             </a>
-            <a href="/route/leeds-to-manchester/" class="route-card">
+            <a href="/route/leeds-to-preston/" class="route-card">
                 <div>
-                    <div class="route-title">Manchester</div>
-                    <div class="route-meta">45 miles</div>
+                    <div class="route-title">Preston</div>
+                    <div class="route-meta">47 miles</div>
+                </div>
+                <div class="route-time">0h 55min</div>
+            </a>
+            <a href="/route/leeds-to-doncaster/" class="route-card">
+                <div>
+                    <div class="route-title">Doncaster</div>
+                    <div class="route-meta">26 miles</div>
+                </div>
+                <div class="route-time">0h 30min</div>
+            </a>
+            <a href="/route/leeds-to-wigan/" class="route-card">
+                <div>
+                    <div class="route-title">Wigan</div>
+                    <div class="route-meta">48 miles</div>
+                </div>
+                <div class="route-time">0h 55min</div>
+            </a>
+            <a href="/route/leeds-to-rochdale/" class="route-card">
+                <div>
+                    <div class="route-title">Rochdale</div>
+                    <div class="route-meta">28 miles</div>
+                </div>
+                <div class="route-time">0h 30min</div>
+            </a>
+            <a href="/route/leeds-to-barnsley/" class="route-card">
+                <div>
+                    <div class="route-title">Barnsley</div>
+                    <div class="route-meta">17 miles</div>
+                </div>
+                <div class="route-time">0h 20min</div>
+            </a>
+            <a href="/route/leeds-to-rotherham/" class="route-card">
+                <div>
+                    <div class="route-title">Rotherham</div>
+                    <div class="route-meta">27 miles</div>
+                </div>
+                <div class="route-time">0h 30min</div>
+            </a>
+            <a href="/route/leeds-to-lincoln/" class="route-card">
+                <div>
+                    <div class="route-title">Lincoln</div>
+                    <div class="route-meta">57 miles</div>
+                </div>
+                <div class="route-time">1h 5min</div>
+            </a>
+            <a href="/route/leeds-to-chester/" class="route-card">
+                <div>
+                    <div class="route-title">Chester</div>
+                    <div class="route-meta">69 miles</div>
+                </div>
+                <div class="route-time">1h 20min</div>
+            </a>
+            <a href="/route/leeds-to-telford/" class="route-card">
+                <div>
+                    <div class="route-title">Telford</div>
+                    <div class="route-meta">86 miles</div>
+                </div>
+                <div class="route-time">1h 40min</div>
+            </a>
+            <a href="/route/leeds-to-colchester/" class="route-card">
+                <div>
+                    <div class="route-title">Colchester</div>
+                    <div class="route-meta">167 miles</div>
+                </div>
+                <div class="route-time">3h 20min</div>
+            </a>
+            <a href="/route/leeds-to-carlisle/" class="route-card">
+                <div>
+                    <div class="route-title">Carlisle</div>
+                    <div class="route-meta">94 miles</div>
+                </div>
+                <div class="route-time">1h 50min</div>
+            </a>
+            <a href="/route/leeds-to-lancaster/" class="route-card">
+                <div>
+                    <div class="route-title">Lancaster</div>
+                    <div class="route-meta">54 miles</div>
                 </div>
                 <div class="route-time">1h 0min</div>
             </a>
-            <a href="/route/leeds-to-hull/" class="route-card">
+            <a href="/route/leeds-to-blackburn/" class="route-card">
                 <div>
-                    <div class="route-title">Hull</div>
+                    <div class="route-title">Blackburn</div>
+                    <div class="route-meta">38 miles</div>
+                </div>
+                <div class="route-time">0h 45min</div>
+            </a>
+            <a href="/route/leeds-to-burnley/" class="route-card">
+                <div>
+                    <div class="route-title">Burnley</div>
+                    <div class="route-meta">29 miles</div>
+                </div>
+                <div class="route-time">0h 30min</div>
+            </a>
+            <a href="/route/leeds-to-oldham/" class="route-card">
+                <div>
+                    <div class="route-title">Oldham</div>
+                    <div class="route-meta">29 miles</div>
+                </div>
+                <div class="route-time">0h 30min</div>
+            </a>
+            <a href="/route/leeds-to-stockport/" class="route-card">
+                <div>
+                    <div class="route-title">Stockport</div>
+                    <div class="route-meta">37 miles</div>
+                </div>
+                <div class="route-time">0h 40min</div>
+            </a>
+            <a href="/route/leeds-to-warrington/" class="route-card">
+                <div>
+                    <div class="route-title">Warrington</div>
+                    <div class="route-meta">52 miles</div>
+                </div>
+                <div class="route-time">1h 0min</div>
+            </a>
+            <a href="/route/leeds-to-st-helens/" class="route-card">
+                <div>
+                    <div class="route-title">St Helens</div>
+                    <div class="route-meta">54 miles</div>
+                </div>
+                <div class="route-time">1h 0min</div>
+            </a>
+            <a href="/route/leeds-to-birkenhead/" class="route-card">
+                <div>
+                    <div class="route-title">Birkenhead</div>
+                    <div class="route-meta">66 miles</div>
+                </div>
+                <div class="route-time">1h 15min</div>
+            </a>
+            <a href="/route/leeds-to-walsall/" class="route-card">
+                <div>
+                    <div class="route-title">Walsall</div>
+                    <div class="route-meta">86 miles</div>
+                </div>
+                <div class="route-time">1h 40min</div>
+            </a>
+            <a href="/route/leeds-to-sutton-coldfield/" class="route-card">
+                <div>
+                    <div class="route-title">Sutton Coldfield</div>
+                    <div class="route-meta">86 miles</div>
+                </div>
+                <div class="route-time">1h 40min</div>
+            </a>
+            <a href="/route/leeds-to-tamworth/" class="route-card">
+                <div>
+                    <div class="route-title">Tamworth</div>
+                    <div class="route-meta">81 miles</div>
+                </div>
+                <div class="route-time">1h 35min</div>
+            </a>
+            <a href="/route/leeds-to-nuneaton/" class="route-card">
+                <div>
+                    <div class="route-title">Nuneaton</div>
+                    <div class="route-meta">88 miles</div>
+                </div>
+                <div class="route-time">1h 45min</div>
+            </a>
+            <a href="/route/leeds-to-rugby/" class="route-card">
+                <div>
+                    <div class="route-title">Rugby</div>
+                    <div class="route-meta">100 miles</div>
+                </div>
+                <div class="route-time">2h 0min</div>
+            </a>
+            <a href="/route/leeds-to-loughborough/" class="route-card">
+                <div>
+                    <div class="route-title">Loughborough</div>
+                    <div class="route-meta">72 miles</div>
+                </div>
+                <div class="route-time">1h 25min</div>
+            </a>
+            <a href="/route/leeds-to-chesterfield/" class="route-card">
+                <div>
+                    <div class="route-title">Chesterfield</div>
+                    <div class="route-meta">39 miles</div>
+                </div>
+                <div class="route-time">0h 45min</div>
+            </a>
+            <a href="/route/leeds-to-mansfield/" class="route-card">
+                <div>
+                    <div class="route-title">Mansfield</div>
+                    <div class="route-meta">47 miles</div>
+                </div>
+                <div class="route-time">0h 55min</div>
+            </a>
+            <a href="/route/leeds-to-newark/" class="route-card">
+                <div>
+                    <div class="route-title">Newark</div>
+                    <div class="route-meta">59 miles</div>
+                </div>
+                <div class="route-time">1h 10min</div>
+            </a>
+            <a href="/route/leeds-to-grantham/" class="route-card">
+                <div>
+                    <div class="route-title">Grantham</div>
+                    <div class="route-meta">72 miles</div>
+                </div>
+                <div class="route-time">1h 25min</div>
+            </a>
+            <a href="/route/leeds-to-boston/" class="route-card">
+                <div>
+                    <div class="route-title">Boston</div>
+                    <div class="route-meta">85 miles</div>
+                </div>
+                <div class="route-time">1h 40min</div>
+            </a>
+            <a href="/route/leeds-to-skegness/" class="route-card">
+                <div>
+                    <div class="route-title">Skegness</div>
+                    <div class="route-meta">90 miles</div>
+                </div>
+                <div class="route-time">1h 45min</div>
+            </a>
+            <a href="/route/leeds-to-grimsby/" class="route-card">
+                <div>
+                    <div class="route-title">Grimsby</div>
+                    <div class="route-meta">62 miles</div>
+                </div>
+                <div class="route-time">1h 10min</div>
+            </a>
+            <a href="/route/leeds-to-scunthorpe/" class="route-card">
+                <div>
+                    <div class="route-title">Scunthorpe</div>
+                    <div class="route-meta">40 miles</div>
+                </div>
+                <div class="route-time">0h 45min</div>
+            </a>
+            <a href="/route/leeds-to-scarborough/" class="route-card">
+                <div>
+                    <div class="route-title">Scarborough</div>
+                    <div class="route-meta">57 miles</div>
+                </div>
+                <div class="route-time">1h 5min</div>
+            </a>
+            <a href="/route/leeds-to-whitby/" class="route-card">
+                <div>
+                    <div class="route-title">Whitby</div>
                     <div class="route-meta">60 miles</div>
                 </div>
                 <div class="route-time">1h 10min</div>
             </a>
-            <a href="/route/leeds-to-middlesbrough/" class="route-card">
+            <a href="/route/leeds-to-darlington/" class="route-card">
                 <div>
-                    <div class="route-title">Middlesbrough</div>
-                    <div class="route-meta">60 miles</div>
+                    <div class="route-title">Darlington</div>
+                    <div class="route-meta">50 miles</div>
+                </div>
+                <div class="route-time">1h 0min</div>
+            </a>
+            <a href="/route/leeds-to-durham/" class="route-card">
+                <div>
+                    <div class="route-title">Durham</div>
+                    <div class="route-meta">67 miles</div>
+                </div>
+                <div class="route-time">1h 20min</div>
+            </a>
+            <a href="/route/leeds-to-sunderland/" class="route-card">
+                <div>
+                    <div class="route-title">Sunderland</div>
+                    <div class="route-meta">77 miles</div>
+                </div>
+                <div class="route-time">1h 30min</div>
+            </a>
+            <a href="/route/leeds-to-hartlepool/" class="route-card">
+                <div>
+                    <div class="route-title">Hartlepool</div>
+                    <div class="route-meta">63 miles</div>
                 </div>
                 <div class="route-time">1h 15min</div>
             </a>
-            <a href="/route/leeds-to-newcastle/" class="route-card">
+            <a href="/route/leeds-to-stockton/" class="route-card">
                 <div>
-                    <div class="route-title">Newcastle</div>
-                    <div class="route-meta">95 miles</div>
+                    <div class="route-title">Stockton</div>
+                    <div class="route-meta">54 miles</div>
+                </div>
+                <div class="route-time">1h 0min</div>
+            </a>
+            <a href="/route/leeds-to-gateshead/" class="route-card">
+                <div>
+                    <div class="route-title">Gateshead</div>
+                    <div class="route-meta">80 miles</div>
+                </div>
+                <div class="route-time">1h 35min</div>
+            </a>
+            <a href="/route/leeds-to-south-shields/" class="route-card">
+                <div>
+                    <div class="route-title">South Shields</div>
+                    <div class="route-meta">83 miles</div>
+                </div>
+                <div class="route-time">1h 35min</div>
+            </a>
+            <a href="/route/leeds-to-stirling/" class="route-card">
+                <div>
+                    <div class="route-title">Stirling</div>
+                    <div class="route-meta">186 miles</div>
+                </div>
+                <div class="route-time">3h 40min</div>
+            </a>
+            <a href="/route/leeds-to-perth/" class="route-card">
+                <div>
+                    <div class="route-title">Perth</div>
+                    <div class="route-meta">194 miles</div>
+                </div>
+                <div class="route-time">3h 50min</div>
+            </a>
+            <a href="/route/leeds-to-dumfries/" class="route-card">
+                <div>
+                    <div class="route-title">Dumfries</div>
+                    <div class="route-meta">121 miles</div>
+                </div>
+                <div class="route-time">2h 25min</div>
+            </a>
+            <a href="/route/leeds-to-ayr/" class="route-card">
+                <div>
+                    <div class="route-title">Ayr</div>
+                    <div class="route-meta">168 miles</div>
+                </div>
+                <div class="route-time">3h 20min</div>
+            </a>
+            <a href="/route/leeds-to-kilmarnock/" class="route-card">
+                <div>
+                    <div class="route-title">Kilmarnock</div>
+                    <div class="route-meta">172 miles</div>
+                </div>
+                <div class="route-time">3h 25min</div>
+            </a>
+            <a href="/route/leeds-to-paisley/" class="route-card">
+                <div>
+                    <div class="route-title">Paisley</div>
+                    <div class="route-meta">182 miles</div>
+                </div>
+                <div class="route-time">3h 35min</div>
+            </a>
+            <a href="/route/leeds-to-east-kilbride/" class="route-card">
+                <div>
+                    <div class="route-title">East Kilbride</div>
+                    <div class="route-meta">171 miles</div>
+                </div>
+                <div class="route-time">3h 25min</div>
+            </a>
+            <a href="/route/leeds-to-livingston/" class="route-card">
+                <div>
+                    <div class="route-title">Livingston</div>
+                    <div class="route-meta">164 miles</div>
+                </div>
+                <div class="route-time">3h 15min</div>
+            </a>
+            <a href="/route/leeds-to-dunfermline/" class="route-card">
+                <div>
+                    <div class="route-title">Dunfermline</div>
+                    <div class="route-meta">174 miles</div>
+                </div>
+                <div class="route-time">3h 25min</div>
+            </a>
+            <a href="/route/leeds-to-kirkcaldy/" class="route-card">
+                <div>
+                    <div class="route-title">Kirkcaldy</div>
+                    <div class="route-meta">172 miles</div>
+                </div>
+                <div class="route-time">3h 25min</div>
+            </a>
+            <a href="/route/leeds-to-falkirk/" class="route-card">
+                <div>
+                    <div class="route-title">Falkirk</div>
+                    <div class="route-meta">176 miles</div>
+                </div>
+                <div class="route-time">3h 30min</div>
+            </a>
+            <a href="/route/leeds-to-motherwell/" class="route-card">
+                <div>
+                    <div class="route-title">Motherwell</div>
+                    <div class="route-meta">168 miles</div>
+                </div>
+                <div class="route-time">3h 20min</div>
+            </a>
+            <a href="/route/leeds-to-hamilton/" class="route-card">
+                <div>
+                    <div class="route-title">Hamilton</div>
+                    <div class="route-meta">169 miles</div>
+                </div>
+                <div class="route-time">3h 20min</div>
+            </a>
+            <a href="/route/leeds-to-wrexham/" class="route-card">
+                <div>
+                    <div class="route-title">Wrexham</div>
+                    <div class="route-meta">79 miles</div>
+                </div>
+                <div class="route-time">1h 30min</div>
+            </a>
+            <a href="/route/leeds-to-llandudno/" class="route-card">
+                <div>
+                    <div class="route-title">Llandudno</div>
+                    <div class="route-meta">99 miles</div>
+                </div>
+                <div class="route-time">1h 55min</div>
+            </a>
+            <a href="/route/leeds-to-bangor/" class="route-card">
+                <div>
+                    <div class="route-title">Bangor</div>
+                    <div class="route-meta">113 miles</div>
+                </div>
+                <div class="route-time">2h 15min</div>
+            </a>
+            <a href="/route/leeds-to-lake-district/" class="route-card">
+                <div>
+                    <div class="route-title">Lake District</div>
+                    <div class="route-meta">77 miles</div>
+                </div>
+                <div class="route-time">1h 30min</div>
+            </a>
+            <a href="/route/leeds-to-peak-district/" class="route-card">
+                <div>
+                    <div class="route-title">Peak District</div>
+                    <div class="route-meta">33 miles</div>
+                </div>
+                <div class="route-time">0h 35min</div>
+            </a>
+            <a href="/route/leeds-to-snowdonia/" class="route-card">
+                <div>
+                    <div class="route-title">Snowdonia</div>
+                    <div class="route-meta">114 miles</div>
+                </div>
+                <div class="route-time">2h 15min</div>
+            </a>
+            <a href="/route/leeds-to-alton-towers/" class="route-card">
+                <div>
+                    <div class="route-title">Alton Towers</div>
+                    <div class="route-meta">58 miles</div>
+                </div>
+                <div class="route-time">1h 5min</div>
+            </a>
+            <a href="/route/leeds-to-chatsworth-house/" class="route-card">
+                <div>
+                    <div class="route-title">Chatsworth House</div>
+                    <div class="route-meta">40 miles</div>
+                </div>
+                <div class="route-time">0h 45min</div>
+            </a>
+            <a href="/route/leeds-to-hadrians-wall/" class="route-card">
+                <div>
+                    <div class="route-title">Hadrian's Wall</div>
+                    <div class="route-meta">89 miles</div>
                 </div>
                 <div class="route-time">1h 45min</div>
             </a>
-            <a href="/route/leeds-to-london/" class="route-card">
+            <a href="/route/leeds-to-york-minster/" class="route-card">
                 <div>
-                    <div class="route-title">London</div>
-                    <div class="route-meta">195 miles</div>
+                    <div class="route-title">York Minster</div>
+                    <div class="route-meta">22 miles</div>
                 </div>
-                <div class="route-time">3h 45min</div>
+                <div class="route-time">0h 25min</div>
+            </a>
+            <a href="/route/leeds-to-loch-ness/" class="route-card">
+                <div>
+                    <div class="route-title">Loch Ness</div>
+                    <div class="route-meta">268 miles</div>
+                </div>
+                <div class="route-time">5h 20min</div>
+            </a>
+            <a href="/route/leeds-to-isle-of-skye/" class="route-card">
+                <div>
+                    <div class="route-title">Isle of Skye</div>
+                    <div class="route-meta">301 miles</div>
+                </div>
+                <div class="route-time">6h 0min</div>
+            </a>
+            <a href="/route/leeds-to-giants-causeway/" class="route-card">
+                <div>
+                    <div class="route-title">Giant's Causeway</div>
+                    <div class="route-meta">222 miles</div>
+                </div>
+                <div class="route-time">4h 25min</div>
+            </a>
+            <a href="/route/leeds-to-titanic-belfast/" class="route-card">
+                <div>
+                    <div class="route-title">Titanic Belfast</div>
+                    <div class="route-meta">185 miles</div>
+                </div>
+                <div class="route-time">3h 40min</div>
+            </a>
+            <a href="/route/leeds-to-scottish-highlands/" class="route-card">
+                <div>
+                    <div class="route-title">Scottish Highlands</div>
+                    <div class="route-meta">261 miles</div>
+                </div>
+                <div class="route-time">5h 10min</div>
+            </a>
+            <a href="/route/leeds-to-blackpool-tower/" class="route-card">
+                <div>
+                    <div class="route-title">Blackpool Tower</div>
+                    <div class="route-meta">61 miles</div>
+                </div>
+                <div class="route-time">1h 10min</div>
+            </a>
+            <a href="/route/leeds-to-east-midlands-airport/" class="route-card">
+                <div>
+                    <div class="route-title">East Midlands Airport</div>
+                    <div class="route-meta">68 miles</div>
+                </div>
+                <div class="route-time">1h 20min</div>
+            </a>
+            <a href="/route/leeds-to-doncaster-sheffield-airport/" class="route-card">
+                <div>
+                    <div class="route-title">Doncaster Sheffield Airport</div>
+                    <div class="route-meta">32 miles</div>
+                </div>
+                <div class="route-time">0h 35min</div>
+            </a>
+            <a href="/route/leeds-to-aberdeen-airport/" class="route-card">
+                <div>
+                    <div class="route-title">Aberdeen Airport</div>
+                    <div class="route-meta">236 miles</div>
+                </div>
+                <div class="route-time">4h 40min</div>
+            </a>
+            <a href="/route/leeds-to-inverness-airport/" class="route-card">
+                <div>
+                    <div class="route-title">Inverness Airport</div>
+                    <div class="route-meta">276 miles</div>
+                </div>
+                <div class="route-time">5h 30min</div>
+            </a>
+            <a href="/route/leeds-to-belfast-international/" class="route-card">
+                <div>
+                    <div class="route-title">Belfast International</div>
+                    <div class="route-meta">198 miles</div>
+                </div>
+                <div class="route-time">3h 55min</div>
+            </a>
+            <a href="/route/leeds-to-belfast-city-airport/" class="route-card">
+                <div>
+                    <div class="route-title">Belfast City Airport</div>
+                    <div class="route-meta">184 miles</div>
+                </div>
+                <div class="route-time">3h 40min</div>
             </a>
         </div>
         
         <div style="text-align:center">
-            <a href="/ev/" class="ev-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> Plan EV Trip from Leeds</a>
+            <a href="/ev/" class="ev-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                View EV Charging Routes
+            </a>
         </div>
     </div>
     <footer><p>© 2026 <a href="/">HowLongDrive.uk</a></p></footer>
-    <script>function toggleMenu(){document.getElementById('nav').classList.toggle('active');document.querySelector('.overlay').classList.toggle('active');}</script>
+    <script>function toggleMenu(){document.getElementById('nav').classList.toggle('open');}</script>
 </body>
 </html>

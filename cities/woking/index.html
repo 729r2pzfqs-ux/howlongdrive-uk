@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driving Times from Woking - Routes & Distances | HowLongDrive</title>
+    <meta name="description" content="Find driving times from Woking, United Kingdom. Browse 47 routes with distances, drive times, and fuel costs.">
+    <link rel="canonical" href="https://howlongdrive.uk/cities/woking/">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <meta name="theme-color" content="#4B6E93">
+    <meta property="og:title" content="Driving Times from Woking">
+    <meta property="og:description" content="Browse 47 driving routes from Woking with distances, times, and costs.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://howlongdrive.uk/cities/woking/">
+    <style>
+        :root { --primary: #4B6E93; --dark: #2D4356; --green: #22C55E; --muted: #6B7280; --bg: #F9FAFB; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: #1f2937; line-height: 1.6; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 1rem; }
+        header { background: var(--dark); padding: 0.75rem 0; position: sticky; top: 0; z-index: 100; }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; }
+        .logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; color: white; font-weight: 700; font-size: 1.1rem; }
+        .logo img { height: 80px; }
+        nav { display: flex; gap: 1.5rem; }
+        nav a { color: rgba(255,255,255,0.9); text-decoration: none; font-size: 0.95rem; }
+        nav a:hover { color: white; }
+        .ev-badge { background: var(--green); padding: 0.25rem 0.75rem; border-radius: 1rem; color: white !important; font-weight: 600; }
+        .hamburger { display: none; background: none; border: none; color: white; cursor: pointer; padding: 0.5rem; }
+        .close-btn { background: none; border: none; color: white; cursor: pointer; padding: 0.5rem; position: absolute; top: 1rem; right: 1rem; }
+        .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 998; }
+        @media (max-width: 768px) {
+            .hamburger { display: block; }
+            nav { position: fixed; top: 0; right: -280px; width: 280px; height: 100vh; background: var(--dark); flex-direction: column; padding: 4rem 2rem 2rem; z-index: 999; transition: right 0.3s; }
+            nav.open { right: 0; }
+            nav.open + .overlay { display: block; }
+            .close-btn { display: block !important; }
+        }
+        .hero { text-align: center; padding: 3rem 1rem; background: white; border-radius: 1rem; margin: 2rem 0; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .hero h1 { font-size: 2rem; color: var(--dark); display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+        .hero h1 svg { width: 32px; height: 32px; stroke: var(--primary); }
+        .subtitle { color: var(--muted); margin-top: 0.5rem; }
+        .stats { display: flex; justify-content: center; gap: 3rem; margin-top: 1.5rem; }
+        .stat-value { font-size: 2rem; font-weight: 700; color: var(--primary); }
+        .stat-label { font-size: 0.875rem; color: var(--muted); }
+        .routes-grid { display: grid; gap: 0.75rem; }
+        .route-card { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; background: white; border-radius: 0.5rem; text-decoration: none; color: inherit; box-shadow: 0 1px 2px rgba(0,0,0,0.05); transition: box-shadow 0.2s; }
+        .route-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .route-title { font-weight: 600; color: var(--dark); }
+        .route-meta { font-size: 0.875rem; color: var(--muted); margin-top: 0.25rem; }
+        .route-time { font-weight: 700; color: var(--primary); white-space: nowrap; }
+        .ev-link { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 2rem; padding: 0.75rem 1.5rem; background: var(--green); color: white; border-radius: 0.5rem; text-decoration: none; font-weight: 600; }
+        footer { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.875rem; margin-top: 2rem; }
+        footer a { color: var(--primary); text-decoration: none; }
+    </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXC7PNTC4G"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-NXC7PNTC4G");</script></head>
+<body>
+    <header>
+        <div class="container header-inner">
+            <a href="/" class="logo"><img src="/assets/logo-header.png" alt="HowLongDrive"><span>HowLongDrive</span></a>
+            <button class="hamburger" onclick="toggleMenu()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:24px;height:24px"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+            <div class="overlay" onclick="toggleMenu()"></div>
+            <nav id="nav">
+                <button class="close-btn" style="display:none" onclick="toggleMenu()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:24px;height:24px"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+                <a href="/">Home</a>
+                <a href="/routes/">Routes</a>
+                <a href="/cities/">Cities</a>
+                <a href="/ev/" class="ev-badge">EV Trips</a>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <div class="hero">
+            <h1><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 10-16 0c0 3 2.7 7 8 11.7z"/></svg> Woking</h1>
+            <p class="subtitle">United Kingdom</p>
+            <div class="stats">
+                <div class="stat"><div class="stat-value">47</div><div class="stat-label">Destinations</div></div>
+            </div>
+        </div>
+        
+        <h2 style="margin-bottom:1rem">Driving Times from Woking</h2>
+        <div class="routes-grid">
+
+            <a href="/route/woking-to-london/" class="route-card">
+                <div>
+                    <div class="route-title">London</div>
+                    <div class="route-meta">25 miles</div>
+                </div>
+                <div class="route-time">0h 40min</div>
+            </a>
+            <a href="/route/woking-to-southampton/" class="route-card">
+                <div>
+                    <div class="route-title">Southampton</div>
+                    <div class="route-meta">46 miles</div>
+                </div>
+                <div class="route-time">0h 55min</div>
+            </a>
+            <a href="/route/woking-to-bristol/" class="route-card">
+                <div>
+                    <div class="route-title">Bristol</div>
+                    <div class="route-meta">88 miles</div>
+                </div>
+                <div class="route-time">1h 45min</div>
+            </a>
+            <a href="/route/woking-to-leicester/" class="route-card">
+                <div>
+                    <div class="route-title">Leicester</div>
+                    <div class="route-meta">94 miles</div>
+                </div>
+                <div class="route-time">1h 50min</div>
+            </a>
+            <a href="/route/woking-to-birmingham/" class="route-card">
+                <div>
+                    <div class="route-title">Birmingham</div>
+                    <div class="route-meta">99 miles</div>
+                </div>
+                <div class="route-time">1h 55min</div>
+            </a>
+            <a href="/route/woking-to-cardiff/" class="route-card">
+                <div>
+                    <div class="route-title">Cardiff</div>
+                    <div class="route-meta">113 miles</div>
+                </div>
+                <div class="route-time">2h 15min</div>
+            </a>
+            <a href="/route/woking-to-nottingham/" class="route-card">
+                <div>
+                    <div class="route-title">Nottingham</div>
+                    <div class="route-meta">116 miles</div>
+                </div>
+                <div class="route-time">2h 15min</div>
+            </a>
+            <a href="/route/woking-to-sheffield/" class="route-card">
+                <div>
+                    <div class="route-title">Sheffield</div>
+                    <div class="route-meta">148 miles</div>
+                </div>
+                <div class="route-time">2h 55min</div>
+            </a>
+            <a href="/route/woking-to-portsmouth/" class="route-card">
+                <div>
+                    <div class="route-title">Portsmouth</div>
+                    <div class="route-meta">41 miles</div>
+                </div>
+                <div class="route-time">0h 45min</div>
+            </a>
+            <a href="/route/woking-to-brighton/" class="route-card">
+                <div>
+                    <div class="route-title">Brighton</div>
+                    <div class="route-meta">39 miles</div>
+                </div>
+                <div class="route-time">0h 45min</div>
+            </a>
+            <a href="/route/woking-to-oxford/" class="route-card">
+                <div>
+                    <div class="route-title">Oxford</div>
+                    <div class="route-meta">42 miles</div>
+                </div>
+                <div class="route-time">0h 50min</div>
+            </a>
+            <a href="/route/woking-to-reading/" class="route-card">
+                <div>
+                    <div class="route-title">Reading</div>
+                    <div class="route-meta">20 miles</div>
+                </div>
+                <div class="route-time">0h 20min</div>
+            </a>
+            <a href="/route/woking-to-luton/" class="route-card">
+                <div>
+                    <div class="route-title">Luton</div>
+                    <div class="route-meta">39 miles</div>
+                </div>
+                <div class="route-time">0h 45min</div>
+            </a>
+            <a href="/route/woking-to-milton-keynes/" class="route-card">
+                <div>
+                    <div class="route-title">Milton Keynes</div>
+                    <div class="route-meta">51 miles</div>
+                </div>
+                <div class="route-time">1h 0min</div>
+            </a>
+            <a href="/route/woking-to-swindon/" class="route-card">
+                <div>
+                    <div class="route-title">Swindon</div>
+                    <div class="route-meta">55 miles</div>
+                </div>
+                <div class="route-time">1h 5min</div>
+            </a>
+            <a href="/route/woking-to-salisbury/" class="route-card">
+                <div>
+                    <div class="route-title">Salisbury</div>
+                    <div class="route-meta">56 miles</div>
+                </div>
+                <div class="route-time">1h 5min</div>
+            </a>
+            <a href="/route/woking-to-winchester/" class="route-card">
+                <div>
+                    <div class="route-title">Winchester</div>
+                    <div class="route-meta">37 miles</div>
+                </div>
+                <div class="route-time">0h 40min</div>
+            </a>
+            <a href="/route/woking-to-eastbourne/" class="route-card">
+                <div>
+                    <div class="route-title">Eastbourne</div>
+                    <div class="route-meta">53 miles</div>
+                </div>
+                <div class="route-time">1h 0min</div>
+            </a>
+            <a href="/route/woking-to-hastings/" class="route-card">
+                <div>
+                    <div class="route-title">Hastings</div>
+                    <div class="route-meta">59 miles</div>
+                </div>
+                <div class="route-time">1h 10min</div>
+            </a>
+            <a href="/route/woking-to-maidstone/" class="route-card">
+                <div>
+                    <div class="route-title">Maidstone</div>
+                    <div class="route-meta">47 miles</div>
+                </div>
+                <div class="route-time">0h 55min</div>
+            </a>
+            <a href="/route/woking-to-southend/" class="route-card">
+                <div>
+                    <div class="route-title">Southend</div>
+                    <div class="route-meta">57 miles</div>
+                </div>
+                <div class="route-time">1h 5min</div>
+            </a>
+            <a href="/route/woking-to-basildon/" class="route-card">
+                <div>
+                    <div class="route-title">Basildon</div>
+                    <div class="route-meta">48 miles</div>
+                </div>
+                <div class="route-time">0h 55min</div>
+            </a>
+            <a href="/route/woking-to-harlow/" class="route-card">
+                <div>
+                    <div class="route-title">Harlow</div>
+                    <div class="route-meta">42 miles</div>
+                </div>
+                <div class="route-time">0h 50min</div>
+            </a>
+            <a href="/route/woking-to-stevenage/" class="route-card">
+                <div>
+                    <div class="route-title">Stevenage</div>
+                    <div class="route-meta">43 miles</div>
+                </div>
+                <div class="route-time">0h 50min</div>
+            </a>
+            <a href="/route/woking-to-hemel-hempstead/" class="route-card">
+                <div>
+                    <div class="route-title">Hemel Hempstead</div>
+                    <div class="route-meta">30 miles</div>
+                </div>
+                <div class="route-time">0h 35min</div>
+            </a>
+            <a href="/route/woking-to-high-wycombe/" class="route-card">
+                <div>
+                    <div class="route-title">High Wycombe</div>
+                    <div class="route-meta">23 miles</div>
+                </div>
+                <div class="route-time">0h 25min</div>
+            </a>
+            <a href="/route/woking-to-aylesbury/" class="route-card">
+                <div>
+                    <div class="route-title">Aylesbury</div>
+                    <div class="route-meta">36 miles</div>
+                </div>
+                <div class="route-time">0h 40min</div>
+            </a>
+            <a href="/route/woking-to-crawley/" class="route-card">
+                <div>
+                    <div class="route-title">Crawley</div>
+                    <div class="route-meta">22 miles</div>
+                </div>
+                <div class="route-time">0h 25min</div>
+            </a>
+            <a href="/route/woking-to-guildford/" class="route-card">
+                <div>
+                    <div class="route-title">Guildford</div>
+                    <div class="route-meta">6 miles</div>
+                </div>
+                <div class="route-time">0h 5min</div>
+            </a>
+            <a href="/route/woking-to-basingstoke/" class="route-card">
+                <div>
+                    <div class="route-title">Basingstoke</div>
+                    <div class="route-meta">23 miles</div>
+                </div>
+                <div class="route-time">0h 25min</div>
+            </a>
+            <a href="/route/woking-to-slough/" class="route-card">
+                <div>
+                    <div class="route-title">Slough</div>
+                    <div class="route-meta">13 miles</div>
+                </div>
+                <div class="route-time">0h 15min</div>
+            </a>
+            <a href="/route/woking-to-bracknell/" class="route-card">
+                <div>
+                    <div class="route-title">Bracknell</div>
+                    <div class="route-meta">11 miles</div>
+                </div>
+                <div class="route-time">0h 10min</div>
+            </a>
+            <a href="/route/woking-to-maidenhead/" class="route-card">
+                <div>
+                    <div class="route-title">Maidenhead</div>
+                    <div class="route-meta">16 miles</div>
+                </div>
+                <div class="route-time">0h 15min</div>
+            </a>
+            <a href="/route/woking-to-windsor/" class="route-card">
+                <div>
+                    <div class="route-title">Windsor</div>
+                    <div class="route-meta">11 miles</div>
+                </div>
+                <div class="route-time">0h 10min</div>
+            </a>
+            <a href="/route/woking-to-newbury/" class="route-card">
+                <div>
+                    <div class="route-title">Newbury</div>
+                    <div class="route-meta">33 miles</div>
+                </div>
+                <div class="route-time">0h 35min</div>
+            </a>
+            <a href="/route/woking-to-stonehenge/" class="route-card">
+                <div>
+                    <div class="route-title">Stonehenge</div>
+                    <div class="route-meta">56 miles</div>
+                </div>
+                <div class="route-time">1h 5min</div>
+            </a>
+            <a href="/route/woking-to-harry-potter-studios/" class="route-card">
+                <div>
+                    <div class="route-title">Harry Potter Studios</div>
+                    <div class="route-meta">26 miles</div>
+                </div>
+                <div class="route-time">0h 30min</div>
+            </a>
+            <a href="/route/woking-to-legoland-windsor/" class="route-card">
+                <div>
+                    <div class="route-title">Legoland Windsor</div>
+                    <div class="route-meta">11 miles</div>
+                </div>
+                <div class="route-time">0h 10min</div>
+            </a>
+            <a href="/route/woking-to-windsor-castle/" class="route-card">
+                <div>
+                    <div class="route-title">Windsor Castle</div>
+                    <div class="route-meta">12 miles</div>
+                </div>
+                <div class="route-time">0h 10min</div>
+            </a>
+            <a href="/route/woking-to-blenheim-palace/" class="route-card">
+                <div>
+                    <div class="route-title">Blenheim Palace</div>
+                    <div class="route-meta">50 miles</div>
+                </div>
+                <div class="route-time">1h 0min</div>
+            </a>
+            <a href="/route/woking-to-kew-gardens/" class="route-card">
+                <div>
+                    <div class="route-title">Kew Gardens</div>
+                    <div class="route-meta">16 miles</div>
+                </div>
+                <div class="route-time">0h 15min</div>
+            </a>
+            <a href="/route/woking-to-british-museum/" class="route-card">
+                <div>
+                    <div class="route-title">British Museum</div>
+                    <div class="route-meta">23 miles</div>
+                </div>
+                <div class="route-time">0h 25min</div>
+            </a>
+            <a href="/route/woking-to-tower-of-london/" class="route-card">
+                <div>
+                    <div class="route-title">Tower of London</div>
+                    <div class="route-meta">25 miles</div>
+                </div>
+                <div class="route-time">0h 30min</div>
+            </a>
+            <a href="/route/woking-to-buckingham-palace/" class="route-card">
+                <div>
+                    <div class="route-title">Buckingham Palace</div>
+                    <div class="route-meta">22 miles</div>
+                </div>
+                <div class="route-time">0h 25min</div>
+            </a>
+            <a href="/route/woking-to-london-city-airport/" class="route-card">
+                <div>
+                    <div class="route-title">London City Airport</div>
+                    <div class="route-meta">29 miles</div>
+                </div>
+                <div class="route-time">0h 30min</div>
+            </a>
+            <a href="/route/woking-to-southend-airport/" class="route-card">
+                <div>
+                    <div class="route-title">Southend Airport</div>
+                    <div class="route-meta">57 miles</div>
+                </div>
+                <div class="route-time">1h 5min</div>
+            </a>
+            <a href="/route/woking-to-southampton-airport/" class="route-card">
+                <div>
+                    <div class="route-title">Southampton Airport</div>
+                    <div class="route-meta">43 miles</div>
+                </div>
+                <div class="route-time">0h 50min</div>
+            </a>
+        </div>
+        
+        <div style="text-align:center">
+            <a href="/ev/" class="ev-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                View EV Charging Routes
+            </a>
+        </div>
+    </div>
+    <footer><p>© 2026 <a href="/">HowLongDrive.uk</a></p></footer>
+    <script>function toggleMenu(){document.getElementById('nav').classList.toggle('open');}</script>
+</body>
+</html>

@@ -1,53 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Driving Times from Cardiff - Routes & Distances | HowLongDrive</title>
-    <meta name="description" content="Find driving times from Cardiff, USA to other cities. Browse 5 routes with distances, drive times, and trip costs.">
-    <link rel="canonical" href="https://howlongdrive.uk/city/cardiff/">
+    <meta name="description" content="Find driving times from Cardiff, Wales. Browse 100 routes with distances, drive times, and fuel costs.">
+    <link rel="canonical" href="https://howlongdrive.uk/cities/cardiff/">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <meta name="theme-color" content="#4B6E93">
     <meta property="og:title" content="Driving Times from Cardiff">
-    <meta property="og:description" content="Find driving times from Cardiff to other cities">
-    <meta property="og:image" content="https://howlongdrive.uk/assets/og-image.png">
+    <meta property="og:description" content="Browse 100 driving routes from Cardiff with distances, times, and costs.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://howlongdrive.uk/cities/cardiff/">
     <style>
-        :root { --primary: #4B6E93; --accent: #EFA24F; --bg: #f8fafc; --card: #fff; --text: #1e293b; --muted: #64748b; --border: #e2e8f0; --green: #10B981; }
+        :root { --primary: #4B6E93; --dark: #2D4356; --green: #22C55E; --muted: #6B7280; --bg: #F9FAFB; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: #1f2937; line-height: 1.6; }
         .container { max-width: 1000px; margin: 0 auto; padding: 0 1rem; }
-        header { background: var(--card); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
-        .header-inner { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-weight: 700; font-size: 1.5rem; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 0.75rem; }
-        .logo img { height: 100px; width: auto; }
-        nav { display: flex; align-items: center; gap: 1.5rem; }
-        nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; }
-        .ev-badge { background: var(--green); color: white; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 600; }
-        .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
-        .close-btn { display: none; }
+        header { background: var(--dark); padding: 0.75rem 0; position: sticky; top: 0; z-index: 100; }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; }
+        .logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; color: white; font-weight: 700; font-size: 1.1rem; }
+        .logo img { height: 80px; }
+        nav { display: flex; gap: 1.5rem; }
+        nav a { color: rgba(255,255,255,0.9); text-decoration: none; font-size: 0.95rem; }
+        nav a:hover { color: white; }
+        .ev-badge { background: var(--green); padding: 0.25rem 0.75rem; border-radius: 1rem; color: white !important; font-weight: 600; }
+        .hamburger { display: none; background: none; border: none; color: white; cursor: pointer; padding: 0.5rem; }
+        .close-btn { background: none; border: none; color: white; cursor: pointer; padding: 0.5rem; position: absolute; top: 1rem; right: 1rem; }
+        .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 998; }
         @media (max-width: 768px) {
-            .logo img { height: 60px; } .logo span { display: none; }
-            nav { position: fixed; top: 0; right: -100%; width: 250px; height: 100vh; background: var(--card); flex-direction: column; padding: 5rem 2rem; transition: right 0.3s; z-index: 1000; }
-            nav.active { right: 0; }
-            .hamburger { display: block; z-index: 1001; }
-            .close-btn { display: block; position: absolute; top: 1rem; right: 1rem; background: none; border: none; cursor: pointer; }
-            .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 999; }
-            .overlay.active { display: block; }
+            .hamburger { display: block; }
+            nav { position: fixed; top: 0; right: -280px; width: 280px; height: 100vh; background: var(--dark); flex-direction: column; padding: 4rem 2rem 2rem; z-index: 999; transition: right 0.3s; }
+            nav.open { right: 0; }
+            nav.open + .overlay { display: block; }
+            .close-btn { display: block !important; }
         }
-        .hero { background: var(--card); padding: 2rem; border-radius: 1rem; margin: 1.5rem 0; text-align: center; }
-        h1 { font-size: 2rem; margin-bottom: 0.5rem; display: flex; align-items: center; justify-content: center; gap: 0.75rem; }
-        h1 svg { width: 32px; height: 32px; color: var(--primary); }
-        .subtitle { color: var(--muted); }
-        .stats { display: flex; justify-content: center; gap: 2rem; margin-top: 1.5rem; }
-        .stat { text-align: center; }
-        .stat-value { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+        .hero { text-align: center; padding: 3rem 1rem; background: white; border-radius: 1rem; margin: 2rem 0; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .hero h1 { font-size: 2rem; color: var(--dark); display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+        .hero h1 svg { width: 32px; height: 32px; stroke: var(--primary); }
+        .subtitle { color: var(--muted); margin-top: 0.5rem; }
+        .stats { display: flex; justify-content: center; gap: 3rem; margin-top: 1.5rem; }
+        .stat-value { font-size: 2rem; font-weight: 700; color: var(--primary); }
         .stat-label { font-size: 0.875rem; color: var(--muted); }
-        .routes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
-        .route-card { background: var(--card); border-radius: 0.75rem; padding: 1.25rem; text-decoration: none; color: inherit; border: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
-        .route-card:hover { border-color: var(--primary); }
-        .route-title { font-weight: 600; }
-        .route-meta { color: var(--muted); font-size: 0.875rem; margin-top: 0.25rem; }
-        .route-time { font-weight: 600; color: var(--primary); font-size: 1.1rem; }
+        .routes-grid { display: grid; gap: 0.75rem; }
+        .route-card { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; background: white; border-radius: 0.5rem; text-decoration: none; color: inherit; box-shadow: 0 1px 2px rgba(0,0,0,0.05); transition: box-shadow 0.2s; }
+        .route-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .route-title { font-weight: 600; color: var(--dark); }
+        .route-meta { font-size: 0.875rem; color: var(--muted); margin-top: 0.25rem; }
+        .route-time { font-weight: 700; color: var(--primary); white-space: nowrap; }
         .ev-link { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 2rem; padding: 0.75rem 1.5rem; background: var(--green); color: white; border-radius: 0.5rem; text-decoration: none; font-weight: 600; }
         footer { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.875rem; margin-top: 2rem; }
         footer a { color: var(--primary); text-decoration: none; }
@@ -71,21 +71,28 @@
     <div class="container">
         <div class="hero">
             <h1><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 10-16 0c0 3 2.7 7 8 11.7z"/></svg> Cardiff</h1>
-            <p class="subtitle">USA</p>
+            <p class="subtitle">Wales</p>
             <div class="stats">
-                <div class="stat"><div class="stat-value">5</div><div class="stat-label">Destinations</div></div>
+                <div class="stat"><div class="stat-value">100</div><div class="stat-label">Destinations</div></div>
             </div>
         </div>
         
         <h2 style="margin-bottom:1rem">Driving Times from Cardiff</h2>
         <div class="routes-grid">
-            
-            <a href="/route/cardiff-to-newport/" class="route-card">
+
+            <a href="/route/cardiff-to-london/" class="route-card">
                 <div>
-                    <div class="route-title">Newport</div>
-                    <div class="route-meta">15 miles</div>
+                    <div class="route-title">London</div>
+                    <div class="route-meta">155 miles</div>
                 </div>
-                <div class="route-time">0h 20min</div>
+                <div class="route-time">2h 45min</div>
+            </a>
+            <a href="/route/cardiff-to-birmingham/" class="route-card">
+                <div>
+                    <div class="route-title">Birmingham</div>
+                    <div class="route-meta">110 miles</div>
+                </div>
+                <div class="route-time">1h 45min</div>
             </a>
             <a href="/route/cardiff-to-bristol/" class="route-card">
                 <div>
@@ -101,27 +108,688 @@
                 </div>
                 <div class="route-time">0h 50min</div>
             </a>
-            <a href="/route/cardiff-to-birmingham/" class="route-card">
+            <a href="/route/cardiff-to-newport/" class="route-card">
                 <div>
-                    <div class="route-title">Birmingham</div>
+                    <div class="route-title">Newport</div>
+                    <div class="route-meta">15 miles</div>
+                </div>
+                <div class="route-time">0h 20min</div>
+            </a>
+            <a href="/route/cardiff-to-swansea/" class="route-card">
+                <div>
+                    <div class="route-title">Swansea</div>
+                    <div class="route-meta">45 miles</div>
+                </div>
+                <div class="route-time">0h 55min</div>
+            </a>
+            <a href="/route/cardiff-to-liverpool/" class="route-card">
+                <div>
+                    <div class="route-title">Liverpool</div>
+                    <div class="route-meta">133 miles</div>
+                </div>
+                <div class="route-time">2h 35min</div>
+            </a>
+            <a href="/route/cardiff-to-southampton/" class="route-card">
+                <div>
+                    <div class="route-title">Southampton</div>
+                    <div class="route-meta">86 miles</div>
+                </div>
+                <div class="route-time">1h 40min</div>
+            </a>
+            <a href="/route/cardiff-to-leicester/" class="route-card">
+                <div>
+                    <div class="route-title">Leicester</div>
+                    <div class="route-meta">118 miles</div>
+                </div>
+                <div class="route-time">2h 20min</div>
+            </a>
+            <a href="/route/cardiff-to-nottingham/" class="route-card">
+                <div>
+                    <div class="route-title">Nottingham</div>
+                    <div class="route-meta">133 miles</div>
+                </div>
+                <div class="route-time">2h 35min</div>
+            </a>
+            <a href="/route/cardiff-to-manchester/" class="route-card">
+                <div>
+                    <div class="route-title">Manchester</div>
+                    <div class="route-meta">144 miles</div>
+                </div>
+                <div class="route-time">2h 50min</div>
+            </a>
+            <a href="/route/cardiff-to-portsmouth/" class="route-card">
+                <div>
+                    <div class="route-title">Portsmouth</div>
+                    <div class="route-meta">102 miles</div>
+                </div>
+                <div class="route-time">2h 0min</div>
+            </a>
+            <a href="/route/cardiff-to-brighton/" class="route-card">
+                <div>
+                    <div class="route-title">Brighton</div>
+                    <div class="route-meta">139 miles</div>
+                </div>
+                <div class="route-time">2h 45min</div>
+            </a>
+            <a href="/route/cardiff-to-plymouth/" class="route-card">
+                <div>
+                    <div class="route-title">Plymouth</div>
+                    <div class="route-meta">87 miles</div>
+                </div>
+                <div class="route-time">1h 40min</div>
+            </a>
+            <a href="/route/cardiff-to-exeter/" class="route-card">
+                <div>
+                    <div class="route-title">Exeter</div>
+                    <div class="route-meta">55 miles</div>
+                </div>
+                <div class="route-time">1h 5min</div>
+            </a>
+            <a href="/route/cardiff-to-oxford/" class="route-card">
+                <div>
+                    <div class="route-title">Oxford</div>
+                    <div class="route-meta">85 miles</div>
+                </div>
+                <div class="route-time">1h 40min</div>
+            </a>
+            <a href="/route/cardiff-to-bath/" class="route-card">
+                <div>
+                    <div class="route-title">Bath</div>
+                    <div class="route-meta">36 miles</div>
+                </div>
+                <div class="route-time">0h 40min</div>
+            </a>
+            <a href="/route/cardiff-to-reading/" class="route-card">
+                <div>
+                    <div class="route-title">Reading</div>
+                    <div class="route-meta">95 miles</div>
+                </div>
+                <div class="route-time">1h 50min</div>
+            </a>
+            <a href="/route/cardiff-to-luton/" class="route-card">
+                <div>
+                    <div class="route-title">Luton</div>
+                    <div class="route-meta">121 miles</div>
+                </div>
+                <div class="route-time">2h 25min</div>
+            </a>
+            <a href="/route/cardiff-to-milton-keynes/" class="route-card">
+                <div>
+                    <div class="route-title">Milton Keynes</div>
                     <div class="route-meta">110 miles</div>
+                </div>
+                <div class="route-time">2h 10min</div>
+            </a>
+            <a href="/route/cardiff-to-swindon/" class="route-card">
+                <div>
+                    <div class="route-title">Swindon</div>
+                    <div class="route-meta">60 miles</div>
+                </div>
+                <div class="route-time">1h 10min</div>
+            </a>
+            <a href="/route/cardiff-to-bournemouth/" class="route-card">
+                <div>
+                    <div class="route-title">Bournemouth</div>
+                    <div class="route-meta">77 miles</div>
+                </div>
+                <div class="route-time">1h 30min</div>
+            </a>
+            <a href="/route/cardiff-to-chester/" class="route-card">
+                <div>
+                    <div class="route-title">Chester</div>
+                    <div class="route-meta">119 miles</div>
+                </div>
+                <div class="route-time">2h 20min</div>
+            </a>
+            <a href="/route/cardiff-to-gloucester/" class="route-card">
+                <div>
+                    <div class="route-title">Gloucester</div>
+                    <div class="route-meta">48 miles</div>
+                </div>
+                <div class="route-time">0h 55min</div>
+            </a>
+            <a href="/route/cardiff-to-cheltenham/" class="route-card">
+                <div>
+                    <div class="route-title">Cheltenham</div>
+                    <div class="route-meta">55 miles</div>
+                </div>
+                <div class="route-time">1h 5min</div>
+            </a>
+            <a href="/route/cardiff-to-worcester/" class="route-card">
+                <div>
+                    <div class="route-title">Worcester</div>
+                    <div class="route-meta">64 miles</div>
+                </div>
+                <div class="route-time">1h 15min</div>
+            </a>
+            <a href="/route/cardiff-to-hereford/" class="route-card">
+                <div>
+                    <div class="route-title">Hereford</div>
+                    <div class="route-meta">44 miles</div>
+                </div>
+                <div class="route-time">0h 50min</div>
+            </a>
+            <a href="/route/cardiff-to-shrewsbury/" class="route-card">
+                <div>
+                    <div class="route-title">Shrewsbury</div>
+                    <div class="route-meta">87 miles</div>
+                </div>
+                <div class="route-time">1h 40min</div>
+            </a>
+            <a href="/route/cardiff-to-salisbury/" class="route-card">
+                <div>
+                    <div class="route-title">Salisbury</div>
+                    <div class="route-meta">66 miles</div>
+                </div>
+                <div class="route-time">1h 15min</div>
+            </a>
+            <a href="/route/cardiff-to-winchester/" class="route-card">
+                <div>
+                    <div class="route-title">Winchester</div>
+                    <div class="route-meta">86 miles</div>
+                </div>
+                <div class="route-time">1h 40min</div>
+            </a>
+            <a href="/route/cardiff-to-eastbourne/" class="route-card">
+                <div>
+                    <div class="route-title">Eastbourne</div>
+                    <div class="route-meta">158 miles</div>
+                </div>
+                <div class="route-time">3h 5min</div>
+            </a>
+            <a href="/route/cardiff-to-hastings/" class="route-card">
+                <div>
+                    <div class="route-title">Hastings</div>
+                    <div class="route-meta">168 miles</div>
+                </div>
+                <div class="route-time">3h 20min</div>
+            </a>
+            <a href="/route/cardiff-to-dover/" class="route-card">
+                <div>
+                    <div class="route-title">Dover</div>
+                    <div class="route-meta">195 miles</div>
+                </div>
+                <div class="route-time">3h 50min</div>
+            </a>
+            <a href="/route/cardiff-to-canterbury/" class="route-card">
+                <div>
+                    <div class="route-title">Canterbury</div>
+                    <div class="route-meta">184 miles</div>
+                </div>
+                <div class="route-time">3h 40min</div>
+            </a>
+            <a href="/route/cardiff-to-maidstone/" class="route-card">
+                <div>
+                    <div class="route-title">Maidstone</div>
+                    <div class="route-meta">161 miles</div>
+                </div>
+                <div class="route-time">3h 10min</div>
+            </a>
+            <a href="/route/cardiff-to-folkestone/" class="route-card">
+                <div>
+                    <div class="route-title">Folkestone</div>
+                    <div class="route-meta">190 miles</div>
+                </div>
+                <div class="route-time">3h 45min</div>
+            </a>
+            <a href="/route/cardiff-to-margate/" class="route-card">
+                <div>
+                    <div class="route-title">Margate</div>
+                    <div class="route-meta">197 miles</div>
+                </div>
+                <div class="route-time">3h 55min</div>
+            </a>
+            <a href="/route/cardiff-to-southend/" class="route-card">
+                <div>
+                    <div class="route-title">Southend</div>
+                    <div class="route-meta">167 miles</div>
+                </div>
+                <div class="route-time">3h 20min</div>
+            </a>
+            <a href="/route/cardiff-to-basildon/" class="route-card">
+                <div>
+                    <div class="route-title">Basildon</div>
+                    <div class="route-meta">158 miles</div>
+                </div>
+                <div class="route-time">3h 5min</div>
+            </a>
+            <a href="/route/cardiff-to-harlow/" class="route-card">
+                <div>
+                    <div class="route-title">Harlow</div>
+                    <div class="route-meta">142 miles</div>
+                </div>
+                <div class="route-time">2h 50min</div>
+            </a>
+            <a href="/route/cardiff-to-stevenage/" class="route-card">
+                <div>
+                    <div class="route-title">Stevenage</div>
+                    <div class="route-meta">131 miles</div>
+                </div>
+                <div class="route-time">2h 35min</div>
+            </a>
+            <a href="/route/cardiff-to-hemel-hempstead/" class="route-card">
+                <div>
+                    <div class="route-title">Hemel Hempstead</div>
+                    <div class="route-meta">118 miles</div>
+                </div>
+                <div class="route-time">2h 20min</div>
+            </a>
+            <a href="/route/cardiff-to-high-wycombe/" class="route-card">
+                <div>
+                    <div class="route-title">High Wycombe</div>
+                    <div class="route-meta">105 miles</div>
+                </div>
+                <div class="route-time">2h 5min</div>
+            </a>
+            <a href="/route/cardiff-to-aylesbury/" class="route-card">
+                <div>
+                    <div class="route-title">Aylesbury</div>
+                    <div class="route-meta">104 miles</div>
+                </div>
+                <div class="route-time">2h 0min</div>
+            </a>
+            <a href="/route/cardiff-to-crawley/" class="route-card">
+                <div>
+                    <div class="route-title">Crawley</div>
+                    <div class="route-meta">132 miles</div>
+                </div>
+                <div class="route-time">2h 35min</div>
+            </a>
+            <a href="/route/cardiff-to-guildford/" class="route-card">
+                <div>
+                    <div class="route-title">Guildford</div>
+                    <div class="route-meta">114 miles</div>
+                </div>
+                <div class="route-time">2h 15min</div>
+            </a>
+            <a href="/route/cardiff-to-woking/" class="route-card">
+                <div>
+                    <div class="route-title">Woking</div>
+                    <div class="route-meta">113 miles</div>
+                </div>
+                <div class="route-time">2h 15min</div>
+            </a>
+            <a href="/route/cardiff-to-basingstoke/" class="route-card">
+                <div>
+                    <div class="route-title">Basingstoke</div>
+                    <div class="route-meta">91 miles</div>
                 </div>
                 <div class="route-time">1h 45min</div>
             </a>
-            <a href="/route/cardiff-to-london/" class="route-card">
+            <a href="/route/cardiff-to-slough/" class="route-card">
                 <div>
-                    <div class="route-title">London</div>
-                    <div class="route-meta">155 miles</div>
+                    <div class="route-title">Slough</div>
+                    <div class="route-meta">111 miles</div>
+                </div>
+                <div class="route-time">2h 10min</div>
+            </a>
+            <a href="/route/cardiff-to-bracknell/" class="route-card">
+                <div>
+                    <div class="route-title">Bracknell</div>
+                    <div class="route-meta">105 miles</div>
+                </div>
+                <div class="route-time">2h 5min</div>
+            </a>
+            <a href="/route/cardiff-to-maidenhead/" class="route-card">
+                <div>
+                    <div class="route-title">Maidenhead</div>
+                    <div class="route-meta">106 miles</div>
+                </div>
+                <div class="route-time">2h 5min</div>
+            </a>
+            <a href="/route/cardiff-to-windsor/" class="route-card">
+                <div>
+                    <div class="route-title">Windsor</div>
+                    <div class="route-meta">111 miles</div>
+                </div>
+                <div class="route-time">2h 10min</div>
+            </a>
+            <a href="/route/cardiff-to-newbury/" class="route-card">
+                <div>
+                    <div class="route-title">Newbury</div>
+                    <div class="route-meta">80 miles</div>
+                </div>
+                <div class="route-time">1h 35min</div>
+            </a>
+            <a href="/route/cardiff-to-taunton/" class="route-card">
+                <div>
+                    <div class="route-title">Taunton</div>
+                    <div class="route-meta">32 miles</div>
+                </div>
+                <div class="route-time">0h 35min</div>
+            </a>
+            <a href="/route/cardiff-to-torquay/" class="route-card">
+                <div>
+                    <div class="route-title">Torquay</div>
+                    <div class="route-meta">72 miles</div>
+                </div>
+                <div class="route-time">1h 25min</div>
+            </a>
+            <a href="/route/cardiff-to-poole/" class="route-card">
+                <div>
+                    <div class="route-title">Poole</div>
+                    <div class="route-meta">74 miles</div>
+                </div>
+                <div class="route-time">1h 25min</div>
+            </a>
+            <a href="/route/cardiff-to-weymouth/" class="route-card">
+                <div>
+                    <div class="route-title">Weymouth</div>
+                    <div class="route-meta">68 miles</div>
+                </div>
+                <div class="route-time">1h 20min</div>
+            </a>
+            <a href="/route/cardiff-to-barnstaple/" class="route-card">
+                <div>
+                    <div class="route-title">Barnstaple</div>
+                    <div class="route-meta">47 miles</div>
+                </div>
+                <div class="route-time">0h 55min</div>
+            </a>
+            <a href="/route/cardiff-to-truro/" class="route-card">
+                <div>
+                    <div class="route-title">Truro</div>
+                    <div class="route-meta">117 miles</div>
+                </div>
+                <div class="route-time">2h 20min</div>
+            </a>
+            <a href="/route/cardiff-to-st-austell/" class="route-card">
+                <div>
+                    <div class="route-title">St Austell</div>
+                    <div class="route-meta">106 miles</div>
+                </div>
+                <div class="route-time">2h 5min</div>
+            </a>
+            <a href="/route/cardiff-to-penzance/" class="route-card">
+                <div>
+                    <div class="route-title">Penzance</div>
+                    <div class="route-meta">140 miles</div>
                 </div>
                 <div class="route-time">2h 45min</div>
+            </a>
+            <a href="/route/cardiff-to-falmouth/" class="route-card">
+                <div>
+                    <div class="route-title">Falmouth</div>
+                    <div class="route-meta">123 miles</div>
+                </div>
+                <div class="route-time">2h 25min</div>
+            </a>
+            <a href="/route/cardiff-to-dudley/" class="route-card">
+                <div>
+                    <div class="route-title">Dudley</div>
+                    <div class="route-meta">85 miles</div>
+                </div>
+                <div class="route-time">1h 40min</div>
+            </a>
+            <a href="/route/cardiff-to-solihull/" class="route-card">
+                <div>
+                    <div class="route-title">Solihull</div>
+                    <div class="route-meta">88 miles</div>
+                </div>
+                <div class="route-time">1h 45min</div>
+            </a>
+            <a href="/route/cardiff-to-warwick/" class="route-card">
+                <div>
+                    <div class="route-title">Warwick</div>
+                    <div class="route-meta">88 miles</div>
+                </div>
+                <div class="route-time">1h 45min</div>
+            </a>
+            <a href="/route/cardiff-to-leamington-spa/" class="route-card">
+                <div>
+                    <div class="route-title">Leamington Spa</div>
+                    <div class="route-meta">90 miles</div>
+                </div>
+                <div class="route-time">1h 45min</div>
+            </a>
+            <a href="/route/cardiff-to-stratford-upon-avon/" class="route-card">
+                <div>
+                    <div class="route-title">Stratford-upon-Avon</div>
+                    <div class="route-meta">80 miles</div>
+                </div>
+                <div class="route-time">1h 35min</div>
+            </a>
+            <a href="/route/cardiff-to-redditch/" class="route-card">
+                <div>
+                    <div class="route-title">Redditch</div>
+                    <div class="route-meta">78 miles</div>
+                </div>
+                <div class="route-time">1h 30min</div>
+            </a>
+            <a href="/route/cardiff-to-kidderminster/" class="route-card">
+                <div>
+                    <div class="route-title">Kidderminster</div>
+                    <div class="route-meta">74 miles</div>
+                </div>
+                <div class="route-time">1h 25min</div>
+            </a>
+            <a href="/route/cardiff-to-wrexham/" class="route-card">
+                <div>
+                    <div class="route-title">Wrexham</div>
+                    <div class="route-meta">108 miles</div>
+                </div>
+                <div class="route-time">2h 5min</div>
+            </a>
+            <a href="/route/cardiff-to-bangor/" class="route-card">
+                <div>
+                    <div class="route-title">Bangor</div>
+                    <div class="route-meta">127 miles</div>
+                </div>
+                <div class="route-time">2h 30min</div>
+            </a>
+            <a href="/route/cardiff-to-aberystwyth/" class="route-card">
+                <div>
+                    <div class="route-title">Aberystwyth</div>
+                    <div class="route-meta">75 miles</div>
+                </div>
+                <div class="route-time">1h 30min</div>
+            </a>
+            <a href="/route/cardiff-to-carmarthen/" class="route-card">
+                <div>
+                    <div class="route-title">Carmarthen</div>
+                    <div class="route-meta">55 miles</div>
+                </div>
+                <div class="route-time">1h 5min</div>
+            </a>
+            <a href="/route/cardiff-to-cwmbran/" class="route-card">
+                <div>
+                    <div class="route-title">Cwmbran</div>
+                    <div class="route-meta">14 miles</div>
+                </div>
+                <div class="route-time">0h 15min</div>
+            </a>
+            <a href="/route/cardiff-to-pontypridd/" class="route-card">
+                <div>
+                    <div class="route-title">Pontypridd</div>
+                    <div class="route-meta">11 miles</div>
+                </div>
+                <div class="route-time">0h 10min</div>
+            </a>
+            <a href="/route/cardiff-to-merthyr-tydfil/" class="route-card">
+                <div>
+                    <div class="route-title">Merthyr Tydfil</div>
+                    <div class="route-meta">20 miles</div>
+                </div>
+                <div class="route-time">0h 20min</div>
+            </a>
+            <a href="/route/cardiff-to-stonehenge/" class="route-card">
+                <div>
+                    <div class="route-title">Stonehenge</div>
+                    <div class="route-meta">62 miles</div>
+                </div>
+                <div class="route-time">1h 10min</div>
+            </a>
+            <a href="/route/cardiff-to-cotswolds/" class="route-card">
+                <div>
+                    <div class="route-title">Cotswolds</div>
+                    <div class="route-meta">62 miles</div>
+                </div>
+                <div class="route-time">1h 10min</div>
+            </a>
+            <a href="/route/cardiff-to-snowdonia/" class="route-card">
+                <div>
+                    <div class="route-title">Snowdonia</div>
+                    <div class="route-meta">104 miles</div>
+                </div>
+                <div class="route-time">2h 0min</div>
+            </a>
+            <a href="/route/cardiff-to-cornwall/" class="route-card">
+                <div>
+                    <div class="route-title">Cornwall</div>
+                    <div class="route-meta">117 miles</div>
+                </div>
+                <div class="route-time">2h 20min</div>
+            </a>
+            <a href="/route/cardiff-to-devon/" class="route-card">
+                <div>
+                    <div class="route-title">Devon</div>
+                    <div class="route-meta">55 miles</div>
+                </div>
+                <div class="route-time">1h 5min</div>
+            </a>
+            <a href="/route/cardiff-to-harry-potter-studios/" class="route-card">
+                <div>
+                    <div class="route-title">Harry Potter Studios</div>
+                    <div class="route-meta">119 miles</div>
+                </div>
+                <div class="route-time">2h 20min</div>
+            </a>
+            <a href="/route/cardiff-to-legoland-windsor/" class="route-card">
+                <div>
+                    <div class="route-title">Legoland Windsor</div>
+                    <div class="route-meta">109 miles</div>
+                </div>
+                <div class="route-time">2h 10min</div>
+            </a>
+            <a href="/route/cardiff-to-eden-project/" class="route-card">
+                <div>
+                    <div class="route-title">Eden Project</div>
+                    <div class="route-meta">103 miles</div>
+                </div>
+                <div class="route-time">2h 0min</div>
+            </a>
+            <a href="/route/cardiff-to-warwick-castle/" class="route-card">
+                <div>
+                    <div class="route-title">Warwick Castle</div>
+                    <div class="route-meta">88 miles</div>
+                </div>
+                <div class="route-time">1h 45min</div>
+            </a>
+            <a href="/route/cardiff-to-windsor-castle/" class="route-card">
+                <div>
+                    <div class="route-title">Windsor Castle</div>
+                    <div class="route-meta">111 miles</div>
+                </div>
+                <div class="route-time">2h 10min</div>
+            </a>
+            <a href="/route/cardiff-to-blenheim-palace/" class="route-card">
+                <div>
+                    <div class="route-title">Blenheim Palace</div>
+                    <div class="route-meta">82 miles</div>
+                </div>
+                <div class="route-time">1h 35min</div>
+            </a>
+            <a href="/route/cardiff-to-canterbury-cathedral/" class="route-card">
+                <div>
+                    <div class="route-title">Canterbury Cathedral</div>
+                    <div class="route-meta">184 miles</div>
+                </div>
+                <div class="route-time">3h 40min</div>
+            </a>
+            <a href="/route/cardiff-to-jurassic-coast/" class="route-card">
+                <div>
+                    <div class="route-title">Jurassic Coast</div>
+                    <div class="route-meta">57 miles</div>
+                </div>
+                <div class="route-time">1h 5min</div>
+            </a>
+            <a href="/route/cardiff-to-roman-baths/" class="route-card">
+                <div>
+                    <div class="route-title">Roman Baths</div>
+                    <div class="route-meta">36 miles</div>
+                </div>
+                <div class="route-time">0h 40min</div>
+            </a>
+            <a href="/route/cardiff-to-kew-gardens/" class="route-card">
+                <div>
+                    <div class="route-title">Kew Gardens</div>
+                    <div class="route-meta">124 miles</div>
+                </div>
+                <div class="route-time">2h 25min</div>
+            </a>
+            <a href="/route/cardiff-to-british-museum/" class="route-card">
+                <div>
+                    <div class="route-title">British Museum</div>
+                    <div class="route-meta">131 miles</div>
+                </div>
+                <div class="route-time">2h 35min</div>
+            </a>
+            <a href="/route/cardiff-to-tower-of-london/" class="route-card">
+                <div>
+                    <div class="route-title">Tower of London</div>
+                    <div class="route-meta">133 miles</div>
+                </div>
+                <div class="route-time">2h 35min</div>
+            </a>
+            <a href="/route/cardiff-to-buckingham-palace/" class="route-card">
+                <div>
+                    <div class="route-title">Buckingham Palace</div>
+                    <div class="route-meta">131 miles</div>
+                </div>
+                <div class="route-time">2h 35min</div>
+            </a>
+            <a href="/route/cardiff-to-london-city-airport/" class="route-card">
+                <div>
+                    <div class="route-title">London City Airport</div>
+                    <div class="route-meta">139 miles</div>
+                </div>
+                <div class="route-time">2h 45min</div>
+            </a>
+            <a href="/route/cardiff-to-southend-airport/" class="route-card">
+                <div>
+                    <div class="route-title">Southend Airport</div>
+                    <div class="route-meta">167 miles</div>
+                </div>
+                <div class="route-time">3h 20min</div>
+            </a>
+            <a href="/route/cardiff-to-southampton-airport/" class="route-card">
+                <div>
+                    <div class="route-title">Southampton Airport</div>
+                    <div class="route-meta">87 miles</div>
+                </div>
+                <div class="route-time">1h 40min</div>
+            </a>
+            <a href="/route/cardiff-to-cardiff-airport/" class="route-card">
+                <div>
+                    <div class="route-title">Cardiff Airport</div>
+                    <div class="route-meta">9 miles</div>
+                </div>
+                <div class="route-time">0h 10min</div>
+            </a>
+            <a href="/route/cardiff-to-exeter-airport/" class="route-card">
+                <div>
+                    <div class="route-title">Exeter Airport</div>
+                    <div class="route-meta">53 miles</div>
+                </div>
+                <div class="route-time">1h 0min</div>
+            </a>
+            <a href="/route/cardiff-to-newquay-airport/" class="route-card">
+                <div>
+                    <div class="route-title">Newquay Airport</div>
+                    <div class="route-meta">107 miles</div>
+                </div>
+                <div class="route-time">2h 5min</div>
             </a>
         </div>
         
         <div style="text-align:center">
-            <a href="/ev/" class="ev-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> Plan EV Trip from Cardiff</a>
+            <a href="/ev/" class="ev-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                View EV Charging Routes
+            </a>
         </div>
     </div>
     <footer><p>© 2026 <a href="/">HowLongDrive.uk</a></p></footer>
-    <script>function toggleMenu(){document.getElementById('nav').classList.toggle('active');document.querySelector('.overlay').classList.toggle('active');}</script>
+    <script>function toggleMenu(){document.getElementById('nav').classList.toggle('open');}</script>
 </body>
 </html>

@@ -1,53 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Driving Times from Glasgow - Routes & Distances | HowLongDrive</title>
-    <meta name="description" content="Find driving times from Glasgow, USA to other cities. Browse 16 routes with distances, drive times, and trip costs.">
-    <link rel="canonical" href="https://howlongdrive.uk/city/glasgow/">
+    <meta name="description" content="Find driving times from Glasgow, Scotland. Browse 49 routes with distances, drive times, and fuel costs.">
+    <link rel="canonical" href="https://howlongdrive.uk/cities/glasgow/">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <meta name="theme-color" content="#4B6E93">
     <meta property="og:title" content="Driving Times from Glasgow">
-    <meta property="og:description" content="Find driving times from Glasgow to other cities">
-    <meta property="og:image" content="https://howlongdrive.uk/assets/og-image.png">
+    <meta property="og:description" content="Browse 49 driving routes from Glasgow with distances, times, and costs.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://howlongdrive.uk/cities/glasgow/">
     <style>
-        :root { --primary: #4B6E93; --accent: #EFA24F; --bg: #f8fafc; --card: #fff; --text: #1e293b; --muted: #64748b; --border: #e2e8f0; --green: #10B981; }
+        :root { --primary: #4B6E93; --dark: #2D4356; --green: #22C55E; --muted: #6B7280; --bg: #F9FAFB; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: #1f2937; line-height: 1.6; }
         .container { max-width: 1000px; margin: 0 auto; padding: 0 1rem; }
-        header { background: var(--card); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
-        .header-inner { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-weight: 700; font-size: 1.5rem; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 0.75rem; }
-        .logo img { height: 100px; width: auto; }
-        nav { display: flex; align-items: center; gap: 1.5rem; }
-        nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; }
-        .ev-badge { background: var(--green); color: white; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 600; }
-        .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
-        .close-btn { display: none; }
+        header { background: var(--dark); padding: 0.75rem 0; position: sticky; top: 0; z-index: 100; }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; }
+        .logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; color: white; font-weight: 700; font-size: 1.1rem; }
+        .logo img { height: 80px; }
+        nav { display: flex; gap: 1.5rem; }
+        nav a { color: rgba(255,255,255,0.9); text-decoration: none; font-size: 0.95rem; }
+        nav a:hover { color: white; }
+        .ev-badge { background: var(--green); padding: 0.25rem 0.75rem; border-radius: 1rem; color: white !important; font-weight: 600; }
+        .hamburger { display: none; background: none; border: none; color: white; cursor: pointer; padding: 0.5rem; }
+        .close-btn { background: none; border: none; color: white; cursor: pointer; padding: 0.5rem; position: absolute; top: 1rem; right: 1rem; }
+        .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 998; }
         @media (max-width: 768px) {
-            .logo img { height: 60px; } .logo span { display: none; }
-            nav { position: fixed; top: 0; right: -100%; width: 250px; height: 100vh; background: var(--card); flex-direction: column; padding: 5rem 2rem; transition: right 0.3s; z-index: 1000; }
-            nav.active { right: 0; }
-            .hamburger { display: block; z-index: 1001; }
-            .close-btn { display: block; position: absolute; top: 1rem; right: 1rem; background: none; border: none; cursor: pointer; }
-            .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 999; }
-            .overlay.active { display: block; }
+            .hamburger { display: block; }
+            nav { position: fixed; top: 0; right: -280px; width: 280px; height: 100vh; background: var(--dark); flex-direction: column; padding: 4rem 2rem 2rem; z-index: 999; transition: right 0.3s; }
+            nav.open { right: 0; }
+            nav.open + .overlay { display: block; }
+            .close-btn { display: block !important; }
         }
-        .hero { background: var(--card); padding: 2rem; border-radius: 1rem; margin: 1.5rem 0; text-align: center; }
-        h1 { font-size: 2rem; margin-bottom: 0.5rem; display: flex; align-items: center; justify-content: center; gap: 0.75rem; }
-        h1 svg { width: 32px; height: 32px; color: var(--primary); }
-        .subtitle { color: var(--muted); }
-        .stats { display: flex; justify-content: center; gap: 2rem; margin-top: 1.5rem; }
-        .stat { text-align: center; }
-        .stat-value { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+        .hero { text-align: center; padding: 3rem 1rem; background: white; border-radius: 1rem; margin: 2rem 0; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .hero h1 { font-size: 2rem; color: var(--dark); display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+        .hero h1 svg { width: 32px; height: 32px; stroke: var(--primary); }
+        .subtitle { color: var(--muted); margin-top: 0.5rem; }
+        .stats { display: flex; justify-content: center; gap: 3rem; margin-top: 1.5rem; }
+        .stat-value { font-size: 2rem; font-weight: 700; color: var(--primary); }
         .stat-label { font-size: 0.875rem; color: var(--muted); }
-        .routes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
-        .route-card { background: var(--card); border-radius: 0.75rem; padding: 1.25rem; text-decoration: none; color: inherit; border: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
-        .route-card:hover { border-color: var(--primary); }
-        .route-title { font-weight: 600; }
-        .route-meta { color: var(--muted); font-size: 0.875rem; margin-top: 0.25rem; }
-        .route-time { font-weight: 600; color: var(--primary); font-size: 1.1rem; }
+        .routes-grid { display: grid; gap: 0.75rem; }
+        .route-card { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; background: white; border-radius: 0.5rem; text-decoration: none; color: inherit; box-shadow: 0 1px 2px rgba(0,0,0,0.05); transition: box-shadow 0.2s; }
+        .route-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .route-title { font-weight: 600; color: var(--dark); }
+        .route-meta { font-size: 0.875rem; color: var(--muted); margin-top: 0.25rem; }
+        .route-time { font-weight: 700; color: var(--primary); white-space: nowrap; }
         .ev-link { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 2rem; padding: 0.75rem 1.5rem; background: var(--green); color: white; border-radius: 0.5rem; text-decoration: none; font-weight: 600; }
         footer { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.875rem; margin-top: 2rem; }
         footer a { color: var(--primary); text-decoration: none; }
@@ -71,21 +71,77 @@
     <div class="container">
         <div class="hero">
             <h1><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 10-16 0c0 3 2.7 7 8 11.7z"/></svg> Glasgow</h1>
-            <p class="subtitle">USA</p>
+            <p class="subtitle">Scotland</p>
             <div class="stats">
-                <div class="stat"><div class="stat-value">16</div><div class="stat-label">Destinations</div></div>
+                <div class="stat"><div class="stat-value">49</div><div class="stat-label">Destinations</div></div>
             </div>
         </div>
         
         <h2 style="margin-bottom:1rem">Driving Times from Glasgow</h2>
         <div class="routes-grid">
-            
-            <a href="/route/glasgow-to-clydebank/" class="route-card">
+
+            <a href="/route/glasgow-to-edinburgh/" class="route-card">
                 <div>
-                    <div class="route-title">Clydebank</div>
-                    <div class="route-meta">7 miles</div>
+                    <div class="route-title">Edinburgh</div>
+                    <div class="route-meta">50 miles</div>
                 </div>
-                <div class="route-time">0h 20min</div>
+                <div class="route-time">1h 0min</div>
+            </a>
+            <a href="/route/glasgow-to-london/" class="route-card">
+                <div>
+                    <div class="route-title">London</div>
+                    <div class="route-meta">400 miles</div>
+                </div>
+                <div class="route-time">6h 45min</div>
+            </a>
+            <a href="/route/glasgow-to-manchester/" class="route-card">
+                <div>
+                    <div class="route-title">Manchester</div>
+                    <div class="route-meta">215 miles</div>
+                </div>
+                <div class="route-time">3h 30min</div>
+            </a>
+            <a href="/route/glasgow-to-aberdeen/" class="route-card">
+                <div>
+                    <div class="route-title">Aberdeen</div>
+                    <div class="route-meta">145 miles</div>
+                </div>
+                <div class="route-time">2h 45min</div>
+            </a>
+            <a href="/route/glasgow-to-dundee/" class="route-card">
+                <div>
+                    <div class="route-title">Dundee</div>
+                    <div class="route-meta">85 miles</div>
+                </div>
+                <div class="route-time">1h 30min</div>
+            </a>
+            <a href="/route/glasgow-to-inverness/" class="route-card">
+                <div>
+                    <div class="route-title">Inverness</div>
+                    <div class="route-meta">170 miles</div>
+                </div>
+                <div class="route-time">3h 0min</div>
+            </a>
+            <a href="/route/glasgow-to-perth/" class="route-card">
+                <div>
+                    <div class="route-title">Perth</div>
+                    <div class="route-meta">65 miles</div>
+                </div>
+                <div class="route-time">1h 15min</div>
+            </a>
+            <a href="/route/glasgow-to-stirling/" class="route-card">
+                <div>
+                    <div class="route-title">Stirling</div>
+                    <div class="route-meta">30 miles</div>
+                </div>
+                <div class="route-time">0h 40min</div>
+            </a>
+            <a href="/route/glasgow-to-east-kilbride/" class="route-card">
+                <div>
+                    <div class="route-title">East Kilbride</div>
+                    <div class="route-meta">10 miles</div>
+                </div>
+                <div class="route-time">0h 25min</div>
             </a>
             <a href="/route/glasgow-to-paisley/" class="route-card">
                 <div>
@@ -94,19 +150,12 @@
                 </div>
                 <div class="route-time">0h 20min</div>
             </a>
-            <a href="/route/glasgow-to-glasgow-airport/" class="route-card">
+            <a href="/route/glasgow-to-hamilton/" class="route-card">
                 <div>
-                    <div class="route-title">Glasgow Airport</div>
-                    <div class="route-meta">9 miles</div>
+                    <div class="route-title">Hamilton</div>
+                    <div class="route-meta">15 miles</div>
                 </div>
-                <div class="route-time">0h 20min</div>
-            </a>
-            <a href="/route/glasgow-to-east-kilbride/" class="route-card">
-                <div>
-                    <div class="route-title">East Kilbride</div>
-                    <div class="route-meta">10 miles</div>
-                </div>
-                <div class="route-time">0h 25min</div>
+                <div class="route-time">0h 30min</div>
             </a>
             <a href="/route/glasgow-to-coatbridge/" class="route-card">
                 <div>
@@ -122,12 +171,12 @@
                 </div>
                 <div class="route-time">0h 25min</div>
             </a>
-            <a href="/route/glasgow-to-hamilton/" class="route-card">
+            <a href="/route/glasgow-to-clydebank/" class="route-card">
                 <div>
-                    <div class="route-title">Hamilton</div>
-                    <div class="route-meta">15 miles</div>
+                    <div class="route-title">Clydebank</div>
+                    <div class="route-meta">7 miles</div>
                 </div>
-                <div class="route-time">0h 30min</div>
+                <div class="route-time">0h 20min</div>
             </a>
             <a href="/route/glasgow-to-dumbarton/" class="route-card">
                 <div>
@@ -136,33 +185,19 @@
                 </div>
                 <div class="route-time">0h 30min</div>
             </a>
-            <a href="/route/glasgow-to-stirling/" class="route-card">
+            <a href="/route/glasgow-to-glasgow-airport/" class="route-card">
                 <div>
-                    <div class="route-title">Stirling</div>
-                    <div class="route-meta">30 miles</div>
+                    <div class="route-title">Glasgow Airport</div>
+                    <div class="route-meta">9 miles</div>
                 </div>
-                <div class="route-time">0h 40min</div>
+                <div class="route-time">0h 20min</div>
             </a>
-            <a href="/route/glasgow-to-edinburgh/" class="route-card">
+            <a href="/route/glasgow-to-belfast/" class="route-card">
                 <div>
-                    <div class="route-title">Edinburgh</div>
-                    <div class="route-meta">50 miles</div>
+                    <div class="route-title">Belfast</div>
+                    <div class="route-meta">160 miles</div>
                 </div>
-                <div class="route-time">1h 0min</div>
-            </a>
-            <a href="/route/glasgow-to-perth/" class="route-card">
-                <div>
-                    <div class="route-title">Perth</div>
-                    <div class="route-meta">65 miles</div>
-                </div>
-                <div class="route-time">1h 15min</div>
-            </a>
-            <a href="/route/glasgow-to-dundee/" class="route-card">
-                <div>
-                    <div class="route-title">Dundee</div>
-                    <div class="route-meta">85 miles</div>
-                </div>
-                <div class="route-time">1h 30min</div>
+                <div class="route-time">5h 30min</div>
             </a>
             <a href="/route/glasgow-to-aberdeen/" class="route-card">
                 <div>
@@ -171,6 +206,13 @@
                 </div>
                 <div class="route-time">2h 45min</div>
             </a>
+            <a href="/route/glasgow-to-dundee/" class="route-card">
+                <div>
+                    <div class="route-title">Dundee</div>
+                    <div class="route-meta">80 miles</div>
+                </div>
+                <div class="route-time">1h 30min</div>
+            </a>
             <a href="/route/glasgow-to-inverness/" class="route-card">
                 <div>
                     <div class="route-title">Inverness</div>
@@ -178,27 +220,219 @@
                 </div>
                 <div class="route-time">3h 0min</div>
             </a>
-            <a href="/route/glasgow-to-manchester/" class="route-card">
+            <a href="/route/glasgow-to-perth/" class="route-card">
                 <div>
-                    <div class="route-title">Manchester</div>
-                    <div class="route-meta">215 miles</div>
+                    <div class="route-title">Perth</div>
+                    <div class="route-meta">60 miles</div>
+                </div>
+                <div class="route-time">1h 10min</div>
+            </a>
+            <a href="/route/glasgow-to-newcastle/" class="route-card">
+                <div>
+                    <div class="route-title">Newcastle</div>
+                    <div class="route-meta">120 miles</div>
+                </div>
+                <div class="route-time">2h 20min</div>
+            </a>
+            <a href="/route/glasgow-to-liverpool/" class="route-card">
+                <div>
+                    <div class="route-title">Liverpool</div>
+                    <div class="route-meta">177 miles</div>
                 </div>
                 <div class="route-time">3h 30min</div>
             </a>
-            <a href="/route/glasgow-to-london/" class="route-card">
+            <a href="/route/glasgow-to-leeds/" class="route-card">
                 <div>
-                    <div class="route-title">London</div>
-                    <div class="route-meta">400 miles</div>
+                    <div class="route-title">Leeds</div>
+                    <div class="route-meta">179 miles</div>
                 </div>
-                <div class="route-time">6h 45min</div>
+                <div class="route-time">3h 30min</div>
+            </a>
+            <a href="/route/glasgow-to-sheffield/" class="route-card">
+                <div>
+                    <div class="route-title">Sheffield</div>
+                    <div class="route-meta">204 miles</div>
+                </div>
+                <div class="route-time">4h 0min</div>
+            </a>
+            <a href="/route/glasgow-to-nottingham/" class="route-card">
+                <div>
+                    <div class="route-title">Nottingham</div>
+                    <div class="route-meta">236 miles</div>
+                </div>
+                <div class="route-time">4h 40min</div>
+            </a>
+            <a href="/route/glasgow-to-carlisle/" class="route-card">
+                <div>
+                    <div class="route-title">Carlisle</div>
+                    <div class="route-meta">85 miles</div>
+                </div>
+                <div class="route-time">1h 40min</div>
+            </a>
+            <a href="/route/glasgow-to-durham/" class="route-card">
+                <div>
+                    <div class="route-title">Durham</div>
+                    <div class="route-meta">129 miles</div>
+                </div>
+                <div class="route-time">2h 30min</div>
+            </a>
+            <a href="/route/glasgow-to-sunderland/" class="route-card">
+                <div>
+                    <div class="route-title">Sunderland</div>
+                    <div class="route-meta">131 miles</div>
+                </div>
+                <div class="route-time">2h 35min</div>
+            </a>
+            <a href="/route/glasgow-to-gateshead/" class="route-card">
+                <div>
+                    <div class="route-title">Gateshead</div>
+                    <div class="route-meta">121 miles</div>
+                </div>
+                <div class="route-time">2h 25min</div>
+            </a>
+            <a href="/route/glasgow-to-south-shields/" class="route-card">
+                <div>
+                    <div class="route-title">South Shields</div>
+                    <div class="route-meta">126 miles</div>
+                </div>
+                <div class="route-time">2h 30min</div>
+            </a>
+            <a href="/route/glasgow-to-dumfries/" class="route-card">
+                <div>
+                    <div class="route-title">Dumfries</div>
+                    <div class="route-meta">60 miles</div>
+                </div>
+                <div class="route-time">1h 10min</div>
+            </a>
+            <a href="/route/glasgow-to-ayr/" class="route-card">
+                <div>
+                    <div class="route-title">Ayr</div>
+                    <div class="route-meta">32 miles</div>
+                </div>
+                <div class="route-time">0h 35min</div>
+            </a>
+            <a href="/route/glasgow-to-kilmarnock/" class="route-card">
+                <div>
+                    <div class="route-title">Kilmarnock</div>
+                    <div class="route-meta">20 miles</div>
+                </div>
+                <div class="route-time">0h 20min</div>
+            </a>
+            <a href="/route/glasgow-to-livingston/" class="route-card">
+                <div>
+                    <div class="route-title">Livingston</div>
+                    <div class="route-meta">29 miles</div>
+                </div>
+                <div class="route-time">0h 30min</div>
+            </a>
+            <a href="/route/glasgow-to-dunfermline/" class="route-card">
+                <div>
+                    <div class="route-title">Dunfermline</div>
+                    <div class="route-meta">35 miles</div>
+                </div>
+                <div class="route-time">0h 40min</div>
+            </a>
+            <a href="/route/glasgow-to-kirkcaldy/" class="route-card">
+                <div>
+                    <div class="route-title">Kirkcaldy</div>
+                    <div class="route-meta">46 miles</div>
+                </div>
+                <div class="route-time">0h 55min</div>
+            </a>
+            <a href="/route/glasgow-to-falkirk/" class="route-card">
+                <div>
+                    <div class="route-title">Falkirk</div>
+                    <div class="route-meta">20 miles</div>
+                </div>
+                <div class="route-time">0h 20min</div>
+            </a>
+            <a href="/route/glasgow-to-lake-district/" class="route-card">
+                <div>
+                    <div class="route-title">Lake District</div>
+                    <div class="route-meta">107 miles</div>
+                </div>
+                <div class="route-time">2h 5min</div>
+            </a>
+            <a href="/route/glasgow-to-hadrians-wall/" class="route-card">
+                <div>
+                    <div class="route-title">Hadrian's Wall</div>
+                    <div class="route-meta">97 miles</div>
+                </div>
+                <div class="route-time">1h 55min</div>
+            </a>
+            <a href="/route/glasgow-to-loch-ness/" class="route-card">
+                <div>
+                    <div class="route-title">Loch Ness</div>
+                    <div class="route-meta">101 miles</div>
+                </div>
+                <div class="route-time">2h 0min</div>
+            </a>
+            <a href="/route/glasgow-to-isle-of-skye/" class="route-card">
+                <div>
+                    <div class="route-title">Isle of Skye</div>
+                    <div class="route-meta">123 miles</div>
+                </div>
+                <div class="route-time">2h 25min</div>
+            </a>
+            <a href="/route/glasgow-to-giants-causeway/" class="route-card">
+                <div>
+                    <div class="route-title">Giant's Causeway</div>
+                    <div class="route-meta">98 miles</div>
+                </div>
+                <div class="route-time">1h 55min</div>
+            </a>
+            <a href="/route/glasgow-to-titanic-belfast/" class="route-card">
+                <div>
+                    <div class="route-title">Titanic Belfast</div>
+                    <div class="route-meta">109 miles</div>
+                </div>
+                <div class="route-time">2h 10min</div>
+            </a>
+            <a href="/route/glasgow-to-scottish-highlands/" class="route-card">
+                <div>
+                    <div class="route-title">Scottish Highlands</div>
+                    <div class="route-meta">88 miles</div>
+                </div>
+                <div class="route-time">1h 45min</div>
+            </a>
+            <a href="/route/glasgow-to-aberdeen-airport/" class="route-card">
+                <div>
+                    <div class="route-title">Aberdeen Airport</div>
+                    <div class="route-meta">121 miles</div>
+                </div>
+                <div class="route-time">2h 25min</div>
+            </a>
+            <a href="/route/glasgow-to-inverness-airport/" class="route-card">
+                <div>
+                    <div class="route-title">Inverness Airport</div>
+                    <div class="route-meta">116 miles</div>
+                </div>
+                <div class="route-time">2h 15min</div>
+            </a>
+            <a href="/route/glasgow-to-belfast-international/" class="route-card">
+                <div>
+                    <div class="route-title">Belfast International</div>
+                    <div class="route-meta">114 miles</div>
+                </div>
+                <div class="route-time">2h 15min</div>
+            </a>
+            <a href="/route/glasgow-to-belfast-city-airport/" class="route-card">
+                <div>
+                    <div class="route-title">Belfast City Airport</div>
+                    <div class="route-meta">107 miles</div>
+                </div>
+                <div class="route-time">2h 5min</div>
             </a>
         </div>
         
         <div style="text-align:center">
-            <a href="/ev/" class="ev-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> Plan EV Trip from Glasgow</a>
+            <a href="/ev/" class="ev-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                View EV Charging Routes
+            </a>
         </div>
     </div>
     <footer><p>© 2026 <a href="/">HowLongDrive.uk</a></p></footer>
-    <script>function toggleMenu(){document.getElementById('nav').classList.toggle('active');document.querySelector('.overlay').classList.toggle('active');}</script>
+    <script>function toggleMenu(){document.getElementById('nav').classList.toggle('open');}</script>
 </body>
 </html>
