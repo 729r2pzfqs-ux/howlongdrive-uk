@@ -4,122 +4,185 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UK Driving Times & Distances | HowLongDrive.uk</title>
-    <meta name="description" content="Calculate driving times and distances between UK cities. London to Manchester, Edinburgh to Glasgow, and 300+ routes with petrol costs.">
+    <meta name="description" content="Find driving times and distances between UK cities. Plan your road trip with accurate drive time estimates, petrol costs, and route information.">
     <link rel="canonical" href="https://howlongdrive.uk/">
     <link rel="icon" href="/favicon.ico">
     <meta property="og:title" content="UK Driving Times | HowLongDrive.uk">
     <meta property="og:description" content="Find driving times between UK cities. Petrol costs, EV routes, and journey planning.">
     <style>
-        :root { --primary: #4B6E93; --accent: #10B981; --bg: #f8fafc; --card: #fff; --text: #1e293b; --muted: #64748b; --border: #e2e8f0; }
+        :root {
+            --primary: #4B6E93;
+            --primary-dark: #3a5775;
+            --accent: #10B981;
+            --accent-dark: #0D9668;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --text: #1e293b;
+            --muted: #64748b;
+            --border: #e2e8f0;
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: system-ui, sans-serif; background: var(--bg); color: var(--text); }
+        body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
         .container { max-width: 1000px; margin: 0 auto; padding: 0 1rem; }
         
         /* Header */
         header { background: var(--card); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
         .header-inner { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-weight: 700; font-size: 1.1rem; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
-        .logo img { height: 50px; }
-        .logo span { line-height: 1.2; }
-        nav { display: flex; gap: 1.5rem; align-items: center; }
-        nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; }
+        .logo { font-weight: 700; font-size: 1.5rem; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 0.75rem; }
+        .logo img { height: 80px; width: auto; }
+        .logo span { font-weight: 700; }
+        nav { display: flex; align-items: center; gap: 1.5rem; }
+        nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; }
         nav a:hover { color: var(--primary); }
-        .ev-badge { background: var(--accent); color: #fff !important; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem; }
-        
-        /* Hamburger */
-        .close-btn { display: none; } .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; color: var(--text); }
-        .hamburger svg { width: 24px; height: 24px; }
-        .overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 98; }
+        .ev-badge { background: var(--accent); color: white !important; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 600; }
+        .close-btn { display: none; }
+        .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+        .hamburger svg { width: 24px; height: 24px; color: var(--text); }
+        .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 999; }
         .overlay.active { display: block; }
         
         @media (max-width: 768px) {
-            .hamburger { display: block; }
-            nav { position: fixed; top: 0; right: -280px; width: 280px; height: 100%; background: var(--card); flex-direction: column; padding: 2rem 1.5rem; gap: 1rem; z-index: 99; transition: right 0.3s; box-shadow: -2px 0 10px rgba(0,0,0,0.1); }
+            .logo img { height: 50px; }
+            .logo span { display: none; }
+            nav { position: fixed; top: 0; right: -100%; width: 250px; height: 100vh; background: var(--card); flex-direction: column; justify-content: flex-start; padding: 5rem 2rem 2rem; box-shadow: -4px 0 20px rgba(0,0,0,0.1); transition: right 0.3s; z-index: 1000; }
             nav.active { right: 0; }
-            nav a { font-size: 1.1rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border); display: block; width: 100%; }
-            nav .close-btn { display: block; align-self: flex-end; background: none; border: none; cursor: pointer; padding: 0.5rem; margin-bottom: 1rem; }
-            nav .close-btn svg { width: 24px; height: 24px; }
+            nav a { font-size: 1.1rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border); width: 100%; }
+            .hamburger { display: block; z-index: 1001; }
+            .close-btn { display: block; position: absolute; top: 1rem; right: 1rem; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+            .close-btn svg { width: 24px; height: 24px; }
         }
         
         /* Hero */
-        .hero { text-align: center; padding: 3rem 1rem; background: linear-gradient(135deg, var(--primary), #3a5775); color: #fff; }
-        h1 { font-size: 2rem; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.75rem; flex-wrap: wrap; }
-        h1 img { height: 50px; }
-        .hero p { font-size: 1rem; opacity: 0.9; max-width: 600px; margin: 0 auto 2rem; }
-        .search-box { background: var(--card); padding: 1.5rem; border-radius: 1rem; max-width: 600px; margin: 0 auto; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
-        .search-box select { padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: 0.5rem; font-size: 1rem; flex: 1; min-width: 140px; }
-        .search-box button { background: var(--accent); color: #fff; border: none; padding: 0.75rem 2rem; border-radius: 0.5rem; font-weight: 600; cursor: pointer; }
-        .search-box button:hover { background: #0d9668; }
+        .hero { text-align: center; padding: 4rem 1rem; }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.75rem; flex-wrap: wrap; }
+        .hero h1 img { height: 50px; }
+        .hero p { color: var(--muted); font-size: 1.25rem; margin-bottom: 2rem; }
         
-        /* Routes Section */
-        .routes-section { padding: 3rem 0; }
-        h2 { font-size: 1.5rem; margin-bottom: 1.5rem; text-align: center; }
+        /* Search Box */
+        .search-box { background: var(--card); border-radius: 1rem; padding: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.1); max-width: 600px; margin: 0 auto; }
+        .search-row { display: flex; gap: 1rem; margin-bottom: 1rem; }
+        .input-wrapper { flex: 1; position: relative; }
+        .search-input { width: 100%; padding: 1rem; border: 2px solid var(--border); border-radius: 0.5rem; font-size: 1rem; }
+        .search-input:focus { outline: none; border-color: var(--primary); }
+        .dropdown { position: absolute; top: 100%; left: 0; right: 0; background: var(--card); border: 1px solid var(--border); border-radius: 0.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.15); display: none; z-index: 100; max-height: 250px; overflow-y: auto; }
+        .dropdown.active { display: block; }
+        .dropdown-item { padding: 0.75rem 1rem; cursor: pointer; border-bottom: 1px solid var(--border); }
+        .dropdown-item:last-child { border-bottom: none; }
+        .dropdown-item:hover { background: var(--bg); color: var(--primary); }
+        .search-btn { width: 100%; background: var(--accent); color: white; border: none; padding: 1rem 2rem; border-radius: 0.5rem; font-size: 1rem; font-weight: 600; cursor: pointer; }
+        .search-btn:hover { background: var(--accent-dark); }
+        
+        @media (max-width: 600px) {
+            .search-row { flex-direction: column; }
+        }
+        
+        /* Popular Routes */
+        .popular { padding: 4rem 0; }
+        .popular h2 { text-align: center; margin-bottom: 2rem; }
         .routes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
-        .route-card { background: var(--card); padding: 1.25rem; border-radius: 0.75rem; border: 1px solid var(--border); text-decoration: none; color: var(--text); transition: box-shadow 0.2s; }
+        .route-card { background: var(--card); border-radius: 0.75rem; padding: 1.5rem; text-decoration: none; color: inherit; border: 1px solid var(--border); transition: box-shadow 0.2s; }
         .route-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-        .route-card h3 { font-size: 1rem; margin-bottom: 0.5rem; color: var(--primary); }
-        .route-meta { display: flex; gap: 1rem; font-size: 0.875rem; color: var(--muted); }
+        .route-title { font-weight: 600; margin-bottom: 0.5rem; }
+        .route-meta { color: var(--muted); font-size: 0.875rem; }
         
-        footer { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.875rem; }
-        footer a { color: var(--primary); }
+        footer { background: var(--card); border-top: 1px solid var(--border); padding: 2rem 0; text-align: center; color: var(--muted); font-size: 0.875rem; margin-top: 4rem; }
+        footer a { color: var(--primary); text-decoration: none; }
     </style>
 </head>
 <body>
     <header>
         <div class="container header-inner">
             <a href="/" class="logo">
-                <img src="/assets/logo-header.png" alt="">
+                <img src="/assets/logo-header.png" alt="HowLongDrive UK">
                 <span>HowLongDrive.uk</span>
             </a>
-            <button class="hamburger" onclick="toggleMenu()">
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
             </button>
             <div class="overlay" onclick="toggleMenu()"></div>
             <nav id="nav">
-                <button class="close-btn" onclick="toggleMenu()">
+                <button class="close-btn" onclick="toggleMenu()" aria-label="Close">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
                 </button>
                 <a href="/">Home</a>
                 <a href="/routes/">Routes</a>
                 <a href="/cities/">Cities</a>
-                <a href="/ev/" class="ev-badge">EV Trips</a>
+                <a href="/ev/" class="ev-badge">⚡ EV Trips</a>
             </nav>
         </div>
     </header>
-    
-    <section class="hero">
-        <div class="container">
-            <h1>
-                <img src="/assets/car-hero.png" alt="">
-                UK Driving Times
-            </h1>
-            <p>Calculate driving times and distances between UK cities. Find petrol costs, EV charging stops, and plan your journey.</p>
-            <div class="search-box">
-                <select id="from-city"><option value="">From...</option></select>
-                <select id="to-city"><option value="">To...</option></select>
-                <button onclick="search()">Find Route</button>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>
+                    <img src="/assets/car-hero.png" alt="">
+                    UK Driving Times
+                </h1>
+                <p>Find driving times, distances, and petrol costs between UK cities</p>
+                <div class="search-box">
+                    <div class="search-row">
+                        <div class="input-wrapper">
+                            <input type="text" class="search-input" placeholder="From (e.g., London)" id="from" autocomplete="off">
+                            <div class="dropdown" id="from-dropdown"></div>
+                        </div>
+                        <div class="input-wrapper">
+                            <input type="text" class="search-input" placeholder="To (e.g., Manchester)" id="to" autocomplete="off">
+                            <div class="dropdown" id="to-dropdown"></div>
+                        </div>
+                    </div>
+                    <button class="search-btn" onclick="search()">Get Driving Time</button>
+                </div>
             </div>
-        </div>
-    </section>
-    
-    <section class="routes-section">
-        <div class="container">
-            <h2>Popular UK Routes</h2>
-            <div class="routes-grid">
-                <a href="/route/london-to-manchester/" class="route-card"><h3>London → Manchester</h3><div class="route-meta"><span>4h 0min</span><span>210 miles</span></div></a>
-                <a href="/route/london-to-birmingham/" class="route-card"><h3>London → Birmingham</h3><div class="route-meta"><span>2h 15min</span><span>120 miles</span></div></a>
-                <a href="/route/london-to-edinburgh/" class="route-card"><h3>London → Edinburgh</h3><div class="route-meta"><span>7h 0min</span><span>410 miles</span></div></a>
-                <a href="/route/manchester-to-liverpool/" class="route-card"><h3>Manchester → Liverpool</h3><div class="route-meta"><span>0h 50min</span><span>35 miles</span></div></a>
-                <a href="/route/edinburgh-to-glasgow/" class="route-card"><h3>Edinburgh → Glasgow</h3><div class="route-meta"><span>1h 0min</span><span>50 miles</span></div></a>
-                <a href="/route/london-to-bristol/" class="route-card"><h3>London → Bristol</h3><div class="route-meta"><span>2h 0min</span><span>120 miles</span></div></a>
-                <a href="/route/london-to-brighton/" class="route-card"><h3>London → Brighton</h3><div class="route-meta"><span>1h 30min</span><span>55 miles</span></div></a>
-                <a href="/route/london-to-cardiff/" class="route-card"><h3>London → Cardiff</h3><div class="route-meta"><span>2h 45min</span><span>155 miles</span></div></a>
+        </section>
+
+        <section class="popular">
+            <div class="container">
+                <h2>Popular UK Routes</h2>
+                <div class="routes-grid">
+                    <a href="/route/london-to-manchester/" class="route-card">
+                        <div class="route-title">London → Manchester</div>
+                        <div class="route-meta">⏱️ 4h 0min · 📍 210 miles</div>
+                    </a>
+                    <a href="/route/london-to-birmingham/" class="route-card">
+                        <div class="route-title">London → Birmingham</div>
+                        <div class="route-meta">⏱️ 2h 15min · 📍 120 miles</div>
+                    </a>
+                    <a href="/route/london-to-edinburgh/" class="route-card">
+                        <div class="route-title">London → Edinburgh</div>
+                        <div class="route-meta">⏱️ 7h 0min · 📍 410 miles</div>
+                    </a>
+                    <a href="/route/manchester-to-liverpool/" class="route-card">
+                        <div class="route-title">Manchester → Liverpool</div>
+                        <div class="route-meta">⏱️ 0h 50min · 📍 35 miles</div>
+                    </a>
+                    <a href="/route/edinburgh-to-glasgow/" class="route-card">
+                        <div class="route-title">Edinburgh → Glasgow</div>
+                        <div class="route-meta">⏱️ 1h 0min · 📍 50 miles</div>
+                    </a>
+                    <a href="/route/london-to-bristol/" class="route-card">
+                        <div class="route-title">London → Bristol</div>
+                        <div class="route-meta">⏱️ 2h 0min · 📍 120 miles</div>
+                    </a>
+                    <a href="/route/london-to-brighton/" class="route-card">
+                        <div class="route-title">London → Brighton</div>
+                        <div class="route-meta">⏱️ 1h 30min · 📍 55 miles</div>
+                    </a>
+                    <a href="/route/london-to-cardiff/" class="route-card">
+                        <div class="route-title">London → Cardiff</div>
+                        <div class="route-meta">⏱️ 2h 45min · 📍 155 miles</div>
+                    </a>
+                </div>
             </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 <a href="/">HowLongDrive.uk</a> — UK Driving Times & Distances</p>
         </div>
-    </section>
-    
-    <footer><p>© 2026 <a href="/">HowLongDrive.uk</a> — UK Driving Times & Distances</p></footer>
-    
+    </footer>
+
     <script src="/data/route_map.js"></script>
     <script>
         function toggleMenu() {
@@ -127,28 +190,65 @@
             document.querySelector('.overlay').classList.toggle('active');
         }
         
-        const fromSelect = document.getElementById('from-city');
-        const toSelect = document.getElementById('to-city');
-        if (typeof ROUTE_MAP !== 'undefined') {
-            Object.keys(ROUTE_MAP).sort().forEach(city => {
-                fromSelect.innerHTML += '<option value="' + city + '">' + city + '</option>';
+        // City list for autocomplete
+        const cities = typeof ROUTE_MAP !== 'undefined' ? Object.keys(ROUTE_MAP).sort() : [];
+        let selectedFrom = '';
+        let selectedTo = '';
+        
+        function setupDropdown(inputId, dropdownId, onSelect) {
+            const input = document.getElementById(inputId);
+            const dropdown = document.getElementById(dropdownId);
+            
+            input.addEventListener('input', function() {
+                const val = this.value.toLowerCase();
+                if (val.length < 1) {
+                    dropdown.classList.remove('active');
+                    return;
+                }
+                
+                const matches = cities.filter(c => c.toLowerCase().includes(val)).slice(0, 8);
+                if (matches.length === 0) {
+                    dropdown.classList.remove('active');
+                    return;
+                }
+                
+                dropdown.innerHTML = matches.map(c => 
+                    `<div class="dropdown-item" onclick="selectCity('${inputId}', '${dropdownId}', '${c}')">${c}</div>`
+                ).join('');
+                dropdown.classList.add('active');
+            });
+            
+            input.addEventListener('blur', () => {
+                setTimeout(() => dropdown.classList.remove('active'), 200);
             });
         }
-        fromSelect.addEventListener('change', function() {
-            toSelect.innerHTML = '<option value="">To...</option>';
-            const destinations = ROUTE_MAP[this.value] || [];
-            destinations.forEach(city => {
-                toSelect.innerHTML += '<option value="' + city + '">' + city + '</option>';
-            });
-        });
+        
+        function selectCity(inputId, dropdownId, city) {
+            document.getElementById(inputId).value = city;
+            document.getElementById(dropdownId).classList.remove('active');
+            if (inputId === 'from') {
+                selectedFrom = city;
+            } else {
+                selectedTo = city;
+            }
+        }
+        
         function search() {
-            const from = fromSelect.value;
-            const to = toSelect.value;
+            const from = document.getElementById('from').value;
+            const to = document.getElementById('to').value;
             if (from && to) {
                 const slug = from.toLowerCase().replace(/ /g, '-') + '-to-' + to.toLowerCase().replace(/ /g, '-');
                 window.location.href = '/route/' + slug + '/';
             }
         }
+        
+        // Enter key to search
+        document.getElementById('from').addEventListener('keypress', e => { if (e.key === 'Enter') document.getElementById('to').focus(); });
+        document.getElementById('to').addEventListener('keypress', e => { if (e.key === 'Enter') search(); });
+        
+        // Initialize dropdowns
+        setupDropdown('from', 'from-dropdown');
+        setupDropdown('to', 'to-dropdown');
     </script>
 </body>
 </html>
