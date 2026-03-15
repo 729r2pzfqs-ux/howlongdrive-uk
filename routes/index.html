@@ -31,7 +31,7 @@
             nav .close-btn { display: block; align-self: flex-end; background: none; border: none; cursor: pointer; padding: 0.5rem; margin-bottom: 1rem; }
         }
         .hero-section { text-align: center; padding: 2rem 1rem; }
-        h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+        h1 { font-size: 1.75rem; margin-bottom: 0.5rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
         .subtitle { color: var(--muted); margin-bottom: 1.5rem; }
         .stats { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
         .stat { text-align: center; }
@@ -40,7 +40,7 @@
         .search-box { max-width: 500px; margin: 0 auto 2rem; }
         .search-box input { width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: 0.5rem; font-size: 1rem; }
         .section { margin-bottom: 2rem; }
-        .section h2 { font-size: 1.25rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+        .section h2 { font-size: 1.1rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; color: var(--text); }
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
         .card { background: var(--card); padding: 1rem; border-radius: 0.75rem; border: 1px solid var(--border); text-decoration: none; color: var(--text); }
         .card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
@@ -65,7 +65,7 @@
     
     <div class="container">
         <div class="hero-section">
-            <h1>🚗 UK Driving Routes</h1>
+            <h1><svg style="width:24px;height:24px;vertical-align:middle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9L18 10V6a2 2 0 00-2-2H8a2 2 0 00-2 2v4l-2.5 1.1C2.7 11.3 2 12.1 2 13v3c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg> UK Driving Routes</h1>
             <p class="subtitle">Browse 310 routes across the United Kingdom</p>
             
             <div class="stats">
@@ -80,7 +80,7 @@
         </div>
         
         <div class="section" id="road-trips">
-            <h2>🛣️ Road Trips (150+ miles)</h2>
+            <h2><svg style="width:24px;height:24px;vertical-align:middle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19L8 5M16 5l4 14M12 5v14M9 5h6M7 19h10"/></svg> Road Trips (150+ miles)</h2>
             <div class="grid">
                 <a href="/route/london-to-edinburgh/" class="card" data-search="London Edinburgh"><h3>London → Edinburgh</h3><div class="meta">7h 0min · 410 miles</div></a>
                 <a href="/route/edinburgh-to-london/" class="card" data-search="Edinburgh London"><h3>Edinburgh → London</h3><div class="meta">7h 0min · 410 miles</div></a>
@@ -115,7 +115,7 @@
         </div>
         
         <div class="section" id="regional">
-            <h2>🚙 Regional (50-150 miles)</h2>
+            <h2><svg style="width:24px;height:24px;vertical-align:middle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1,6 1,22 8,18 16,22 23,18 23,2 16,6 8,2 1,6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg> Regional (50-150 miles)</h2>
             <div class="grid">
                 <a href="/route/manchester-to-newcastle/" class="card" data-search="Manchester Newcastle"><h3>Manchester → Newcastle</h3><div class="meta">2h 45min · 145 miles</div></a>
                 <a href="/route/glasgow-to-aberdeen/" class="card" data-search="Glasgow Aberdeen"><h3>Glasgow → Aberdeen</h3><div class="meta">2h 45min · 145 miles</div></a>
@@ -192,7 +192,7 @@
         </div>
         
         <div class="section" id="commutes">
-            <h2>🏠 Commutes (<50 miles)</h2>
+            <h2><svg style="width:24px;height:24px;vertical-align:middle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg> Commutes (under 50 miles)</h2>
             <div class="grid">
                 <a href="/route/birmingham-to-leicester/" class="card" data-search="Birmingham Leicester"><h3>Birmingham → Leicester</h3><div class="meta">0h 45min · 45 miles</div></a>
                 <a href="/route/manchester-to-leeds/" class="card" data-search="Manchester Leeds"><h3>Manchester → Leeds</h3><div class="meta">1h 0min · 45 miles</div></a>
