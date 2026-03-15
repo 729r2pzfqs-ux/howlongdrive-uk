@@ -1,141 +1,1290 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Driving Routes - Find Drive Times | HowLongDrive UK</title>
-    <meta name="description" content="Browse 300 UK driving routes. Road trips, airports, tourist destinations.">
+    <title>UK Driving Routes | HowLongDrive.uk</title>
+    <meta name="description" content="Browse 310 UK driving routes. Find drive times between cities.">
     <link rel="canonical" href="https://howlongdrive.uk/routes/">
     <link rel="icon" href="/favicon.ico">
     <style>
-        :root { --primary: #4B6E93; --accent: #10B981; --green: #10B981; --bg: #f8fafc; --card: #fff; --text: #1e293b; --muted: #64748b; --border: #e2e8f0; }
+        :root { --primary: #4B6E93; --accent: #10B981; --bg: #f8fafc; --card: #fff; --text: #1e293b; --muted: #64748b; --border: #e2e8f0; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: system-ui, sans-serif; background: var(--bg); color: var(--text); }
         .container { max-width: 1100px; margin: 0 auto; padding: 0 1rem; }
         header { background: var(--card); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
         .header-inner { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-weight: 700; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 0.75rem; }
-        .logo img { height: 100px; }
+        .logo { font-weight: 700; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
+        .logo img { height: 50px; }
         nav { display: flex; gap: 1.5rem; }
-        nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; }
-        .ev-badge { background: var(--green); color: #fff; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem; }
-        @media (max-width: 768px) { .logo img { height: 60px; } .logo span { display: none; } nav { display: none; } }
-        h1 { font-size: 2rem; margin: 2rem 0 0.5rem; display: flex; align-items: center; gap: 0.75rem; }
-        h1 .icon { width: 32px; height: 32px; color: var(--primary); }
-        .subtitle { color: var(--muted); margin-bottom: 1.5rem; }
-        .stats { display: flex; gap: 2rem; margin: 1rem 0 2rem; flex-wrap: wrap; }
-        .stat { text-align: center; }
-        .stat-value { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
-        .stat-label { font-size: 0.8rem; color: var(--muted); }
-        .search-box { background: var(--card); padding: 1rem; border-radius: 0.75rem; margin-bottom: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
-        .search-input { width: 100%; padding: 0.875rem 1rem; border: 2px solid var(--border); border-radius: 0.5rem; font-size: 1rem; }
-        .search-input:focus { outline: none; border-color: var(--primary); }
-        .section { margin-bottom: 2.5rem; }
-        .section h2 { font-size: 1.1rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; color: var(--text); }
-        .section h2 .icon { width: 20px; height: 20px; color: var(--primary); }
-        .routes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0.75rem; }
-        .route-card { background: var(--card); border-radius: 0.5rem; padding: 1rem; text-decoration: none; color: inherit; border: 1px solid var(--border); transition: border-color 0.15s; }
-        .route-card:hover { border-color: var(--primary); }
-        .route-title { font-weight: 600; font-size: 0.95rem; }
-        .route-meta { color: var(--muted); font-size: 0.8rem; margin-top: 0.25rem; }
+        nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; }
+        .ev-badge { background: var(--accent); color: #fff !important; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem; }
+        .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+        .hamburger svg { width: 24px; height: 24px; }
+        @media (max-width: 768px) { .hamburger { display: block; } nav { display: none; } }
+        h1 { font-size: 2rem; margin: 2rem 0 1rem; text-align: center; }
+        .subtitle { color: var(--muted); text-align: center; margin-bottom: 2rem; }
+        .routes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+        .route-card { background: var(--card); padding: 1rem; border-radius: 0.75rem; border: 1px solid var(--border); text-decoration: none; color: var(--text); }
+        .route-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .route-card h3 { font-size: 0.95rem; margin-bottom: 0.25rem; color: var(--primary); }
+        .route-meta { font-size: 0.8rem; color: var(--muted); }
         footer { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.875rem; }
-        footer a { color: var(--primary); text-decoration: none; }
-        .hidden { display: none !important; }
     </style>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NXC7PNTC4G"></script>
-    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-NXC7PNTC4G")</script>
 </head>
 <body>
-    <header><div class="container header-inner">
-        <a href="/" class="logo"><img src="/assets/logo-header.png" alt="HowLongDrive"><span>HowLongDrive UK</span></a>
-        <nav><a href="/">Home</a><a href="/routes/">Routes</a><a href="/cities/">Cities</a><a href="/ev/" class="ev-badge">EV Trips</a></nav>
-    </div></header>
+    <header>
+        <div class="container header-inner">
+            <a href="/" class="logo"><img src="/assets/logo-header.png" alt=""><span>HowLongDrive.uk</span></a>
+            <nav><a href="/">Home</a><a href="/routes/">Routes</a><a href="/cities/">Cities</a><a href="/ev/" class="ev-badge">EV Trips</a></nav>
+        </div>
+    </header>
     <div class="container">
-        <h1><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg> Driving Routes</h1>
-        <p class="subtitle">Browse 1918 routes across North America</p>
-        <div class="stats">
-            <div class="stat"><div class="stat-value">814</div><div class="stat-label">Road Trips</div></div>
-            <div class="stat"><div class="stat-value">566</div><div class="stat-label">Regional</div></div>
-            <div class="stat"><div class="stat-value">160</div><div class="stat-label">Tourist</div></div>
-            <div class="stat"><div class="stat-value">98</div><div class="stat-label">Airport</div></div>
-            <div class="stat"><div class="stat-value">280</div><div class="stat-label">Commutes</div></div>
+        <h1>UK Driving Routes</h1>
+        <p class="subtitle">310 routes across the United Kingdom</p>
+        <div class="routes-grid">
+            <a href="/route/altrincham-to-manchester/" class="route-card">
+                <h3>Altrincham → Manchester</h3>
+                <div class="route-meta">0h 25min · 10 miles</div>
+            </a>
+            <a href="/route/barking-to-london/" class="route-card">
+                <h3>Barking → London</h3>
+                <div class="route-meta">0h 25min · 9 miles</div>
+            </a>
+            <a href="/route/birkenhead-to-liverpool/" class="route-card">
+                <h3>Birkenhead → Liverpool</h3>
+                <div class="route-meta">0h 15min · 5 miles</div>
+            </a>
+            <a href="/route/birmingham-to-birmingham-airport/" class="route-card">
+                <h3>Birmingham → Birmingham Airport</h3>
+                <div class="route-meta">0h 20min · 10 miles</div>
+            </a>
+            <a href="/route/birmingham-to-bristol/" class="route-card">
+                <h3>Birmingham → Bristol</h3>
+                <div class="route-meta">1h 30min · 90 miles</div>
+            </a>
+            <a href="/route/birmingham-to-bromsgrove/" class="route-card">
+                <h3>Birmingham → Bromsgrove</h3>
+                <div class="route-meta">0h 25min · 14 miles</div>
+            </a>
+            <a href="/route/birmingham-to-cardiff/" class="route-card">
+                <h3>Birmingham → Cardiff</h3>
+                <div class="route-meta">1h 45min · 110 miles</div>
+            </a>
+            <a href="/route/birmingham-to-coventry/" class="route-card">
+                <h3>Birmingham → Coventry</h3>
+                <div class="route-meta">0h 30min · 20 miles</div>
+            </a>
+            <a href="/route/birmingham-to-dudley/" class="route-card">
+                <h3>Birmingham → Dudley</h3>
+                <div class="route-meta">0h 25min · 10 miles</div>
+            </a>
+            <a href="/route/birmingham-to-leeds/" class="route-card">
+                <h3>Birmingham → Leeds</h3>
+                <div class="route-meta">2h 15min · 120 miles</div>
+            </a>
+            <a href="/route/birmingham-to-leicester/" class="route-card">
+                <h3>Birmingham → Leicester</h3>
+                <div class="route-meta">0h 45min · 45 miles</div>
+            </a>
+            <a href="/route/birmingham-to-liverpool/" class="route-card">
+                <h3>Birmingham → Liverpool</h3>
+                <div class="route-meta">1h 45min · 100 miles</div>
+            </a>
+            <a href="/route/birmingham-to-london/" class="route-card">
+                <h3>Birmingham → London</h3>
+                <div class="route-meta">2h 15min · 120 miles</div>
+            </a>
+            <a href="/route/birmingham-to-manchester/" class="route-card">
+                <h3>Birmingham → Manchester</h3>
+                <div class="route-meta">1h 45min · 90 miles</div>
+            </a>
+            <a href="/route/birmingham-to-nottingham/" class="route-card">
+                <h3>Birmingham → Nottingham</h3>
+                <div class="route-meta">1h 0min · 55 miles</div>
+            </a>
+            <a href="/route/birmingham-to-redditch/" class="route-card">
+                <h3>Birmingham → Redditch</h3>
+                <div class="route-meta">0h 30min · 15 miles</div>
+            </a>
+            <a href="/route/birmingham-to-sheffield/" class="route-card">
+                <h3>Birmingham → Sheffield</h3>
+                <div class="route-meta">1h 30min · 90 miles</div>
+            </a>
+            <a href="/route/birmingham-to-solihull/" class="route-card">
+                <h3>Birmingham → Solihull</h3>
+                <div class="route-meta">0h 20min · 9 miles</div>
+            </a>
+            <a href="/route/birmingham-to-stoke-on-trent/" class="route-card">
+                <h3>Birmingham → Stoke-on-Trent</h3>
+                <div class="route-meta">1h 0min · 50 miles</div>
+            </a>
+            <a href="/route/birmingham-to-sutton-coldfield/" class="route-card">
+                <h3>Birmingham → Sutton Coldfield</h3>
+                <div class="route-meta">0h 25min · 8 miles</div>
+            </a>
+            <a href="/route/birmingham-to-tamworth/" class="route-card">
+                <h3>Birmingham → Tamworth</h3>
+                <div class="route-meta">0h 30min · 18 miles</div>
+            </a>
+            <a href="/route/birmingham-to-walsall/" class="route-card">
+                <h3>Birmingham → Walsall</h3>
+                <div class="route-meta">0h 25min · 10 miles</div>
+            </a>
+            <a href="/route/birmingham-to-west-bromwich/" class="route-card">
+                <h3>Birmingham → West Bromwich</h3>
+                <div class="route-meta">0h 20min · 6 miles</div>
+            </a>
+            <a href="/route/birmingham-to-wolverhampton/" class="route-card">
+                <h3>Birmingham → Wolverhampton</h3>
+                <div class="route-meta">0h 25min · 15 miles</div>
+            </a>
+            <a href="/route/birmingham-to-worcester/" class="route-card">
+                <h3>Birmingham → Worcester</h3>
+                <div class="route-meta">0h 45min · 35 miles</div>
+            </a>
+            <a href="/route/birmingham-airport-to-birmingham/" class="route-card">
+                <h3>Birmingham Airport → Birmingham</h3>
+                <div class="route-meta">0h 20min · 10 miles</div>
+            </a>
+            <a href="/route/bolton-to-manchester/" class="route-card">
+                <h3>Bolton → Manchester</h3>
+                <div class="route-meta">0h 25min · 12 miles</div>
+            </a>
+            <a href="/route/bootle-to-liverpool/" class="route-card">
+                <h3>Bootle → Liverpool</h3>
+                <div class="route-meta">0h 15min · 4 miles</div>
+            </a>
+            <a href="/route/brighton-to-gatwick-airport/" class="route-card">
+                <h3>Brighton → Gatwick Airport</h3>
+                <div class="route-meta">0h 35min · 28 miles</div>
+            </a>
+            <a href="/route/brighton-to-london/" class="route-card">
+                <h3>Brighton → London</h3>
+                <div class="route-meta">1h 30min · 55 miles</div>
+            </a>
+            <a href="/route/brighton-to-portsmouth/" class="route-card">
+                <h3>Brighton → Portsmouth</h3>
+                <div class="route-meta">1h 0min · 50 miles</div>
+            </a>
+            <a href="/route/brighton-to-southampton/" class="route-card">
+                <h3>Brighton → Southampton</h3>
+                <div class="route-meta">1h 15min · 65 miles</div>
+            </a>
+            <a href="/route/bristol-to-bath/" class="route-card">
+                <h3>Bristol → Bath</h3>
+                <div class="route-meta">0h 25min · 15 miles</div>
+            </a>
+            <a href="/route/bristol-to-birmingham/" class="route-card">
+                <h3>Bristol → Birmingham</h3>
+                <div class="route-meta">1h 30min · 90 miles</div>
+            </a>
+            <a href="/route/bristol-to-bristol-airport/" class="route-card">
+                <h3>Bristol → Bristol Airport</h3>
+                <div class="route-meta">0h 25min · 10 miles</div>
+            </a>
+            <a href="/route/bristol-to-cardiff/" class="route-card">
+                <h3>Bristol → Cardiff</h3>
+                <div class="route-meta">0h 50min · 45 miles</div>
+            </a>
+            <a href="/route/bristol-to-clevedon/" class="route-card">
+                <h3>Bristol → Clevedon</h3>
+                <div class="route-meta">0h 25min · 15 miles</div>
+            </a>
+            <a href="/route/bristol-to-exeter/" class="route-card">
+                <h3>Bristol → Exeter</h3>
+                <div class="route-meta">1h 15min · 80 miles</div>
+            </a>
+            <a href="/route/bristol-to-filton/" class="route-card">
+                <h3>Bristol → Filton</h3>
+                <div class="route-meta">0h 15min · 5 miles</div>
+            </a>
+            <a href="/route/bristol-to-gloucester/" class="route-card">
+                <h3>Bristol → Gloucester</h3>
+                <div class="route-meta">0h 50min · 40 miles</div>
+            </a>
+            <a href="/route/bristol-to-keynsham/" class="route-card">
+                <h3>Bristol → Keynsham</h3>
+                <div class="route-meta">0h 15min · 6 miles</div>
+            </a>
+            <a href="/route/bristol-to-london/" class="route-card">
+                <h3>Bristol → London</h3>
+                <div class="route-meta">2h 0min · 120 miles</div>
+            </a>
+            <a href="/route/bristol-to-portishead/" class="route-card">
+                <h3>Bristol → Portishead</h3>
+                <div class="route-meta">0h 20min · 12 miles</div>
+            </a>
+            <a href="/route/bristol-to-swindon/" class="route-card">
+                <h3>Bristol → Swindon</h3>
+                <div class="route-meta">0h 45min · 40 miles</div>
+            </a>
+            <a href="/route/bristol-to-thornbury/" class="route-card">
+                <h3>Bristol → Thornbury</h3>
+                <div class="route-meta">0h 25min · 12 miles</div>
+            </a>
+            <a href="/route/bristol-to-weston-super-mare/" class="route-card">
+                <h3>Bristol → Weston-super-Mare</h3>
+                <div class="route-meta">0h 30min · 22 miles</div>
+            </a>
+            <a href="/route/bristol-airport-to-bristol/" class="route-card">
+                <h3>Bristol Airport → Bristol</h3>
+                <div class="route-meta">0h 25min · 10 miles</div>
+            </a>
+            <a href="/route/bromley-to-london/" class="route-card">
+                <h3>Bromley → London</h3>
+                <div class="route-meta">0h 35min · 12 miles</div>
+            </a>
+            <a href="/route/bromsgrove-to-birmingham/" class="route-card">
+                <h3>Bromsgrove → Birmingham</h3>
+                <div class="route-meta">0h 25min · 14 miles</div>
+            </a>
+            <a href="/route/bury-to-manchester/" class="route-card">
+                <h3>Bury → Manchester</h3>
+                <div class="route-meta">0h 25min · 9 miles</div>
+            </a>
+            <a href="/route/cambridge-to-ipswich/" class="route-card">
+                <h3>Cambridge → Ipswich</h3>
+                <div class="route-meta">1h 0min · 55 miles</div>
+            </a>
+            <a href="/route/cambridge-to-london/" class="route-card">
+                <h3>Cambridge → London</h3>
+                <div class="route-meta">1h 30min · 60 miles</div>
+            </a>
+            <a href="/route/cambridge-to-norwich/" class="route-card">
+                <h3>Cambridge → Norwich</h3>
+                <div class="route-meta">1h 15min · 65 miles</div>
+            </a>
+            <a href="/route/cambridge-to-peterborough/" class="route-card">
+                <h3>Cambridge → Peterborough</h3>
+                <div class="route-meta">0h 45min · 40 miles</div>
+            </a>
+            <a href="/route/cardiff-to-birmingham/" class="route-card">
+                <h3>Cardiff → Birmingham</h3>
+                <div class="route-meta">1h 45min · 110 miles</div>
+            </a>
+            <a href="/route/cardiff-to-bristol/" class="route-card">
+                <h3>Cardiff → Bristol</h3>
+                <div class="route-meta">0h 50min · 45 miles</div>
+            </a>
+            <a href="/route/cardiff-to-london/" class="route-card">
+                <h3>Cardiff → London</h3>
+                <div class="route-meta">2h 45min · 155 miles</div>
+            </a>
+            <a href="/route/cardiff-to-newport/" class="route-card">
+                <h3>Cardiff → Newport</h3>
+                <div class="route-meta">0h 20min · 15 miles</div>
+            </a>
+            <a href="/route/cardiff-to-swansea/" class="route-card">
+                <h3>Cardiff → Swansea</h3>
+                <div class="route-meta">0h 50min · 45 miles</div>
+            </a>
+            <a href="/route/chelmsford-to-london/" class="route-card">
+                <h3>Chelmsford → London</h3>
+                <div class="route-meta">0h 50min · 32 miles</div>
+            </a>
+            <a href="/route/clevedon-to-bristol/" class="route-card">
+                <h3>Clevedon → Bristol</h3>
+                <div class="route-meta">0h 25min · 15 miles</div>
+            </a>
+            <a href="/route/clydebank-to-glasgow/" class="route-card">
+                <h3>Clydebank → Glasgow</h3>
+                <div class="route-meta">0h 20min · 7 miles</div>
+            </a>
+            <a href="/route/coatbridge-to-glasgow/" class="route-card">
+                <h3>Coatbridge → Glasgow</h3>
+                <div class="route-meta">0h 25min · 10 miles</div>
+            </a>
+            <a href="/route/croydon-to-london/" class="route-card">
+                <h3>Croydon → London</h3>
+                <div class="route-meta">0h 30min · 12 miles</div>
+            </a>
+            <a href="/route/dalkeith-to-edinburgh/" class="route-card">
+                <h3>Dalkeith → Edinburgh</h3>
+                <div class="route-meta">0h 20min · 7 miles</div>
+            </a>
+            <a href="/route/dartford-to-london/" class="route-card">
+                <h3>Dartford → London</h3>
+                <div class="route-meta">0h 35min · 18 miles</div>
+            </a>
+            <a href="/route/dewsbury-to-leeds/" class="route-card">
+                <h3>Dewsbury → Leeds</h3>
+                <div class="route-meta">0h 20min · 10 miles</div>
+            </a>
+            <a href="/route/dudley-to-birmingham/" class="route-card">
+                <h3>Dudley → Birmingham</h3>
+                <div class="route-meta">0h 25min · 10 miles</div>
+            </a>
+            <a href="/route/dumbarton-to-glasgow/" class="route-card">
+                <h3>Dumbarton → Glasgow</h3>
+                <div class="route-meta">0h 30min · 15 miles</div>
+            </a>
+            <a href="/route/dunfermline-to-edinburgh/" class="route-card">
+                <h3>Dunfermline → Edinburgh</h3>
+                <div class="route-meta">0h 35min · 18 miles</div>
+            </a>
+            <a href="/route/ealing-to-london/" class="route-card">
+                <h3>Ealing → London</h3>
+                <div class="route-meta">0h 25min · 8 miles</div>
+            </a>
+            <a href="/route/east-kilbride-to-glasgow/" class="route-card">
+                <h3>East Kilbride → Glasgow</h3>
+                <div class="route-meta">0h 25min · 10 miles</div>
+            </a>
+            <a href="/route/edinburgh-to-aberdeen/" class="route-card">
+                <h3>Edinburgh → Aberdeen</h3>
+                <div class="route-meta">2h 30min · 125 miles</div>
+            </a>
+            <a href="/route/edinburgh-to-dalkeith/" class="route-card">
+                <h3>Edinburgh → Dalkeith</h3>
+                <div class="route-meta">0h 20min · 7 miles</div>
+            </a>
+            <a href="/route/edinburgh-to-dundee/" class="route-card">
+                <h3>Edinburgh → Dundee</h3>
+                <div class="route-meta">1h 15min · 65 miles</div>
+            </a>
+            <a href="/route/edinburgh-to-dunfermline/" class="route-card">
+                <h3>Edinburgh → Dunfermline</h3>
+                <div class="route-meta">0h 35min · 18 miles</div>
+            </a>
+            <a href="/route/edinburgh-to-edinburgh-airport/" class="route-card">
+                <h3>Edinburgh → Edinburgh Airport</h3>
+                <div class="route-meta">0h 20min · 9 miles</div>
+            </a>
+            <a href="/route/edinburgh-to-glasgow/" class="route-card">
+                <h3>Edinburgh → Glasgow</h3>
+                <div class="route-meta">1h 0min · 50 miles</div>
+            </a>
+            <a href="/route/edinburgh-to-inverness/" class="route-card">
+                <h3>Edinburgh → Inverness</h3>
+                <div class="route-meta">3h 15min · 160 miles</div>
+            </a>
+            <a href="/route/edinburgh-to-kirkcaldy/" class="route-card">
+                <h3>Edinburgh → Kirkcaldy</h3>
+                <div class="route-meta">0h 40min · 25 miles</div>
+            </a>
+            <a href="/route/edinburgh-to-livingston/" class="route-card">
+                <h3>Edinburgh → Livingston</h3>
+                <div class="route-meta">0h 25min · 15 miles</div>
+            </a>
+            <a href="/route/edinburgh-to-london/" class="route-card">
+                <h3>Edinburgh → London</h3>
+                <div class="route-meta">7h 0min · 410 miles</div>
+            </a>
+            <a href="/route/edinburgh-to-manchester/" class="route-card">
+                <h3>Edinburgh → Manchester</h3>
+                <div class="route-meta">3h 45min · 220 miles</div>
+            </a>
+            <a href="/route/edinburgh-to-musselburgh/" class="route-card">
+                <h3>Edinburgh → Musselburgh</h3>
+                <div class="route-meta">0h 15min · 6 miles</div>
+            </a>
+            <a href="/route/edinburgh-to-newcastle/" class="route-card">
+                <h3>Edinburgh → Newcastle</h3>
+                <div class="route-meta">2h 0min · 125 miles</div>
+            </a>
+            <a href="/route/edinburgh-to-perth/" class="route-card">
+                <h3>Edinburgh → Perth</h3>
+                <div class="route-meta">1h 0min · 45 miles</div>
+            </a>
+            <a href="/route/edinburgh-to-stirling/" class="route-card">
+                <h3>Edinburgh → Stirling</h3>
+                <div class="route-meta">0h 50min · 40 miles</div>
+            </a>
+            <a href="/route/edinburgh-airport-to-edinburgh/" class="route-card">
+                <h3>Edinburgh Airport → Edinburgh</h3>
+                <div class="route-meta">0h 20min · 9 miles</div>
+            </a>
+            <a href="/route/enfield-to-london/" class="route-card">
+                <h3>Enfield → London</h3>
+                <div class="route-meta">0h 30min · 11 miles</div>
+            </a>
+            <a href="/route/epsom-to-london/" class="route-card">
+                <h3>Epsom → London</h3>
+                <div class="route-meta">0h 35min · 15 miles</div>
+            </a>
+            <a href="/route/exeter-to-bristol/" class="route-card">
+                <h3>Exeter → Bristol</h3>
+                <div class="route-meta">1h 15min · 80 miles</div>
+            </a>
+            <a href="/route/exeter-to-london/" class="route-card">
+                <h3>Exeter → London</h3>
+                <div class="route-meta">3h 15min · 175 miles</div>
+            </a>
+            <a href="/route/exeter-to-plymouth/" class="route-card">
+                <h3>Exeter → Plymouth</h3>
+                <div class="route-meta">0h 50min · 45 miles</div>
+            </a>
+            <a href="/route/exeter-to-torquay/" class="route-card">
+                <h3>Exeter → Torquay</h3>
+                <div class="route-meta">0h 30min · 22 miles</div>
+            </a>
+            <a href="/route/filton-to-bristol/" class="route-card">
+                <h3>Filton → Bristol</h3>
+                <div class="route-meta">0h 15min · 5 miles</div>
+            </a>
+            <a href="/route/glasgow-to-aberdeen/" class="route-card">
+                <h3>Glasgow → Aberdeen</h3>
+                <div class="route-meta">2h 45min · 145 miles</div>
+            </a>
+            <a href="/route/glasgow-to-clydebank/" class="route-card">
+                <h3>Glasgow → Clydebank</h3>
+                <div class="route-meta">0h 20min · 7 miles</div>
+            </a>
+            <a href="/route/glasgow-to-coatbridge/" class="route-card">
+                <h3>Glasgow → Coatbridge</h3>
+                <div class="route-meta">0h 25min · 10 miles</div>
+            </a>
+            <a href="/route/glasgow-to-dumbarton/" class="route-card">
+                <h3>Glasgow → Dumbarton</h3>
+                <div class="route-meta">0h 30min · 15 miles</div>
+            </a>
+            <a href="/route/glasgow-to-dundee/" class="route-card">
+                <h3>Glasgow → Dundee</h3>
+                <div class="route-meta">1h 30min · 85 miles</div>
+            </a>
+            <a href="/route/glasgow-to-east-kilbride/" class="route-card">
+                <h3>Glasgow → East Kilbride</h3>
+                <div class="route-meta">0h 25min · 10 miles</div>
+            </a>
+            <a href="/route/glasgow-to-edinburgh/" class="route-card">
+                <h3>Glasgow → Edinburgh</h3>
+                <div class="route-meta">1h 0min · 50 miles</div>
+            </a>
+            <a href="/route/glasgow-to-glasgow-airport/" class="route-card">
+                <h3>Glasgow → Glasgow Airport</h3>
+                <div class="route-meta">0h 20min · 9 miles</div>
+            </a>
+            <a href="/route/glasgow-to-hamilton/" class="route-card">
+                <h3>Glasgow → Hamilton</h3>
+                <div class="route-meta">0h 30min · 15 miles</div>
+            </a>
+            <a href="/route/glasgow-to-inverness/" class="route-card">
+                <h3>Glasgow → Inverness</h3>
+                <div class="route-meta">3h 0min · 170 miles</div>
+            </a>
+            <a href="/route/glasgow-to-london/" class="route-card">
+                <h3>Glasgow → London</h3>
+                <div class="route-meta">6h 45min · 400 miles</div>
+            </a>
+            <a href="/route/glasgow-to-manchester/" class="route-card">
+                <h3>Glasgow → Manchester</h3>
+                <div class="route-meta">3h 30min · 215 miles</div>
+            </a>
+            <a href="/route/glasgow-to-motherwell/" class="route-card">
+                <h3>Glasgow → Motherwell</h3>
+                <div class="route-meta">0h 25min · 13 miles</div>
+            </a>
+            <a href="/route/glasgow-to-paisley/" class="route-card">
+                <h3>Glasgow → Paisley</h3>
+                <div class="route-meta">0h 20min · 8 miles</div>
+            </a>
+            <a href="/route/glasgow-to-perth/" class="route-card">
+                <h3>Glasgow → Perth</h3>
+                <div class="route-meta">1h 15min · 65 miles</div>
+            </a>
+            <a href="/route/glasgow-to-stirling/" class="route-card">
+                <h3>Glasgow → Stirling</h3>
+                <div class="route-meta">0h 40min · 30 miles</div>
+            </a>
+            <a href="/route/glasgow-airport-to-glasgow/" class="route-card">
+                <h3>Glasgow Airport → Glasgow</h3>
+                <div class="route-meta">0h 20min · 9 miles</div>
+            </a>
+            <a href="/route/gravesend-to-london/" class="route-card">
+                <h3>Gravesend → London</h3>
+                <div class="route-meta">0h 45min · 25 miles</div>
+            </a>
+            <a href="/route/guildford-to-london/" class="route-card">
+                <h3>Guildford → London</h3>
+                <div class="route-meta">0h 45min · 30 miles</div>
+            </a>
+            <a href="/route/halifax-to-leeds/" class="route-card">
+                <h3>Halifax → Leeds</h3>
+                <div class="route-meta">0h 30min · 15 miles</div>
+            </a>
+            <a href="/route/hamilton-to-glasgow/" class="route-card">
+                <h3>Hamilton → Glasgow</h3>
+                <div class="route-meta">0h 30min · 15 miles</div>
+            </a>
+            <a href="/route/harrow-to-london/" class="route-card">
+                <h3>Harrow → London</h3>
+                <div class="route-meta">0h 30min · 12 miles</div>
+            </a>
+            <a href="/route/heathrow-airport-to-london/" class="route-card">
+                <h3>Heathrow Airport → London</h3>
+                <div class="route-meta">0h 40min · 18 miles</div>
+            </a>
+            <a href="/route/huddersfield-to-leeds/" class="route-card">
+                <h3>Huddersfield → Leeds</h3>
+                <div class="route-meta">0h 30min · 18 miles</div>
+            </a>
+            <a href="/route/ilford-to-london/" class="route-card">
+                <h3>Ilford → London</h3>
+                <div class="route-meta">0h 30min · 10 miles</div>
+            </a>
+            <a href="/route/keynsham-to-bristol/" class="route-card">
+                <h3>Keynsham → Bristol</h3>
+                <div class="route-meta">0h 15min · 6 miles</div>
+            </a>
+            <a href="/route/kingston-to-london/" class="route-card">
+                <h3>Kingston → London</h3>
+                <div class="route-meta">0h 35min · 12 miles</div>
+            </a>
+            <a href="/route/kirkcaldy-to-edinburgh/" class="route-card">
+                <h3>Kirkcaldy → Edinburgh</h3>
+                <div class="route-meta">0h 40min · 25 miles</div>
+            </a>
+            <a href="/route/leeds-to-bradford/" class="route-card">
+                <h3>Leeds → Bradford</h3>
+                <div class="route-meta">0h 25min · 10 miles</div>
+            </a>
+            <a href="/route/leeds-to-dewsbury/" class="route-card">
+                <h3>Leeds → Dewsbury</h3>
+                <div class="route-meta">0h 20min · 10 miles</div>
+            </a>
+            <a href="/route/leeds-to-halifax/" class="route-card">
+                <h3>Leeds → Halifax</h3>
+                <div class="route-meta">0h 30min · 15 miles</div>
+            </a>
+            <a href="/route/leeds-to-harrogate/" class="route-card">
+                <h3>Leeds → Harrogate</h3>
+                <div class="route-meta">0h 30min · 20 miles</div>
+            </a>
+            <a href="/route/leeds-to-huddersfield/" class="route-card">
+                <h3>Leeds → Huddersfield</h3>
+                <div class="route-meta">0h 30min · 18 miles</div>
+            </a>
+            <a href="/route/leeds-to-hull/" class="route-card">
+                <h3>Leeds → Hull</h3>
+                <div class="route-meta">1h 10min · 60 miles</div>
+            </a>
+            <a href="/route/leeds-to-london/" class="route-card">
+                <h3>Leeds → London</h3>
+                <div class="route-meta">3h 45min · 195 miles</div>
+            </a>
+            <a href="/route/leeds-to-manchester/" class="route-card">
+                <h3>Leeds → Manchester</h3>
+                <div class="route-meta">1h 0min · 45 miles</div>
+            </a>
+            <a href="/route/leeds-to-middlesbrough/" class="route-card">
+                <h3>Leeds → Middlesbrough</h3>
+                <div class="route-meta">1h 15min · 60 miles</div>
+            </a>
+            <a href="/route/leeds-to-newcastle/" class="route-card">
+                <h3>Leeds → Newcastle</h3>
+                <div class="route-meta">1h 45min · 95 miles</div>
+            </a>
+            <a href="/route/leeds-to-otley/" class="route-card">
+                <h3>Leeds → Otley</h3>
+                <div class="route-meta">0h 25min · 10 miles</div>
+            </a>
+            <a href="/route/leeds-to-pudsey/" class="route-card">
+                <h3>Leeds → Pudsey</h3>
+                <div class="route-meta">0h 15min · 5 miles</div>
+            </a>
+            <a href="/route/leeds-to-sheffield/" class="route-card">
+                <h3>Leeds → Sheffield</h3>
+                <div class="route-meta">0h 45min · 35 miles</div>
+            </a>
+            <a href="/route/leeds-to-wakefield/" class="route-card">
+                <h3>Leeds → Wakefield</h3>
+                <div class="route-meta">0h 20min · 10 miles</div>
+            </a>
+            <a href="/route/leeds-to-wetherby/" class="route-card">
+                <h3>Leeds → Wetherby</h3>
+                <div class="route-meta">0h 25min · 12 miles</div>
+            </a>
+            <a href="/route/leeds-to-york/" class="route-card">
+                <h3>Leeds → York</h3>
+                <div class="route-meta">0h 30min · 25 miles</div>
+            </a>
+            <a href="/route/leicester-to-birmingham/" class="route-card">
+                <h3>Leicester → Birmingham</h3>
+                <div class="route-meta">0h 45min · 45 miles</div>
+            </a>
+            <a href="/route/leicester-to-coventry/" class="route-card">
+                <h3>Leicester → Coventry</h3>
+                <div class="route-meta">0h 30min · 25 miles</div>
+            </a>
+            <a href="/route/leicester-to-derby/" class="route-card">
+                <h3>Leicester → Derby</h3>
+                <div class="route-meta">0h 35min · 30 miles</div>
+            </a>
+            <a href="/route/leicester-to-london/" class="route-card">
+                <h3>Leicester → London</h3>
+                <div class="route-meta">2h 0min · 105 miles</div>
+            </a>
+            <a href="/route/leicester-to-nottingham/" class="route-card">
+                <h3>Leicester → Nottingham</h3>
+                <div class="route-meta">0h 35min · 30 miles</div>
+            </a>
+            <a href="/route/liverpool-to-birkenhead/" class="route-card">
+                <h3>Liverpool → Birkenhead</h3>
+                <div class="route-meta">0h 15min · 5 miles</div>
+            </a>
+            <a href="/route/liverpool-to-birmingham/" class="route-card">
+                <h3>Liverpool → Birmingham</h3>
+                <div class="route-meta">1h 45min · 100 miles</div>
+            </a>
+            <a href="/route/liverpool-to-blackpool/" class="route-card">
+                <h3>Liverpool → Blackpool</h3>
+                <div class="route-meta">1h 0min · 50 miles</div>
+            </a>
+            <a href="/route/liverpool-to-bootle/" class="route-card">
+                <h3>Liverpool → Bootle</h3>
+                <div class="route-meta">0h 15min · 4 miles</div>
+            </a>
+            <a href="/route/liverpool-to-chester/" class="route-card">
+                <h3>Liverpool → Chester</h3>
+                <div class="route-meta">0h 40min · 20 miles</div>
+            </a>
+            <a href="/route/liverpool-to-leeds/" class="route-card">
+                <h3>Liverpool → Leeds</h3>
+                <div class="route-meta">1h 30min · 75 miles</div>
+            </a>
+            <a href="/route/liverpool-to-london/" class="route-card">
+                <h3>Liverpool → London</h3>
+                <div class="route-meta">4h 15min · 220 miles</div>
+            </a>
+            <a href="/route/liverpool-to-manchester/" class="route-card">
+                <h3>Liverpool → Manchester</h3>
+                <div class="route-meta">0h 50min · 35 miles</div>
+            </a>
+            <a href="/route/liverpool-to-preston/" class="route-card">
+                <h3>Liverpool → Preston</h3>
+                <div class="route-meta">0h 45min · 35 miles</div>
+            </a>
+            <a href="/route/liverpool-to-southport/" class="route-card">
+                <h3>Liverpool → Southport</h3>
+                <div class="route-meta">0h 35min · 20 miles</div>
+            </a>
+            <a href="/route/liverpool-to-st-helens/" class="route-card">
+                <h3>Liverpool → St Helens</h3>
+                <div class="route-meta">0h 25min · 12 miles</div>
+            </a>
+            <a href="/route/liverpool-to-widnes/" class="route-card">
+                <h3>Liverpool → Widnes</h3>
+                <div class="route-meta">0h 25min · 14 miles</div>
+            </a>
+            <a href="/route/livingston-to-edinburgh/" class="route-card">
+                <h3>Livingston → Edinburgh</h3>
+                <div class="route-meta">0h 25min · 15 miles</div>
+            </a>
+            <a href="/route/london-to-barking/" class="route-card">
+                <h3>London → Barking</h3>
+                <div class="route-meta">0h 25min · 9 miles</div>
+            </a>
+            <a href="/route/london-to-bath/" class="route-card">
+                <h3>London → Bath</h3>
+                <div class="route-meta">2h 15min · 115 miles</div>
+            </a>
+            <a href="/route/london-to-birmingham/" class="route-card">
+                <h3>London → Birmingham</h3>
+                <div class="route-meta">2h 15min · 120 miles</div>
+            </a>
+            <a href="/route/london-to-bournemouth/" class="route-card">
+                <h3>London → Bournemouth</h3>
+                <div class="route-meta">2h 0min · 110 miles</div>
+            </a>
+            <a href="/route/london-to-brighton/" class="route-card">
+                <h3>London → Brighton</h3>
+                <div class="route-meta">1h 30min · 55 miles</div>
+            </a>
+            <a href="/route/london-to-bristol/" class="route-card">
+                <h3>London → Bristol</h3>
+                <div class="route-meta">2h 0min · 120 miles</div>
+            </a>
+            <a href="/route/london-to-bromley/" class="route-card">
+                <h3>London → Bromley</h3>
+                <div class="route-meta">0h 35min · 12 miles</div>
+            </a>
+            <a href="/route/london-to-cambridge/" class="route-card">
+                <h3>London → Cambridge</h3>
+                <div class="route-meta">1h 30min · 60 miles</div>
+            </a>
+            <a href="/route/london-to-cardiff/" class="route-card">
+                <h3>London → Cardiff</h3>
+                <div class="route-meta">2h 45min · 155 miles</div>
+            </a>
+            <a href="/route/london-to-chelmsford/" class="route-card">
+                <h3>London → Chelmsford</h3>
+                <div class="route-meta">0h 50min · 32 miles</div>
+            </a>
+            <a href="/route/london-to-coventry/" class="route-card">
+                <h3>London → Coventry</h3>
+                <div class="route-meta">2h 0min · 100 miles</div>
+            </a>
+            <a href="/route/london-to-croydon/" class="route-card">
+                <h3>London → Croydon</h3>
+                <div class="route-meta">0h 30min · 12 miles</div>
+            </a>
+            <a href="/route/london-to-dartford/" class="route-card">
+                <h3>London → Dartford</h3>
+                <div class="route-meta">0h 35min · 18 miles</div>
+            </a>
+            <a href="/route/london-to-ealing/" class="route-card">
+                <h3>London → Ealing</h3>
+                <div class="route-meta">0h 25min · 8 miles</div>
+            </a>
+            <a href="/route/london-to-edinburgh/" class="route-card">
+                <h3>London → Edinburgh</h3>
+                <div class="route-meta">7h 0min · 410 miles</div>
+            </a>
+            <a href="/route/london-to-enfield/" class="route-card">
+                <h3>London → Enfield</h3>
+                <div class="route-meta">0h 30min · 11 miles</div>
+            </a>
+            <a href="/route/london-to-epsom/" class="route-card">
+                <h3>London → Epsom</h3>
+                <div class="route-meta">0h 35min · 15 miles</div>
+            </a>
+            <a href="/route/london-to-exeter/" class="route-card">
+                <h3>London → Exeter</h3>
+                <div class="route-meta">3h 15min · 175 miles</div>
+            </a>
+            <a href="/route/london-to-glasgow/" class="route-card">
+                <h3>London → Glasgow</h3>
+                <div class="route-meta">6h 45min · 400 miles</div>
+            </a>
+            <a href="/route/london-to-gravesend/" class="route-card">
+                <h3>London → Gravesend</h3>
+                <div class="route-meta">0h 45min · 25 miles</div>
+            </a>
+            <a href="/route/london-to-guildford/" class="route-card">
+                <h3>London → Guildford</h3>
+                <div class="route-meta">0h 45min · 30 miles</div>
+            </a>
+            <a href="/route/london-to-harrow/" class="route-card">
+                <h3>London → Harrow</h3>
+                <div class="route-meta">0h 30min · 12 miles</div>
+            </a>
+            <a href="/route/london-to-heathrow-airport/" class="route-card">
+                <h3>London → Heathrow Airport</h3>
+                <div class="route-meta">0h 40min · 18 miles</div>
+            </a>
+            <a href="/route/london-to-ilford/" class="route-card">
+                <h3>London → Ilford</h3>
+                <div class="route-meta">0h 30min · 10 miles</div>
+            </a>
+            <a href="/route/london-to-kingston/" class="route-card">
+                <h3>London → Kingston</h3>
+                <div class="route-meta">0h 35min · 12 miles</div>
+            </a>
+            <a href="/route/london-to-leeds/" class="route-card">
+                <h3>London → Leeds</h3>
+                <div class="route-meta">3h 45min · 195 miles</div>
+            </a>
+            <a href="/route/london-to-leicester/" class="route-card">
+                <h3>London → Leicester</h3>
+                <div class="route-meta">2h 0min · 105 miles</div>
+            </a>
+            <a href="/route/london-to-liverpool/" class="route-card">
+                <h3>London → Liverpool</h3>
+                <div class="route-meta">4h 15min · 220 miles</div>
+            </a>
+            <a href="/route/london-to-luton/" class="route-card">
+                <h3>London → Luton</h3>
+                <div class="route-meta">0h 50min · 35 miles</div>
+            </a>
+            <a href="/route/london-to-manchester/" class="route-card">
+                <h3>London → Manchester</h3>
+                <div class="route-meta">4h 0min · 210 miles</div>
+            </a>
+            <a href="/route/london-to-newcastle/" class="route-card">
+                <h3>London → Newcastle</h3>
+                <div class="route-meta">5h 0min · 280 miles</div>
+            </a>
+            <a href="/route/london-to-norwich/" class="route-card">
+                <h3>London → Norwich</h3>
+                <div class="route-meta">2h 15min · 115 miles</div>
+            </a>
+            <a href="/route/london-to-nottingham/" class="route-card">
+                <h3>London → Nottingham</h3>
+                <div class="route-meta">2h 15min · 130 miles</div>
+            </a>
+            <a href="/route/london-to-oxford/" class="route-card">
+                <h3>London → Oxford</h3>
+                <div class="route-meta">1h 30min · 60 miles</div>
+            </a>
+            <a href="/route/london-to-plymouth/" class="route-card">
+                <h3>London → Plymouth</h3>
+                <div class="route-meta">4h 0min · 225 miles</div>
+            </a>
+            <a href="/route/london-to-portsmouth/" class="route-card">
+                <h3>London → Portsmouth</h3>
+                <div class="route-meta">1h 45min · 75 miles</div>
+            </a>
+            <a href="/route/london-to-reading/" class="route-card">
+                <h3>London → Reading</h3>
+                <div class="route-meta">0h 55min · 40 miles</div>
+            </a>
+            <a href="/route/london-to-richmond/" class="route-card">
+                <h3>London → Richmond</h3>
+                <div class="route-meta">0h 30min · 10 miles</div>
+            </a>
+            <a href="/route/london-to-romford/" class="route-card">
+                <h3>London → Romford</h3>
+                <div class="route-meta">0h 35min · 15 miles</div>
+            </a>
+            <a href="/route/london-to-sevenoaks/" class="route-card">
+                <h3>London → Sevenoaks</h3>
+                <div class="route-meta">0h 45min · 25 miles</div>
+            </a>
+            <a href="/route/london-to-sheffield/" class="route-card">
+                <h3>London → Sheffield</h3>
+                <div class="route-meta">3h 0min · 165 miles</div>
+            </a>
+            <a href="/route/london-to-slough/" class="route-card">
+                <h3>London → Slough</h3>
+                <div class="route-meta">0h 40min · 25 miles</div>
+            </a>
+            <a href="/route/london-to-southampton/" class="route-card">
+                <h3>London → Southampton</h3>
+                <div class="route-meta">1h 30min · 80 miles</div>
+            </a>
+            <a href="/route/london-to-st-albans/" class="route-card">
+                <h3>London → St Albans</h3>
+                <div class="route-meta">0h 40min · 22 miles</div>
+            </a>
+            <a href="/route/london-to-sunderland/" class="route-card">
+                <h3>London → Sunderland</h3>
+                <div class="route-meta">5h 15min · 290 miles</div>
+            </a>
+            <a href="/route/london-to-watford/" class="route-card">
+                <h3>London → Watford</h3>
+                <div class="route-meta">0h 40min · 20 miles</div>
+            </a>
+            <a href="/route/london-to-wembley/" class="route-card">
+                <h3>London → Wembley</h3>
+                <div class="route-meta">0h 25min · 10 miles</div>
+            </a>
+            <a href="/route/london-to-wimbledon/" class="route-card">
+                <h3>London → Wimbledon</h3>
+                <div class="route-meta">0h 25min · 8 miles</div>
+            </a>
+            <a href="/route/london-to-woking/" class="route-card">
+                <h3>London → Woking</h3>
+                <div class="route-meta">0h 40min · 25 miles</div>
+            </a>
+            <a href="/route/london-to-york/" class="route-card">
+                <h3>London → York</h3>
+                <div class="route-meta">3h 45min · 210 miles</div>
+            </a>
+            <a href="/route/luton-to-london/" class="route-card">
+                <h3>Luton → London</h3>
+                <div class="route-meta">0h 50min · 35 miles</div>
+            </a>
+            <a href="/route/macclesfield-to-manchester/" class="route-card">
+                <h3>Macclesfield → Manchester</h3>
+                <div class="route-meta">0h 35min · 18 miles</div>
+            </a>
+            <a href="/route/manchester-to-altrincham/" class="route-card">
+                <h3>Manchester → Altrincham</h3>
+                <div class="route-meta">0h 25min · 10 miles</div>
+            </a>
+            <a href="/route/manchester-to-birmingham/" class="route-card">
+                <h3>Manchester → Birmingham</h3>
+                <div class="route-meta">1h 45min · 90 miles</div>
+            </a>
+            <a href="/route/manchester-to-blackpool/" class="route-card">
+                <h3>Manchester → Blackpool</h3>
+                <div class="route-meta">1h 15min · 50 miles</div>
+            </a>
+            <a href="/route/manchester-to-bolton/" class="route-card">
+                <h3>Manchester → Bolton</h3>
+                <div class="route-meta">0h 25min · 12 miles</div>
+            </a>
+            <a href="/route/manchester-to-bury/" class="route-card">
+                <h3>Manchester → Bury</h3>
+                <div class="route-meta">0h 25min · 9 miles</div>
+            </a>
+            <a href="/route/manchester-to-chester/" class="route-card">
+                <h3>Manchester → Chester</h3>
+                <div class="route-meta">0h 50min · 40 miles</div>
+            </a>
+            <a href="/route/manchester-to-edinburgh/" class="route-card">
+                <h3>Manchester → Edinburgh</h3>
+                <div class="route-meta">3h 45min · 220 miles</div>
+            </a>
+            <a href="/route/manchester-to-glasgow/" class="route-card">
+                <h3>Manchester → Glasgow</h3>
+                <div class="route-meta">3h 30min · 215 miles</div>
+            </a>
+            <a href="/route/manchester-to-lake-district/" class="route-card">
+                <h3>Manchester → Lake District</h3>
+                <div class="route-meta">1h 30min · 80 miles</div>
+            </a>
+            <a href="/route/manchester-to-leeds/" class="route-card">
+                <h3>Manchester → Leeds</h3>
+                <div class="route-meta">1h 0min · 45 miles</div>
+            </a>
+            <a href="/route/manchester-to-liverpool/" class="route-card">
+                <h3>Manchester → Liverpool</h3>
+                <div class="route-meta">0h 50min · 35 miles</div>
+            </a>
+            <a href="/route/manchester-to-london/" class="route-card">
+                <h3>Manchester → London</h3>
+                <div class="route-meta">4h 0min · 210 miles</div>
+            </a>
+            <a href="/route/manchester-to-macclesfield/" class="route-card">
+                <h3>Manchester → Macclesfield</h3>
+                <div class="route-meta">0h 35min · 18 miles</div>
+            </a>
+            <a href="/route/manchester-to-manchester-airport/" class="route-card">
+                <h3>Manchester → Manchester Airport</h3>
+                <div class="route-meta">0h 25min · 10 miles</div>
+            </a>
+            <a href="/route/manchester-to-newcastle/" class="route-card">
+                <h3>Manchester → Newcastle</h3>
+                <div class="route-meta">2h 45min · 145 miles</div>
+            </a>
+            <a href="/route/manchester-to-oldham/" class="route-card">
+                <h3>Manchester → Oldham</h3>
+                <div class="route-meta">0h 25min · 8 miles</div>
+            </a>
+            <a href="/route/manchester-to-preston/" class="route-card">
+                <h3>Manchester → Preston</h3>
+                <div class="route-meta">0h 45min · 35 miles</div>
+            </a>
+            <a href="/route/manchester-to-rochdale/" class="route-card">
+                <h3>Manchester → Rochdale</h3>
+                <div class="route-meta">0h 30min · 12 miles</div>
+            </a>
+            <a href="/route/manchester-to-salford/" class="route-card">
+                <h3>Manchester → Salford</h3>
+                <div class="route-meta">0h 15min · 3 miles</div>
+            </a>
+            <a href="/route/manchester-to-sheffield/" class="route-card">
+                <h3>Manchester → Sheffield</h3>
+                <div class="route-meta">1h 0min · 40 miles</div>
+            </a>
+            <a href="/route/manchester-to-stockport/" class="route-card">
+                <h3>Manchester → Stockport</h3>
+                <div class="route-meta">0h 20min · 7 miles</div>
+            </a>
+            <a href="/route/manchester-to-warrington/" class="route-card">
+                <h3>Manchester → Warrington</h3>
+                <div class="route-meta">0h 30min · 20 miles</div>
+            </a>
+            <a href="/route/manchester-to-wigan/" class="route-card">
+                <h3>Manchester → Wigan</h3>
+                <div class="route-meta">0h 30min · 18 miles</div>
+            </a>
+            <a href="/route/manchester-to-york/" class="route-card">
+                <h3>Manchester → York</h3>
+                <div class="route-meta">1h 30min · 75 miles</div>
+            </a>
+            <a href="/route/manchester-airport-to-manchester/" class="route-card">
+                <h3>Manchester Airport → Manchester</h3>
+                <div class="route-meta">0h 25min · 10 miles</div>
+            </a>
+            <a href="/route/motherwell-to-glasgow/" class="route-card">
+                <h3>Motherwell → Glasgow</h3>
+                <div class="route-meta">0h 25min · 13 miles</div>
+            </a>
+            <a href="/route/musselburgh-to-edinburgh/" class="route-card">
+                <h3>Musselburgh → Edinburgh</h3>
+                <div class="route-meta">0h 15min · 6 miles</div>
+            </a>
+            <a href="/route/newcastle-to-durham/" class="route-card">
+                <h3>Newcastle → Durham</h3>
+                <div class="route-meta">0h 25min · 15 miles</div>
+            </a>
+            <a href="/route/newcastle-to-edinburgh/" class="route-card">
+                <h3>Newcastle → Edinburgh</h3>
+                <div class="route-meta">2h 0min · 125 miles</div>
+            </a>
+            <a href="/route/newcastle-to-leeds/" class="route-card">
+                <h3>Newcastle → Leeds</h3>
+                <div class="route-meta">1h 45min · 95 miles</div>
+            </a>
+            <a href="/route/newcastle-to-london/" class="route-card">
+                <h3>Newcastle → London</h3>
+                <div class="route-meta">5h 0min · 280 miles</div>
+            </a>
+            <a href="/route/newcastle-to-manchester/" class="route-card">
+                <h3>Newcastle → Manchester</h3>
+                <div class="route-meta">2h 45min · 145 miles</div>
+            </a>
+            <a href="/route/newcastle-to-middlesbrough/" class="route-card">
+                <h3>Newcastle → Middlesbrough</h3>
+                <div class="route-meta">0h 50min · 40 miles</div>
+            </a>
+            <a href="/route/newcastle-to-sunderland/" class="route-card">
+                <h3>Newcastle → Sunderland</h3>
+                <div class="route-meta">0h 20min · 12 miles</div>
+            </a>
+            <a href="/route/newcastle-to-york/" class="route-card">
+                <h3>Newcastle → York</h3>
+                <div class="route-meta">1h 30min · 80 miles</div>
+            </a>
+            <a href="/route/nottingham-to-birmingham/" class="route-card">
+                <h3>Nottingham → Birmingham</h3>
+                <div class="route-meta">1h 0min · 55 miles</div>
+            </a>
+            <a href="/route/nottingham-to-derby/" class="route-card">
+                <h3>Nottingham → Derby</h3>
+                <div class="route-meta">0h 25min · 15 miles</div>
+            </a>
+            <a href="/route/nottingham-to-leicester/" class="route-card">
+                <h3>Nottingham → Leicester</h3>
+                <div class="route-meta">0h 35min · 30 miles</div>
+            </a>
+            <a href="/route/nottingham-to-lincoln/" class="route-card">
+                <h3>Nottingham → Lincoln</h3>
+                <div class="route-meta">0h 50min · 40 miles</div>
+            </a>
+            <a href="/route/nottingham-to-london/" class="route-card">
+                <h3>Nottingham → London</h3>
+                <div class="route-meta">2h 15min · 130 miles</div>
+            </a>
+            <a href="/route/nottingham-to-sheffield/" class="route-card">
+                <h3>Nottingham → Sheffield</h3>
+                <div class="route-meta">0h 45min · 40 miles</div>
+            </a>
+            <a href="/route/oldham-to-manchester/" class="route-card">
+                <h3>Oldham → Manchester</h3>
+                <div class="route-meta">0h 25min · 8 miles</div>
+            </a>
+            <a href="/route/otley-to-leeds/" class="route-card">
+                <h3>Otley → Leeds</h3>
+                <div class="route-meta">0h 25min · 10 miles</div>
+            </a>
+            <a href="/route/oxford-to-birmingham/" class="route-card">
+                <h3>Oxford → Birmingham</h3>
+                <div class="route-meta">1h 15min · 65 miles</div>
+            </a>
+            <a href="/route/oxford-to-bristol/" class="route-card">
+                <h3>Oxford → Bristol</h3>
+                <div class="route-meta">1h 30min · 75 miles</div>
+            </a>
+            <a href="/route/oxford-to-london/" class="route-card">
+                <h3>Oxford → London</h3>
+                <div class="route-meta">1h 30min · 60 miles</div>
+            </a>
+            <a href="/route/oxford-to-swindon/" class="route-card">
+                <h3>Oxford → Swindon</h3>
+                <div class="route-meta">0h 40min · 30 miles</div>
+            </a>
+            <a href="/route/paisley-to-glasgow/" class="route-card">
+                <h3>Paisley → Glasgow</h3>
+                <div class="route-meta">0h 20min · 8 miles</div>
+            </a>
+            <a href="/route/plymouth-to-bristol/" class="route-card">
+                <h3>Plymouth → Bristol</h3>
+                <div class="route-meta">2h 0min · 125 miles</div>
+            </a>
+            <a href="/route/plymouth-to-exeter/" class="route-card">
+                <h3>Plymouth → Exeter</h3>
+                <div class="route-meta">0h 50min · 45 miles</div>
+            </a>
+            <a href="/route/plymouth-to-london/" class="route-card">
+                <h3>Plymouth → London</h3>
+                <div class="route-meta">4h 0min · 225 miles</div>
+            </a>
+            <a href="/route/plymouth-to-newquay/" class="route-card">
+                <h3>Plymouth → Newquay</h3>
+                <div class="route-meta">1h 15min · 55 miles</div>
+            </a>
+            <a href="/route/plymouth-to-penzance/" class="route-card">
+                <h3>Plymouth → Penzance</h3>
+                <div class="route-meta">1h 45min · 80 miles</div>
+            </a>
+            <a href="/route/portishead-to-bristol/" class="route-card">
+                <h3>Portishead → Bristol</h3>
+                <div class="route-meta">0h 20min · 12 miles</div>
+            </a>
+            <a href="/route/pudsey-to-leeds/" class="route-card">
+                <h3>Pudsey → Leeds</h3>
+                <div class="route-meta">0h 15min · 5 miles</div>
+            </a>
+            <a href="/route/reading-to-london/" class="route-card">
+                <h3>Reading → London</h3>
+                <div class="route-meta">0h 55min · 40 miles</div>
+            </a>
+            <a href="/route/redditch-to-birmingham/" class="route-card">
+                <h3>Redditch → Birmingham</h3>
+                <div class="route-meta">0h 30min · 15 miles</div>
+            </a>
+            <a href="/route/richmond-to-london/" class="route-card">
+                <h3>Richmond → London</h3>
+                <div class="route-meta">0h 30min · 10 miles</div>
+            </a>
+            <a href="/route/rochdale-to-manchester/" class="route-card">
+                <h3>Rochdale → Manchester</h3>
+                <div class="route-meta">0h 30min · 12 miles</div>
+            </a>
+            <a href="/route/romford-to-london/" class="route-card">
+                <h3>Romford → London</h3>
+                <div class="route-meta">0h 35min · 15 miles</div>
+            </a>
+            <a href="/route/salford-to-manchester/" class="route-card">
+                <h3>Salford → Manchester</h3>
+                <div class="route-meta">0h 15min · 3 miles</div>
+            </a>
+            <a href="/route/sevenoaks-to-london/" class="route-card">
+                <h3>Sevenoaks → London</h3>
+                <div class="route-meta">0h 45min · 25 miles</div>
+            </a>
+            <a href="/route/sheffield-to-birmingham/" class="route-card">
+                <h3>Sheffield → Birmingham</h3>
+                <div class="route-meta">1h 30min · 90 miles</div>
+            </a>
+            <a href="/route/sheffield-to-doncaster/" class="route-card">
+                <h3>Sheffield → Doncaster</h3>
+                <div class="route-meta">0h 25min · 20 miles</div>
+            </a>
+            <a href="/route/sheffield-to-leeds/" class="route-card">
+                <h3>Sheffield → Leeds</h3>
+                <div class="route-meta">0h 45min · 35 miles</div>
+            </a>
+            <a href="/route/sheffield-to-london/" class="route-card">
+                <h3>Sheffield → London</h3>
+                <div class="route-meta">3h 0min · 165 miles</div>
+            </a>
+            <a href="/route/sheffield-to-manchester/" class="route-card">
+                <h3>Sheffield → Manchester</h3>
+                <div class="route-meta">1h 0min · 40 miles</div>
+            </a>
+            <a href="/route/sheffield-to-nottingham/" class="route-card">
+                <h3>Sheffield → Nottingham</h3>
+                <div class="route-meta">0h 45min · 40 miles</div>
+            </a>
+            <a href="/route/sheffield-to-york/" class="route-card">
+                <h3>Sheffield → York</h3>
+                <div class="route-meta">1h 0min · 45 miles</div>
+            </a>
+            <a href="/route/slough-to-london/" class="route-card">
+                <h3>Slough → London</h3>
+                <div class="route-meta">0h 40min · 25 miles</div>
+            </a>
+            <a href="/route/solihull-to-birmingham/" class="route-card">
+                <h3>Solihull → Birmingham</h3>
+                <div class="route-meta">0h 20min · 9 miles</div>
+            </a>
+            <a href="/route/southampton-to-bournemouth/" class="route-card">
+                <h3>Southampton → Bournemouth</h3>
+                <div class="route-meta">0h 40min · 35 miles</div>
+            </a>
+            <a href="/route/southampton-to-brighton/" class="route-card">
+                <h3>Southampton → Brighton</h3>
+                <div class="route-meta">1h 15min · 65 miles</div>
+            </a>
+            <a href="/route/southampton-to-bristol/" class="route-card">
+                <h3>Southampton → Bristol</h3>
+                <div class="route-meta">1h 30min · 80 miles</div>
+            </a>
+            <a href="/route/southampton-to-london/" class="route-card">
+                <h3>Southampton → London</h3>
+                <div class="route-meta">1h 30min · 80 miles</div>
+            </a>
+            <a href="/route/southampton-to-portsmouth/" class="route-card">
+                <h3>Southampton → Portsmouth</h3>
+                <div class="route-meta">0h 25min · 20 miles</div>
+            </a>
+            <a href="/route/southport-to-liverpool/" class="route-card">
+                <h3>Southport → Liverpool</h3>
+                <div class="route-meta">0h 35min · 20 miles</div>
+            </a>
+            <a href="/route/st-albans-to-london/" class="route-card">
+                <h3>St Albans → London</h3>
+                <div class="route-meta">0h 40min · 22 miles</div>
+            </a>
+            <a href="/route/st-helens-to-liverpool/" class="route-card">
+                <h3>St Helens → Liverpool</h3>
+                <div class="route-meta">0h 25min · 12 miles</div>
+            </a>
+            <a href="/route/stockport-to-manchester/" class="route-card">
+                <h3>Stockport → Manchester</h3>
+                <div class="route-meta">0h 20min · 7 miles</div>
+            </a>
+            <a href="/route/sutton-coldfield-to-birmingham/" class="route-card">
+                <h3>Sutton Coldfield → Birmingham</h3>
+                <div class="route-meta">0h 25min · 8 miles</div>
+            </a>
+            <a href="/route/tamworth-to-birmingham/" class="route-card">
+                <h3>Tamworth → Birmingham</h3>
+                <div class="route-meta">0h 30min · 18 miles</div>
+            </a>
+            <a href="/route/thornbury-to-bristol/" class="route-card">
+                <h3>Thornbury → Bristol</h3>
+                <div class="route-meta">0h 25min · 12 miles</div>
+            </a>
+            <a href="/route/wakefield-to-leeds/" class="route-card">
+                <h3>Wakefield → Leeds</h3>
+                <div class="route-meta">0h 20min · 10 miles</div>
+            </a>
+            <a href="/route/walsall-to-birmingham/" class="route-card">
+                <h3>Walsall → Birmingham</h3>
+                <div class="route-meta">0h 25min · 10 miles</div>
+            </a>
+            <a href="/route/warrington-to-manchester/" class="route-card">
+                <h3>Warrington → Manchester</h3>
+                <div class="route-meta">0h 30min · 20 miles</div>
+            </a>
+            <a href="/route/watford-to-london/" class="route-card">
+                <h3>Watford → London</h3>
+                <div class="route-meta">0h 40min · 20 miles</div>
+            </a>
+            <a href="/route/wembley-to-london/" class="route-card">
+                <h3>Wembley → London</h3>
+                <div class="route-meta">0h 25min · 10 miles</div>
+            </a>
+            <a href="/route/west-bromwich-to-birmingham/" class="route-card">
+                <h3>West Bromwich → Birmingham</h3>
+                <div class="route-meta">0h 20min · 6 miles</div>
+            </a>
+            <a href="/route/weston-super-mare-to-bristol/" class="route-card">
+                <h3>Weston-super-Mare → Bristol</h3>
+                <div class="route-meta">0h 30min · 22 miles</div>
+            </a>
+            <a href="/route/wetherby-to-leeds/" class="route-card">
+                <h3>Wetherby → Leeds</h3>
+                <div class="route-meta">0h 25min · 12 miles</div>
+            </a>
+            <a href="/route/widnes-to-liverpool/" class="route-card">
+                <h3>Widnes → Liverpool</h3>
+                <div class="route-meta">0h 25min · 14 miles</div>
+            </a>
+            <a href="/route/wigan-to-manchester/" class="route-card">
+                <h3>Wigan → Manchester</h3>
+                <div class="route-meta">0h 30min · 18 miles</div>
+            </a>
+            <a href="/route/wimbledon-to-london/" class="route-card">
+                <h3>Wimbledon → London</h3>
+                <div class="route-meta">0h 25min · 8 miles</div>
+            </a>
+            <a href="/route/woking-to-london/" class="route-card">
+                <h3>Woking → London</h3>
+                <div class="route-meta">0h 40min · 25 miles</div>
+            </a>
+            <a href="/route/york-to-hull/" class="route-card">
+                <h3>York → Hull</h3>
+                <div class="route-meta">1h 0min · 45 miles</div>
+            </a>
+            <a href="/route/york-to-leeds/" class="route-card">
+                <h3>York → Leeds</h3>
+                <div class="route-meta">0h 30min · 25 miles</div>
+            </a>
+            <a href="/route/york-to-london/" class="route-card">
+                <h3>York → London</h3>
+                <div class="route-meta">3h 45min · 210 miles</div>
+            </a>
+            <a href="/route/york-to-manchester/" class="route-card">
+                <h3>York → Manchester</h3>
+                <div class="route-meta">1h 30min · 75 miles</div>
+            </a>
+            <a href="/route/york-to-newcastle/" class="route-card">
+                <h3>York → Newcastle</h3>
+                <div class="route-meta">1h 30min · 80 miles</div>
+            </a>
+            <a href="/route/york-to-scarborough/" class="route-card">
+                <h3>York → Scarborough</h3>
+                <div class="route-meta">0h 50min · 40 miles</div>
+            </a>
         </div>
-        <div class="search-box">
-            <input type="text" class="search-input" placeholder="Search routes..." id="search" oninput="filter()">
-        </div>
-        <div id="sections">
-            <div class="section"><h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9L18 10V6a2 2 0 00-2-2H8a2 2 0 00-2 2v4l-2.5 1.1C2.7 11.3 2 12.1 2 13v3c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg> Road Trips (400+ mi)</h2><div class="routes-grid"><a href="/route/seattle-to-miami/" class="route-card"><div class="route-title">Seattle → Miami</div><div class="route-meta">59h 10min · 3551 mi</div></a>
-<a href="/route/miami-to-seattle/" class="route-card"><div class="route-title">Miami → Seattle</div><div class="route-meta">59h 10min · 3551 mi</div></a>
-<a href="/route/portland-to-miami/" class="route-card"><div class="route-title">Portland → Miami</div><div class="route-meta">58h 37min · 3517 mi</div></a>
-<a href="/route/miami-to-portland/" class="route-card"><div class="route-title">Miami → Portland</div><div class="route-meta">58h 37min · 3517 mi</div></a>
-<a href="/route/san-francisco-to-boston/" class="route-card"><div class="route-title">San Francisco → Boston</div><div class="route-meta">58h 20min · 3500 mi</div></a>
-<a href="/route/boston-to-san-francisco/" class="route-card"><div class="route-title">Boston → San Francisco</div><div class="route-meta">58h 20min · 3500 mi</div></a>
-<a href="/route/boston-to-san-jose/" class="route-card"><div class="route-title">Boston → San Jose</div><div class="route-meta">58h · 3481 mi</div></a>
-<a href="/route/san-jose-to-boston/" class="route-card"><div class="route-title">San Jose → Boston</div><div class="route-meta">58h · 3481 mi</div></a>
-<a href="/route/los-angeles-to-boston/" class="route-card"><div class="route-title">Los Angeles → Boston</div><div class="route-meta">56h 7min · 3368 mi</div></a>
-<a href="/route/san-francisco-to-miami/" class="route-card"><div class="route-title">San Francisco → Miami</div><div class="route-meta">56h 7min · 3368 mi</div></a>
-<a href="/route/boston-to-los-angeles/" class="route-card"><div class="route-title">Boston → Los Angeles</div><div class="route-meta">56h 7min · 3368 mi</div></a>
-<a href="/route/miami-to-san-francisco/" class="route-card"><div class="route-title">Miami → San Francisco</div><div class="route-meta">56h 7min · 3368 mi</div></a>
-</div></div>
-            <div class="section"><h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Tourist Destinations</h2><div class="routes-grid"><a href="/route/jacksonville-to-orlando/" class="route-card"><div class="route-title">Jacksonville → Orlando</div><div class="route-meta">2h 15min · 140 mi</div></a>
-<a href="/route/jacksonville-to-tampa/" class="route-card"><div class="route-title">Jacksonville → Tampa</div><div class="route-meta">3h 30min · 200 mi</div></a>
-<a href="/route/orlando-to-jacksonville/" class="route-card"><div class="route-title">Orlando → Jacksonville</div><div class="route-meta">2h 15min · 140 mi</div></a>
-<a href="/route/tampa-to-jacksonville/" class="route-card"><div class="route-title">Tampa → Jacksonville</div><div class="route-meta">3h 30min · 200 mi</div></a>
-<a href="/route/los-angeles-to-long-beach/" class="route-card"><div class="route-title">Los Angeles → Long Beach</div><div class="route-meta">35 min · 23 mi</div></a>
-<a href="/route/chicago-to-oak-park/" class="route-card"><div class="route-title">Chicago → Oak Park</div><div class="route-meta">20 min · 9 mi</div></a>
-<a href="/route/miami-to-west-palm-beach/" class="route-card"><div class="route-title">Miami → West Palm Beach</div><div class="route-meta">1h 15min · 70 mi</div></a>
-<a href="/route/miami-to-miami-beach/" class="route-card"><div class="route-title">Miami → Miami Beach</div><div class="route-meta">15 min · 5 mi</div></a>
-<a href="/route/long-beach-to-los-angeles/" class="route-card"><div class="route-title">Long Beach → Los Angeles</div><div class="route-meta">35 min · 23 mi</div></a>
-<a href="/route/oak-park-to-chicago/" class="route-card"><div class="route-title">Oak Park → Chicago</div><div class="route-meta">20 min · 9 mi</div></a>
-<a href="/route/west-palm-beach-to-miami/" class="route-card"><div class="route-title">West Palm Beach → Miami</div><div class="route-meta">1h 15min · 70 mi</div></a>
-<a href="/route/miami-beach-to-miami/" class="route-card"><div class="route-title">Miami Beach → Miami</div><div class="route-meta">15 min · 5 mi</div></a>
-</div></div>
-            <div class="section"><h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon"><path d="M22 2L2 11l7 3.5M22 2L15.5 22 11 14.5M22 2L11 14.5"/></svg> Airport Transfers</h2><div class="routes-grid"><a href="/route/lax-to-los-angeles/" class="route-card"><div class="route-title">LAX → Los Angeles</div><div class="route-meta">30 min · 18 mi</div></a>
-<a href="/route/lax-to-santa-monica/" class="route-card"><div class="route-title">LAX → Santa Monica</div><div class="route-meta">25 min · 12 mi</div></a>
-<a href="/route/lax-to-anaheim/" class="route-card"><div class="route-title">LAX → Anaheim</div><div class="route-meta">45 min · 35 mi</div></a>
-<a href="/route/lax-to-long-beach/" class="route-card"><div class="route-title">LAX → Long Beach</div><div class="route-meta">35 min · 22 mi</div></a>
-<a href="/route/lax-to-hollywood/" class="route-card"><div class="route-title">LAX → Hollywood</div><div class="route-meta">30 min · 15 mi</div></a>
-<a href="/route/jfk-to-manhattan/" class="route-card"><div class="route-title">JFK → Manhattan</div><div class="route-meta">40 min · 15 mi</div></a>
-<a href="/route/jfk-to-times-square/" class="route-card"><div class="route-title">JFK → Times Square</div><div class="route-meta">50 min · 18 mi</div></a>
-<a href="/route/jfk-to-brooklyn/" class="route-card"><div class="route-title">JFK → Brooklyn</div><div class="route-meta">25 min · 10 mi</div></a>
-<a href="/route/lga-to-manhattan/" class="route-card"><div class="route-title">LGA → Manhattan</div><div class="route-meta">30 min · 9 mi</div></a>
-<a href="/route/ewr-to-manhattan/" class="route-card"><div class="route-title">EWR → Manhattan</div><div class="route-meta">40 min · 16 mi</div></a>
-<a href="/route/ord-to-chicago/" class="route-card"><div class="route-title">ORD → Chicago</div><div class="route-meta">35 min · 18 mi</div></a>
-<a href="/route/ord-to-downtown-chicago/" class="route-card"><div class="route-title">ORD → Downtown Chicago</div><div class="route-meta">45 min · 20 mi</div></a>
-</div></div>
-            <div class="section"><h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg> Regional Routes</h2><div class="routes-grid"><a href="/route/new-york-to-philadelphia/" class="route-card"><div class="route-title">New York → Philadelphia</div><div class="route-meta">1h 45min · 95 mi</div></a>
-<a href="/route/new-york-to-washington-dc/" class="route-card"><div class="route-title">New York → Washington DC</div><div class="route-meta">4h 0min · 225 mi</div></a>
-<a href="/route/new-york-to-baltimore/" class="route-card"><div class="route-title">New York → Baltimore</div><div class="route-meta">3h 15min · 190 mi</div></a>
-<a href="/route/new-york-to-hartford/" class="route-card"><div class="route-title">New York → Hartford</div><div class="route-meta">2h 0min · 115 mi</div></a>
-<a href="/route/new-york-to-albany/" class="route-card"><div class="route-title">New York → Albany</div><div class="route-meta">2h 30min · 150 mi</div></a>
-<a href="/route/los-angeles-to-san-diego/" class="route-card"><div class="route-title">Los Angeles → San Diego</div><div class="route-meta">2h 0min · 120 mi</div></a>
-<a href="/route/los-angeles-to-phoenix/" class="route-card"><div class="route-title">Los Angeles → Phoenix</div><div class="route-meta">5h 45min · 370 mi</div></a>
-<a href="/route/los-angeles-to-san-jose/" class="route-card"><div class="route-title">Los Angeles → San Jose</div><div class="route-meta">5h 15min · 340 mi</div></a>
-<a href="/route/los-angeles-to-fresno/" class="route-card"><div class="route-title">Los Angeles → Fresno</div><div class="route-meta">3h 30min · 220 mi</div></a>
-<a href="/route/los-angeles-to-sacramento/" class="route-card"><div class="route-title">Los Angeles → Sacramento</div><div class="route-meta">5h 45min · 385 mi</div></a>
-<a href="/route/chicago-to-milwaukee/" class="route-card"><div class="route-title">Chicago → Milwaukee</div><div class="route-meta">1h 30min · 90 mi</div></a>
-<a href="/route/chicago-to-indianapolis/" class="route-card"><div class="route-title">Chicago → Indianapolis</div><div class="route-meta">3h 0min · 185 mi</div></a>
-</div></div>
-            <div class="section"><h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon"><path d="M3 21h18M9 8h1M9 12h1M9 16h1M14 8h1M14 12h1M14 16h1M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16"/></svg> City Commutes</h2><div class="routes-grid"><a href="/route/boston-to-cambridge/" class="route-card"><div class="route-title">Boston → Cambridge</div><div class="route-meta">15 min · 3 mi</div></a>
-<a href="/route/cambridge-to-boston/" class="route-card"><div class="route-title">Cambridge → Boston</div><div class="route-meta">15 min · 3 mi</div></a>
-<a href="/route/new-york-to-long-island-city/" class="route-card"><div class="route-title">New York → Long Island City</div><div class="route-meta">15 min · 4 mi</div></a>
-<a href="/route/boston-to-somerville/" class="route-card"><div class="route-title">Boston → Somerville</div><div class="route-meta">15 min · 4 mi</div></a>
-<a href="/route/long-island-city-to-new-york/" class="route-card"><div class="route-title">Long Island City → New York</div><div class="route-meta">15 min · 4 mi</div></a>
-<a href="/route/somerville-to-boston/" class="route-card"><div class="route-title">Somerville → Boston</div><div class="route-meta">15 min · 4 mi</div></a>
-<a href="/route/new-york-to-hoboken/" class="route-card"><div class="route-title">New York → Hoboken</div><div class="route-meta">15 min · 5 mi</div></a>
-<a href="/route/washington-dc-to-arlington/" class="route-card"><div class="route-title">Washington DC → Arlington</div><div class="route-meta">15 min · 5 mi</div></a>
-<a href="/route/boston-to-brookline/" class="route-card"><div class="route-title">Boston → Brookline</div><div class="route-meta">15 min · 5 mi</div></a>
-<a href="/route/hoboken-to-new-york/" class="route-card"><div class="route-title">Hoboken → New York</div><div class="route-meta">15 min · 5 mi</div></a>
-<a href="/route/arlington-to-washington-dc/" class="route-card"><div class="route-title">Arlington → Washington DC</div><div class="route-meta">15 min · 5 mi</div></a>
-<a href="/route/brookline-to-boston/" class="route-card"><div class="route-title">Brookline → Boston</div><div class="route-meta">15 min · 5 mi</div></a>
-</div></div>
-        </div>
-        <div id="results" class="hidden"><h2>Search Results</h2><div class="routes-grid" id="results-grid"></div></div>
     </div>
-    <footer><p>© 2026 <a href="/">HowLongDrive.com</a></p></footer>
-    <script>
-        const R=[["New York", "Philadelphia", "1h 45min", 95], ["New York", "Washington DC", "4h 0min", 225], ["New York", "Baltimore", "3h 15min", 190], ["New York", "Hartford", "2h 0min", 115], ["New York", "Albany", "2h 30min", 150], ["Los Angeles", "San Diego", "2h 0min", 120], ["Los Angeles", "Phoenix", "5h 45min", 370], ["Los Angeles", "San Jose", "5h 15min", 340], ["Los Angeles", "Fresno", "3h 30min", 220], ["Los Angeles", "Sacramento", "5h 45min", 385], ["Chicago", "Milwaukee", "1h 30min", 90], ["Chicago", "Indianapolis", "3h 0min", 185], ["Chicago", "St Louis", "4h 30min", 300], ["Chicago", "Minneapolis", "6h 0min", 410], ["Chicago", "Cleveland", "5h 15min", 345], ["Houston", "San Antonio", "2h 45min", 200], ["Houston", "Austin", "2h 30min", 165], ["Houston", "New Orleans", "5h 0min", 350], ["Houston", "Oklahoma City", "7h 0min", 450], ["Phoenix", "Tucson", "1h 45min", 115], ["Phoenix", "San Diego", "5h 15min", 355], ["Phoenix", "Albuquerque", "6h 30min", 450], ["Philadelphia", "Washington DC", "2h 30min", 140], ["Philadelphia", "Baltimore", "1h 45min", 100], ["Philadelphia", "Pittsburgh", "4h 45min", 305], ["San Antonio", "Austin", "1h 15min", 80], ["San Diego", "Las Vegas", "4h 45min", 330], ["Dallas", "Austin", "3h 0min", 195], ["Dallas", "San Antonio", "4h 15min", 275], ["Dallas", "Oklahoma City", "3h 15min", 205], ["San Jose", "Sacramento", "1h 45min", 120], ["Austin", "Houston", "2h 30min", 165], ["Jacksonville", "Orlando", "2h 15min", 140], ["Jacksonville", "Tampa", "3h 30min", 200], ["San Francisco", "Sacramento", "1h 30min", 90], ["San Francisco", "San Jose", "0h 50min", 50], ["San Francisco", "Reno", "3h 30min", 220], ["Columbus", "Cleveland", "2h 15min", 145], ["Columbus", "Cincinnati", "1h 45min", 110], ["Charlotte", "Atlanta", "3h 45min", 245], ["Charlotte", "Raleigh", "2h 30min", 170], ["Denver", "Colorado Springs", "1h 10min", 70], ["Denver", "Albuquerque", "6h 0min", 450], ["Denver", "Salt Lake City", "7h 30min", 525], ["Seattle", "Vancouver", "2h 30min", 140], ["Seattle", "Spokane", "4h 15min", 280], ["Boston", "Providence", "0h 50min", 50], ["Boston", "Hartford", "1h 40min", 100], ["Nashville", "Memphis", "3h 0min", 210], ["Nashville", "Atlanta", "3h 45min", 250], ["New York", "Miami", "19h 0min", 1280], ["New York", "Chicago", "12h 0min", 790], ["New York", "Los Angeles", "41h 0min", 2775], ["New York", "Atlanta", "13h 0min", 870], ["New York", "Dallas", "24h 0min", 1550], ["New York", "Denver", "26h 0min", 1780], ["New York", "Seattle", "45h 0min", 2850], ["New York", "San Francisco", "43h 0min", 2900], ["New York", "Houston", "25h 0min", 1630], ["New York", "Phoenix", "35h 0min", 2400], ["New York", "Detroit", "10h 0min", 615], ["New York", "Minneapolis", "18h 0min", 1200], ["New York", "Cleveland", "7h 30min", 460], ["New York", "Orlando", "16h 0min", 1080], ["New York", "New Orleans", "20h 0min", 1310], ["Los Angeles", "New York", "41h 0min", 2775], ["Los Angeles", "Chicago", "29h 0min", 2015], ["Los Angeles", "Houston", "22h 0min", 1550], ["Los Angeles", "Dallas", "21h 0min", 1435], ["Los Angeles", "Denver", "15h 0min", 1020], ["Los Angeles", "Seattle", "17h 30min", 1135], ["Los Angeles", "Portland", "15h 0min", 965], ["Los Angeles", "Miami", "40h 0min", 2750], ["Los Angeles", "Atlanta", "32h 0min", 2175], ["Los Angeles", "Salt Lake City", "11h 0min", 690], ["Chicago", "New York", "12h 0min", 790], ["Chicago", "Los Angeles", "29h 0min", 2015], ["Chicago", "Houston", "16h 0min", 1090], ["Chicago", "Phoenix", "24h 0min", 1750], ["Chicago", "Dallas", "14h 0min", 920], ["Chicago", "Denver", "14h 30min", 1000], ["Chicago", "Seattle", "29h 0min", 2060], ["Chicago", "Atlanta", "11h 0min", 720], ["Chicago", "Miami", "20h 0min", 1380], ["Chicago", "Boston", "15h 30min", 980], ["Chicago", "San Francisco", "31h 0min", 2130], ["Chicago", "Washington DC", "11h 0min", 700], ["Chicago", "Nashville", "7h 30min", 475], ["Chicago", "Kansas City", "8h 0min", 530], ["Houston", "New York", "25h 0min", 1630], ["Houston", "Los Angeles", "22h 0min", 1550], ["Houston", "Chicago", "16h 0min", 1090], ["Houston", "Miami", "17h 0min", 1190], ["Houston", "Atlanta", "12h 0min", 790], ["Houston", "Denver", "15h 0min", 1030], ["Houston", "Phoenix", "15h 0min", 1175], ["Houston", "Las Vegas", "21h 0min", 1480], ["Houston", "Seattle", "33h 0min", 2340], ["Dallas", "New York", "24h 0min", 1550], ["Dallas", "Los Angeles", "21h 0min", 1435], ["Dallas", "Chicago", "14h 0min", 920], ["Dallas", "Miami", "19h 0min", 1310], ["Dallas", "Denver", "11h 0min", 780], ["Dallas", "Atlanta", "12h 0min", 780], ["Dallas", "Phoenix", "15h 0min", 1065], ["Dallas", "Las Vegas", "18h 0min", 1230], ["Dallas", "Seattle", "30h 0min", 2130], ["Miami", "New York", "19h 0min", 1280], ["Miami", "Atlanta", "10h 0min", 660], ["Miami", "Chicago", "20h 0min", 1380], ["Miami", "Houston", "17h 0min", 1190], ["Miami", "Dallas", "19h 0min", 1310], ["Miami", "Los Angeles", "40h 0min", 2750], ["Miami", "Washington DC", "15h 0min", 1055], ["Miami", "Boston", "23h 0min", 1500], ["Miami", "Tampa", "4h 30min", 280], ["Miami", "New Orleans", "11h 0min", 860], ["Atlanta", "New York", "13h 0min", 870], ["Atlanta", "Chicago", "11h 0min", 720], ["Atlanta", "Miami", "10h 0min", 660], ["Atlanta", "Dallas", "12h 0min", 780], ["Atlanta", "Houston", "12h 0min", 790], ["Atlanta", "Washington DC", "10h 0min", 640], ["Atlanta", "Los Angeles", "32h 0min", 2175], ["Atlanta", "Denver", "21h 0min", 1420], ["Atlanta", "New Orleans", "7h 0min", 470], ["Atlanta", "Boston", "16h 0min", 1100], ["Denver", "New York", "26h 0min", 1780], ["Denver", "Los Angeles", "15h 0min", 1020], ["Denver", "Chicago", "14h 30min", 1000], ["Denver", "Dallas", "11h 0min", 780], ["Denver", "Houston", "15h 0min", 1030], ["Denver", "Phoenix", "10h 0min", 600], ["Denver", "Seattle", "21h 0min", 1315], ["Denver", "San Francisco", "18h 0min", 1235], ["Denver", "Kansas City", "9h 0min", 600], ["Seattle", "Los Angeles", "17h 30min", 1135], ["Seattle", "San Francisco", "12h 30min", 810], ["Seattle", "Denver", "21h 0min", 1315], ["Seattle", "Phoenix", "22h 0min", 1420], ["Seattle", "Las Vegas", "17h 0min", 1130], ["Seattle", "Salt Lake City", "12h 0min", 840], ["Seattle", "Chicago", "29h 0min", 2060], ["San Francisco", "New York", "43h 0min", 2900], ["San Francisco", "Seattle", "12h 30min", 810], ["San Francisco", "Denver", "18h 0min", 1235], ["San Francisco", "Phoenix", "12h 0min", 755], ["San Francisco", "Portland", "10h 0min", 640], ["San Francisco", "Salt Lake City", "11h 0min", 735], ["Phoenix", "Los Angeles", "5h 45min", 370], ["Phoenix", "Denver", "10h 0min", 600], ["Phoenix", "Dallas", "15h 0min", 1065], ["Phoenix", "Houston", "15h 0min", 1175], ["Phoenix", "San Francisco", "12h 0min", 755], ["Phoenix", "Seattle", "22h 0min", 1420], ["Phoenix", "Salt Lake City", "10h 0min", 660], ["Boston", "New York", "4h 15min", 215], ["Boston", "Washington DC", "7h 30min", 440], ["Boston", "Chicago", "15h 30min", 980], ["Boston", "Philadelphia", "5h 0min", 300], ["Boston", "Miami", "23h 0min", 1500], ["Boston", "Atlanta", "16h 0min", 1100], ["Boston", "Detroit", "11h 0min", 700], ["Washington DC", "New York", "4h 0min", 225], ["Washington DC", "Boston", "7h 30min", 440], ["Washington DC", "Miami", "15h 0min", 1055], ["Washington DC", "Chicago", "11h 0min", 700], ["Washington DC", "Atlanta", "10h 0min", 640], ["Washington DC", "Cleveland", "6h 0min", 370], ["Washington DC", "Detroit", "8h 0min", 525], ["Las Vegas", "Los Angeles", "4h 0min", 270], ["Las Vegas", "Phoenix", "4h 30min", 300], ["Las Vegas", "San Diego", "4h 45min", 330], ["Las Vegas", "San Francisco", "8h 30min", 570], ["Las Vegas", "Denver", "10h 30min", 750], ["Las Vegas", "Salt Lake City", "6h 30min", 420], ["Las Vegas", "Seattle", "17h 0min", 1130], ["Las Vegas", "Dallas", "18h 0min", 1230], ["Las Vegas", "Houston", "21h 0min", 1480], ["Minneapolis", "Chicago", "6h 0min", 410], ["Minneapolis", "Denver", "13h 0min", 920], ["Minneapolis", "Seattle", "24h 0min", 1660], ["Minneapolis", "Dallas", "15h 0min", 970], ["Minneapolis", "Detroit", "10h 0min", 690], ["Minneapolis", "Kansas City", "7h 0min", 440], ["Detroit", "Chicago", "4h 30min", 280], ["Detroit", "New York", "10h 0min", 615], ["Detroit", "Cleveland", "2h 45min", 170], ["Detroit", "Boston", "11h 0min", 700], ["Detroit", "Washington DC", "8h 0min", 525], ["Detroit", "Minneapolis", "10h 0min", 690], ["Detroit", "Atlanta", "11h 0min", 730], ["San Antonio", "Houston", "2h 45min", 200], ["San Antonio", "Dallas", "4h 15min", 275], ["San Antonio", "El Paso", "8h 0min", 550], ["San Antonio", "New Orleans", "8h 0min", 545], ["San Antonio", "Austin", "1h 15min", 80], ["San Antonio", "Phoenix", "12h 0min", 850], ["Kansas City", "Chicago", "8h 0min", 530], ["Kansas City", "Denver", "9h 0min", 600], ["Kansas City", "Dallas", "8h 0min", 510], ["Kansas City", "Minneapolis", "7h 0min", 440], ["Kansas City", "St Louis", "4h 0min", 250], ["Kansas City", "Oklahoma City", "5h 30min", 350], ["Orlando", "Miami", "3h 30min", 235], ["Orlando", "Atlanta", "6h 30min", 440], ["Orlando", "Tampa", "1h 30min", 85], ["Orlando", "Jacksonville", "2h 15min", 140], ["Orlando", "New Orleans", "9h 0min", 640], ["Portland", "Seattle", "2h 45min", 175], ["Portland", "San Francisco", "10h 0min", 640], ["Portland", "Los Angeles", "15h 0min", 965], ["Portland", "Salt Lake City", "10h 0min", 770], ["Portland", "Denver", "18h 0min", 1250], ["Tampa", "Miami", "4h 30min", 280], ["Tampa", "Orlando", "1h 30min", 85], ["Tampa", "Atlanta", "7h 0min", 460], ["Tampa", "Jacksonville", "3h 30min", 200], ["Tampa", "New Orleans", "9h 0min", 660], ["Salt Lake City", "Denver", "7h 30min", 525], ["Salt Lake City", "Las Vegas", "6h 30min", 420], ["Salt Lake City", "Los Angeles", "11h 0min", 690], ["Salt Lake City", "Seattle", "12h 0min", 840], ["Salt Lake City", "Phoenix", "10h 0min", 660], ["Salt Lake City", "San Francisco", "11h 0min", 735], ["New Orleans", "Houston", "5h 0min", 350], ["New Orleans", "Atlanta", "7h 0min", 470], ["New Orleans", "Dallas", "8h 0min", 500], ["New Orleans", "Miami", "11h 0min", 860], ["New Orleans", "Memphis", "6h 0min", 395], ["New Orleans", "Orlando", "9h 0min", 640], ["Memphis", "Nashville", "3h 0min", 210], ["Memphis", "Atlanta", "6h 0min", 385], ["Memphis", "Dallas", "7h 0min", 455], ["Memphis", "St Louis", "4h 30min", 285], ["Memphis", "New Orleans", "6h 0min", 395], ["Memphis", "Little Rock", "2h 15min", 135], ["Philadelphia", "New York", "1h 45min", 95], ["Baltimore", "New York", "3h 15min", 190], ["Hartford", "New York", "2h 0min", 115], ["Albany", "New York", "2h 30min", 150], ["San Diego", "Los Angeles", "2h 0min", 120], ["San Jose", "Los Angeles", "5h 15min", 340], ["Fresno", "Los Angeles", "3h 30min", 220], ["Sacramento", "Los Angeles", "5h 45min", 385], ["Milwaukee", "Chicago", "1h 30min", 90], ["Indianapolis", "Chicago", "3h 0min", 185], ["St Louis", "Chicago", "4h 30min", 300], ["Cleveland", "Chicago", "5h 15min", 345], ["Oklahoma City", "Houston", "7h 0min", 450], ["Tucson", "Phoenix", "1h 45min", 115], ["San Diego", "Phoenix", "5h 15min", 355], ["Albuquerque", "Phoenix", "6h 30min", 450], ["Washington DC", "Philadelphia", "2h 30min", 140], ["Baltimore", "Philadelphia", "1h 45min", 100], ["Pittsburgh", "Philadelphia", "4h 45min", 305], ["Austin", "San Antonio", "1h 15min", 80], ["Austin", "Dallas", "3h 0min", 195], ["Oklahoma City", "Dallas", "3h 15min", 205], ["Sacramento", "San Jose", "1h 45min", 120], ["Sacramento", "San Francisco", "1h 30min", 90], ["San Jose", "San Francisco", "0h 50min", 50], ["Reno", "San Francisco", "3h 30min", 220], ["Cleveland", "Columbus", "2h 15min", 145], ["Cincinnati", "Columbus", "1h 45min", 110], ["Atlanta", "Charlotte", "3h 45min", 245], ["Raleigh", "Charlotte", "2h 30min", 170], ["Colorado Springs", "Denver", "1h 10min", 70], ["Albuquerque", "Denver", "6h 0min", 450], ["Vancouver", "Seattle", "2h 30min", 140], ["Spokane", "Seattle", "4h 15min", 280], ["Providence", "Boston", "0h 50min", 50], ["Hartford", "Boston", "1h 40min", 100], ["Atlanta", "Nashville", "3h 45min", 250], ["Seattle", "New York", "45h 0min", 2850], ["Phoenix", "New York", "35h 0min", 2400], ["Minneapolis", "New York", "18h 0min", 1200], ["Cleveland", "New York", "7h 30min", 460], ["Orlando", "New York", "16h 0min", 1080], ["New Orleans", "New York", "20h 0min", 1310], ["Phoenix", "Chicago", "24h 0min", 1750], ["San Francisco", "Chicago", "31h 0min", 2130], ["Nashville", "Chicago", "7h 30min", 475], ["Seattle", "Houston", "33h 0min", 2340], ["Seattle", "Dallas", "30h 0min", 2130], ["Denver", "Atlanta", "21h 0min", 1420], ["New York", "Boston", "4h 15min", 215], ["Philadelphia", "Boston", "5h 0min", 300], ["Cleveland", "Washington DC", "6h 0min", 370], ["Los Angeles", "Las Vegas", "4h 0min", 270], ["Phoenix", "Las Vegas", "4h 30min", 300], ["San Francisco", "Las Vegas", "8h 30min", 570], ["Denver", "Las Vegas", "10h 30min", 750], ["Denver", "Minneapolis", "13h 0min", 920], ["Seattle", "Minneapolis", "24h 0min", 1660], ["Dallas", "Minneapolis", "15h 0min", 970], ["Chicago", "Detroit", "4h 30min", 280], ["Cleveland", "Detroit", "2h 45min", 170], ["Atlanta", "Detroit", "11h 0min", 730], ["El Paso", "San Antonio", "8h 0min", 550], ["New Orleans", "San Antonio", "8h 0min", 545], ["Phoenix", "San Antonio", "12h 0min", 850], ["Dallas", "Kansas City", "8h 0min", 510], ["St Louis", "Kansas City", "4h 0min", 250], ["Oklahoma City", "Kansas City", "5h 30min", 350], ["Miami", "Orlando", "3h 30min", 235], ["Atlanta", "Orlando", "6h 30min", 440], ["Seattle", "Portland", "2h 45min", 175], ["Salt Lake City", "Portland", "10h 0min", 770], ["Denver", "Portland", "18h 0min", 1250], ["Atlanta", "Tampa", "7h 0min", 460], ["New Orleans", "Tampa", "9h 0min", 660], ["Dallas", "New Orleans", "8h 0min", 500], ["Atlanta", "Memphis", "6h 0min", 385], ["Dallas", "Memphis", "7h 0min", 455], ["St Louis", "Memphis", "4h 30min", 285], ["Little Rock", "Memphis", "2h 15min", 135], ["San Francisco", "Los Angeles", "5h 45min", 380], ["Los Angeles", "San Francisco", "5h 45min", 380], ["Los Angeles", "Santa Monica", "30 min", 16], ["Los Angeles", "Long Beach", "35 min", 23], ["Los Angeles", "Anaheim", "40 min", 28], ["Los Angeles", "Pasadena", "20 min", 12], ["Los Angeles", "Burbank", "25 min", 13], ["Los Angeles", "Irvine", "50 min", 42], ["Los Angeles", "Glendale", "20 min", 10], ["Los Angeles", "Ontario", "45 min", 40], ["New York", "Newark", "25 min", 12], ["New York", "Jersey City", "20 min", 7], ["New York", "Stamford", "50 min", 35], ["New York", "White Plains", "45 min", 28], ["New York", "Yonkers", "35 min", 18], ["New York", "Hoboken", "15 min", 5], ["New York", "New Rochelle", "35 min", 20], ["New York", "Long Island City", "15 min", 4], ["Chicago", "Naperville", "40 min", 33], ["Chicago", "Evanston", "25 min", 14], ["Chicago", "Schaumburg", "40 min", 28], ["Chicago", "Aurora", "50 min", 41], ["Chicago", "Oak Park", "20 min", 9], ["Chicago", "Joliet", "55 min", 44], ["Chicago", "Waukegan", "55 min", 42], ["Dallas", "Fort Worth", "40 min", 33], ["Dallas", "Arlington", "30 min", 20], ["Dallas", "Plano", "30 min", 20], ["Dallas", "Irving", "20 min", 12], ["Dallas", "Frisco", "35 min", 28], ["Dallas", "McKinney", "45 min", 35], ["Dallas", "Denton", "50 min", 40], ["Houston", "Galveston", "1h", 50], ["Houston", "The Woodlands", "40 min", 30], ["Houston", "Sugar Land", "30 min", 22], ["Houston", "Katy", "35 min", 30], ["Houston", "Pearland", "25 min", 18], ["Houston", "Pasadena", "25 min", 15], ["Houston", "Baytown", "35 min", 27], ["Washington DC", "Arlington", "15 min", 5], ["Washington DC", "Alexandria", "20 min", 8], ["Washington DC", "Bethesda", "20 min", 8], ["Washington DC", "Silver Spring", "25 min", 9], ["Washington DC", "Rockville", "30 min", 15], ["Washington DC", "Tysons", "25 min", 12], ["Washington DC", "Reston", "35 min", 22], ["Miami", "Fort Lauderdale", "40 min", 30], ["Miami", "West Palm Beach", "1h 15min", 70], ["Miami", "Boca Raton", "55 min", 47], ["Miami", "Hollywood", "30 min", 20], ["Miami", "Coral Gables", "15 min", 7], ["Miami", "Miami Beach", "15 min", 5], ["Miami", "Hialeah", "20 min", 10], ["Philadelphia", "Camden", "20 min", 8], ["Philadelphia", "Wilmington", "40 min", 30], ["Philadelphia", "Trenton", "45 min", 33], ["Philadelphia", "King of Prussia", "30 min", 18], ["Philadelphia", "Cherry Hill", "20 min", 10], ["Atlanta", "Marietta", "30 min", 20], ["Atlanta", "Decatur", "15 min", 7], ["Atlanta", "Sandy Springs", "25 min", 15], ["Atlanta", "Alpharetta", "40 min", 28], ["Atlanta", "Roswell", "35 min", 23], ["Atlanta", "Kennesaw", "40 min", 28], ["Phoenix", "Scottsdale", "20 min", 12], ["Phoenix", "Mesa", "25 min", 18], ["Phoenix", "Tempe", "20 min", 10], ["Phoenix", "Chandler", "30 min", 22], ["Phoenix", "Gilbert", "35 min", 25], ["Phoenix", "Glendale", "20 min", 10], ["Phoenix", "Peoria", "25 min", 18], ["San Francisco", "Oakland", "25 min", 12], ["San Francisco", "Berkeley", "30 min", 14], ["San Francisco", "Palo Alto", "45 min", 35], ["San Francisco", "Fremont", "50 min", 40], ["San Francisco", "San Mateo", "30 min", 22], ["San Francisco", "Daly City", "20 min", 8], ["San Francisco", "Walnut Creek", "40 min", 28], ["Seattle", "Bellevue", "20 min", 10], ["Seattle", "Tacoma", "45 min", 34], ["Seattle", "Everett", "40 min", 30], ["Seattle", "Redmond", "25 min", 16], ["Seattle", "Kirkland", "20 min", 12], ["Seattle", "Renton", "25 min", 13], ["Seattle", "Kent", "30 min", 20], ["Denver", "Aurora", "20 min", 12], ["Denver", "Boulder", "40 min", 30], ["Denver", "Lakewood", "15 min", 8], ["Denver", "Arvada", "20 min", 12], ["Denver", "Westminster", "20 min", 12], ["Denver", "Thornton", "25 min", 14], ["Denver", "Fort Collins", "1h 10min", 65], ["Boston", "Cambridge", "15 min", 3], ["Boston", "Quincy", "20 min", 9], ["Boston", "Somerville", "15 min", 4], ["Boston", "Newton", "25 min", 10], ["Boston", "Brookline", "15 min", 5], ["Boston", "Worcester", "55 min", 47], ["Boston", "Lowell", "40 min", 30], ["Santa Monica", "Los Angeles", "30 min", 16], ["Long Beach", "Los Angeles", "35 min", 23], ["Anaheim", "Los Angeles", "40 min", 28], ["Pasadena", "Los Angeles", "20 min", 12], ["Burbank", "Los Angeles", "25 min", 13], ["Irvine", "Los Angeles", "50 min", 42], ["Glendale", "Los Angeles", "20 min", 10], ["Ontario", "Los Angeles", "45 min", 40], ["Newark", "New York", "25 min", 12], ["Jersey City", "New York", "20 min", 7], ["Stamford", "New York", "50 min", 35], ["White Plains", "New York", "45 min", 28], ["Yonkers", "New York", "35 min", 18], ["Hoboken", "New York", "15 min", 5], ["New Rochelle", "New York", "35 min", 20], ["Long Island City", "New York", "15 min", 4], ["Naperville", "Chicago", "40 min", 33], ["Evanston", "Chicago", "25 min", 14], ["Schaumburg", "Chicago", "40 min", 28], ["Aurora", "Chicago", "50 min", 41], ["Oak Park", "Chicago", "20 min", 9], ["Joliet", "Chicago", "55 min", 44], ["Waukegan", "Chicago", "55 min", 42], ["Fort Worth", "Dallas", "40 min", 33], ["Arlington", "Dallas", "30 min", 20], ["Plano", "Dallas", "30 min", 20], ["Irving", "Dallas", "20 min", 12], ["Frisco", "Dallas", "35 min", 28], ["McKinney", "Dallas", "45 min", 35], ["Denton", "Dallas", "50 min", 40], ["Galveston", "Houston", "1h", 50], ["The Woodlands", "Houston", "40 min", 30], ["Sugar Land", "Houston", "30 min", 22], ["Katy", "Houston", "35 min", 30], ["Pearland", "Houston", "25 min", 18], ["Pasadena", "Houston", "25 min", 15], ["Baytown", "Houston", "35 min", 27], ["Arlington", "Washington DC", "15 min", 5], ["Alexandria", "Washington DC", "20 min", 8], ["Bethesda", "Washington DC", "20 min", 8], ["Silver Spring", "Washington DC", "25 min", 9], ["Rockville", "Washington DC", "30 min", 15], ["Tysons", "Washington DC", "25 min", 12], ["Reston", "Washington DC", "35 min", 22], ["Fort Lauderdale", "Miami", "40 min", 30], ["West Palm Beach", "Miami", "1h 15min", 70], ["Boca Raton", "Miami", "55 min", 47], ["Hollywood", "Miami", "30 min", 20], ["Coral Gables", "Miami", "15 min", 7], ["Miami Beach", "Miami", "15 min", 5], ["Hialeah", "Miami", "20 min", 10], ["Camden", "Philadelphia", "20 min", 8], ["Wilmington", "Philadelphia", "40 min", 30], ["Trenton", "Philadelphia", "45 min", 33], ["King of Prussia", "Philadelphia", "30 min", 18], ["Cherry Hill", "Philadelphia", "20 min", 10], ["Marietta", "Atlanta", "30 min", 20], ["Decatur", "Atlanta", "15 min", 7], ["Sandy Springs", "Atlanta", "25 min", 15], ["Alpharetta", "Atlanta", "40 min", 28], ["Roswell", "Atlanta", "35 min", 23], ["Kennesaw", "Atlanta", "40 min", 28], ["Scottsdale", "Phoenix", "20 min", 12], ["Mesa", "Phoenix", "25 min", 18], ["Tempe", "Phoenix", "20 min", 10], ["Chandler", "Phoenix", "30 min", 22], ["Gilbert", "Phoenix", "35 min", 25], ["Glendale", "Phoenix", "20 min", 10], ["Peoria", "Phoenix", "25 min", 18], ["Oakland", "San Francisco", "25 min", 12], ["Berkeley", "San Francisco", "30 min", 14], ["Palo Alto", "San Francisco", "45 min", 35], ["Fremont", "San Francisco", "50 min", 40], ["San Mateo", "San Francisco", "30 min", 22], ["Daly City", "San Francisco", "20 min", 8], ["Walnut Creek", "San Francisco", "40 min", 28], ["Bellevue", "Seattle", "20 min", 10], ["Tacoma", "Seattle", "45 min", 34], ["Everett", "Seattle", "40 min", 30], ["Redmond", "Seattle", "25 min", 16], ["Kirkland", "Seattle", "20 min", 12], ["Renton", "Seattle", "25 min", 13], ["Kent", "Seattle", "30 min", 20], ["Aurora", "Denver", "20 min", 12], ["Boulder", "Denver", "40 min", 30], ["Lakewood", "Denver", "15 min", 8], ["Arvada", "Denver", "20 min", 12], ["Westminster", "Denver", "20 min", 12], ["Thornton", "Denver", "25 min", 14], ["Fort Collins", "Denver", "1h 10min", 65], ["Cambridge", "Boston", "15 min", 3], ["Quincy", "Boston", "20 min", 9], ["Somerville", "Boston", "15 min", 4], ["Newton", "Boston", "25 min", 10], ["Brookline", "Boston", "15 min", 5], ["Worcester", "Boston", "55 min", 47], ["Lowell", "Boston", "40 min", 30], ["Las Vegas", "Grand Canyon", "4h 15min", 280], ["Las Vegas", "Death Valley", "2h 15min", 140], ["Las Vegas", "Zion National Park", "2h 30min", 160], ["Las Vegas", "Hoover Dam", "45 min", 35], ["Los Angeles", "Disneyland", "45 min", 35], ["Los Angeles", "Universal Studios", "25 min", 12], ["Los Angeles", "Palm Springs", "1h 45min", 110], ["Los Angeles", "Joshua Tree", "2h 15min", 130], ["Los Angeles", "Big Bear Lake", "2h", 100], ["Los Angeles", "Malibu", "50 min", 35], ["Los Angeles", "Santa Barbara", "1h 45min", 95], ["San Francisco", "Yosemite", "3h", 170], ["San Francisco", "Napa Valley", "1h 15min", 55], ["San Francisco", "Lake Tahoe", "3h 30min", 195], ["San Francisco", "Monterey", "2h", 120], ["San Francisco", "Carmel", "2h 15min", 125], ["San Francisco", "Muir Woods", "35 min", 17], ["Orlando", "Disney World", "30 min", 22], ["Orlando", "Universal Orlando", "25 min", 15], ["Orlando", "Kennedy Space Center", "55 min", 50], ["Orlando", "Clearwater Beach", "1h 45min", 105], ["Orlando", "Daytona Beach", "1h", 55], ["Miami", "Key West", "3h 30min", 160], ["Miami", "Everglades", "1h", 45], ["Miami", "South Beach", "20 min", 8], ["Phoenix", "Sedona", "2h", 115], ["Phoenix", "Grand Canyon", "3h 45min", 230], ["Phoenix", "Scottsdale", "20 min", 12], ["Denver", "Rocky Mountain NP", "1h 30min", 70], ["Denver", "Aspen", "3h", 160], ["Denver", "Vail", "1h 45min", 100], ["Denver", "Breckenridge", "1h 30min", 80], ["Denver", "Estes Park", "1h 20min", 65], ["Seattle", "Mount Rainier", "1h 30min", 60], ["Seattle", "Olympic National Park", "2h", 80], ["Seattle", "Snoqualmie Falls", "40 min", 30], ["Seattle", "Leavenworth", "2h 15min", 120], ["New York", "Niagara Falls", "6h 30min", 400], ["New York", "Hamptons", "2h", 100], ["New York", "Atlantic City", "2h 15min", 130], ["New York", "Statue of Liberty", "15 min", 5], ["Chicago", "Wisconsin Dells", "3h", 195], ["Chicago", "Lake Geneva", "1h 30min", 80], ["Nashville", "Dollywood", "3h 30min", 220], ["Nashville", "Gatlinburg", "3h 45min", 220], ["Nashville", "Great Smoky Mountains", "4h", 230], ["Salt Lake City", "Park City", "40 min", 32], ["Salt Lake City", "Sundance", "1h", 50], ["Salt Lake City", "Arches National Park", "3h 45min", 230], ["San Diego", "Legoland", "40 min", 35], ["San Diego", "San Diego Zoo", "15 min", 5], ["San Diego", "Tijuana", "30 min", 20], ["Grand Canyon", "Las Vegas", "4h 15min", 280], ["Death Valley", "Las Vegas", "2h 15min", 140], ["Zion National Park", "Las Vegas", "2h 30min", 160], ["Hoover Dam", "Las Vegas", "45 min", 35], ["Disneyland", "Los Angeles", "45 min", 35], ["Universal Studios", "Los Angeles", "25 min", 12], ["Palm Springs", "Los Angeles", "1h 45min", 110], ["Joshua Tree", "Los Angeles", "2h 15min", 130], ["Big Bear Lake", "Los Angeles", "2h", 100], ["Malibu", "Los Angeles", "50 min", 35], ["Santa Barbara", "Los Angeles", "1h 45min", 95], ["Yosemite", "San Francisco", "3h", 170], ["Napa Valley", "San Francisco", "1h 15min", 55], ["Lake Tahoe", "San Francisco", "3h 30min", 195], ["Monterey", "San Francisco", "2h", 120], ["Carmel", "San Francisco", "2h 15min", 125], ["Muir Woods", "San Francisco", "35 min", 17], ["Disney World", "Orlando", "30 min", 22], ["Universal Orlando", "Orlando", "25 min", 15], ["Kennedy Space Center", "Orlando", "55 min", 50], ["Clearwater Beach", "Orlando", "1h 45min", 105], ["Daytona Beach", "Orlando", "1h", 55], ["Key West", "Miami", "3h 30min", 160], ["Everglades", "Miami", "1h", 45], ["South Beach", "Miami", "20 min", 8], ["Sedona", "Phoenix", "2h", 115], ["Grand Canyon", "Phoenix", "3h 45min", 230], ["Scottsdale", "Phoenix", "20 min", 12], ["Rocky Mountain NP", "Denver", "1h 30min", 70], ["Aspen", "Denver", "3h", 160], ["Vail", "Denver", "1h 45min", 100], ["Breckenridge", "Denver", "1h 30min", 80], ["Estes Park", "Denver", "1h 20min", 65], ["Mount Rainier", "Seattle", "1h 30min", 60], ["Olympic National Park", "Seattle", "2h", 80], ["Snoqualmie Falls", "Seattle", "40 min", 30], ["Leavenworth", "Seattle", "2h 15min", 120], ["Niagara Falls", "New York", "6h 30min", 400], ["Hamptons", "New York", "2h", 100], ["Atlantic City", "New York", "2h 15min", 130], ["Statue of Liberty", "New York", "15 min", 5], ["Wisconsin Dells", "Chicago", "3h", 195], ["Lake Geneva", "Chicago", "1h 30min", 80], ["Dollywood", "Nashville", "3h 30min", 220], ["Gatlinburg", "Nashville", "3h 45min", 220], ["Great Smoky Mountains", "Nashville", "4h", 230], ["Park City", "Salt Lake City", "40 min", 32], ["Sundance", "Salt Lake City", "1h", 50], ["Arches National Park", "Salt Lake City", "3h 45min", 230], ["Legoland", "San Diego", "40 min", 35], ["San Diego Zoo", "San Diego", "15 min", 5], ["Tijuana", "San Diego", "30 min", 20], ["LAX", "Los Angeles", "30 min", 18], ["LAX", "Santa Monica", "25 min", 12], ["LAX", "Anaheim", "45 min", 35], ["LAX", "Long Beach", "35 min", 22], ["LAX", "Hollywood", "30 min", 15], ["JFK", "Manhattan", "40 min", 15], ["JFK", "Times Square", "50 min", 18], ["JFK", "Brooklyn", "25 min", 10], ["LGA", "Manhattan", "30 min", 9], ["EWR", "Manhattan", "40 min", 16], ["ORD", "Chicago", "35 min", 18], ["ORD", "Downtown Chicago", "45 min", 20], ["MDW", "Chicago", "25 min", 12], ["DFW", "Dallas", "30 min", 20], ["DFW", "Fort Worth", "35 min", 25], ["DFW", "Arlington", "25 min", 15], ["ATL", "Atlanta", "20 min", 10], ["ATL", "Downtown Atlanta", "25 min", 12], ["SFO", "San Francisco", "30 min", 14], ["SFO", "Palo Alto", "35 min", 22], ["SFO", "San Jose", "45 min", 35], ["OAK", "San Francisco", "35 min", 20], ["OAK", "Oakland", "20 min", 8], ["MIA", "Miami", "20 min", 10], ["MIA", "Miami Beach", "25 min", 12], ["MIA", "Fort Lauderdale", "40 min", 30], ["FLL", "Fort Lauderdale", "15 min", 5], ["FLL", "Miami", "40 min", 28], ["SEA", "Seattle", "30 min", 15], ["SEA", "Bellevue", "35 min", 20], ["SEA", "Tacoma", "35 min", 25], ["DEN", "Denver", "40 min", 25], ["DEN", "Boulder", "55 min", 45], ["PHX", "Phoenix", "20 min", 8], ["PHX", "Scottsdale", "25 min", 15], ["PHX", "Tempe", "20 min", 10], ["BOS", "Boston", "20 min", 5], ["BOS", "Cambridge", "25 min", 8], ["MCO", "Orlando", "20 min", 12], ["MCO", "Disney World", "30 min", 22], ["MCO", "Universal Orlando", "25 min", 15], ["LAS", "Las Vegas", "15 min", 5], ["LAS", "Las Vegas Strip", "10 min", 3], ["IAH", "Houston", "35 min", 22], ["HOU", "Houston", "25 min", 12], ["DCA", "Washington DC", "15 min", 5], ["IAD", "Washington DC", "45 min", 28], ["BWI", "Washington DC", "50 min", 35], ["BWI", "Baltimore", "20 min", 10], ["Los Angeles", "LAX", "30 min", 18], ["Santa Monica", "LAX", "25 min", 12], ["Anaheim", "LAX", "45 min", 35], ["Long Beach", "LAX", "35 min", 22], ["Hollywood", "LAX", "30 min", 15], ["Manhattan", "JFK", "40 min", 15], ["Times Square", "JFK", "50 min", 18], ["Brooklyn", "JFK", "25 min", 10], ["Manhattan", "LGA", "30 min", 9], ["Manhattan", "EWR", "40 min", 16], ["Chicago", "ORD", "35 min", 18], ["Downtown Chicago", "ORD", "45 min", 20], ["Chicago", "MDW", "25 min", 12], ["Dallas", "DFW", "30 min", 20], ["Fort Worth", "DFW", "35 min", 25], ["Arlington", "DFW", "25 min", 15], ["Atlanta", "ATL", "20 min", 10], ["Downtown Atlanta", "ATL", "25 min", 12], ["San Francisco", "SFO", "30 min", 14], ["Palo Alto", "SFO", "35 min", 22], ["San Jose", "SFO", "45 min", 35], ["San Francisco", "OAK", "35 min", 20], ["Oakland", "OAK", "20 min", 8], ["Miami", "MIA", "20 min", 10], ["Miami Beach", "MIA", "25 min", 12], ["Fort Lauderdale", "MIA", "40 min", 30], ["Fort Lauderdale", "FLL", "15 min", 5], ["Miami", "FLL", "40 min", 28], ["Seattle", "SEA", "30 min", 15], ["Bellevue", "SEA", "35 min", 20], ["Tacoma", "SEA", "35 min", 25], ["Denver", "DEN", "40 min", 25], ["Boulder", "DEN", "55 min", 45], ["Phoenix", "PHX", "20 min", 8], ["Scottsdale", "PHX", "25 min", 15], ["Tempe", "PHX", "20 min", 10], ["Boston", "BOS", "20 min", 5], ["Cambridge", "BOS", "25 min", 8], ["Orlando", "MCO", "20 min", 12], ["Disney World", "MCO", "30 min", 22], ["Universal Orlando", "MCO", "25 min", 15], ["Las Vegas", "LAS", "15 min", 5], ["Las Vegas Strip", "LAS", "10 min", 3], ["Houston", "IAH", "35 min", 22], ["Houston", "HOU", "25 min", 12], ["Washington DC", "DCA", "15 min", 5], ["Washington DC", "IAD", "45 min", 28], ["Washington DC", "BWI", "50 min", 35], ["Baltimore", "BWI", "20 min", 10], ["Boise", "Salt Lake City", "5h", 340], ["Boise", "Portland", "6h 30min", 430], ["Boise", "Seattle", "7h 15min", 500], ["Spokane", "Seattle", "4h 15min", 280], ["Spokane", "Portland", "5h 30min", 350], ["Spokane", "Boise", "4h 30min", 300], ["Reno", "San Francisco", "3h 30min", 220], ["Reno", "Sacramento", "2h 15min", 135], ["Reno", "Las Vegas", "6h 30min", 450], ["Reno", "Lake Tahoe", "1h", 45], ["Tucson", "Phoenix", "1h 45min", 115], ["Tucson", "El Paso", "4h 30min", 320], ["Tucson", "San Diego", "5h 30min", 400], ["El Paso", "Tucson", "4h 30min", 320], ["El Paso", "Albuquerque", "4h", 270], ["El Paso", "San Antonio", "8h", 550], ["Albuquerque", "Santa Fe", "1h", 65], ["Albuquerque", "El Paso", "4h", 270], ["Albuquerque", "Phoenix", "6h 15min", 450], ["Albuquerque", "Denver", "6h 30min", 450], ["Santa Fe", "Albuquerque", "1h", 65], ["Santa Fe", "Denver", "5h 30min", 390], ["Santa Fe", "Taos", "1h 15min", 70], ["Tulsa", "Oklahoma City", "1h 45min", 105], ["Tulsa", "Dallas", "4h", 260], ["Tulsa", "Kansas City", "4h", 250], ["Wichita", "Kansas City", "3h", 200], ["Wichita", "Oklahoma City", "2h 30min", 160], ["Wichita", "Denver", "7h 30min", 520], ["Omaha", "Kansas City", "2h 45min", 185], ["Omaha", "Denver", "7h 30min", 540], ["Omaha", "Minneapolis", "6h", 400], ["Omaha", "Des Moines", "2h", 140], ["Des Moines", "Omaha", "2h", 140], ["Des Moines", "Kansas City", "3h", 195], ["Des Moines", "Chicago", "5h", 330], ["Des Moines", "Minneapolis", "3h 45min", 245], ["Little Rock", "Memphis", "2h", 135], ["Little Rock", "Dallas", "4h 45min", 320], ["Little Rock", "New Orleans", "5h 45min", 400], ["Jackson", "New Orleans", "3h", 180], ["Jackson", "Memphis", "3h 15min", 210], ["Jackson", "Birmingham", "3h 30min", 240], ["Birmingham", "Atlanta", "2h 15min", 150], ["Birmingham", "Nashville", "3h", 190], ["Birmingham", "New Orleans", "5h", 350], ["Birmingham", "Jackson", "3h 30min", 240], ["Mobile", "New Orleans", "2h 15min", 150], ["Mobile", "Birmingham", "3h 45min", 250], ["Mobile", "Pensacola", "1h", 60], ["Pensacola", "Mobile", "1h", 60], ["Pensacola", "New Orleans", "3h", 200], ["Pensacola", "Tallahassee", "3h", 195], ["Tallahassee", "Jacksonville", "2h 30min", 165], ["Tallahassee", "Atlanta", "4h", 275], ["Tallahassee", "Pensacola", "3h", 195], ["Savannah", "Jacksonville", "2h", 140], ["Savannah", "Charleston", "1h 45min", 110], ["Savannah", "Atlanta", "3h 45min", 250], ["Charleston", "Savannah", "1h 45min", 110], ["Charleston", "Charlotte", "3h 15min", 210], ["Charleston", "Myrtle Beach", "1h 30min", 95], ["Myrtle Beach", "Charleston", "1h 30min", 95], ["Myrtle Beach", "Charlotte", "2h 45min", 175], ["Myrtle Beach", "Wilmington", "1h 15min", 75], ["Richmond", "Washington DC", "1h 45min", 110], ["Richmond", "Norfolk", "1h 30min", 95], ["Richmond", "Raleigh", "2h 30min", 155], ["Norfolk", "Richmond", "1h 30min", 95], ["Norfolk", "Virginia Beach", "30 min", 20], ["Norfolk", "Washington DC", "3h 15min", 200], ["Virginia Beach", "Norfolk", "30 min", 20], ["Virginia Beach", "Richmond", "1h 45min", 110], ["Knoxville", "Nashville", "2h 45min", 180], ["Knoxville", "Atlanta", "3h 15min", 215], ["Knoxville", "Gatlinburg", "1h", 40], ["Knoxville", "Chattanooga", "1h 45min", 110], ["Chattanooga", "Atlanta", "1h 50min", 120], ["Chattanooga", "Nashville", "2h", 135], ["Chattanooga", "Knoxville", "1h 45min", 110], ["Louisville", "Cincinnati", "1h 40min", 100], ["Louisville", "Indianapolis", "1h 50min", 115], ["Louisville", "Nashville", "2h 45min", 175], ["Louisville", "Lexington", "1h 15min", 80], ["Lexington", "Louisville", "1h 15min", 80], ["Lexington", "Cincinnati", "1h 25min", 85], ["Grand Rapids", "Detroit", "2h 15min", 150], ["Grand Rapids", "Chicago", "2h 45min", 180], ["Madison", "Chicago", "2h 30min", 150], ["Madison", "Milwaukee", "1h 20min", 80], ["Madison", "Minneapolis", "4h", 270], ["Green Bay", "Milwaukee", "1h 50min", 120], ["Green Bay", "Madison", "2h 10min", 140], ["Green Bay", "Chicago", "3h 15min", 210], ["Duluth", "Minneapolis", "2h 30min", 155], ["Fargo", "Minneapolis", "3h 30min", 235], ["Sioux Falls", "Minneapolis", "3h 30min", 230], ["Sioux Falls", "Omaha", "2h 45min", 185], ["Rapid City", "Denver", "5h 30min", 390], ["Rapid City", "Mount Rushmore", "35 min", 25], ["Billings", "Denver", "8h", 550], ["Billings", "Boise", "7h 45min", 540], ["Missoula", "Spokane", "3h", 200], ["Missoula", "Boise", "5h 30min", 390], ["Anchorage", "Fairbanks", "5h 30min", 360], ["Honolulu", "Pearl Harbor", "20 min", 10], ["Honolulu", "Waikiki", "15 min", 5], ["Salt Lake City", "Boise", "5h", 340], ["Portland", "Boise", "6h 30min", 430], ["Seattle", "Boise", "7h 15min", 500], ["Seattle", "Spokane", "4h 15min", 280], ["Portland", "Spokane", "5h 30min", 350], ["Boise", "Spokane", "4h 30min", 300], ["San Francisco", "Reno", "3h 30min", 220], ["Sacramento", "Reno", "2h 15min", 135], ["Las Vegas", "Reno", "6h 30min", 450], ["Lake Tahoe", "Reno", "1h", 45], ["Phoenix", "Tucson", "1h 45min", 115], ["El Paso", "Tucson", "4h 30min", 320], ["San Diego", "Tucson", "5h 30min", 400], ["Tucson", "El Paso", "4h 30min", 320], ["Albuquerque", "El Paso", "4h", 270], ["San Antonio", "El Paso", "8h", 550], ["Santa Fe", "Albuquerque", "1h", 65], ["El Paso", "Albuquerque", "4h", 270], ["Phoenix", "Albuquerque", "6h 15min", 450], ["Denver", "Albuquerque", "6h 30min", 450], ["Albuquerque", "Santa Fe", "1h", 65], ["Denver", "Santa Fe", "5h 30min", 390], ["Taos", "Santa Fe", "1h 15min", 70], ["Oklahoma City", "Tulsa", "1h 45min", 105], ["Dallas", "Tulsa", "4h", 260], ["Kansas City", "Tulsa", "4h", 250], ["Kansas City", "Wichita", "3h", 200], ["Oklahoma City", "Wichita", "2h 30min", 160], ["Denver", "Wichita", "7h 30min", 520], ["Kansas City", "Omaha", "2h 45min", 185], ["Denver", "Omaha", "7h 30min", 540], ["Minneapolis", "Omaha", "6h", 400], ["Des Moines", "Omaha", "2h", 140], ["Omaha", "Des Moines", "2h", 140], ["Kansas City", "Des Moines", "3h", 195], ["Chicago", "Des Moines", "5h", 330], ["Minneapolis", "Des Moines", "3h 45min", 245], ["Memphis", "Little Rock", "2h", 135], ["Dallas", "Little Rock", "4h 45min", 320], ["New Orleans", "Little Rock", "5h 45min", 400], ["New Orleans", "Jackson", "3h", 180], ["Memphis", "Jackson", "3h 15min", 210], ["Birmingham", "Jackson", "3h 30min", 240], ["Atlanta", "Birmingham", "2h 15min", 150], ["Nashville", "Birmingham", "3h", 190], ["New Orleans", "Birmingham", "5h", 350], ["Jackson", "Birmingham", "3h 30min", 240], ["New Orleans", "Mobile", "2h 15min", 150], ["Birmingham", "Mobile", "3h 45min", 250], ["Pensacola", "Mobile", "1h", 60], ["Mobile", "Pensacola", "1h", 60], ["New Orleans", "Pensacola", "3h", 200], ["Tallahassee", "Pensacola", "3h", 195], ["Jacksonville", "Tallahassee", "2h 30min", 165], ["Atlanta", "Tallahassee", "4h", 275], ["Pensacola", "Tallahassee", "3h", 195], ["Jacksonville", "Savannah", "2h", 140], ["Charleston", "Savannah", "1h 45min", 110], ["Atlanta", "Savannah", "3h 45min", 250], ["Savannah", "Charleston", "1h 45min", 110], ["Charlotte", "Charleston", "3h 15min", 210], ["Myrtle Beach", "Charleston", "1h 30min", 95], ["Charleston", "Myrtle Beach", "1h 30min", 95], ["Charlotte", "Myrtle Beach", "2h 45min", 175], ["Wilmington", "Myrtle Beach", "1h 15min", 75], ["Washington DC", "Richmond", "1h 45min", 110], ["Norfolk", "Richmond", "1h 30min", 95], ["Raleigh", "Richmond", "2h 30min", 155], ["Richmond", "Norfolk", "1h 30min", 95], ["Virginia Beach", "Norfolk", "30 min", 20], ["Washington DC", "Norfolk", "3h 15min", 200], ["Norfolk", "Virginia Beach", "30 min", 20], ["Richmond", "Virginia Beach", "1h 45min", 110], ["Nashville", "Knoxville", "2h 45min", 180], ["Atlanta", "Knoxville", "3h 15min", 215], ["Gatlinburg", "Knoxville", "1h", 40], ["Chattanooga", "Knoxville", "1h 45min", 110], ["Atlanta", "Chattanooga", "1h 50min", 120], ["Nashville", "Chattanooga", "2h", 135], ["Knoxville", "Chattanooga", "1h 45min", 110], ["Cincinnati", "Louisville", "1h 40min", 100], ["Indianapolis", "Louisville", "1h 50min", 115], ["Nashville", "Louisville", "2h 45min", 175], ["Lexington", "Louisville", "1h 15min", 80], ["Louisville", "Lexington", "1h 15min", 80], ["Cincinnati", "Lexington", "1h 25min", 85], ["Detroit", "Grand Rapids", "2h 15min", 150], ["Chicago", "Grand Rapids", "2h 45min", 180], ["Chicago", "Madison", "2h 30min", 150], ["Milwaukee", "Madison", "1h 20min", 80], ["Minneapolis", "Madison", "4h", 270], ["Milwaukee", "Green Bay", "1h 50min", 120], ["Madison", "Green Bay", "2h 10min", 140], ["Chicago", "Green Bay", "3h 15min", 210], ["Minneapolis", "Duluth", "2h 30min", 155], ["Minneapolis", "Fargo", "3h 30min", 235], ["Minneapolis", "Sioux Falls", "3h 30min", 230], ["Omaha", "Sioux Falls", "2h 45min", 185], ["Denver", "Rapid City", "5h 30min", 390], ["Mount Rushmore", "Rapid City", "35 min", 25], ["Denver", "Billings", "8h", 550], ["Boise", "Billings", "7h 45min", 540], ["Spokane", "Missoula", "3h", 200], ["Boise", "Missoula", "5h 30min", 390], ["Fairbanks", "Anchorage", "5h 30min", 360], ["Pearl Harbor", "Honolulu", "20 min", 10], ["Waikiki", "Honolulu", "15 min", 5], ["New York", "San Antonio", "34h 15min", 2055], ["New York", "San Diego", "52h 36min", 3156], ["New York", "Austin", "32h 44min", 1964], ["New York", "Nashville", "16h 26min", 986], ["New York", "Portland", "52h 51min", 3171], ["New York", "Las Vegas", "48h 15min", 2895], ["New York", "Tampa", "21h 45min", 1305], ["New York", "Salt Lake City", "42h 37min", 2558], ["New York", "San Jose", "55h 13min", 3313], ["Los Angeles", "Philadelphia", "51h 44min", 3104], ["Los Angeles", "San Antonio", "26h 2min", 1562], ["Los Angeles", "Austin", "26h 32min", 1592], ["Los Angeles", "Boston", "56h 7min", 3368], ["Los Angeles", "Nashville", "38h 29min", 2309], ["Los Angeles", "Detroit", "42h 52min", 2573], ["Los Angeles", "Minneapolis", "32h 57min", 1977], ["Los Angeles", "Orlando", "47h 36min", 2856], ["Los Angeles", "Tampa", "46h 34min", 2794], ["Los Angeles", "New Orleans", "36h 9min", 2170], ["Los Angeles", "Cleveland", "44h 17min", 2658], ["Los Angeles", "Washington DC", "49h 42min", 2982], ["Los Angeles", "Baltimore", "50h 8min", 3009], ["Chicago", "Philadelphia", "14h 22min", 862], ["Chicago", "San Antonio", "22h 48min", 1368], ["Chicago", "San Diego", "37h 30min", 2251], ["Chicago", "Austin", "21h 12min", 1273], ["Chicago", "Portland", "38h", 2281], ["Chicago", "Las Vegas", "32h 57min", 1977], ["Chicago", "Orlando", "21h 22min", 1282], ["Chicago", "Tampa", "21h 47min", 1307], ["Chicago", "New Orleans", "18h 4min", 1085], ["Chicago", "Baltimore", "13h 5min", 786], ["Chicago", "Salt Lake City", "27h 14min", 1634], ["Chicago", "San Jose", "39h 49min", 2389], ["Houston", "Philadelphia", "29h", 1741], ["Houston", "San Diego", "28h 11min", 1691], ["Houston", "Dallas", "4h 51min", 292], ["Houston", "San Francisco", "35h 35min", 2135], ["Houston", "Boston", "34h 45min", 2085], ["Houston", "Nashville", "14h 24min", 865], ["Houston", "Detroit", "23h 56min", 1437], ["Houston", "Portland", "39h 43min", 2383], ["Houston", "Minneapolis", "22h 55min", 1375], ["Houston", "Orlando", "18h 22min", 1102], ["Houston", "Tampa", "17h 7min", 1028], ["Houston", "Cleveland", "24h 7min", 1448], ["Houston", "Washington DC", "26h 23min", 1584], ["Houston", "Baltimore", "27h 4min", 1625], ["Houston", "Salt Lake City", "25h 57min", 1558], ["Houston", "San Jose", "34h 50min", 2090], ["Phoenix", "Philadelphia", "45h", 2701], ["Phoenix", "Austin", "18h 48min", 1129], ["Phoenix", "Boston", "49h 43min", 2983], ["Phoenix", "Nashville", "31h 15min", 1875], ["Phoenix", "Detroit", "36h 32min", 2193], ["Phoenix", "Portland", "21h 47min", 1307], ["Phoenix", "Miami", "42h 52min", 2572], ["Phoenix", "Atlanta", "34h 24min", 2065], ["Phoenix", "Minneapolis", "27h 41min", 1662], ["Phoenix", "Orlando", "39h 54min", 2395], ["Phoenix", "Tampa", "38h 51min", 2331], ["Phoenix", "New Orleans", "28h 26min", 1707], ["Phoenix", "Cleveland", "37h 49min", 2269], ["Phoenix", "Washington DC", "42h 50min", 2570], ["Phoenix", "Baltimore", "43h 20min", 2600], ["Phoenix", "San Jose", "13h 18min", 798], ["Philadelphia", "Los Angeles", "51h 44min", 3104], ["Philadelphia", "Chicago", "14h 22min", 862], ["Philadelphia", "Houston", "29h", 1741], ["Philadelphia", "Phoenix", "45h", 2701], ["Philadelphia", "San Antonio", "32h 36min", 1956], ["Philadelphia", "San Diego", "51h 17min", 3078], ["Philadelphia", "Dallas", "28h 6min", 1686], ["Philadelphia", "Austin", "31h 4min", 1865], ["Philadelphia", "San Francisco", "54h 31min", 3272], ["Philadelphia", "Seattle", "51h 24min", 3085], ["Philadelphia", "Denver", "34h 7min", 2047], ["Philadelphia", "Nashville", "14h 48min", 888], ["Philadelphia", "Detroit", "9h 33min", 574], ["Philadelphia", "Portland", "52h 7min", 3127], ["Philadelphia", "Las Vegas", "47h 2min", 2823], ["Philadelphia", "Miami", "22h 8min", 1329], ["Philadelphia", "Atlanta", "14h 24min", 865], ["Philadelphia", "Minneapolis", "21h 18min", 1278], ["Philadelphia", "Orlando", "18h 42min", 1123], ["Philadelphia", "Tampa", "20h 6min", 1206], ["Philadelphia", "New Orleans", "23h 33min", 1414], ["Philadelphia", "Cleveland", "7h 45min", 465], ["Philadelphia", "Salt Lake City", "41h 36min", 2496], ["Philadelphia", "San Jose", "54h 7min", 3248], ["San Antonio", "New York", "34h 15min", 2055], ["San Antonio", "Los Angeles", "26h 2min", 1562], ["San Antonio", "Chicago", "22h 48min", 1368], ["San Antonio", "Philadelphia", "32h 36min", 1956], ["San Antonio", "San Diego", "24h 23min", 1464], ["San Antonio", "San Francisco", "32h 13min", 1933], ["San Antonio", "Seattle", "38h 40min", 2321], ["San Antonio", "Denver", "17h 22min", 1042], ["San Antonio", "Boston", "38h 14min", 2294], ["San Antonio", "Nashville", "17h 49min", 1070], ["San Antonio", "Detroit", "26h 48min", 1609], ["San Antonio", "Portland", "37h 14min", 2234], ["San Antonio", "Las Vegas", "23h 11min", 1392], ["San Antonio", "Miami", "24h 51min", 1491], ["San Antonio", "Atlanta", "19h 4min", 1145], ["San Antonio", "Minneapolis", "24h 4min", 1445], ["San Antonio", "Orlando", "22h 25min", 1345], ["San Antonio", "Tampa", "21h 8min", 1269], ["San Antonio", "Cleveland", "27h 12min", 1633], ["San Antonio", "Washington DC", "30h", 1801], ["San Antonio", "Baltimore", "30h 41min", 1841], ["San Antonio", "Salt Lake City", "23h 33min", 1413], ["San Antonio", "San Jose", "31h 26min", 1886], ["San Diego", "New York", "52h 36min", 3156], ["San Diego", "Chicago", "37h 30min", 2251], ["San Diego", "Houston", "28h 11min", 1691], ["San Diego", "Philadelphia", "51h 17min", 3078], ["San Diego", "San Antonio", "24h 23min", 1464], ["San Diego", "Dallas", "25h 36min", 1536], ["San Diego", "Austin", "25h", 1501], ["San Diego", "San Francisco", "9h 54min", 595], ["San Diego", "Seattle", "23h 3min", 1383], ["San Diego", "Denver", "18h 2min", 1082], ["San Diego", "Boston", "55h 52min", 3352], ["San Diego", "Nashville", "37h 42min", 2262], ["San Diego", "Detroit", "42h 38min", 2559], ["San Diego", "Portland", "20h 11min", 1211], ["San Diego", "Miami", "49h 7min", 2948], ["San Diego", "Atlanta", "40h 52min", 2453], ["San Diego", "Minneapolis", "33h 9min", 1990], ["San Diego", "Orlando", "46h 16min", 2777], ["San Diego", "Tampa", "45h 12min", 2712], ["San Diego", "New Orleans", "34h 46min", 2087], ["San Diego", "Cleveland", "43h 59min", 2639], ["San Diego", "Washington DC", "49h 9min", 2950], ["San Diego", "Baltimore", "49h 38min", 2979], ["San Diego", "Salt Lake City", "13h 35min", 815], ["San Diego", "San Jose", "9h 1min", 541], ["Dallas", "Houston", "4h 51min", 292], ["Dallas", "Philadelphia", "28h 6min", 1686], ["Dallas", "San Diego", "25h 36min", 1536], ["Dallas", "San Francisco", "32h 5min", 1925], ["Dallas", "Boston", "33h 34min", 2014], ["Dallas", "Nashville", "13h 20min", 801], ["Dallas", "Detroit", "21h 38min", 1299], ["Dallas", "Portland", "35h 20min", 2120], ["Dallas", "Orlando", "20h 48min", 1249], ["Dallas", "Tampa", "19h 51min", 1191], ["Dallas", "Cleveland", "22h 11min", 1332], ["Dallas", "Washington DC", "25h 36min", 1536], ["Dallas", "Baltimore", "26h 14min", 1574], ["Dallas", "Salt Lake City", "21h 37min", 1298], ["Dallas", "San Jose", "31h 22min", 1883], ["Austin", "New York", "32h 44min", 1964], ["Austin", "Los Angeles", "26h 32min", 1592], ["Austin", "Chicago", "21h 12min", 1273], ["Austin", "Phoenix", "18h 48min", 1129], ["Austin", "Philadelphia", "31h 4min", 1865], ["Austin", "San Diego", "25h", 1501], ["Austin", "San Francisco", "32h 29min", 1949], ["Austin", "Seattle", "38h 20min", 2300], ["Austin", "Denver", "16h 42min", 1003], ["Austin", "Boston", "36h 42min", 2202], ["Austin", "Nashville", "16h 18min", 978], ["Austin", "Detroit", "25h 14min", 1514], ["Austin", "Portland", "37h", 2220], ["Austin", "Las Vegas", "23h 27min", 1408], ["Austin", "Miami", "24h 7min", 1447], ["Austin", "Atlanta", "17h 42min", 1063], ["Austin", "Minneapolis", "22h 37min", 1358], ["Austin", "Orlando", "21h 27min", 1288], ["Austin", "Tampa", "20h 15min", 1216], ["Austin", "New Orleans", "9h 56min", 596], ["Austin", "Cleveland", "25h 37min", 1538], ["Austin", "Washington DC", "28h 30min", 1711], ["Austin", "Baltimore", "29h 11min", 1751], ["Austin", "Salt Lake City", "23h 15min", 1396], ["Austin", "San Jose", "31h 44min", 1904], ["San Francisco", "Houston", "35h 35min", 2135], ["San Francisco", "Philadelphia", "54h 31min", 3272], ["San Francisco", "San Antonio", "32h 13min", 1933], ["San Francisco", "San Diego", "9h 54min", 595], ["San Francisco", "Dallas", "32h 5min", 1925], ["San Francisco", "Austin", "32h 29min", 1949], ["San Francisco", "Boston", "58h 20min", 3500], ["San Francisco", "Nashville", "42h 25min", 2546], ["San Francisco", "Detroit", "45h 13min", 2713], ["San Francisco", "Miami", "56h 7min", 3368], ["San Francisco", "Atlanta", "46h 15min", 2776], ["San Francisco", "Minneapolis", "34h 15min", 2055], ["San Francisco", "Orlando", "52h 47min", 3168], ["San Francisco", "Tampa", "51h 54min", 3115], ["San Francisco", "New Orleans", "41h 38min", 2499], ["San Francisco", "Cleveland", "46h 50min", 2810], ["San Francisco", "Washington DC", "52h 45min", 3165], ["San Francisco", "Baltimore", "53h 6min", 3186], ["Seattle", "Philadelphia", "51h 24min", 3085], ["Seattle", "San Antonio", "38h 40min", 2321], ["Seattle", "San Diego", "23h 3min", 1383], ["Seattle", "Austin", "38h 20min", 2300], ["Seattle", "Boston", "53h 51min", 3231], ["Seattle", "Nashville", "42h 40min", 2561], ["Seattle", "Detroit", "41h 52min", 2513], ["Seattle", "Miami", "59h 10min", 3551], ["Seattle", "Atlanta", "47h 12min", 2832], ["Seattle", "Orlando", "55h 9min", 3310], ["Seattle", "Tampa", "54h 44min", 3284], ["Seattle", "New Orleans", "45h 28min", 2728], ["Seattle", "Cleveland", "43h 45min", 2626], ["Seattle", "Washington DC", "50h 17min", 3018], ["Seattle", "Baltimore", "50h 25min", 3026], ["Seattle", "San Jose", "15h 22min", 922], ["Denver", "Philadelphia", "34h 7min", 2047], ["Denver", "San Antonio", "17h 22min", 1042], ["Denver", "San Diego", "18h 2min", 1082], ["Denver", "Austin", "16h 42min", 1003], ["Denver", "Boston", "38h 15min", 2295], ["Denver", "Nashville", "22h 6min", 1326], ["Denver", "Detroit", "25h", 1500], ["Denver", "Miami", "37h 22min", 2242], ["Denver", "Orlando", "33h 34min", 2014], ["Denver", "Tampa", "32h 58min", 1978], ["Denver", "New Orleans", "23h 23min", 1404], ["Denver", "Cleveland", "26h 30min", 1591], ["Denver", "Washington DC", "32h 15min", 1935], ["Denver", "Baltimore", "32h 37min", 1958], ["Denver", "San Jose", "20h 3min", 1204], ["Boston", "Los Angeles", "56h 7min", 3368], ["Boston", "Houston", "34h 45min", 2085], ["Boston", "Phoenix", "49h 43min", 2983], ["Boston", "San Antonio", "38h 14min", 2294], ["Boston", "San Diego", "55h 52min", 3352], ["Boston", "Dallas", "33h 34min", 2014], ["Boston", "Austin", "36h 42min", 2202], ["Boston", "San Francisco", "58h 20min", 3500], ["Boston", "Seattle", "53h 51min", 3231], ["Boston", "Denver", "38h 15min", 2295], ["Boston", "Nashville", "20h 23min", 1224], ["Boston", "Portland", "54h 52min", 3293], ["Boston", "Las Vegas", "51h 20min", 3080], ["Boston", "Minneapolis", "24h 17min", 1457], ["Boston", "Orlando", "24h 10min", 1450], ["Boston", "Tampa", "25h 37min", 1538], ["Boston", "New Orleans", "29h 25min", 1765], ["Boston", "Cleveland", "11h 54min", 714], ["Boston", "Baltimore", "7h 46min", 467], ["Boston", "Salt Lake City", "45h 21min", 2721], ["Boston", "San Jose", "58h", 3481], ["Nashville", "New York", "16h 26min", 986], ["Nashville", "Los Angeles", "38h 29min", 2309], ["Nashville", "Houston", "14h 24min", 865], ["Nashville", "Phoenix", "31h 15min", 1875], ["Nashville", "Philadelphia", "14h 48min", 888], ["Nashville", "San Antonio", "17h 49min", 1070], ["Nashville", "San Diego", "37h 42min", 2262], ["Nashville", "Dallas", "13h 20min", 801], ["Nashville", "Austin", "16h 18min", 978], ["Nashville", "San Francisco", "42h 25min", 2546], ["Nashville", "Seattle", "42h 40min", 2561], ["Nashville", "Denver", "22h 6min", 1326], ["Nashville", "Boston", "20h 23min", 1224], ["Nashville", "Detroit", "10h 11min", 611], ["Nashville", "Portland", "42h 35min", 2555], ["Nashville", "Las Vegas", "34h 8min", 2049], ["Nashville", "Miami", "17h 41min", 1062], ["Nashville", "Minneapolis", "15h 5min", 906], ["Nashville", "Orlando", "13h 16min", 797], ["Nashville", "Tampa", "13h 26min", 807], ["Nashville", "New Orleans", "10h 9min", 610], ["Nashville", "Cleveland", "9h 56min", 596], ["Nashville", "Washington DC", "12h 16min", 736], ["Nashville", "Baltimore", "12h 54min", 774], ["Nashville", "Salt Lake City", "30h 7min", 1807], ["Nashville", "San Jose", "41h 53min", 2514], ["Detroit", "Los Angeles", "42h 52min", 2573], ["Detroit", "Houston", "23h 56min", 1437], ["Detroit", "Phoenix", "36h 32min", 2193], ["Detroit", "Philadelphia", "9h 33min", 574], ["Detroit", "San Antonio", "26h 48min", 1609], ["Detroit", "San Diego", "42h 38min", 2559], ["Detroit", "Dallas", "21h 38min", 1299], ["Detroit", "Austin", "25h 14min", 1514], ["Detroit", "San Francisco", "45h 13min", 2713], ["Detroit", "Seattle", "41h 52min", 2513], ["Detroit", "Denver", "25h", 1500], ["Detroit", "Nashville", "10h 11min", 611], ["Detroit", "Portland", "42h 32min", 2553], ["Detroit", "Las Vegas", "38h 5min", 2285], ["Detroit", "Miami", "25h 3min", 1503], ["Detroit", "Orlando", "20h 44min", 1244], ["Detroit", "Tampa", "21h 32min", 1292], ["Detroit", "New Orleans", "20h 22min", 1222], ["Detroit", "Baltimore", "8h 35min", 515], ["Detroit", "Salt Lake City", "32h 15min", 1935], ["Detroit", "San Jose", "44h 52min", 2692], ["Portland", "New York", "52h 51min", 3171], ["Portland", "Chicago", "38h", 2281], ["Portland", "Houston", "39h 43min", 2383], ["Portland", "Phoenix", "21h 47min", 1307], ["Portland", "Philadelphia", "52h 7min", 3127], ["Portland", "San Antonio", "37h 14min", 2234], ["Portland", "San Diego", "20h 11min", 1211], ["Portland", "Dallas", "35h 20min", 2120], ["Portland", "Austin", "37h", 2220], ["Portland", "Boston", "54h 52min", 3293], ["Portland", "Nashville", "42h 35min", 2555], ["Portland", "Detroit", "42h 32min", 2553], ["Portland", "Las Vegas", "16h 22min", 982], ["Portland", "Miami", "58h 37min", 3517], ["Portland", "Atlanta", "46h 59min", 2819], ["Portland", "Minneapolis", "30h 49min", 1850], ["Portland", "Orlando", "54h 43min", 3283], ["Portland", "Tampa", "54h 10min", 3251], ["Portland", "New Orleans", "44h 37min", 2678], ["Portland", "Cleveland", "44h 23min", 2664], ["Portland", "Washington DC", "50h 51min", 3051], ["Portland", "Baltimore", "51h 2min", 3063], ["Portland", "San Jose", "12h 16min", 736], ["Las Vegas", "New York", "48h 15min", 2895], ["Las Vegas", "Chicago", "32h 57min", 1977], ["Las Vegas", "Philadelphia", "47h 2min", 2823], ["Las Vegas", "San Antonio", "23h 11min", 1392], ["Las Vegas", "Austin", "23h 27min", 1408], ["Las Vegas", "Boston", "51h 20min", 3080], ["Las Vegas", "Nashville", "34h 8min", 2049], ["Las Vegas", "Detroit", "38h 5min", 2285], ["Las Vegas", "Portland", "16h 22min", 982], ["Las Vegas", "Miami", "47h 10min", 2831], ["Las Vegas", "Atlanta", "37h 44min", 2264], ["Las Vegas", "Minneapolis", "28h", 1681], ["Las Vegas", "Orlando", "43h 57min", 2637], ["Las Vegas", "Tampa", "43h", 2581], ["Las Vegas", "New Orleans", "32h 40min", 1961], ["Las Vegas", "Cleveland", "39h 32min", 2373], ["Las Vegas", "Washington DC", "45h 5min", 2705], ["Las Vegas", "Baltimore", "45h 30min", 2730], ["Las Vegas", "San Jose", "8h 16min", 496], ["Miami", "Phoenix", "42h 52min", 2572], ["Miami", "Philadelphia", "22h 8min", 1329], ["Miami", "San Antonio", "24h 51min", 1491], ["Miami", "San Diego", "49h 7min", 2948], ["Miami", "Austin", "24h 7min", 1447], ["Miami", "San Francisco", "56h 7min", 3368], ["Miami", "Seattle", "59h 10min", 3551], ["Miami", "Denver", "37h 22min", 2242], ["Miami", "Nashville", "17h 41min", 1062], ["Miami", "Detroit", "25h 3min", 1503], ["Miami", "Portland", "58h 37min", 3517], ["Miami", "Las Vegas", "47h 10min", 2831], ["Miami", "Minneapolis", "32h 47min", 1968], ["Miami", "Cleveland", "23h 37min", 1418], ["Miami", "Baltimore", "20h 44min", 1244], ["Miami", "Salt Lake City", "45h 13min", 2713], ["Miami", "San Jose", "55h 25min", 3326], ["Atlanta", "Phoenix", "34h 24min", 2065], ["Atlanta", "Philadelphia", "14h 24min", 865], ["Atlanta", "San Antonio", "19h 4min", 1145], ["Atlanta", "San Diego", "40h 52min", 2453], ["Atlanta", "Austin", "17h 42min", 1063], ["Atlanta", "San Francisco", "46h 15min", 2776], ["Atlanta", "Seattle", "47h 12min", 2832], ["Atlanta", "Portland", "46h 59min", 2819], ["Atlanta", "Las Vegas", "37h 44min", 2264], ["Atlanta", "Minneapolis", "19h 40min", 1180], ["Atlanta", "Cleveland", "12h 1min", 721], ["Atlanta", "Baltimore", "12h 28min", 749], ["Atlanta", "Salt Lake City", "34h 14min", 2054], ["Atlanta", "San Jose", "45h 40min", 2741], ["Minneapolis", "Los Angeles", "32h 57min", 1977], ["Minneapolis", "Houston", "22h 55min", 1375], ["Minneapolis", "Phoenix", "27h 41min", 1662], ["Minneapolis", "Philadelphia", "21h 18min", 1278], ["Minneapolis", "San Antonio", "24h 4min", 1445], ["Minneapolis", "San Diego", "33h 9min", 1990], ["Minneapolis", "Austin", "22h 37min", 1358], ["Minneapolis", "San Francisco", "34h 15min", 2055], ["Minneapolis", "Boston", "24h 17min", 1457], ["Minneapolis", "Nashville", "15h 5min", 906], ["Minneapolis", "Portland", "30h 49min", 1850], ["Minneapolis", "Las Vegas", "28h", 1681], ["Minneapolis", "Miami", "32h 47min", 1968], ["Minneapolis", "Atlanta", "19h 40min", 1180], ["Minneapolis", "Orlando", "28h 22min", 1702], ["Minneapolis", "Tampa", "28h 33min", 1713], ["Minneapolis", "New Orleans", "22h 48min", 1368], ["Minneapolis", "Cleveland", "13h 37min", 818], ["Minneapolis", "Washington DC", "20h 10min", 1210], ["Minneapolis", "Baltimore", "20h 18min", 1218], ["Minneapolis", "Salt Lake City", "21h 19min", 1280], ["Minneapolis", "San Jose", "34h", 2040], ["Orlando", "Los Angeles", "47h 36min", 2856], ["Orlando", "Chicago", "21h 22min", 1282], ["Orlando", "Houston", "18h 22min", 1102], ["Orlando", "Phoenix", "39h 54min", 2395], ["Orlando", "Philadelphia", "18h 42min", 1123], ["Orlando", "San Antonio", "22h 25min", 1345], ["Orlando", "San Diego", "46h 16min", 2777], ["Orlando", "Dallas", "20h 48min", 1249], ["Orlando", "Austin", "21h 27min", 1288], ["Orlando", "San Francisco", "52h 47min", 3168], ["Orlando", "Seattle", "55h 9min", 3310], ["Orlando", "Denver", "33h 34min", 2014], ["Orlando", "Boston", "24h 10min", 1450], ["Orlando", "Nashville", "13h 16min", 797], ["Orlando", "Detroit", "20h 44min", 1244], ["Orlando", "Portland", "54h 43min", 3283], ["Orlando", "Las Vegas", "43h 57min", 2637], ["Orlando", "Minneapolis", "28h 22min", 1702], ["Orlando", "Cleveland", "19h 23min", 1164], ["Orlando", "Washington DC", "16h 25min", 985], ["Orlando", "Baltimore", "17h 7min", 1028], ["Orlando", "Salt Lake City", "41h 30min", 2490], ["Orlando", "San Jose", "52h 7min", 3128], ["Tampa", "New York", "21h 45min", 1305], ["Tampa", "Los Angeles", "46h 34min", 2794], ["Tampa", "Chicago", "21h 47min", 1307], ["Tampa", "Houston", "17h 7min", 1028], ["Tampa", "Phoenix", "38h 51min", 2331], ["Tampa", "Philadelphia", "20h 6min", 1206], ["Tampa", "San Antonio", "21h 8min", 1269], ["Tampa", "San Diego", "45h 12min", 2712], ["Tampa", "Dallas", "19h 51min", 1191], ["Tampa", "Austin", "20h 15min", 1216], ["Tampa", "San Francisco", "51h 54min", 3115], ["Tampa", "Seattle", "54h 44min", 3284], ["Tampa", "Denver", "32h 58min", 1978], ["Tampa", "Boston", "25h 37min", 1538], ["Tampa", "Nashville", "13h 26min", 807], ["Tampa", "Detroit", "21h 32min", 1292], ["Tampa", "Portland", "54h 10min", 3251], ["Tampa", "Las Vegas", "43h", 2581], ["Tampa", "Minneapolis", "28h 33min", 1713], ["Tampa", "Cleveland", "20h 18min", 1218], ["Tampa", "Washington DC", "17h 44min", 1064], ["Tampa", "Baltimore", "18h 26min", 1107], ["Tampa", "Salt Lake City", "40h 50min", 2450], ["Tampa", "San Jose", "51h 14min", 3074], ["New Orleans", "Los Angeles", "36h 9min", 2170], ["New Orleans", "Chicago", "18h 4min", 1085], ["New Orleans", "Phoenix", "28h 26min", 1707], ["New Orleans", "Philadelphia", "23h 33min", 1414], ["New Orleans", "San Diego", "34h 46min", 2087], ["New Orleans", "Austin", "9h 56min", 596], ["New Orleans", "San Francisco", "41h 38min", 2499], ["New Orleans", "Seattle", "45h 28min", 2728], ["New Orleans", "Denver", "23h 23min", 1404], ["New Orleans", "Boston", "29h 25min", 1765], ["New Orleans", "Nashville", "10h 9min", 610], ["New Orleans", "Detroit", "20h 22min", 1222], ["New Orleans", "Portland", "44h 37min", 2678], ["New Orleans", "Las Vegas", "32h 40min", 1961], ["New Orleans", "Minneapolis", "22h 48min", 1368], ["New Orleans", "Cleveland", "20h 2min", 1202], ["New Orleans", "Washington DC", "20h 53min", 1254], ["New Orleans", "Baltimore", "21h 37min", 1298], ["New Orleans", "Salt Lake City", "31h 2min", 1862], ["New Orleans", "San Jose", "40h 55min", 2456], ["Cleveland", "Los Angeles", "44h 17min", 2658], ["Cleveland", "Houston", "24h 7min", 1448], ["Cleveland", "Phoenix", "37h 49min", 2269], ["Cleveland", "Philadelphia", "7h 45min", 465], ["Cleveland", "San Antonio", "27h 12min", 1633], ["Cleveland", "San Diego", "43h 59min", 2639], ["Cleveland", "Dallas", "22h 11min", 1332], ["Cleveland", "Austin", "25h 37min", 1538], ["Cleveland", "San Francisco", "46h 50min", 2810], ["Cleveland", "Seattle", "43h 45min", 2626], ["Cleveland", "Denver", "26h 30min", 1591], ["Cleveland", "Boston", "11h 54min", 714], ["Cleveland", "Nashville", "9h 56min", 596], ["Cleveland", "Portland", "44h 23min", 2664], ["Cleveland", "Las Vegas", "39h 32min", 2373], ["Cleveland", "Miami", "23h 37min", 1418], ["Cleveland", "Atlanta", "12h 1min", 721], ["Cleveland", "Minneapolis", "13h 37min", 818], ["Cleveland", "Orlando", "19h 23min", 1164], ["Cleveland", "Tampa", "20h 18min", 1218], ["Cleveland", "New Orleans", "20h 2min", 1202], ["Cleveland", "Baltimore", "6h 40min", 400], ["Cleveland", "Salt Lake City", "33h 52min", 2033], ["Cleveland", "San Jose", "46h 28min", 2788], ["Washington DC", "Los Angeles", "49h 42min", 2982], ["Washington DC", "Houston", "26h 23min", 1584], ["Washington DC", "Phoenix", "42h 50min", 2570], ["Washington DC", "San Antonio", "30h", 1801], ["Washington DC", "San Diego", "49h 9min", 2950], ["Washington DC", "Dallas", "25h 36min", 1536], ["Washington DC", "Austin", "28h 30min", 1711], ["Washington DC", "San Francisco", "52h 45min", 3165], ["Washington DC", "Seattle", "50h 17min", 3018], ["Washington DC", "Denver", "32h 15min", 1935], ["Washington DC", "Nashville", "12h 16min", 736], ["Washington DC", "Portland", "50h 51min", 3051], ["Washington DC", "Las Vegas", "45h 5min", 2705], ["Washington DC", "Minneapolis", "20h 10min", 1210], ["Washington DC", "Orlando", "16h 25min", 985], ["Washington DC", "Tampa", "17h 44min", 1064], ["Washington DC", "New Orleans", "20h 53min", 1254], ["Washington DC", "Baltimore", "45min", 45], ["Washington DC", "Salt Lake City", "39h 53min", 2394], ["Washington DC", "San Jose", "52h 20min", 3140], ["Baltimore", "Los Angeles", "50h 8min", 3009], ["Baltimore", "Chicago", "13h 5min", 786], ["Baltimore", "Houston", "27h 4min", 1625], ["Baltimore", "Phoenix", "43h 20min", 2600], ["Baltimore", "San Antonio", "30h 41min", 1841], ["Baltimore", "San Diego", "49h 38min", 2979], ["Baltimore", "Dallas", "26h 14min", 1574], ["Baltimore", "Austin", "29h 11min", 1751], ["Baltimore", "San Francisco", "53h 6min", 3186], ["Baltimore", "Seattle", "50h 25min", 3026], ["Baltimore", "Denver", "32h 37min", 1958], ["Baltimore", "Boston", "7h 46min", 467], ["Baltimore", "Nashville", "12h 54min", 774], ["Baltimore", "Detroit", "8h 35min", 515], ["Baltimore", "Portland", "51h 2min", 3063], ["Baltimore", "Las Vegas", "45h 30min", 2730], ["Baltimore", "Miami", "20h 44min", 1244], ["Baltimore", "Atlanta", "12h 28min", 749], ["Baltimore", "Minneapolis", "20h 18min", 1218], ["Baltimore", "Orlando", "17h 7min", 1028], ["Baltimore", "Tampa", "18h 26min", 1107], ["Baltimore", "New Orleans", "21h 37min", 1298], ["Baltimore", "Cleveland", "6h 40min", 400], ["Baltimore", "Washington DC", "45min", 45], ["Baltimore", "Salt Lake City", "40h 13min", 2413], ["Baltimore", "San Jose", "52h 42min", 3162], ["Salt Lake City", "New York", "42h 37min", 2558], ["Salt Lake City", "Chicago", "27h 14min", 1634], ["Salt Lake City", "Houston", "25h 57min", 1558], ["Salt Lake City", "Philadelphia", "41h 36min", 2496], ["Salt Lake City", "San Antonio", "23h 33min", 1413], ["Salt Lake City", "San Diego", "13h 35min", 815], ["Salt Lake City", "Dallas", "21h 37min", 1298], ["Salt Lake City", "Austin", "23h 15min", 1396], ["Salt Lake City", "Boston", "45h 21min", 2721], ["Salt Lake City", "Nashville", "30h 7min", 1807], ["Salt Lake City", "Detroit", "32h 15min", 1935], ["Salt Lake City", "Miami", "45h 13min", 2713], ["Salt Lake City", "Atlanta", "34h 14min", 2054], ["Salt Lake City", "Minneapolis", "21h 19min", 1280], ["Salt Lake City", "Orlando", "41h 30min", 2490], ["Salt Lake City", "Tampa", "40h 50min", 2450], ["Salt Lake City", "New Orleans", "31h 2min", 1862], ["Salt Lake City", "Cleveland", "33h 52min", 2033], ["Salt Lake City", "Washington DC", "39h 53min", 2394], ["Salt Lake City", "Baltimore", "40h 13min", 2413], ["Salt Lake City", "San Jose", "12h 41min", 761], ["San Jose", "New York", "55h 13min", 3313], ["San Jose", "Chicago", "39h 49min", 2389], ["San Jose", "Houston", "34h 50min", 2090], ["San Jose", "Phoenix", "13h 18min", 798], ["San Jose", "Philadelphia", "54h 7min", 3248], ["San Jose", "San Antonio", "31h 26min", 1886], ["San Jose", "San Diego", "9h 1min", 541], ["San Jose", "Dallas", "31h 22min", 1883], ["San Jose", "Austin", "31h 44min", 1904], ["San Jose", "Seattle", "15h 22min", 922], ["San Jose", "Denver", "20h 3min", 1204], ["San Jose", "Boston", "58h", 3481], ["San Jose", "Nashville", "41h 53min", 2514], ["San Jose", "Detroit", "44h 52min", 2692], ["San Jose", "Portland", "12h 16min", 736], ["San Jose", "Las Vegas", "8h 16min", 496], ["San Jose", "Miami", "55h 25min", 3326], ["San Jose", "Atlanta", "45h 40min", 2741], ["San Jose", "Minneapolis", "34h", 2040], ["San Jose", "Orlando", "52h 7min", 3128], ["San Jose", "Tampa", "51h 14min", 3074], ["San Jose", "New Orleans", "40h 55min", 2456], ["San Jose", "Cleveland", "46h 28min", 2788], ["San Jose", "Washington DC", "52h 20min", 3140], ["San Jose", "Baltimore", "52h 42min", 3162], ["San Jose", "Salt Lake City", "12h 41min", 761], ["Salt Lake City", "Yellowstone", "5h 56min", 327], ["Yellowstone", "Salt Lake City", "5h 56min", 327], ["Denver", "Yellowstone", "9h 49min", 540], ["Yellowstone", "Denver", "9h 49min", 540], ["Boise", "Yellowstone", "6h 27min", 355], ["Yellowstone", "Boise", "6h 27min", 355], ["Billings", "Yellowstone", "3h 7min", 172], ["Yellowstone", "Billings", "3h 7min", 172], ["Seattle", "Glacier National Park", "9h 6min", 501], ["Glacier National Park", "Seattle", "9h 6min", 501], ["Missoula", "Glacier National Park", "2h 57min", 163], ["Glacier National Park", "Missoula", "2h 57min", 163], ["Spokane", "Glacier National Park", "4h 9min", 229], ["Glacier National Park", "Spokane", "4h 9min", 229], ["Boston", "Acadia", "4h 26min", 244], ["Acadia", "Boston", "4h 26min", 244], ["Portland ME", "Acadia", "2h 28min", 136], ["Acadia", "Portland ME", "2h 28min", 136], ["New York", "Acadia", "8h 43min", 480], ["Acadia", "New York", "8h 43min", 480], ["Las Vegas", "Bryce Canyon", "4h 19min", 238], ["Bryce Canyon", "Las Vegas", "4h 19min", 238], ["Salt Lake City", "Bryce Canyon", "4h 58min", 274], ["Bryce Canyon", "Salt Lake City", "4h 58min", 274], ["Phoenix", "Bryce Canyon", "6h 30min", 358], ["Bryce Canyon", "Phoenix", "6h 30min", 358], ["El Paso", "Carlsbad Caverns", "2h 38min", 145], ["Carlsbad Caverns", "El Paso", "2h 38min", 145], ["Albuquerque", "Carlsbad Caverns", "5h 20min", 294], ["Carlsbad Caverns", "Albuquerque", "5h 20min", 294], ["Dallas", "Carlsbad Caverns", "10h 18min", 567], ["Carlsbad Caverns", "Dallas", "10h 18min", 567], ["Nashville", "Mammoth Cave", "1h 49min", 100], ["Mammoth Cave", "Nashville", "1h 49min", 100], ["Louisville", "Mammoth Cave", "1h 42min", 94], ["Mammoth Cave", "Louisville", "1h 42min", 94], ["Indianapolis", "Mammoth Cave", "4h 2min", 222], ["Mammoth Cave", "Indianapolis", "4h 2min", 222], ["Portland", "Crater Lake", "4h 4min", 224], ["Crater Lake", "Portland", "4h 4min", 224], ["San Francisco", "Crater Lake", "8h 6min", 446], ["Crater Lake", "San Francisco", "8h 6min", 446], ["Seattle", "Crater Lake", "7h 18min", 402], ["Crater Lake", "Seattle", "7h 18min", 402], ["San Francisco", "Redwood", "5h 43min", 315], ["Redwood", "San Francisco", "5h 43min", 315], ["Portland", "Redwood", "6h 54min", 380], ["Redwood", "Portland", "6h 54min", 380], ["Sacramento", "Redwood", "5h 6min", 281], ["Redwood", "Sacramento", "5h 6min", 281], ["Los Angeles", "Sequoia", "3h 50min", 211], ["Sequoia", "Los Angeles", "3h 50min", 211], ["San Francisco", "Sequoia", "5h 13min", 287], ["Sequoia", "San Francisco", "5h 13min", 287], ["Las Vegas", "Sequoia", "4h 20min", 239], ["Sequoia", "Las Vegas", "4h 20min", 239], ["Las Vegas", "Death Valley", "2h 30min", 138], ["Death Valley", "Las Vegas", "2h 30min", 138], ["Los Angeles", "Death Valley", "4h 7min", 227], ["Death Valley", "Los Angeles", "4h 7min", 227], ["Phoenix", "Death Valley", "8h 1min", 441], ["Death Valley", "Phoenix", "8h 1min", 441], ["El Paso", "Big Bend", "5h 53min", 324], ["Big Bend", "El Paso", "5h 53min", 324], ["San Antonio", "Big Bend", "6h 30min", 358], ["Big Bend", "San Antonio", "6h 30min", 358], ["Austin", "Big Bend", "7h 40min", 422], ["Big Bend", "Austin", "7h 40min", 422], ["Washington DC", "Shenandoah", "2h 13min", 122], ["Shenandoah", "Washington DC", "2h 13min", 122], ["Richmond", "Shenandoah", "1h 55min", 106], ["Shenandoah", "Richmond", "1h 55min", 106], ["Baltimore", "Shenandoah", "2h 57min", 163], ["Shenandoah", "Baltimore", "2h 57min", 163], ["Knoxville", "Great Smoky Mountains", "0h 42min", 39], ["Great Smoky Mountains", "Knoxville", "0h 42min", 39], ["Nashville", "Great Smoky Mountains", "4h 14min", 233], ["Great Smoky Mountains", "Nashville", "4h 14min", 233], ["Atlanta", "Great Smoky Mountains", "3h 10min", 175], ["Great Smoky Mountains", "Atlanta", "3h 10min", 175], ["Charlotte", "Great Smoky Mountains", "3h 28min", 191], ["Great Smoky Mountains", "Charlotte", "3h 28min", 191], ["Salt Lake City", "Grand Teton", "4h 56min", 272], ["Grand Teton", "Salt Lake City", "4h 56min", 272], ["Denver", "Grand Teton", "9h 11min", 506], ["Grand Teton", "Denver", "9h 11min", 506], ["Boise", "Grand Teton", "6h 15min", 344], ["Grand Teton", "Boise", "6h 15min", 344], ["Rapid City", "Badlands", "1h 3min", 58], ["Badlands", "Rapid City", "1h 3min", 58], ["Sioux Falls", "Badlands", "6h 22min", 351], ["Badlands", "Sioux Falls", "6h 22min", 351], ["Denver", "Badlands", "7h 9min", 394], ["Badlands", "Denver", "7h 9min", 394], ["Denver", "Mesa Verde", "5h 47min", 319], ["Mesa Verde", "Denver", "5h 47min", 319], ["Albuquerque", "Mesa Verde", "4h 4min", 224], ["Mesa Verde", "Albuquerque", "4h 4min", 224], ["Phoenix", "Mesa Verde", "7h 31min", 414], ["Mesa Verde", "Phoenix", "7h 31min", 414], ["Phoenix", "Petrified Forest", "3h 43min", 205], ["Petrified Forest", "Phoenix", "3h 43min", 205], ["Albuquerque", "Petrified Forest", "4h 3min", 223], ["Petrified Forest", "Albuquerque", "4h 3min", 223], ["Flagstaff", "Petrified Forest", "2h 23min", 132], ["Petrified Forest", "Flagstaff", "2h 23min", 132], ["Salt Lake City", "Canyonlands", "4h 31min", 249], ["Canyonlands", "Salt Lake City", "4h 31min", 249], ["Denver", "Canyonlands", "6h 20min", 349], ["Canyonlands", "Denver", "6h 20min", 349], ["Las Vegas", "Canyonlands", "7h 22min", 406], ["Canyonlands", "Las Vegas", "7h 22min", 406], ["Salt Lake City", "Capitol Reef", "3h 58min", 219], ["Capitol Reef", "Salt Lake City", "3h 58min", 219], ["Las Vegas", "Capitol Reef", "5h 57min", 328], ["Capitol Reef", "Las Vegas", "5h 57min", 328], ["Denver", "Capitol Reef", "7h 52min", 433], ["Capitol Reef", "Denver", "7h 52min", 433], ["Denver", "Black Canyon", "3h 47min", 209], ["Black Canyon", "Denver", "3h 47min", 209], ["Albuquerque", "Black Canyon", "5h 38min", 310], ["Black Canyon", "Albuquerque", "5h 38min", 310], ["Salt Lake City", "Black Canyon", "6h 4min", 334], ["Black Canyon", "Salt Lake City", "6h 4min", 334], ["Little Rock", "Hot Springs", "1h 1min", 56], ["Hot Springs", "Little Rock", "1h 1min", 56], ["Dallas", "Hot Springs", "5h 37min", 309], ["Hot Springs", "Dallas", "5h 37min", 309], ["Memphis", "Hot Springs", "3h 58min", 219], ["Hot Springs", "Memphis", "3h 58min", 219], ["Salt Lake City", "Jackson Hole", "4h 27min", 245], ["Jackson Hole", "Salt Lake City", "4h 27min", 245], ["Denver", "Jackson Hole", "8h 57min", 493], ["Jackson Hole", "Denver", "8h 57min", 493], ["Boise", "Jackson Hole", "6h 10min", 340], ["Jackson Hole", "Boise", "6h 10min", 340], ["Denver", "Telluride", "4h 27min", 245], ["Telluride", "Denver", "4h 27min", 245], ["Albuquerque", "Telluride", "4h 42min", 259], ["Telluride", "Albuquerque", "4h 42min", 259], ["Phoenix", "Telluride", "8h 53min", 489], ["Telluride", "Phoenix", "8h 53min", 489], ["Denver", "Steamboat Springs", "2h 29min", 137], ["Steamboat Springs", "Denver", "2h 29min", 137], ["Salt Lake City", "Steamboat Springs", "6h 2min", 332], ["Steamboat Springs", "Salt Lake City", "6h 2min", 332], ["Boise", "Big Sky", "5h 57min", 328], ["Big Sky", "Boise", "5h 57min", 328], ["Salt Lake City", "Big Sky", "7h 4min", 389], ["Big Sky", "Salt Lake City", "7h 4min", 389], ["Billings", "Big Sky", "3h 17min", 181], ["Big Sky", "Billings", "3h 17min", 181], ["Boise", "Sun Valley", "2h 5min", 115], ["Sun Valley", "Boise", "2h 5min", 115], ["Salt Lake City", "Sun Valley", "5h 24min", 297], ["Sun Valley", "Salt Lake City", "5h 24min", 297], ["Portland", "Sun Valley", "9h 43min", 535], ["Sun Valley", "Portland", "9h 43min", 535], ["Los Angeles", "Mammoth Lakes", "5h 42min", 314], ["Mammoth Lakes", "Los Angeles", "5h 42min", 314], ["San Francisco", "Mammoth Lakes", "4h 16min", 235], ["Mammoth Lakes", "San Francisco", "4h 16min", 235], ["Las Vegas", "Mammoth Lakes", "5h 19min", 293], ["Mammoth Lakes", "Las Vegas", "5h 19min", 293], ["Albuquerque", "Taos Ski Valley", "2h 49min", 155], ["Taos Ski Valley", "Albuquerque", "2h 49min", 155], ["Santa Fe", "Taos Ski Valley", "1h 32min", 85], ["Taos Ski Valley", "Santa Fe", "1h 32min", 85], ["Denver", "Taos Ski Valley", "4h 57min", 273], ["Taos Ski Valley", "Denver", "4h 57min", 273], ["Denver", "Crested Butte", "2h 46min", 153], ["Crested Butte", "Denver", "2h 46min", 153], ["Albuquerque", "Crested Butte", "5h 56min", 327], ["Crested Butte", "Albuquerque", "5h 56min", 327], ["Seattle", "Whitefish", "8h 28min", 466], ["Whitefish", "Seattle", "8h 28min", 466], ["Missoula", "Whitefish", "2h 26min", 134], ["Whitefish", "Missoula", "2h 26min", 134], ["Spokane", "Whitefish", "3h 25min", 188], ["Whitefish", "Spokane", "3h 25min", 188], ["Boston", "Stowe", "3h 46min", 208], ["Stowe", "Boston", "3h 46min", 208], ["New York", "Stowe", "6h 4min", 334], ["Stowe", "New York", "6h 4min", 334], ["Burlington", "Stowe", "0h 34min", 32], ["Stowe", "Burlington", "0h 34min", 32], ["Boston", "Killington", "2h 47min", 154], ["Killington", "Boston", "2h 47min", 154], ["New York", "Killington", "4h 44min", 261], ["Killington", "New York", "4h 44min", 261], ["Boston", "Cape Cod", "1h 23min", 77], ["Cape Cod", "Boston", "1h 23min", 77], ["New York", "Cape Cod", "4h 37min", 254], ["Cape Cod", "New York", "4h 37min", 254], ["Providence", "Cape Cod", "1h 19min", 73], ["Cape Cod", "Providence", "1h 19min", 73], ["Boston", "Marthas Vineyard", "1h 36min", 88], ["Marthas Vineyard", "Boston", "1h 36min", 88], ["New York", "Marthas Vineyard", "4h 6min", 226], ["Marthas Vineyard", "New York", "4h 6min", 226], ["Providence", "Marthas Vineyard", "1h 7min", 62], ["Marthas Vineyard", "Providence", "1h 7min", 62], ["Boston", "Nantucket", "2h 1min", 111], ["Nantucket", "Boston", "2h 1min", 111], ["New York", "Nantucket", "4h 42min", 259], ["Nantucket", "New York", "4h 42min", 259], ["Boston", "Bar Harbor", "4h 32min", 250], ["Bar Harbor", "Boston", "4h 32min", 250], ["Portland ME", "Bar Harbor", "2h 34min", 142], ["Bar Harbor", "Portland ME", "2h 34min", 142], ["New York", "Bar Harbor", "8h 50min", 486], ["Bar Harbor", "New York", "8h 50min", 486], ["Norfolk", "Outer Banks", "2h 16min", 125], ["Outer Banks", "Norfolk", "2h 16min", 125], ["Raleigh", "Outer Banks", "4h 3min", 223], ["Outer Banks", "Raleigh", "4h 3min", 223], ["Richmond", "Outer Banks", "3h 58min", 219], ["Outer Banks", "Richmond", "3h 58min", 219], ["Charleston", "Hilton Head", "1h 22min", 76], ["Hilton Head", "Charleston", "1h 22min", 76], ["Savannah", "Hilton Head", "0h 29min", 27], ["Hilton Head", "Savannah", "0h 29min", 27], ["Atlanta", "Hilton Head", "5h 20min", 294], ["Hilton Head", "Atlanta", "5h 20min", 294], ["Salt Lake City", "Moab", "4h 26min", 244], ["Moab", "Salt Lake City", "4h 26min", 244], ["Denver", "Moab", "5h 50min", 321], ["Moab", "Denver", "5h 50min", 321], ["Las Vegas", "Moab", "7h 55min", 436], ["Moab", "Las Vegas", "7h 55min", 436], ["Phoenix", "Monument Valley", "6h 6min", 336], ["Monument Valley", "Phoenix", "6h 6min", 336], ["Las Vegas", "Monument Valley", "6h 28min", 356], ["Monument Valley", "Las Vegas", "6h 28min", 356], ["Albuquerque", "Monument Valley", "5h 18min", 292], ["Monument Valley", "Albuquerque", "5h 18min", 292], ["Las Vegas", "Antelope Canyon", "4h 52min", 268], ["Antelope Canyon", "Las Vegas", "4h 52min", 268], ["Phoenix", "Antelope Canyon", "5h 25min", 298], ["Antelope Canyon", "Phoenix", "5h 25min", 298], ["Flagstaff", "Antelope Canyon", "2h 37min", 144], ["Antelope Canyon", "Flagstaff", "2h 37min", 144], ["El Paso", "White Sands", "1h 37min", 89], ["White Sands", "El Paso", "1h 37min", 89], ["Albuquerque", "White Sands", "3h 37min", 199], ["White Sands", "Albuquerque", "3h 37min", 199], ["Las Vegas", "White Sands", "12h 33min", 691], ["White Sands", "Las Vegas", "12h 33min", 691], ["Las Vegas", "Horseshoe Bend", "4h 42min", 259], ["Horseshoe Bend", "Las Vegas", "4h 42min", 259], ["Phoenix", "Horseshoe Bend", "5h 25min", 298], ["Horseshoe Bend", "Phoenix", "5h 25min", 298], ["Flagstaff", "Horseshoe Bend", "2h 38min", 145], ["Horseshoe Bend", "Flagstaff", "2h 38min", 145], ["Cheyenne", "Denver", "2h 6min", 116], ["Denver", "Cheyenne", "2h 6min", 116], ["Cheyenne", "Salt Lake City", "8h 3min", 443], ["Salt Lake City", "Cheyenne", "8h 3min", 443], ["Cheyenne", "Rapid City", "4h 45min", 262], ["Rapid City", "Cheyenne", "4h 45min", 262], ["Casper", "Denver", "4h 56min", 272], ["Denver", "Casper", "4h 56min", 272], ["Casper", "Billings", "4h 58min", 274], ["Billings", "Casper", "4h 58min", 274], ["Casper", "Salt Lake City", "7h 1min", 386], ["Salt Lake City", "Casper", "7h 1min", 386], ["Casper", "Cheyenne", "3h 5min", 170], ["Cheyenne", "Casper", "3h 5min", 170], ["Laramie", "Denver", "2h 27min", 135], ["Denver", "Laramie", "2h 27min", 135], ["Laramie", "Cheyenne", "0h 54min", 50], ["Cheyenne", "Laramie", "0h 54min", 50], ["Bangor", "Portland ME", "2h 20min", 129], ["Portland ME", "Bangor", "2h 20min", 129], ["Bangor", "Boston", "4h 26min", 244], ["Boston", "Bangor", "4h 26min", 244], ["Bangor", "Bar Harbor", "0h 51min", 47], ["Bar Harbor", "Bangor", "0h 51min", 47], ["Augusta", "Portland ME", "1h 6min", 61], ["Portland ME", "Augusta", "1h 6min", 61], ["Augusta", "Boston", "3h 15min", 179], ["Boston", "Augusta", "3h 15min", 179], ["Augusta", "Bangor", "1h 18min", 72], ["Bangor", "Augusta", "1h 18min", 72], ["Burlington VT", "Boston", "3h 57min", 218], ["Boston", "Burlington VT", "3h 57min", 218], ["Burlington VT", "New York", "5h 43min", 315], ["New York", "Burlington VT", "5h 43min", 315], ["Burlington VT", "Montreal", "1h 34min", 87], ["Montreal", "Burlington VT", "1h 34min", 87], ["Montpelier", "Burlington VT", "0h 44min", 41], ["Burlington VT", "Montpelier", "0h 44min", 41], ["Montpelier", "Boston", "3h 18min", 182], ["Boston", "Montpelier", "3h 18min", 182], ["Rutland", "Burlington VT", "1h 19min", 73], ["Burlington VT", "Rutland", "1h 19min", 73], ["Rutland", "Boston", "2h 49min", 155], ["Boston", "Rutland", "2h 49min", 155], ["Rutland", "Albany", "1h 40min", 92], ["Albany", "Rutland", "1h 40min", 92], ["Manchester NH", "Boston", "1h 2min", 57], ["Boston", "Manchester NH", "1h 2min", 57], ["Manchester NH", "Portland ME", "1h 38min", 90], ["Portland ME", "Manchester NH", "1h 38min", 90], ["Concord NH", "Boston", "1h 22min", 76], ["Boston", "Concord NH", "1h 22min", 76], ["Concord NH", "Manchester NH", "0h 19min", 18], ["Manchester NH", "Concord NH", "0h 19min", 18], ["Concord NH", "Portland ME", "1h 32min", 85], ["Portland ME", "Concord NH", "1h 32min", 85], ["Portsmouth NH", "Boston", "1h 6min", 61], ["Boston", "Portsmouth NH", "1h 6min", 61], ["Portsmouth NH", "Portland ME", "1h 2min", 57], ["Portland ME", "Portsmouth NH", "1h 2min", 57], ["Nashua", "Boston", "0h 44min", 41], ["Boston", "Nashua", "0h 44min", 41], ["Nashua", "Manchester NH", "0h 20min", 19], ["Manchester NH", "Nashua", "0h 20min", 19], ["Charleston WV", "Pittsburgh", "3h 40min", 202], ["Pittsburgh", "Charleston WV", "3h 40min", 202], ["Charleston WV", "Columbus", "2h 53min", 159], ["Columbus", "Charleston WV", "2h 53min", 159], ["Charleston WV", "Washington DC", "5h 28min", 301], ["Washington DC", "Charleston WV", "5h 28min", 301], ["Morgantown", "Pittsburgh", "1h 13min", 67], ["Pittsburgh", "Morgantown", "1h 13min", 67], ["Morgantown", "Washington DC", "3h 33min", 196], ["Washington DC", "Morgantown", "3h 33min", 196], ["Huntington WV", "Charleston WV", "0h 57min", 53], ["Charleston WV", "Huntington WV", "0h 57min", 53], ["Huntington WV", "Columbus", "2h 23min", 132], ["Columbus", "Huntington WV", "2h 23min", 132], ["Huntington WV", "Cincinnati", "2h 38min", 145], ["Cincinnati", "Huntington WV", "2h 38min", 145], ["Newport", "Providence", "0h 30min", 28], ["Providence", "Newport", "0h 30min", 28], ["Newport", "Boston", "1h 19min", 73], ["Boston", "Newport", "1h 19min", 73], ["Newport", "New York", "3h 16min", 180], ["New York", "Newport", "3h 16min", 180], ["New Haven", "New York", "1h 30min", 83], ["New York", "New Haven", "1h 30min", 83], ["New Haven", "Boston", "2h 37min", 144], ["Boston", "New Haven", "2h 37min", 144], ["New Haven", "Hartford", "0h 44min", 41], ["Hartford", "New Haven", "0h 44min", 41], ["Hartford", "New York", "2h 10min", 120], ["New York", "Hartford", "2h 10min", 120], ["Hartford", "Boston", "2h", 110], ["Boston", "Hartford", "2h", 110], ["Hartford", "New Haven", "0h 44min", 41], ["New Haven", "Hartford", "0h 44min", 41], ["Stamford CT", "New York", "0h 43min", 40], ["New York", "Stamford CT", "0h 43min", 40], ["Stamford CT", "New Haven", "0h 46min", 43], ["New Haven", "Stamford CT", "0h 46min", 43], ["Bridgeport", "New York", "1h 9min", 64], ["New York", "Bridgeport", "1h 9min", 64], ["Bridgeport", "New Haven", "0h 20min", 19], ["New Haven", "Bridgeport", "0h 20min", 19], ["Bridgeport", "Hartford", "1h 2min", 57], ["Hartford", "Bridgeport", "1h 2min", 57], ["Springfield MA", "Boston", "1h 44min", 96], ["Boston", "Springfield MA", "1h 44min", 96], ["Springfield MA", "Hartford", "0h 30min", 28], ["Hartford", "Springfield MA", "0h 30min", 28], ["Springfield MA", "New York", "2h 37min", 144], ["New York", "Springfield MA", "2h 37min", 144], ["Plymouth", "Boston", "0h 44min", 41], ["Boston", "Plymouth", "0h 44min", 41], ["Plymouth", "Cape Cod", "0h 36min", 33], ["Cape Cod", "Plymouth", "0h 36min", 33], ["Plymouth", "Providence", "0h 51min", 47], ["Providence", "Plymouth", "0h 51min", 47], ["Wilmington DE", "Philadelphia", "0h 31min", 29], ["Philadelphia", "Wilmington DE", "0h 31min", 29], ["Wilmington DE", "Baltimore", "1h 25min", 78], ["Baltimore", "Wilmington DE", "1h 25min", 78], ["Wilmington DE", "New York", "2h 17min", 126], ["New York", "Wilmington DE", "2h 17min", 126], ["Dover", "Philadelphia", "1h 15min", 69], ["Philadelphia", "Dover", "1h 15min", 69], ["Dover", "Baltimore", "1h 16min", 70], ["Baltimore", "Dover", "1h 16min", 70], ["Dover", "Wilmington DE", "0h 52min", 48], ["Wilmington DE", "Dover", "0h 52min", 48], ["Rehoboth Beach", "Philadelphia", "1h 51min", 102], ["Philadelphia", "Rehoboth Beach", "1h 51min", 102], ["Rehoboth Beach", "Baltimore", "1h 58min", 109], ["Baltimore", "Rehoboth Beach", "1h 58min", 109], ["Rehoboth Beach", "Washington DC", "2h 18min", 127], ["Washington DC", "Rehoboth Beach", "2h 18min", 127], ["Syracuse", "New York", "4h 15min", 234], ["New York", "Syracuse", "4h 15min", 234], ["Syracuse", "Buffalo", "3h 1min", 166], ["Buffalo", "Syracuse", "3h 1min", 166], ["Syracuse", "Albany", "2h 42min", 149], ["Albany", "Syracuse", "2h 42min", 149], ["Rochester NY", "Buffalo", "1h 27min", 80], ["Buffalo", "Rochester NY", "1h 27min", 80], ["Rochester NY", "Syracuse", "1h 36min", 88], ["Syracuse", "Rochester NY", "1h 36min", 88], ["Rochester NY", "New York", "5h 27min", 300], ["New York", "Rochester NY", "5h 27min", 300], ["Ithaca", "Syracuse", "0h 58min", 54], ["Syracuse", "Ithaca", "0h 58min", 54], ["Ithaca", "New York", "3h 50min", 211], ["New York", "Ithaca", "3h 50min", 211], ["Binghamton", "New York", "3h", 165], ["New York", "Binghamton", "3h", 165], ["Binghamton", "Syracuse", "1h 26min", 79], ["Syracuse", "Binghamton", "1h 26min", 79], ["Binghamton", "Scranton", "1h 4min", 59], ["Scranton", "Binghamton", "1h 4min", 59], ["Saratoga Springs", "Albany", "0h 38min", 35], ["Albany", "Saratoga Springs", "0h 38min", 35], ["Saratoga Springs", "New York", "3h 34min", 197], ["New York", "Saratoga Springs", "3h 34min", 197], ["Saratoga Springs", "Boston", "3h 12min", 176], ["Boston", "Saratoga Springs", "3h 12min", 176], ["Lake Placid", "Albany", "2h 27min", 135], ["Albany", "Lake Placid", "2h 27min", 135], ["Lake Placid", "Burlington VT", "0h 52min", 48], ["Burlington VT", "Lake Placid", "0h 52min", 48], ["Lake Placid", "Montreal", "1h 53min", 104], ["Montreal", "Lake Placid", "1h 53min", 104], ["Scranton", "New York", "2h 8min", 118], ["New York", "Scranton", "2h 8min", 118], ["Scranton", "Philadelphia", "2h 15min", 124], ["Philadelphia", "Scranton", "2h 15min", 124], ["Harrisburg", "Philadelphia", "2h 2min", 112], ["Philadelphia", "Harrisburg", "2h 2min", 112], ["Harrisburg", "Pittsburgh", "3h 33min", 196], ["Pittsburgh", "Harrisburg", "3h 33min", 196], ["Harrisburg", "Baltimore", "1h 30min", 83], ["Baltimore", "Harrisburg", "1h 30min", 83], ["State College", "Pittsburgh", "2h 29min", 137], ["Pittsburgh", "State College", "2h 29min", 137], ["State College", "Harrisburg", "1h 20min", 74], ["Harrisburg", "State College", "1h 20min", 74], ["State College", "Philadelphia", "3h 19min", 183], ["Philadelphia", "State College", "3h 19min", 183], ["Erie PA", "Pittsburgh", "2h 32min", 140], ["Pittsburgh", "Erie PA", "2h 32min", 140], ["Erie PA", "Cleveland", "2h 2min", 112], ["Cleveland", "Erie PA", "2h 2min", 112], ["Erie PA", "Buffalo", "1h 44min", 96], ["Buffalo", "Erie PA", "1h 44min", 96], ["Gettysburg", "Baltimore", "1h 4min", 59], ["Baltimore", "Gettysburg", "1h 4min", 59], ["Gettysburg", "Harrisburg", "0h 45min", 42], ["Harrisburg", "Gettysburg", "0h 45min", 42], ["Gettysburg", "Washington DC", "1h 23min", 77], ["Washington DC", "Gettysburg", "1h 23min", 77], ["Montreal", "New York", "7h 13min", 397], ["New York", "Montreal", "7h 13min", 397], ["Montreal", "Boston", "5h 27min", 300], ["Boston", "Montreal", "5h 27min", 300], ["Montreal", "Burlington VT", "1h 34min", 87], ["Burlington VT", "Montreal", "1h 34min", 87], ["Toronto", "Buffalo", "1h 16min", 70], ["Buffalo", "Toronto", "1h 16min", 70], ["Toronto", "Detroit", "4h 29min", 247], ["Detroit", "Toronto", "4h 29min", 247], ["Toronto", "New York", "7h 27min", 410], ["New York", "Toronto", "7h 27min", 410], ["Niagara Falls CA", "Toronto", "0h 54min", 50], ["Toronto", "Niagara Falls CA", "0h 54min", 50], ["Niagara Falls CA", "Buffalo", "0h 21min", 20], ["Buffalo", "Niagara Falls CA", "0h 21min", 20]];
-        function filter(){const q=document.getElementById('search').value.toLowerCase();document.getElementById('sections').classList.toggle('hidden',q.length>1);document.getElementById('results').classList.toggle('hidden',q.length<2);if(q.length<2)return;const m=R.filter(r=>r[0].toLowerCase().includes(q)||r[1].toLowerCase().includes(q)).slice(0,24);document.getElementById('results-grid').innerHTML=m.map(r=>`<a href="/route/${r[0].toLowerCase().replace(/ /g,'-')}-to-${r[1].toLowerCase().replace(/ /g,'-')}/" class="route-card"><div class="route-title">${r[0]} → ${r[1]}</div><div class="route-meta">${r[2]} · ${r[3]} mi</div></a>`).join('');}
-    </script>
+    <footer><p>© 2026 <a href="/">HowLongDrive.uk</a></p></footer>
 </body>
 </html>
