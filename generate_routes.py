@@ -95,11 +95,11 @@ template = '''<!DOCTYPE html>
         .faq-a {{ padding: 0 1.25rem 1rem; font-size: 0.875rem; color: var(--muted); display: none; }}
         .faq-item.open .faq-a {{ display: block; }}
         
-        .related-section {{ background: var(--card); padding: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border-radius: 1rem; margin: 1.5rem 0; }}
+        .related-section {{ background: var(--card); padding: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); text-align: center; border-radius: 1rem; margin: 1.5rem 0; }}
         .related-group {{ margin-bottom: 1.25rem; }}
         .related-group:last-child {{ margin-bottom: 0; }}
         .related-group h4 {{ font-size: 0.9rem; color: var(--muted); margin-bottom: 0.75rem; font-weight: 600; }}
-        .related-links {{ display: flex; flex-wrap: wrap; gap: 0.5rem; }}
+        .related-links {{ display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }}
         .related-links a {{ background: var(--bg); padding: 0.5rem 0.875rem; border-radius: 0.5rem; text-decoration: none; color: var(--text); font-size: 0.85rem; border: 1px solid var(--border); }}
         .related-links a:hover {{ border-color: var(--primary); color: var(--primary); }}
         footer {{ text-align: center; padding: 2rem 1rem; color: var(--muted); font-size: 0.875rem; margin-top: 2rem; }}
