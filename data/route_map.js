@@ -496,6 +496,7 @@ const ROUTE_MAP = {
     "Harrogate",
     "Harry Potter Studios",
     "Hastings",
+    "Heathrow Airport",
     "Hemel Hempstead",
     "Hereford",
     "High Wycombe",
@@ -518,9 +519,11 @@ const ROUTE_MAP = {
     "London City Airport",
     "Loughborough",
     "Luton",
+    "Luton Airport",
     "Maidenhead",
     "Maidstone",
     "Manchester",
+    "Manchester Airport",
     "Mansfield",
     "Margate",
     "Merthyr Tydfil",
@@ -957,6 +960,7 @@ const ROUTE_MAP = {
     "Gatwick Airport",
     "Guildford",
     "Hastings",
+    "Heathrow Airport",
     "Kew Gardens",
     "Legoland Windsor",
     "Leicester",
@@ -1023,6 +1027,7 @@ const ROUTE_MAP = {
     "Harlow",
     "Harry Potter Studios",
     "Hastings",
+    "Heathrow Airport",
     "Hemel Hempstead",
     "Hereford",
     "High Wycombe",
@@ -1259,9 +1264,11 @@ const ROUTE_MAP = {
     "British Museum",
     "Buckingham Palace",
     "Colchester",
+    "Gatwick Airport",
     "Grantham",
     "Harlow",
     "Harry Potter Studios",
+    "Heathrow Airport",
     "Hemel Hempstead",
     "High Wycombe",
     "Ipswich",
@@ -1271,6 +1278,7 @@ const ROUTE_MAP = {
     "London",
     "London City Airport",
     "Luton",
+    "Luton Airport",
     "Maidenhead",
     "Milton Keynes",
     "Northampton",
@@ -1738,6 +1746,7 @@ const ROUTE_MAP = {
     "Southampton",
     "Southend",
     "Southend Airport",
+    "Stansted Airport",
     "Stevenage",
     "Tower of London"
   ],
@@ -2223,6 +2232,7 @@ const ROUTE_MAP = {
     "Aberdeen Airport",
     "Dunfermline",
     "Edinburgh",
+    "Edinburgh Airport",
     "Falkirk",
     "Glasgow",
     "Kirkcaldy",
@@ -2417,6 +2427,7 @@ const ROUTE_MAP = {
     "Falkirk",
     "Gateshead",
     "Glasgow",
+    "Glasgow Airport",
     "Hadrian's Wall",
     "Hamilton",
     "Hartlepool",
@@ -2449,7 +2460,9 @@ const ROUTE_MAP = {
     "Whitby"
   ],
   "Edinburgh Airport": [
-    "Edinburgh"
+    "Dundee",
+    "Edinburgh",
+    "Glasgow"
   ],
   "Enfield": [
     "London"
@@ -2582,7 +2595,11 @@ const ROUTE_MAP = {
   ],
   "Gatwick Airport": [
     "Brighton",
-    "London"
+    "Cambridge",
+    "London",
+    "Oxford",
+    "Portsmouth",
+    "Southampton"
   ],
   "Giant's Causeway": [
     "Belfast",
@@ -2604,6 +2621,7 @@ const ROUTE_MAP = {
     "Durham",
     "East Kilbride",
     "Edinburgh",
+    "Edinburgh Airport",
     "Falkirk",
     "Gateshead",
     "Glasgow Airport",
@@ -2633,7 +2651,9 @@ const ROUTE_MAP = {
     "Sunderland"
   ],
   "Glasgow Airport": [
-    "Glasgow"
+    "Edinburgh",
+    "Glasgow",
+    "Stirling"
   ],
   "Gloucester": [
     "Bath",
@@ -3069,7 +3089,16 @@ const ROUTE_MAP = {
     "Woking"
   ],
   "Heathrow Airport": [
-    "London"
+    "Birmingham",
+    "Brighton",
+    "Bristol",
+    "Cambridge",
+    "Leeds",
+    "London",
+    "Manchester",
+    "Oxford",
+    "Reading",
+    "Southampton"
   ],
   "Hemel Hempstead": [
     "Aylesbury",
@@ -3330,6 +3359,7 @@ const ROUTE_MAP = {
     "Southampton",
     "Southend",
     "Southend Airport",
+    "Stansted Airport",
     "Stevenage"
   ],
   "Isle of Skye": [
@@ -3643,6 +3673,7 @@ const ROUTE_MAP = {
     "Hamilton",
     "Harrogate",
     "Hartlepool",
+    "Heathrow Airport",
     "Huddersfield",
     "Hull",
     "Inverness",
@@ -3663,6 +3694,7 @@ const ROUTE_MAP = {
     "London",
     "Loughborough",
     "Manchester",
+    "Manchester Airport",
     "Mansfield",
     "Middlesbrough",
     "Motherwell",
@@ -4040,6 +4072,7 @@ const ROUTE_MAP = {
     "London",
     "Loughborough",
     "Manchester",
+    "Manchester Airport",
     "Mansfield",
     "Merthyr Tydfil",
     "Middlesbrough",
@@ -4240,6 +4273,7 @@ const ROUTE_MAP = {
     "Maidenhead",
     "Maidstone",
     "Manchester",
+    "Manchester Airport",
     "Mansfield",
     "Margate",
     "Milton Keynes",
@@ -4448,7 +4482,11 @@ const ROUTE_MAP = {
     "Woking"
   ],
   "Luton Airport": [
-    "London"
+    "Birmingham",
+    "Cambridge",
+    "London",
+    "Milton Keynes",
+    "Oxford"
   ],
   "Macclesfield": [
     "Manchester"
@@ -4590,6 +4628,7 @@ const ROUTE_MAP = {
     "Hamilton",
     "Harrogate",
     "Hartlepool",
+    "Heathrow Airport",
     "Hereford",
     "Huddersfield",
     "Hull",
@@ -4671,7 +4710,12 @@ const ROUTE_MAP = {
     "York Minster"
   ],
   "Manchester Airport": [
-    "Manchester"
+    "Birmingham",
+    "Leeds",
+    "Liverpool",
+    "London",
+    "Manchester",
+    "Sheffield"
   ],
   "Mansfield": [
     "Alton Towers",
@@ -4820,6 +4864,7 @@ const ROUTE_MAP = {
     "London City Airport",
     "Loughborough",
     "Luton",
+    "Luton Airport",
     "Maidenhead",
     "Newbury",
     "Northampton",
@@ -5152,7 +5197,8 @@ const ROUTE_MAP = {
     "Peterborough",
     "Sheffield",
     "Skegness",
-    "Southampton"
+    "Southampton",
+    "Stansted Airport"
   ],
   "Nottingham": [
     "Aberystwyth",
@@ -5434,10 +5480,12 @@ const ROUTE_MAP = {
     "Cheltenham",
     "Cotswolds",
     "Coventry",
+    "Gatwick Airport",
     "Gloucester",
     "Guildford",
     "Harlow",
     "Harry Potter Studios",
+    "Heathrow Airport",
     "Hemel Hempstead",
     "High Wycombe",
     "Kew Gardens",
@@ -5447,6 +5495,7 @@ const ROUTE_MAP = {
     "London",
     "London City Airport",
     "Luton",
+    "Luton Airport",
     "Maidenhead",
     "Milton Keynes",
     "Newbury",
@@ -5704,6 +5753,7 @@ const ROUTE_MAP = {
     "Cardiff",
     "Chichester",
     "Crawley",
+    "Gatwick Airport",
     "Guildford",
     "High Wycombe",
     "Kew Gardens",
@@ -5784,6 +5834,7 @@ const ROUTE_MAP = {
     "Guildford",
     "Harlow",
     "Harry Potter Studios",
+    "Heathrow Airport",
     "Hemel Hempstead",
     "High Wycombe",
     "Kew Gardens",
@@ -6245,6 +6296,7 @@ const ROUTE_MAP = {
     "Maidenhead",
     "Maidstone",
     "Manchester",
+    "Manchester Airport",
     "Mansfield",
     "Margate",
     "Middlesbrough",
@@ -6540,11 +6592,13 @@ const ROUTE_MAP = {
     "Exeter Airport",
     "Falmouth",
     "Folkestone",
+    "Gatwick Airport",
     "Gloucester",
     "Guildford",
     "Harlow",
     "Harry Potter Studios",
     "Hastings",
+    "Heathrow Airport",
     "Hemel Hempstead",
     "Hereford",
     "High Wycombe",
@@ -6784,7 +6838,10 @@ const ROUTE_MAP = {
   ],
   "Stansted Airport": [
     "Cambridge",
-    "London"
+    "Colchester",
+    "Ipswich",
+    "London",
+    "Norwich"
   ],
   "Stevenage": [
     "Aylesbury",
@@ -6840,6 +6897,7 @@ const ROUTE_MAP = {
     "Edinburgh",
     "Falkirk",
     "Glasgow",
+    "Glasgow Airport",
     "Hamilton",
     "Kilmarnock",
     "Kirkcaldy",
