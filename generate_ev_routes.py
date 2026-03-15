@@ -34,10 +34,10 @@ template = '''<!DOCTYPE html>
         * {{ margin: 0; padding: 0; box-sizing: border-box; }}
         body {{ font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }}
         .container {{ max-width: 900px; margin: 0 auto; padding: 0 1rem; }}
-        header {{ background: var(--card); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }}
+        header {{ background: var(--card); border-bottom: 1px solid var(--border); padding: 0.25rem 0; }}
         .header-inner {{ display: flex; justify-content: space-between; align-items: center; }}
         .logo {{ font-weight: 700; font-size: 1.5rem; color: #4B6E93; text-decoration: none; display: flex; align-items: center; gap: 0.75rem; }}
-        .logo img {{ height: 150px; width: auto; }}
+        .logo img {{ height: 180px; width: auto; }}
         nav {{ display: flex; align-items: center; gap: 1.5rem; }}
         nav a {{ color: var(--muted); text-decoration: none; font-size: 0.875rem; }}
         nav a:hover {{ color: var(--primary); }}
