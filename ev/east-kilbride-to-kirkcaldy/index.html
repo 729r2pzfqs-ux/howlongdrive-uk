@@ -170,7 +170,7 @@
     <script>
         function toggleMenu(){document.getElementById('nav').classList.toggle('active');document.querySelector('.overlay').classList.toggle('active');}
         
-        var map = L.map('map').setView([55.9388, -3.6681999999999997], 7);
+        var map = L.map('map').setView([55.939049999999995, -3.66835], 7);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap'
         }).addTo(map);
@@ -179,11 +179,11 @@
         var chargeIcon = L.divIcon({className:'',html:'<div style="background:#10B981;width:20px;height:20px;border-radius:50%;border:3px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3)"></div>',iconSize:[20,20],iconAnchor:[10,10]});
         var endIcon = L.divIcon({className:'',html:'<div style="background:#EF4444;width:24px;height:24px;border-radius:50%;border:3px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3)"></div>',iconSize:[24,24],iconAnchor:[12,12]});
         
-        L.marker([55.7644, -4.1769], {icon: startIcon}).addTo(map).bindPopup('<b>East Kilbride</b><br>Start');
+        L.marker([55.7649, -4.1769], {icon: startIcon}).addTo(map).bindPopup('<b>East Kilbride</b><br>Start');
         
-        L.marker([56.1132, -3.1595], {icon: endIcon}).addTo(map).bindPopup('<b>Kirkcaldy</b><br>Destination');
+        L.marker([56.1132, -3.1598], {icon: endIcon}).addTo(map).bindPopup('<b>Kirkcaldy</b><br>Destination');
         
-        var bounds = L.latLngBounds([[55.7644,-4.1769], [56.1132,-3.1595]]);
+        var bounds = L.latLngBounds([[55.7649,-4.1769], [56.1132,-3.1598]]);
         map.fitBounds(bounds, {padding: [40, 40]});
     </script>
 </body>

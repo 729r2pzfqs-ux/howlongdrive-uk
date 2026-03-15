@@ -157,7 +157,7 @@
     <script>
         function toggleMenu(){document.getElementById('nav').classList.toggle('active');document.querySelector('.overlay').classList.toggle('active');}
         
-        var map = L.map('map').setView([54.64175, -2.493], 7);
+        var map = L.map('map').setView([54.6321, -2.4895], 7);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap'
         }).addTo(map);
@@ -166,9 +166,9 @@
         var endIcon = L.divIcon({className:'',html:'<div style="background:#EFA24F;width:24px;height:24px;border-radius:50%;border:3px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3)"></div>',iconSize:[24,24],iconAnchor:[12,12]});
         
         L.marker([53.3811, -1.4701], {icon: startIcon}).addTo(map).bindPopup('<b>Sheffield</b><br>Start');
-        L.marker([55.9024, -3.5159], {icon: endIcon}).addTo(map).bindPopup('<b>Livingston</b><br>Destination');
+        L.marker([55.8831, -3.5089], {icon: endIcon}).addTo(map).bindPopup('<b>Livingston</b><br>Destination');
         
-        var bounds = L.latLngBounds([[53.3811,-1.4701], [55.9024,-3.5159]]);
+        var bounds = L.latLngBounds([[53.3811,-1.4701], [55.8831,-3.5089]]);
         map.fitBounds(bounds, {padding: [40, 40]});
     </script>
 </body>

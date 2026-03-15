@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leamington Spa to Swindon EV Charging Stops | HowLongDrive</title>
+    <meta name="description" content="Electric car trip from Leamington Spa to Swindon: 52 miles, 0 charging stops. No charging stops needed - within single charge range!">
+    <link rel="canonical" href="https://howlongdrive.uk/ev/leamington-spa-to-swindon/">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <meta name="theme-color" content="#10B981">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many charging stops from Leamington Spa to Swindon?","acceptedAnswer":{"@type":"Answer","text":"You'll need approximately 0 charging stops for this 52-mile EV trip, assuming a 250-mile range per charge."}},{"@type":"Question","name":"How long does the EV trip take from Leamington Spa to Swindon?","acceptedAnswer":{"@type":"Answer","text":"Total trip time is approximately 1h 0m, including 1h 0min driving and ~0 minutes of charging."}},{"@type":"Question","name":"How much does it cost to drive an EV from Leamington Spa to Swindon?","acceptedAnswer":{"@type":"Answer","text":"Electricity cost is approximately $2, compared to $6 for gas - saving you $4."}}]}</script>
+    <style>
+        :root { --primary: #10B981; --primary-dark: #059669; --accent: #EFA24F; --bg: #f8fafc; --card: #fff; --text: #1e293b; --muted: #64748b; --border: #e2e8f0; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 1rem; }
+        header { background: var(--card); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 700; font-size: 1.5rem; color: #4B6E93; text-decoration: none; display: flex; align-items: center; gap: 0.75rem; }
+        .logo img { height: 100px; width: auto; }
+        nav { display: flex; align-items: center; gap: 1.5rem; }
+        nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; }
+        .ev-badge { background: var(--primary); color: white; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 600; }
+        .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+        .close-btn { display: none; }
+        @media (max-width: 768px) {
+            .logo img { height: 60px; } .logo span { display: none; }
+            nav { position: fixed; top: 0; right: -100%; width: 250px; height: 100vh; background: var(--card); flex-direction: column; padding: 5rem 2rem; transition: right 0.3s; z-index: 1000; }
+            nav.active { right: 0; }
+            .hamburger { display: block; z-index: 1001; }
+            .close-btn { display: block; position: absolute; top: 1rem; right: 1rem; background: none; border: none; }
+            .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 999; }
+            .overlay.active { display: block; }
+            .stats { grid-template-columns: 1fr 1fr !important; }
+            .grid { grid-template-columns: 1fr !important; }
+        }
+        .breadcrumb { font-size: 0.875rem; color: var(--muted); padding: 1rem 0; }
+        .breadcrumb a { color: var(--primary); text-decoration: none; }
+        .hero { background: linear-gradient(135deg, #10B981 0%, #059669 100%); padding: 2rem; border-radius: 1rem; margin-bottom: 1.5rem; color: white; }
+        h1 { font-size: 1.5rem; margin-bottom: 0.5rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+        h1 svg { width: 24px; height: 24px; }
+        .subtitle { opacity: 0.9; margin-bottom: 1.5rem; font-size: 0.9rem; }
+        .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; }
+        .stat { text-align: center; padding: 1rem 0.5rem; background: rgba(255,255,255,0.15); border-radius: 0.5rem; }
+        .stat-value { font-size: 1.5rem; font-weight: 700; }
+        .stat-label { font-size: 0.75rem; opacity: 0.9; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+        .card { background: var(--card); padding: 1.5rem; border-radius: 0.75rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+        .card h3 { margin-bottom: 1rem; font-size: 0.9rem; color: var(--text); font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+        .card h3 svg { width: 18px; height: 18px; color: var(--primary); }
+        .row { display: flex; justify-content: space-between; padding: 0.6rem 0; border-bottom: 1px solid var(--border); font-size: 0.875rem; }
+        .row:last-child { border: none; }
+        .row span:first-child { color: var(--muted); display: flex; align-items: center; gap: 0.4rem; }
+        .row span:first-child svg { width: 14px; height: 14px; }
+        .row span:last-child { font-weight: 500; }
+        .timeline { margin-top: 1.5rem; }
+        .timeline-header { margin-bottom: 1rem; }
+        .timeline-item { display: flex; gap: 1rem; padding: 0.75rem 0; border-left: 3px solid var(--primary); padding-left: 1.25rem; margin-left: 0.5rem; position: relative; }
+        .timeline-item::before { content: ''; position: absolute; left: -7px; top: 1rem; width: 10px; height: 10px; background: var(--primary); border-radius: 50%; }
+        .timeline-item.start::before { background: #3B82F6; }
+        .timeline-item.end::before { background: #EF4444; }
+        .timeline-content h4 { font-weight: 600; font-size: 0.9rem; margin-bottom: 0.15rem; display: flex; align-items: center; gap: 0.4rem; }
+        .timeline-content h4 svg { width: 14px; height: 14px; }
+        .timeline-content p { font-size: 0.8rem; color: var(--muted); }
+        #map { height: 350px; border-radius: 0.75rem; margin-top: 1.5rem; }
+        .cta { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1.25rem; padding: 0.75rem 1.25rem; background: white; color: var(--primary); border-radius: 0.5rem; text-decoration: none; font-weight: 600; font-size: 0.875rem; }
+        .gas-link { display: inline-flex; align-items: center; gap: 0.4rem; margin-left: 0.75rem; padding: 0.75rem 1.25rem; background: rgba(255,255,255,0.2); color: white; border-radius: 0.5rem; text-decoration: none; font-weight: 600; font-size: 0.875rem; }
+        .faq { margin-top: 1.5rem; }
+        .faq h2 { font-size: 1.1rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+        .faq h2 svg { width: 20px; height: 20px; color: var(--primary); }
+        .faq-item { background: var(--card); border-radius: 0.5rem; margin-bottom: 0.75rem; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        .faq-q { font-weight: 600; padding: 1rem 1.25rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; }
+        .faq-q:hover { background: #f0fdf4; }
+        .faq-q svg { width: 16px; height: 16px; color: var(--muted); transition: transform 0.2s; }
+        .faq-item.open .faq-q svg { transform: rotate(180deg); }
+        .faq-a { padding: 0 1.25rem 1rem; font-size: 0.875rem; color: var(--muted); display: none; }
+        .faq-item.open .faq-a { display: block; }
+        footer { text-align: center; padding: 2rem 1rem; color: var(--muted); font-size: 0.875rem; margin-top: 2rem; }
+        footer a { color: var(--primary); text-decoration: none; }
+        .green { color: #10B981; }
+    </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXC7PNTC4G"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-NXC7PNTC4G");</script></head>
+<body>
+    <header>
+        <div class="container header-inner">
+            <a href="/" class="logo"><img src="/assets/logo-header.png" alt="HowLongDrive"><span>HowLongDrive.uk</span></a>
+            <button class="hamburger" onclick="toggleMenu()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:24px;height:24px"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+            <div class="overlay" onclick="toggleMenu()"></div>
+            <nav id="nav">
+                <button class="close-btn" ><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:24px;height:24px"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+                <a href="/">Home</a>
+                <a href="/routes/">Routes</a>
+                <a href="/ev/" class="ev-badge">EV Trips</a>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <div class="breadcrumb"><a href="/">Home</a> / <a href="/ev/">EV Trips</a> / Leamington Spa to Swindon</div>
+        <div class="hero">
+            <h1><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> Leamington Spa to Swindon</h1>
+            <p class="subtitle">Electric Vehicle Road Trip</p>
+            <div class="stats">
+                <div class="stat"><div class="stat-value">52</div><div class="stat-label">Miles</div></div>
+                <div class="stat"><div class="stat-value">0</div><div class="stat-label">Stops</div></div>
+                <div class="stat"><div class="stat-value">1h 0m</div><div class="stat-label">Total</div></div>
+                <div class="stat"><div class="stat-value">$2</div><div class="stat-label">Cost</div></div>
+            </div>
+            <a href="/route/leamington-spa-to-swindon/" class="cta">View Gas Route</a>
+            <a href="/ev/swindon-to-leamington-spa/" class="gas-link">Return Trip</a>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> EV Trip Details</h3>
+                <div class="row"><span>Distance</span><span>52 miles</span></div>
+                <div class="row"><span>Drive Time</span><span>1h 0min</span></div>
+                <div class="row"><span>Charging Stops</span><span>0</span></div>
+                <div class="row"><span>Charging Time</span><span>~0 min</span></div>
+                <div class="row"><span>Total Trip</span><span>1h 0m</span></div>
+            </div>
+            <div class="card">
+                <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Cost Comparison</h3>
+                <div class="row"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> EV</span><span>$2</span></div>
+                <div class="row"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 22V12a2 2 0 012-2h2a2 2 0 012 2v10M9 22V8a2 2 0 012-2h2a2 2 0 012 2v14"/></svg> Gas</span><span>$6</span></div>
+                <div class="row"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg> Save</span><span class="green" style="font-weight:700">$4</span></div>
+            </div>
+        </div>
+        <div class="card timeline">
+            <div class="timeline-header">
+                <h3 style="margin:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;color:#10B981"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Recommended Charging Stops</h3>
+            </div>
+            
+            <div class="timeline-item start">
+                <div class="timeline-content">
+                    <h4><svg viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 10-16 0c0 3 2.7 7 8 11.7z"/></svg> Leamington Spa</h4>
+                    <p>Start with full charge</p>
+                </div>
+            </div>
+            <div class="timeline-item end">
+                <div class="timeline-content">
+                    <h4><svg viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg> Swindon</h4>
+                    <p>52 mi · 1h 0m</p>
+                </div>
+            </div>
+        </div>
+        <div id="map"></div>
+        
+        <div class="faq">
+            <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> EV Trip FAQ</h2>
+            <div class="faq-item open">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How many charging stops from Leamington Spa to Swindon?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+                <div class="faq-a">You'll need approximately <strong>0 charging stops</strong> for this 52-mile EV trip, assuming a 250-mile range per charge. No charging stops needed - within single charge range!</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How long does the EV trip take?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+                <div class="faq-a">Total trip time is approximately <strong>1h 0m</strong>, including 1h 0min of driving and ~0 minutes of charging stops.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How much does it cost vs gas?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+                <div class="faq-a">EV cost: <strong>$2</strong> vs Gas: $6. You save <strong class="green">$4</strong> driving electric!</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Where can I charge along the route?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+                <div class="faq-a">This trip is within single-charge range for most EVs! You can complete it without stopping to charge, but consider topping up at your destination.</div>
+            </div>
+        </div>
+    </div>
+    <footer><p>© 2026 <a href="/">HowLongDrive.uk</a></p></footer>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        function toggleMenu(){document.getElementById('nav').classList.toggle('active');document.querySelector('.overlay').classList.toggle('active');}
+        
+        var map = L.map('map').setView([51.920500000000004, -1.6542], 7);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+        
+        var startIcon = L.divIcon({className:'',html:'<div style="background:#3B82F6;width:24px;height:24px;border-radius:50%;border:3px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3)"></div>',iconSize:[24,24],iconAnchor:[12,12]});
+        var chargeIcon = L.divIcon({className:'',html:'<div style="background:#10B981;width:20px;height:20px;border-radius:50%;border:3px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3)"></div>',iconSize:[20,20],iconAnchor:[10,10]});
+        var endIcon = L.divIcon({className:'',html:'<div style="background:#EF4444;width:24px;height:24px;border-radius:50%;border:3px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3)"></div>',iconSize:[24,24],iconAnchor:[12,12]});
+        
+        L.marker([52.2852, -1.5287], {icon: startIcon}).addTo(map).bindPopup('<b>Leamington Spa</b><br>Start');
+        
+        L.marker([51.5558, -1.7797], {icon: endIcon}).addTo(map).bindPopup('<b>Swindon</b><br>Destination');
+        
+        var bounds = L.latLngBounds([[52.2852,-1.5287], [51.5558,-1.7797]]);
+        map.fitBounds(bounds, {padding: [40, 40]});
+    </script>
+</body>
+</html>

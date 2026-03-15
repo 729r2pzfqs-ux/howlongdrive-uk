@@ -170,7 +170,7 @@
     <script>
         function toggleMenu(){document.getElementById('nav').classList.toggle('active');document.querySelector('.overlay').classList.toggle('active');}
         
-        var map = L.map('map').setView([51.070750000000004, -0.3476], 7);
+        var map = L.map('map').setView([51.070750000000004, -0.3481], 7);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap'
         }).addTo(map);
@@ -181,9 +181,9 @@
         
         L.marker([50.8225, -0.1372], {icon: startIcon}).addTo(map).bindPopup('<b>Brighton</b><br>Start');
         
-        L.marker([51.319, -0.558], {icon: endIcon}).addTo(map).bindPopup('<b>Woking</b><br>Destination');
+        L.marker([51.319, -0.559], {icon: endIcon}).addTo(map).bindPopup('<b>Woking</b><br>Destination');
         
-        var bounds = L.latLngBounds([[50.8225,-0.1372], [51.319,-0.558]]);
+        var bounds = L.latLngBounds([[50.8225,-0.1372], [51.319,-0.559]]);
         map.fitBounds(bounds, {padding: [40, 40]});
     </script>
 </body>

@@ -170,7 +170,7 @@
     <script>
         function toggleMenu(){document.getElementById('nav').classList.toggle('active');document.querySelector('.overlay').classList.toggle('active');}
         
-        var map = L.map('map').setView([52.759249999999994, -1.4903499999999998], 7);
+        var map = L.map('map').setView([52.7589, -1.4912], 7);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap'
         }).addTo(map);
@@ -181,9 +181,9 @@
         
         L.marker([52.9548, -1.1581], {icon: startIcon}).addTo(map).bindPopup('<b>Nottingham</b><br>Start');
         
-        L.marker([52.5637, -1.8226], {icon: endIcon}).addTo(map).bindPopup('<b>Sutton Coldfield</b><br>Destination');
+        L.marker([52.563, -1.8243], {icon: endIcon}).addTo(map).bindPopup('<b>Sutton Coldfield</b><br>Destination');
         
-        var bounds = L.latLngBounds([[52.9548,-1.1581], [52.5637,-1.8226]]);
+        var bounds = L.latLngBounds([[52.9548,-1.1581], [52.563,-1.8243]]);
         map.fitBounds(bounds, {padding: [40, 40]});
     </script>
 </body>

@@ -157,7 +157,7 @@
     <script>
         function toggleMenu(){document.getElementById('nav').classList.toggle('active');document.querySelector('.overlay').classList.toggle('active');}
         
-        var map = L.map('map').setView([53.43785, -1.1602000000000001], 7);
+        var map = L.map('map').setView([53.43825, -1.1627999999999998], 7);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap'
         }).addTo(map);
@@ -165,10 +165,10 @@
         var startIcon = L.divIcon({className:'',html:'<div style="background:#4B6E93;width:24px;height:24px;border-radius:50%;border:3px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3)"></div>',iconSize:[24,24],iconAnchor:[12,12]});
         var endIcon = L.divIcon({className:'',html:'<div style="background:#EFA24F;width:24px;height:24px;border-radius:50%;border:3px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3)"></div>',iconSize:[24,24],iconAnchor:[12,12]});
         
-        L.marker([53.645, -1.7798], {icon: startIcon}).addTo(map).bindPopup('<b>Huddersfield</b><br>Start');
+        L.marker([53.6458, -1.785], {icon: startIcon}).addTo(map).bindPopup('<b>Huddersfield</b><br>Start');
         L.marker([53.2307, -0.5406], {icon: endIcon}).addTo(map).bindPopup('<b>Lincoln</b><br>Destination');
         
-        var bounds = L.latLngBounds([[53.645,-1.7798], [53.2307,-0.5406]]);
+        var bounds = L.latLngBounds([[53.6458,-1.785], [53.2307,-0.5406]]);
         map.fitBounds(bounds, {padding: [40, 40]});
     </script>
 </body>

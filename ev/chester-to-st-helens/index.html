@@ -170,7 +170,7 @@
     <script>
         function toggleMenu(){document.getElementById('nav').classList.toggle('active');document.querySelector('.overlay').classList.toggle('active');}
         
-        var map = L.map('map').setView([53.3232, -2.81495], 7);
+        var map = L.map('map').setView([53.3233, -2.8151], 7);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap'
         }).addTo(map);
@@ -181,9 +181,9 @@
         
         L.marker([53.193, -2.8931], {icon: startIcon}).addTo(map).bindPopup('<b>Chester</b><br>Start');
         
-        L.marker([53.4534, -2.7368], {icon: endIcon}).addTo(map).bindPopup('<b>St Helens</b><br>Destination');
+        L.marker([53.4536, -2.7371], {icon: endIcon}).addTo(map).bindPopup('<b>St Helens</b><br>Destination');
         
-        var bounds = L.latLngBounds([[53.193,-2.8931], [53.4534,-2.7368]]);
+        var bounds = L.latLngBounds([[53.193,-2.8931], [53.4536,-2.7371]]);
         map.fitBounds(bounds, {padding: [40, 40]});
     </script>
 </body>

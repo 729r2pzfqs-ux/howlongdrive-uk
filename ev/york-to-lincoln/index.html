@@ -170,7 +170,7 @@
     <script>
         function toggleMenu(){document.getElementById('nav').classList.toggle('active');document.querySelector('.overlay').classList.toggle('active');}
         
-        var map = L.map('map').setView([53.594899999999996, -0.8110499999999999], 7);
+        var map = L.map('map').setView([53.595349999999996, -0.81395], 7);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap'
         }).addTo(map);
@@ -179,11 +179,11 @@
         var chargeIcon = L.divIcon({className:'',html:'<div style="background:#10B981;width:20px;height:20px;border-radius:50%;border:3px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3)"></div>',iconSize:[20,20],iconAnchor:[10,10]});
         var endIcon = L.divIcon({className:'',html:'<div style="background:#EF4444;width:24px;height:24px;border-radius:50%;border:3px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3)"></div>',iconSize:[24,24],iconAnchor:[12,12]});
         
-        L.marker([53.9591, -1.0815], {icon: startIcon}).addTo(map).bindPopup('<b>York</b><br>Start');
+        L.marker([53.96, -1.0873], {icon: startIcon}).addTo(map).bindPopup('<b>York</b><br>Start');
         
         L.marker([53.2307, -0.5406], {icon: endIcon}).addTo(map).bindPopup('<b>Lincoln</b><br>Destination');
         
-        var bounds = L.latLngBounds([[53.9591,-1.0815], [53.2307,-0.5406]]);
+        var bounds = L.latLngBounds([[53.96,-1.0873], [53.2307,-0.5406]]);
         map.fitBounds(bounds, {padding: [40, 40]});
     </script>
 </body>

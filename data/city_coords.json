@@ -76,16 +76,16 @@
     "lng": -1.2577
   },
   "York": {
-    "lat": 53.9591,
-    "lng": -1.0815
+    "lat": 53.96,
+    "lng": -1.0873
   },
   "Norwich": {
     "lat": 52.6309,
     "lng": 1.2974
   },
   "Bath": {
-    "lat": 51.3751,
-    "lng": -2.3618
+    "lat": 51.3811,
+    "lng": -2.359
   },
   "Exeter": {
     "lat": 50.7184,
@@ -116,7 +116,7 @@
     "lng": -3.4308
   },
   "Stirling": {
-    "lat": 56.1165,
+    "lat": 56.1166,
     "lng": -3.9369
   },
   "Swansea": {
@@ -144,8 +144,8 @@
     "lng": -1.235
   },
   "Sunderland": {
-    "lat": 54.9069,
-    "lng": -1.3838
+    "lat": 54.9061,
+    "lng": -1.3831
   },
   "Durham": {
     "lat": 54.7761,
@@ -164,8 +164,8 @@
     "lng": -2.8931
   },
   "Wolverhampton": {
-    "lat": 52.587,
-    "lng": -2.1288
+    "lat": 52.5869,
+    "lng": -2.1257
   },
   "Worcester": {
     "lat": 52.192,
@@ -204,8 +204,8 @@
     "lng": -1.1288
   },
   "Scarborough": {
-    "lat": 54.2793,
-    "lng": -0.4049
+    "lat": 54.2827,
+    "lng": -0.399
   },
   "Torquay": {
     "lat": 50.4619,
@@ -216,7 +216,7 @@
     "lng": -5.0757
   },
   "Penzance": {
-    "lat": 50.1185,
+    "lat": 50.1186,
     "lng": -5.5371
   },
   "Lake District": {
@@ -232,16 +232,16 @@
     "lng": -0.4543
   },
   "Manchester Airport": {
-    "lat": 53.3588,
-    "lng": -2.2727
+    "lat": 53.3537,
+    "lng": -2.275
   },
   "Birmingham Airport": {
     "lat": 52.4539,
     "lng": -1.748
   },
   "Edinburgh Airport": {
-    "lat": 55.9508,
-    "lng": -3.3615
+    "lat": 55.95,
+    "lng": -3.3725
   },
   "Glasgow Airport": {
     "lat": 55.8719,
@@ -252,8 +252,8 @@
     "lng": -2.719
   },
   "Stansted Airport": {
-    "lat": 51.885,
-    "lng": 0.235
+    "lat": 51.886,
+    "lng": 0.2389
   },
   "Watford": {
     "lat": 51.6565,
@@ -313,7 +313,7 @@
   },
   "Woking": {
     "lat": 51.319,
-    "lng": -0.558
+    "lng": -0.559
   },
   "St Albans": {
     "lat": 51.752,
@@ -372,19 +372,19 @@
     "lng": -2.1253
   },
   "Solihull": {
-    "lat": 52.413,
-    "lng": -1.7743
+    "lat": 52.4128,
+    "lng": -1.778
   },
   "Sutton Coldfield": {
-    "lat": 52.5637,
-    "lng": -1.8226
+    "lat": 52.563,
+    "lng": -1.8243
   },
   "West Bromwich": {
     "lat": 52.519,
     "lng": -1.9945
   },
   "Dudley": {
-    "lat": 52.5085,
+    "lat": 52.5086,
     "lng": -2.0872
   },
   "Walsall": {
@@ -392,28 +392,28 @@
     "lng": -1.9829
   },
   "Tamworth": {
-    "lat": 52.6342,
-    "lng": -1.6911
+    "lat": 52.6337,
+    "lng": -1.6955
   },
   "Redditch": {
-    "lat": 52.3065,
-    "lng": -1.9454
+    "lat": 52.3063,
+    "lng": -1.9455
   },
   "Bromsgrove": {
     "lat": 52.3355,
     "lng": -2.0577
   },
   "Wakefield": {
-    "lat": 53.6833,
+    "lat": 53.683,
     "lng": -1.4977
   },
   "Huddersfield": {
-    "lat": 53.645,
-    "lng": -1.7798
+    "lat": 53.6458,
+    "lng": -1.785
   },
   "Halifax": {
-    "lat": 53.7256,
-    "lng": -1.8568
+    "lat": 53.721,
+    "lng": -1.8626
   },
   "Dewsbury": {
     "lat": 53.6907,
@@ -432,24 +432,24 @@
     "lng": -1.3858
   },
   "East Kilbride": {
-    "lat": 55.7644,
+    "lat": 55.7649,
     "lng": -4.1769
   },
   "Paisley": {
     "lat": 55.8456,
-    "lng": -4.4239
+    "lng": -4.4234
   },
   "Hamilton": {
-    "lat": 55.7776,
-    "lng": -4.0376
+    "lat": 55.7772,
+    "lng": -4.0399
   },
   "Coatbridge": {
     "lat": 55.8629,
     "lng": -4.0268
   },
   "Motherwell": {
-    "lat": 55.791,
-    "lng": -3.9948
+    "lat": 55.79,
+    "lng": -3.9913
   },
   "Clydebank": {
     "lat": 55.9016,
@@ -460,8 +460,8 @@
     "lng": -4.5673
   },
   "Livingston": {
-    "lat": 55.9024,
-    "lng": -3.5159
+    "lat": 55.8831,
+    "lng": -3.5089
   },
   "Musselburgh": {
     "lat": 55.9416,
@@ -477,15 +477,15 @@
   },
   "Kirkcaldy": {
     "lat": 56.1132,
-    "lng": -3.1595
+    "lng": -3.1598
   },
   "Birkenhead": {
-    "lat": 53.3934,
+    "lat": 53.3938,
     "lng": -3.0145
   },
   "St Helens": {
-    "lat": 53.4534,
-    "lng": -2.7368
+    "lat": 53.4536,
+    "lng": -2.7371
   },
   "Southport": {
     "lat": 53.6478,
@@ -522,5 +522,517 @@
   "Keynsham": {
     "lat": 51.4131,
     "lng": -2.4964
+  },
+  "Belfast": {
+    "lat": 54.5973,
+    "lng": -5.9301
+  },
+  "Reading": {
+    "lat": 51.4543,
+    "lng": -0.9781
+  },
+  "Luton": {
+    "lat": 51.8787,
+    "lng": -0.42
+  },
+  "Milton Keynes": {
+    "lat": 52.0406,
+    "lng": -0.7594
+  },
+  "Northampton": {
+    "lat": 52.2405,
+    "lng": -0.9027
+  },
+  "Barnsley": {
+    "lat": 53.5526,
+    "lng": -1.4797
+  },
+  "Rotherham": {
+    "lat": 53.4326,
+    "lng": -1.3635
+  },
+  "Cheltenham": {
+    "lat": 51.8994,
+    "lng": -2.0783
+  },
+  "Hereford": {
+    "lat": 52.0565,
+    "lng": -2.716
+  },
+  "Shrewsbury": {
+    "lat": 52.7077,
+    "lng": -2.754
+  },
+  "Telford": {
+    "lat": 52.6779,
+    "lng": -2.4497
+  },
+  "Salisbury": {
+    "lat": 51.0688,
+    "lng": -1.7945
+  },
+  "Winchester": {
+    "lat": 51.0632,
+    "lng": -1.308
+  },
+  "Eastbourne": {
+    "lat": 50.7684,
+    "lng": 0.2904
+  },
+  "Hastings": {
+    "lat": 50.8543,
+    "lng": 0.573
+  },
+  "Dover": {
+    "lat": 51.1295,
+    "lng": 1.3089
+  },
+  "Canterbury": {
+    "lat": 51.2802,
+    "lng": 1.0789
+  },
+  "Maidstone": {
+    "lat": 51.2724,
+    "lng": 0.5294
+  },
+  "Folkestone": {
+    "lat": 51.0814,
+    "lng": 1.1664
+  },
+  "Margate": {
+    "lat": 51.3813,
+    "lng": 1.3862
+  },
+  "Colchester": {
+    "lat": 51.8891,
+    "lng": 0.9037
+  },
+  "Southend": {
+    "lat": 51.5459,
+    "lng": 0.7077
+  },
+  "Basildon": {
+    "lat": 51.5761,
+    "lng": 0.4887
+  },
+  "Harlow": {
+    "lat": 51.7727,
+    "lng": 0.1025
+  },
+  "Stevenage": {
+    "lat": 51.9018,
+    "lng": -0.2019
+  },
+  "Hemel Hempstead": {
+    "lat": 51.7526,
+    "lng": -0.469
+  },
+  "High Wycombe": {
+    "lat": 51.6287,
+    "lng": -0.7482
+  },
+  "Aylesbury": {
+    "lat": 51.8168,
+    "lng": -0.8124
+  },
+  "Crawley": {
+    "lat": 51.1092,
+    "lng": -0.1872
+  },
+  "Guildford": {
+    "lat": 51.2365,
+    "lng": -0.5703
+  },
+  "Basingstoke": {
+    "lat": 51.2667,
+    "lng": -1.0876
+  },
+  "Bracknell": {
+    "lat": 51.4163,
+    "lng": -0.75
+  },
+  "Maidenhead": {
+    "lat": 51.5217,
+    "lng": -0.7177
+  },
+  "Windsor": {
+    "lat": 51.4791,
+    "lng": -0.6095
+  },
+  "Newbury": {
+    "lat": 51.401,
+    "lng": -1.323
+  },
+  "Taunton": {
+    "lat": 51.019,
+    "lng": -3.1025
+  },
+  "Poole": {
+    "lat": 50.7151,
+    "lng": -1.9872
+  },
+  "Weymouth": {
+    "lat": 50.6097,
+    "lng": -2.4576
+  },
+  "Barnstaple": {
+    "lat": 51.0813,
+    "lng": -4.0625
+  },
+  "Truro": {
+    "lat": 50.2632,
+    "lng": -5.051
+  },
+  "St Austell": {
+    "lat": 50.3398,
+    "lng": -4.7893
+  },
+  "Falmouth": {
+    "lat": 50.1525,
+    "lng": -5.0707
+  },
+  "Carlisle": {
+    "lat": 54.8951,
+    "lng": -2.9382
+  },
+  "Lancaster": {
+    "lat": 54.0465,
+    "lng": -2.8007
+  },
+  "Blackburn": {
+    "lat": 53.7488,
+    "lng": -2.4821
+  },
+  "Burnley": {
+    "lat": 53.7893,
+    "lng": -2.2479
+  },
+  "Warrington": {
+    "lat": 53.39,
+    "lng": -2.597
+  },
+  "Nuneaton": {
+    "lat": 52.5226,
+    "lng": -1.4684
+  },
+  "Rugby": {
+    "lat": 52.3702,
+    "lng": -1.2615
+  },
+  "Warwick": {
+    "lat": 52.2852,
+    "lng": -1.5849
+  },
+  "Leamington Spa": {
+    "lat": 52.2852,
+    "lng": -1.5287
+  },
+  "Stratford-upon-Avon": {
+    "lat": 52.1917,
+    "lng": -1.7077
+  },
+  "Kidderminster": {
+    "lat": 52.3885,
+    "lng": -2.2499
+  },
+  "Loughborough": {
+    "lat": 52.7721,
+    "lng": -1.2067
+  },
+  "Chesterfield": {
+    "lat": 53.2349,
+    "lng": -1.427
+  },
+  "Mansfield": {
+    "lat": 53.1472,
+    "lng": -1.1989
+  },
+  "Newark": {
+    "lat": 53.0764,
+    "lng": -0.8093
+  },
+  "Grantham": {
+    "lat": 52.9116,
+    "lng": -0.6418
+  },
+  "Boston": {
+    "lat": 52.9751,
+    "lng": -0.0267
+  },
+  "Skegness": {
+    "lat": 53.1436,
+    "lng": 0.3369
+  },
+  "Grimsby": {
+    "lat": 53.5676,
+    "lng": -0.0804
+  },
+  "Scunthorpe": {
+    "lat": 53.581,
+    "lng": -0.6541
+  },
+  "Whitby": {
+    "lat": 54.4858,
+    "lng": -0.6206
+  },
+  "Darlington": {
+    "lat": 54.527,
+    "lng": -1.5526
+  },
+  "Hartlepool": {
+    "lat": 54.6863,
+    "lng": -1.2129
+  },
+  "Stockton": {
+    "lat": 54.568,
+    "lng": -1.3133
+  },
+  "Gateshead": {
+    "lat": 54.9527,
+    "lng": -1.6033
+  },
+  "South Shields": {
+    "lat": 54.9986,
+    "lng": -1.4303
+  },
+  "Dumfries": {
+    "lat": 55.07,
+    "lng": -3.6125
+  },
+  "Ayr": {
+    "lat": 55.4583,
+    "lng": -4.6295
+  },
+  "Kilmarnock": {
+    "lat": 55.6116,
+    "lng": -4.4952
+  },
+  "Falkirk": {
+    "lat": 56.0019,
+    "lng": -3.7839
+  },
+  "Wrexham": {
+    "lat": 53.0429,
+    "lng": -2.9925
+  },
+  "Llandudno": {
+    "lat": 53.3241,
+    "lng": -3.8276
+  },
+  "Bangor": {
+    "lat": 53.2274,
+    "lng": -4.1293
+  },
+  "Aberystwyth": {
+    "lat": 52.414,
+    "lng": -4.0813
+  },
+  "Carmarthen": {
+    "lat": 51.8576,
+    "lng": -4.3116
+  },
+  "Cwmbran": {
+    "lat": 51.6538,
+    "lng": -3.0213
+  },
+  "Pontypridd": {
+    "lat": 51.6021,
+    "lng": -3.3428
+  },
+  "Merthyr Tydfil": {
+    "lat": 51.7491,
+    "lng": -3.3813
+  },
+  "Chelmsford": {
+    "lat": 51.7356,
+    "lng": 0.4685
+  },
+  "Dublin": {
+    "lat": 53.3498,
+    "lng": -6.2603
+  },
+  "Derry": {
+    "lat": 54.9966,
+    "lng": -7.3086
+  },
+  "Stonehenge": {
+    "lat": 51.1789,
+    "lng": -1.8262
+  },
+  "Cotswolds": {
+    "lat": 51.833,
+    "lng": -1.8433
+  },
+  "Peak District": {
+    "lat": 53.3497,
+    "lng": -1.8312
+  },
+  "Snowdonia": {
+    "lat": 52.9184,
+    "lng": -3.8916
+  },
+  "Cornwall": {
+    "lat": 50.266,
+    "lng": -5.0527
+  },
+  "Devon": {
+    "lat": 50.7156,
+    "lng": -3.5309
+  },
+  "Harry Potter Studios": {
+    "lat": 51.6902,
+    "lng": -0.42
+  },
+  "Alton Towers": {
+    "lat": 52.9891,
+    "lng": -1.8901
+  },
+  "Legoland Windsor": {
+    "lat": 51.4632,
+    "lng": -0.6482
+  },
+  "Eden Project": {
+    "lat": 50.3601,
+    "lng": -4.7447
+  },
+  "Warwick Castle": {
+    "lat": 52.2795,
+    "lng": -1.5843
+  },
+  "Windsor Castle": {
+    "lat": 51.4839,
+    "lng": -0.6044
+  },
+  "Blenheim Palace": {
+    "lat": 51.8414,
+    "lng": -1.3608
+  },
+  "Chatsworth House": {
+    "lat": 53.2273,
+    "lng": -1.6112
+  },
+  "Hadrian's Wall": {
+    "lat": 55.0241,
+    "lng": -2.2595
+  },
+  "York Minster": {
+    "lat": 53.962,
+    "lng": -1.0815
+  },
+  "Canterbury Cathedral": {
+    "lat": 51.2798,
+    "lng": 1.083
+  },
+  "Loch Ness": {
+    "lat": 57.3229,
+    "lng": -4.4244
+  },
+  "Isle of Skye": {
+    "lat": 57.2736,
+    "lng": -6.2155
+  },
+  "Giant's Causeway": {
+    "lat": 55.2408,
+    "lng": -6.5116
+  },
+  "Titanic Belfast": {
+    "lat": 54.608,
+    "lng": -5.9098
+  },
+  "Scottish Highlands": {
+    "lat": 57.1175,
+    "lng": -4.7145
+  },
+  "Jurassic Coast": {
+    "lat": 50.7072,
+    "lng": -2.7605
+  },
+  "Blackpool Tower": {
+    "lat": 53.8159,
+    "lng": -3.0553
+  },
+  "Roman Baths": {
+    "lat": 51.3811,
+    "lng": -2.3593
+  },
+  "Kew Gardens": {
+    "lat": 51.4787,
+    "lng": -0.2956
+  },
+  "British Museum": {
+    "lat": 51.5194,
+    "lng": -0.127
+  },
+  "Tower of London": {
+    "lat": 51.5081,
+    "lng": -0.0759
+  },
+  "Buckingham Palace": {
+    "lat": 51.5014,
+    "lng": -0.1419
+  },
+  "London City Airport": {
+    "lat": 51.5053,
+    "lng": 0.0553
+  },
+  "Southend Airport": {
+    "lat": 51.5714,
+    "lng": 0.6956
+  },
+  "East Midlands Airport": {
+    "lat": 52.8311,
+    "lng": -1.3281
+  },
+  "Doncaster Sheffield Airport": {
+    "lat": 53.4746,
+    "lng": -1.005
+  },
+  "Southampton Airport": {
+    "lat": 50.9503,
+    "lng": -1.3568
+  },
+  "Cardiff Airport": {
+    "lat": 51.3967,
+    "lng": -3.3433
+  },
+  "Aberdeen Airport": {
+    "lat": 57.2019,
+    "lng": -2.1978
+  },
+  "Inverness Airport": {
+    "lat": 57.5425,
+    "lng": -4.0475
+  },
+  "Belfast International": {
+    "lat": 54.6575,
+    "lng": -6.2158
+  },
+  "Belfast City Airport": {
+    "lat": 54.6181,
+    "lng": -5.8725
+  },
+  "Exeter Airport": {
+    "lat": 50.7344,
+    "lng": -3.4139
+  },
+  "Newquay Airport": {
+    "lat": 50.4406,
+    "lng": -5.0007
+  },
+  "Luton Airport": {
+    "lat": 51.8747,
+    "lng": -0.3683
+  },
+  "Liverpool Airport": {
+    "lat": 53.3336,
+    "lng": -2.8497
+  },
+  "Newcastle Airport": {
+    "lat": 55.0375,
+    "lng": -1.6917
+  },
+  "Leeds Bradford Airport": {
+    "lat": 53.8659,
+    "lng": -1.6606
   }
 }

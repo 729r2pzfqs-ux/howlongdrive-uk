@@ -170,7 +170,7 @@
     <script>
         function toggleMenu(){document.getElementById('nav').classList.toggle('active');document.querySelector('.overlay').classList.toggle('active');}
         
-        var map = L.map('map').setView([54.841499999999996, -1.4785499999999998], 7);
+        var map = L.map('map').setView([54.8411, -1.4782], 7);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap'
         }).addTo(map);
@@ -181,9 +181,9 @@
         
         L.marker([54.7761, -1.5733], {icon: startIcon}).addTo(map).bindPopup('<b>Durham</b><br>Start');
         
-        L.marker([54.9069, -1.3838], {icon: endIcon}).addTo(map).bindPopup('<b>Sunderland</b><br>Destination');
+        L.marker([54.9061, -1.3831], {icon: endIcon}).addTo(map).bindPopup('<b>Sunderland</b><br>Destination');
         
-        var bounds = L.latLngBounds([[54.7761,-1.5733], [54.9069,-1.3838]]);
+        var bounds = L.latLngBounds([[54.7761,-1.5733], [54.9061,-1.3831]]);
         map.fitBounds(bounds, {padding: [40, 40]});
     </script>
 </body>

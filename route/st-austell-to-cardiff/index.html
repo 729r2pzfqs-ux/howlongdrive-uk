@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>St Austell to Cardiff Driving Time - 2h 5min, 106 miles | HowLongDrive</title>
+    <meta name="description" content="How long to drive from St Austell to Cardiff? 2h 5min driving time, 106 miles via Interstate. Get petrol costs, best times to drive, and route details.">
+    <link rel="canonical" href="https://howlongdrive.uk/route/st-austell-to-cardiff/">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <meta name="theme-color" content="#4B6E93">
+    <meta property="og:title" content="St Austell to Cardiff - 2h 5min Drive Time">
+    <meta property="og:description" content="Driving time from St Austell to Cardiff: 2h 5min, 106 miles">
+    <meta property="og:image" content="https://howlongdrive.uk/assets/og-image.png">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How long does it take to drive from St Austell to Cardiff?","acceptedAnswer":{"@type":"Answer","text":"The drive from St Austell to Cardiff takes approximately 2h 5min covering 106 miles via Interstate."}},{"@type":"Question","name":"How much does petrol cost for St Austell to Cardiff?","acceptedAnswer":{"@type":"Answer","text":"At 40 MPG and £1.40/litre, expect to spend approximately £12 on petrol for this 106-mile trip."}},{"@type":"Question","name":"What is the best time to drive from St Austell to Cardiff?","acceptedAnswer":{"@type":"Answer","text":"Weekday mid-day to avoid heavy traffic."}}]}</script>
+    <style>
+        :root { --primary: #4B6E93; --primary-dark: #3a5775; --accent: #EFA24F; --green: #10B981; --bg: #f8fafc; --card: #fff; --text: #1e293b; --muted: #64748b; --border: #e2e8f0; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 1rem; }
+        header { background: var(--card); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 700; font-size: 1.5rem; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 0.75rem; }
+        .logo img { height: 100px; width: auto; }
+        nav { display: flex; align-items: center; gap: 1.5rem; }
+        nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; }
+        .ev-badge { background: var(--green); color: white; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 600; }
+        .close-btn { display: none; } .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+        .close-btn { display: none; }
+        @media (max-width: 768px) {
+            .logo img { height: 60px; } .logo span { display: none; }
+            nav { position: fixed; top: 0; right: -100%; width: 250px; height: 100vh; background: var(--card); flex-direction: column; padding: 5rem 2rem; transition: right 0.3s; z-index: 1000; }
+            nav.active { right: 0; }
+            .hamburger { display: block; z-index: 1001; }
+            .close-btn { display: block; position: absolute; top: 1rem; right: 1rem; background: none; border: none; }
+            .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 999; }
+            .overlay.active { display: block; }
+            .stats { grid-template-columns: 1fr 1fr !important; }
+            .grid { grid-template-columns: 1fr !important; }
+        }
+        .breadcrumb { font-size: 0.875rem; color: var(--muted); padding: 1rem 0; }
+        .breadcrumb a { color: var(--primary); text-decoration: none; }
+        .hero { background: linear-gradient(135deg, #4B6E93 0%, #3a5775 100%); padding: 2rem; border-radius: 1rem; margin-bottom: 1.5rem; color: white; }
+        h1 { font-size: 1.5rem; margin-bottom: 0.5rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+        h1 svg { width: 24px; height: 24px; }
+        .subtitle { opacity: 0.9; margin-bottom: 1.5rem; font-size: 0.9rem; }
+        .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; }
+        .stat { text-align: center; padding: 1rem 0.5rem; background: rgba(255,255,255,0.15); border-radius: 0.5rem; }
+        .stat-value { font-size: 1.5rem; font-weight: 700; }
+        .stat-label { font-size: 0.75rem; opacity: 0.9; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+        .card { background: var(--card); padding: 1.5rem; border-radius: 0.75rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+        .card h3 { margin-bottom: 1rem; font-size: 0.9rem; color: var(--text); font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+        .card h3 svg { width: 18px; height: 18px; color: var(--primary); }
+        .row { display: flex; justify-content: space-between; padding: 0.6rem 0; border-bottom: 1px solid var(--border); font-size: 0.875rem; }
+        .row:last-child { border: none; }
+        .row span:first-child { color: var(--muted); }
+        .row span:last-child { font-weight: 500; }
+        #map { height: 300px; border-radius: 0.75rem; margin-top: 1.5rem; }
+        .map-note { text-align: center; font-size: 0.75rem; color: var(--muted); margin-top: 0.5rem; }
+        .cta { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1.25rem; padding: 0.6rem 1.25rem; background: var(--accent); color: white; border-radius: 0.5rem; text-decoration: none; font-weight: 600; font-size: 0.85rem; }
+        .ev-link { display: inline-flex; align-items: center; gap: 0.4rem; margin-left: 0.75rem; padding: 0.6rem 1.25rem; background: var(--green); color: white; border-radius: 0.5rem; text-decoration: none; font-weight: 600; font-size: 0.85rem; }
+        .faq { margin-top: 1.5rem; }
+        .faq h2 { font-size: 1.1rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+        .faq h2 svg { width: 20px; height: 20px; color: var(--primary); }
+        .faq-item { background: var(--card); border-radius: 0.5rem; margin-bottom: 0.75rem; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        .faq-q { font-weight: 600; padding: 1rem 1.25rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; }
+        .faq-q:hover { background: #f8fafc; }
+        .faq-q svg { width: 16px; height: 16px; color: var(--muted); transition: transform 0.2s; }
+        .faq-item.open .faq-q svg { transform: rotate(180deg); }
+        .faq-a { padding: 0 1.25rem 1rem; font-size: 0.875rem; color: var(--muted); display: none; }
+        .faq-item.open .faq-a { display: block; }
+        
+        .related-section { background: var(--card); padding: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); text-align: center; border-radius: 1rem; margin: 1.5rem 0; }
+        .related-group { margin-bottom: 1.25rem; }
+        .related-group:last-child { margin-bottom: 0; }
+        .related-group h4 { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.75rem; font-weight: 600; }
+        .related-links { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+        .related-links a { background: var(--bg); padding: 0.5rem 0.875rem; border-radius: 0.5rem; text-decoration: none; color: var(--text); font-size: 0.85rem; border: 1px solid var(--border); }
+        .related-links a:hover { border-color: var(--primary); color: var(--primary); }
+        footer { text-align: center; padding: 2rem 1rem; color: var(--muted); font-size: 0.875rem; margin-top: 2rem; }
+        footer a { color: var(--primary); text-decoration: none; }
+    </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXC7PNTC4G"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-NXC7PNTC4G");</script></head>
+<body>
+    <header>
+        <div class="container header-inner">
+            <a href="/" class="logo"><img src="/assets/logo-header.png" alt="HowLongDrive"><span>HowLongDrive.uk</span></a>
+            <button class="hamburger" onclick="toggleMenu()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:24px;height:24px"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+            <div class="overlay" onclick="toggleMenu()"></div>
+            <nav id="nav">
+                <button class="close-btn" ><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:24px;height:24px"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+                <a href="/">Home</a>
+                <a href="/routes/">Routes</a>
+                <a href="/cities/">Cities</a>
+                <a href="/ev/" class="ev-badge">EV Trips</a>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <div class="breadcrumb"><a href="/">Home</a> / <a href="/routes/">Routes</a> / St Austell to Cardiff</div>
+        <div class="hero">
+            <h1><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9L18 10V6a2 2 0 00-2-2H8a2 2 0 00-2 2v4l-2.5 1.1C2.7 11.3 2 12.1 2 13v3c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg> St Austell to Cardiff</h1>
+            <p class="subtitle">via Interstate</p>
+            <div class="stats">
+                <div class="stat"><div class="stat-value">2h 5min</div><div class="stat-label">Drive Time</div></div>
+                <div class="stat"><div class="stat-value">106</div><div class="stat-label">Miles</div></div>
+                <div class="stat"><div class="stat-value">£12</div><div class="stat-label">Petrol Cost</div></div>
+                <div class="stat"><div class="stat-value">£3</div><div class="stat-label">Tolls</div></div>
+            </div>
+            <a href="/route/cardiff-to-st-austell/" class="cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M9 14l-4-4 4-4"/><path d="M5 10h11a4 4 0 110 8h-1"/></svg> Reverse</a>
+            <a href="/ev/st-austell-to-cardiff/" class="ev-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> EV Trip</a>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Trip Details</h3>
+                <div class="row"><span>Distance</span><span>106 miles (170 km)</span></div>
+                <div class="row"><span>Drive Time</span><span>2h 5min</span></div>
+                <div class="row"><span>Route</span><span>Interstate</span></div>
+                <div class="row"><span>Best Time</span><span>Weekday mid-day</span></div>
+            </div>
+            <div class="card">
+                <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 22V12a2 2 0 012-2h2a2 2 0 012 2v10M9 22V8a2 2 0 012-2h2a2 2 0 012 2v14M15 22V4a2 2 0 012-2h2a2 2 0 012 2v18"/></svg> Fuel Costs</h3>
+                <div class="row"><span>Petrol (40 mpg)</span><span>~3.5 litres</span></div>
+                <div class="row"><span>Est. Cost</span><span>£12</span></div>
+            </div>
+        </div>
+        <div id="map"></div>
+        
+        
+        <div class="faq">
+            <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> Frequently Asked Questions</h2>
+            <div class="faq-item open">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How long does it take to drive from St Austell to Cardiff?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+                <div class="faq-a">The drive from St Austell to Cardiff takes approximately <strong>2h 5min</strong> covering 106 miles via Interstate. Actual time may vary based on traffic, weather, and road conditions.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How much does petrol cost for St Austell to Cardiff?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+                <div class="faq-a">At 40 MPG and £1.40/litre, expect to spend approximately <strong>£12</strong> on petrol for this 106-mile trip. You'll need about 3.5 litres of fuel.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is the best time to drive from St Austell to Cardiff?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+                <div class="faq-a"><strong>Weekday mid-day</strong> to avoid heavy traffic. Weekday mornings before 7 AM or evenings after 7 PM typically have less congestion.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Are there tolls on the St Austell to Cardiff route?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+                <div class="faq-a">There may be minor tolls (around <strong>£3</strong>) on parts of this route. Some sections have toll-free alternatives.</div>
+            </div>
+        </div>
+    </div>
+    <div class="related-section"><h3 style="color: var(--primary); margin-bottom: 1.5rem; font-size: 1.1rem;">Related Routes</h3><div class="related-group"><h4>More from St Austell</h4><div class="related-links"><a href="/route/st-austell-to-bristol/">Bristol (2h 25min)</a><a href="/route/st-austell-to-southampton/">Southampton (3h 0min)</a><a href="/route/st-austell-to-birmingham/">Birmingham (3h 50min)</a><a href="/route/st-austell-to-london/">London (4h 20min)</a></div></div><div class="related-group"><h4>Routes to Cardiff</h4><div class="related-links"><a href="/route/london-to-cardiff/">From London (2h 45min)</a><a href="/route/birmingham-to-cardiff/">From Birmingham (1h 45min)</a><a href="/route/bristol-to-cardiff/">From Bristol (0h 50min)</a><a href="/route/swansea-to-cardiff/">From Swansea (0h 55min)</a></div></div><div class="related-group"><h4>Explore Cities</h4><div class="related-links">
+        <a href="/city/st-austell/">All routes from St Austell</a>
+        <a href="/city/cardiff/">All routes from Cardiff</a>
+    </div></div></div>
+    <footer><p>© 2026 <a href="/">HowLongDrive.uk</a></p></footer>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        function toggleMenu(){document.getElementById('nav').classList.toggle('active');document.querySelector('.overlay').classList.toggle('active');}
+        
+        var map = L.map('map').setView([50.9107, -3.9842], 7);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+        
+        var startIcon = L.divIcon({className:'',html:'<div style="background:#4B6E93;width:24px;height:24px;border-radius:50%;border:3px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3)"></div>',iconSize:[24,24],iconAnchor:[12,12]});
+        var endIcon = L.divIcon({className:'',html:'<div style="background:#EFA24F;width:24px;height:24px;border-radius:50%;border:3px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3)"></div>',iconSize:[24,24],iconAnchor:[12,12]});
+        
+        L.marker([50.3398, -4.7893], {icon: startIcon}).addTo(map).bindPopup('<b>St Austell</b><br>Start');
+        L.marker([51.4816, -3.1791], {icon: endIcon}).addTo(map).bindPopup('<b>Cardiff</b><br>Destination');
+        
+        var bounds = L.latLngBounds([[50.3398,-4.7893], [51.4816,-3.1791]]);
+        map.fitBounds(bounds, {padding: [40, 40]});
+    </script>
+</body>
+</html>

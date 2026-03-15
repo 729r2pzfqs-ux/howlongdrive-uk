@@ -157,7 +157,7 @@
     <script>
         function toggleMenu(){document.getElementById('nav').classList.toggle('active');document.querySelector('.overlay').classList.toggle('active');}
         
-        var map = L.map('map').setView([53.5839, -1.4543], 7);
+        var map = L.map('map').setView([53.5843, -1.4569], 7);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap'
         }).addTo(map);
@@ -166,9 +166,9 @@
         var endIcon = L.divIcon({className:'',html:'<div style="background:#EFA24F;width:24px;height:24px;border-radius:50%;border:3px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3)"></div>',iconSize:[24,24],iconAnchor:[12,12]});
         
         L.marker([53.5228, -1.1288], {icon: startIcon}).addTo(map).bindPopup('<b>Doncaster</b><br>Start');
-        L.marker([53.645, -1.7798], {icon: endIcon}).addTo(map).bindPopup('<b>Huddersfield</b><br>Destination');
+        L.marker([53.6458, -1.785], {icon: endIcon}).addTo(map).bindPopup('<b>Huddersfield</b><br>Destination');
         
-        var bounds = L.latLngBounds([[53.5228,-1.1288], [53.645,-1.7798]]);
+        var bounds = L.latLngBounds([[53.5228,-1.1288], [53.6458,-1.785]]);
         map.fitBounds(bounds, {padding: [40, 40]});
     </script>
 </body>
