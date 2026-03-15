@@ -165,6 +165,7 @@ template = '''<!DOCTYPE html>
                 <a href="/">Home</a>
                 <a href="/routes/">Routes</a>
                 <a href="/cities/">Cities</a>
+                <a href="/guides/">Guides</a>
                 <a href="/ev/" class="ev-badge">⚡ EV Trips</a>
             </nav>
         </div>
