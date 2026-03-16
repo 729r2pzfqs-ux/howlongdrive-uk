@@ -3,301 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UK Driving Routes | HowLongDrive.uk</title>
-    <meta name="description" content="Browse 7598 UK driving routes. Road trips, regional drives, and commutes.">
+    <title>Driving Routes & Road Trips UK | HowLongDrive</title>
+    <meta name="description" content="Find driving times for 7,692+ routes across the UK. Calculate drive time, fuel costs, and plan road trips.">
     <link rel="canonical" href="https://howlongdrive.uk/routes/">
-    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <style>
-        :root {
-            --primary: #4B6E93;
-            --primary-dark: #3a5775;
-            --accent: #10B981;
-            --bg: #f8fafc;
-            --card: #ffffff;
-            --text: #1e293b;
-            --muted: #64748b;
-            --border: #e2e8f0;
-        }
+        :root { --primary: #4B6E93; --green: #10B981; --bg: #f8fafc; --card: #fff; --text: #1e293b; --muted: #64748b; --border: #e2e8f0; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        body { font-family: system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
         .container { max-width: 1100px; margin: 0 auto; padding: 0 1rem; }
-        
         header { background: var(--card); border-bottom: 1px solid var(--border); padding: 0.25rem 0; }
         .header-inner { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-weight: 700; font-size: 1.5rem; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 0.75rem; }
-        .logo img { height: 180px; width: auto; }
-        .logo span { font-weight: 700; }
-        nav { display: flex; align-items: center; gap: 1.5rem; }
+        .logo img { height: 180px; }
+        nav { display: flex; gap: 1.5rem; }
         nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; }
-        nav a:hover { color: var(--primary); }
-        .ev-badge { background: var(--accent); color: white !important; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 600; }
-        .close-btn { display: none; }
-        .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
-        .hamburger svg { width: 24px; height: 24px; color: var(--text); }
-        .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 999; }
-        .overlay.active { display: block; }
-        
-        @media (max-width: 768px) {
-            .logo img { height: 70px; }
-            .logo span { display: none; }
-            nav { position: fixed; top: 0; right: -100%; width: 250px; height: 100vh; background: var(--card); flex-direction: column; justify-content: flex-start; padding: 5rem 2rem 2rem; box-shadow: -4px 0 20px rgba(0,0,0,0.1); transition: right 0.3s; z-index: 1000; }
-            nav.active { right: 0; }
-            nav a { font-size: 1.1rem; padding: 0.25rem 0; border-bottom: 1px solid var(--border); width: 100%; }
-            .hamburger { display: block; z-index: 1001; }
-            .close-btn { display: block; position: absolute; top: 1rem; right: 1rem; background: none; border: none; cursor: pointer; padding: 0.5rem; }
-            .close-btn svg { width: 24px; height: 24px; }
-        }
-        
-        .hero-section { text-align: center; padding: 3rem 1rem 2rem; }
-        h1 { font-size: 2rem; margin-bottom: 0.5rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
-        .subtitle { color: var(--muted); margin-bottom: 2rem; font-size: 1.1rem; }
-        .stats { display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
-        .stat { text-align: center; }
-        .stat-value { font-size: 1.75rem; font-weight: 700; color: var(--primary); }
+        .ev-badge { background: var(--green); color: #fff; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem; }
+        @media (max-width: 768px) { .logo img { height: 144px; } nav { display: none; } }
+        h1 { font-size: 2rem; margin: 2rem 0 0.5rem; display: flex; align-items: center; gap: 0.75rem; }
+        h1 svg { width: 32px; height: 32px; color: var(--primary); }
+        .subtitle { color: var(--muted); margin-bottom: 1.5rem; }
+        .stats { display: flex; gap: 2rem; margin: 1rem 0 2rem; flex-wrap: wrap; }
+        .stat-value { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
         .stat-label { font-size: 0.8rem; color: var(--muted); }
-        .search-box { max-width: 500px; margin: 0 auto 2rem; }
-        .search-box input { width: 100%; padding: 0.875rem 1rem; border: 2px solid var(--border); border-radius: 0.5rem; font-size: 1rem; }
-        .search-box input:focus { outline: none; border-color: var(--primary); }
         .section { margin-bottom: 2.5rem; }
-        .section h2 { font-size: 1.25rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; color: var(--text); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
-        .card { background: var(--card); padding: 1.25rem; border-radius: 0.75rem; border: 1px solid var(--border); text-decoration: none; color: var(--text); transition: box-shadow 0.2s; }
-        .card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-        .card h3 { font-size: 1rem; margin-bottom: 0.25rem; color: var(--primary); }
-        .card .meta { font-size: 0.85rem; color: var(--muted); }
-        .hidden { display: none !important; }
-        footer { background: var(--card); border-top: 1px solid var(--border); text-align: center; padding: 2rem; color: var(--muted); font-size: 0.875rem; margin-top: 3rem; }
-        footer a { color: var(--primary); text-decoration: none; }
+        .section h2 { font-size: 1.1rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+        .section h2 svg { width: 20px; height: 20px; color: var(--primary); }
+        .routes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0.75rem; }
+        .route-card { background: var(--card); border-radius: 0.5rem; padding: 1rem; text-decoration: none; color: inherit; border: 1px solid var(--border); }
+        .route-card:hover { border-color: var(--primary); }
+        .route-title { font-weight: 600; font-size: 0.95rem; }
+        .route-meta { color: var(--muted); font-size: 0.8rem; margin-top: 0.25rem; }
+        footer { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.875rem; }
     </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0YGF4HPVJ3"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-0YGF4HPVJ3")</script>
 </head>
 <body>
-    <header>
-        <div class="container header-inner">
-            <a href="/" class="logo">
-                <img src="/assets/logo-header.png" alt="HowLongDrive UK">
-                
-            </a>
-            <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
-            </button>
-            <div class="overlay" onclick="toggleMenu()"></div>
-            <nav id="nav">
-                <button class="close-btn" onclick="toggleMenu()" aria-label="Close">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-                </button>
-                <a href="/">Home</a>
-                <a href="/routes/">Routes</a>
-                <a href="/cities/">Cities</a>
-                <a href="/guides/">Guides</a>
-                <a href="/about/">About</a>
-                <a href="/ev/" class="ev-badge">⚡ EV Trips</a>
-            </nav>
+    <header><div class="container header-inner">
+        <a href="/" class="logo"><img src="/assets/logo-header.png" alt="HowLongDrive"></a>
+        <nav><a href="/">Home</a><a href="/routes/">Routes</a><a href="/cities/">Cities</a><a href="/guides/">Guides</a><a href="/ev/" class="ev-badge">⚡ EV Trips</a><a href="/about/">About</a></nav>
+    </div></header>
+    <main class="container">
+        <h1><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Driving Routes</h1>
+        <p class="subtitle">Find driving times and distances for 7,692+ routes across the UK</p>
+        <div class="stats">
+            <div class="stat"><div class="stat-value">7,692</div><div class="stat-label">Routes</div></div>
+            <div class="stat"><div class="stat-value">7,692</div><div class="stat-label">EV Routes</div></div>
+            <div class="stat"><div class="stat-value">213</div><div class="stat-label">Cities</div></div>
         </div>
-    </header>
-
-    <div class="container">
-        <div class="hero-section">
-            <h1><svg style="width:28px;height:28px;vertical-align:middle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9L18 10V6a2 2 0 00-2-2H8a2 2 0 00-2 2v4l-2.5 1.1C2.7 11.3 2 12.1 2 13v3c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg> UK Driving Routes</h1>
-            <p class="subtitle">Browse 7598 routes across the United Kingdom</p>
-            
-            <div class="stats">
-                <div class="stat"><div class="stat-value">597</div><div class="stat-label">Road Trips</div></div>
-                <div class="stat"><div class="stat-value">3201</div><div class="stat-label">Regional</div></div>
-                <div class="stat"><div class="stat-value">3948</div><div class="stat-label">Commutes</div></div>
-            </div>
-            
-            <div class="search-box">
-                <input type="text" id="search" placeholder="Search routes..." oninput="filterRoutes()">
-            </div>
-        </div>
-        
         <div class="section">
-            <h2><svg style="width:24px;height:24px;vertical-align:middle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19L8 5M16 5l4 14M12 5v14M9 5h6M7 19h10"/></svg> Road Trips (150+ miles)</h2>
-            <div class="grid">
-                <a href="/route/london-to-isle-of-skye/" class="card" data-search="London Isle of Skye"><h3>London → Isle of Skye</h3><div class="meta">10h 0min · 580 miles</div></a>
-                <a href="/route/isle-of-skye-to-london/" class="card" data-search="Isle of Skye London"><h3>Isle of Skye → London</h3><div class="meta">10h 0min · 580 miles</div></a>
-                <a href="/route/london-to-scottish-highlands/" class="card" data-search="London Scottish Highlands"><h3>London → Scottish Highlands</h3><div class="meta">9h 0min · 520 miles</div></a>
-                <a href="/route/scottish-highlands-to-london/" class="card" data-search="Scottish Highlands London"><h3>Scottish Highlands → London</h3><div class="meta">9h 0min · 520 miles</div></a>
-                <a href="/route/london-to-loch-ness/" class="card" data-search="London Loch Ness"><h3>London → Loch Ness</h3><div class="meta">8h 30min · 480 miles</div></a>
-                <a href="/route/loch-ness-to-london/" class="card" data-search="Loch Ness London"><h3>Loch Ness → London</h3><div class="meta">8h 30min · 480 miles</div></a>
-                <a href="/route/london-to-edinburgh/" class="card" data-search="London Edinburgh"><h3>London → Edinburgh</h3><div class="meta">7h 0min · 410 miles</div></a>
-                <a href="/route/edinburgh-to-london/" class="card" data-search="Edinburgh London"><h3>Edinburgh → London</h3><div class="meta">7h 0min · 410 miles</div></a>
-                <a href="/route/london-to-glasgow/" class="card" data-search="London Glasgow"><h3>London → Glasgow</h3><div class="meta">6h 45min · 400 miles</div></a>
-                <a href="/route/glasgow-to-london/" class="card" data-search="Glasgow London"><h3>Glasgow → London</h3><div class="meta">6h 45min · 400 miles</div></a>
-                <a href="/route/isle-of-skye-to-sheffield/" class="card" data-search="Isle of Skye Sheffield"><h3>Isle of Skye → Sheffield</h3><div class="meta">6h 30min · 327 miles</div></a>
-                <a href="/route/sheffield-to-isle-of-skye/" class="card" data-search="Sheffield Isle of Skye"><h3>Sheffield → Isle of Skye</h3><div class="meta">6h 30min · 327 miles</div></a>
-                <a href="/route/isle-of-skye-to-manchester/" class="card" data-search="Isle of Skye Manchester"><h3>Isle of Skye → Manchester</h3><div class="meta">6h 5min · 305 miles</div></a>
-                <a href="/route/manchester-to-isle-of-skye/" class="card" data-search="Manchester Isle of Skye"><h3>Manchester → Isle of Skye</h3><div class="meta">6h 5min · 305 miles</div></a>
-                <a href="/route/inverness-airport-to-sheffield/" class="card" data-search="Inverness Airport Sheffield"><h3>Inverness Airport → Sheffield</h3><div class="meta">6h 5min · 305 miles</div></a>
-                <a href="/route/sheffield-to-inverness-airport/" class="card" data-search="Sheffield Inverness Airport"><h3>Sheffield → Inverness Airport</h3><div class="meta">6h 5min · 305 miles</div></a>
-                <a href="/route/inverness-to-sheffield/" class="card" data-search="Inverness Sheffield"><h3>Inverness → Sheffield</h3><div class="meta">6h 0min · 303 miles</div></a>
-                <a href="/route/sheffield-to-inverness/" class="card" data-search="Sheffield Inverness"><h3>Sheffield → Inverness</h3><div class="meta">6h 0min · 303 miles</div></a>
-                <a href="/route/isle-of-skye-to-leeds/" class="card" data-search="Isle of Skye Leeds"><h3>Isle of Skye → Leeds</h3><div class="meta">6h 0min · 301 miles</div></a>
-                <a href="/route/leeds-to-isle-of-skye/" class="card" data-search="Leeds Isle of Skye"><h3>Leeds → Isle of Skye</h3><div class="meta">6h 0min · 301 miles</div></a>
-                <a href="/route/london-to-hadrian's-wall/" class="card" data-search="London Hadrian's Wall"><h3>London → Hadrian's Wall</h3><div class="meta">5h 30min · 300 miles</div></a>
-                <a href="/route/hadrian's-wall-to-london/" class="card" data-search="Hadrian's Wall London"><h3>Hadrian's Wall → London</h3><div class="meta">5h 30min · 300 miles</div></a>
-                <a href="/route/loch-ness-to-sheffield/" class="card" data-search="Loch Ness Sheffield"><h3>Loch Ness → Sheffield</h3><div class="meta">5h 55min · 296 miles</div></a>
-                <a href="/route/sheffield-to-loch-ness/" class="card" data-search="Sheffield Loch Ness"><h3>Sheffield → Loch Ness</h3><div class="meta">5h 55min · 296 miles</div></a>
-                <a href="/route/isle-of-skye-to-liverpool/" class="card" data-search="Isle of Skye Liverpool"><h3>Isle of Skye → Liverpool</h3><div class="meta">5h 55min · 296 miles</div></a>
-                <a href="/route/liverpool-to-isle-of-skye/" class="card" data-search="Liverpool Isle of Skye"><h3>Liverpool → Isle of Skye</h3><div class="meta">5h 55min · 296 miles</div></a>
-                <a href="/route/london-to-sunderland/" class="card" data-search="London Sunderland"><h3>London → Sunderland</h3><div class="meta">5h 15min · 290 miles</div></a>
-                <a href="/route/inverness-airport-to-manchester/" class="card" data-search="Inverness Airport Manchester"><h3>Inverness Airport → Manchester</h3><div class="meta">5h 45min · 289 miles</div></a>
-                <a href="/route/manchester-to-inverness-airport/" class="card" data-search="Manchester Inverness Airport"><h3>Manchester → Inverness Airport</h3><div class="meta">5h 45min · 289 miles</div></a>
-                <a href="/route/inverness-airport-to-liverpool/" class="card" data-search="Inverness Airport Liverpool"><h3>Inverness Airport → Liverpool</h3><div class="meta">5h 45min · 289 miles</div></a>
-                <a href="/route/liverpool-to-inverness-airport/" class="card" data-search="Liverpool Inverness Airport"><h3>Liverpool → Inverness Airport</h3><div class="meta">5h 45min · 289 miles</div></a>
-                <a href="/route/scottish-highlands-to-sheffield/" class="card" data-search="Scottish Highlands Sheffield"><h3>Scottish Highlands → Sheffield</h3><div class="meta">5h 45min · 288 miles</div></a>
-                <a href="/route/sheffield-to-scottish-highlands/" class="card" data-search="Sheffield Scottish Highlands"><h3>Sheffield → Scottish Highlands</h3><div class="meta">5h 45min · 288 miles</div></a>
-                <a href="/route/inverness-to-manchester/" class="card" data-search="Inverness Manchester"><h3>Inverness → Manchester</h3><div class="meta">5h 40min · 287 miles</div></a>
-                <a href="/route/manchester-to-inverness/" class="card" data-search="Manchester Inverness"><h3>Manchester → Inverness</h3><div class="meta">5h 40min · 287 miles</div></a>
-                <a href="/route/inverness-to-liverpool/" class="card" data-search="Inverness Liverpool"><h3>Inverness → Liverpool</h3><div class="meta">5h 40min · 285 miles</div></a>
-                <a href="/route/liverpool-to-inverness/" class="card" data-search="Liverpool Inverness"><h3>Liverpool → Inverness</h3><div class="meta">5h 40min · 285 miles</div></a>
-                <a href="/route/london-to-newcastle/" class="card" data-search="London Newcastle"><h3>London → Newcastle</h3><div class="meta">5h 0min · 280 miles</div></a>
-                <a href="/route/newcastle-to-london/" class="card" data-search="Newcastle London"><h3>Newcastle → London</h3><div class="meta">5h 0min · 280 miles</div></a>
-                <a href="/route/loch-ness-to-manchester/" class="card" data-search="Loch Ness Manchester"><h3>Loch Ness → Manchester</h3><div class="meta">5h 30min · 279 miles</div></a>
-                <a href="/route/manchester-to-loch-ness/" class="card" data-search="Manchester Loch Ness"><h3>Manchester → Loch Ness</h3><div class="meta">5h 30min · 279 miles</div></a>
-                <a href="/route/loch-ness-to-liverpool/" class="card" data-search="Loch Ness Liverpool"><h3>Loch Ness → Liverpool</h3><div class="meta">5h 30min · 276 miles</div></a>
-                <a href="/route/liverpool-to-loch-ness/" class="card" data-search="Liverpool Loch Ness"><h3>Liverpool → Loch Ness</h3><div class="meta">5h 30min · 276 miles</div></a>
-                <a href="/route/inverness-airport-to-leeds/" class="card" data-search="Inverness Airport Leeds"><h3>Inverness Airport → Leeds</h3><div class="meta">5h 30min · 276 miles</div></a>
-                <a href="/route/leeds-to-inverness-airport/" class="card" data-search="Leeds Inverness Airport"><h3>Leeds → Inverness Airport</h3><div class="meta">5h 30min · 276 miles</div></a>
-                <a href="/route/inverness-to-leeds/" class="card" data-search="Inverness Leeds"><h3>Inverness → Leeds</h3><div class="meta">5h 30min · 275 miles</div></a>
-                <a href="/route/leeds-to-inverness/" class="card" data-search="Leeds Inverness"><h3>Leeds → Inverness</h3><div class="meta">5h 30min · 275 miles</div></a>
-                <a href="/route/penzance-to-manchester/" class="card" data-search="Penzance Manchester"><h3>Penzance → Manchester</h3><div class="meta">5h 25min · 272 miles</div></a>
-                <a href="/route/manchester-to-penzance/" class="card" data-search="Manchester Penzance"><h3>Manchester → Penzance</h3><div class="meta">5h 25min · 272 miles</div></a>
-                <a href="/route/london-to-lake-district/" class="card" data-search="London Lake District"><h3>London → Lake District</h3><div class="meta">5h 0min · 270 miles</div></a>
+            <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> Popular Routes</h2>
+            <div class="routes-grid">
+                <a href="/route/london-to-manchester/" class="route-card">
+                    <div class="route-title">London → Manchester</div>
+                    <div class="route-meta">4h • 200 mi</div>
+                </a>
+                <a href="/route/london-to-edinburgh/" class="route-card">
+                    <div class="route-title">London → Edinburgh</div>
+                    <div class="route-meta">7h • 400 mi</div>
+                </a>
+                <a href="/route/london-to-birmingham/" class="route-card">
+                    <div class="route-title">London → Birmingham</div>
+                    <div class="route-meta">2h • 120 mi</div>
+                </a>
+                <a href="/route/manchester-to-liverpool/" class="route-card">
+                    <div class="route-title">Manchester → Liverpool</div>
+                    <div class="route-meta">1h • 35 mi</div>
+                </a>
+                <a href="/route/london-to-bristol/" class="route-card">
+                    <div class="route-title">London → Bristol</div>
+                    <div class="route-meta">2h • 120 mi</div>
+                </a>
+                <a href="/route/london-to-brighton/" class="route-card">
+                    <div class="route-title">London → Brighton</div>
+                    <div class="route-meta">1h 30m • 55 mi</div>
+                </a>
+                <a href="/route/london-to-cambridge/" class="route-card">
+                    <div class="route-title">London → Cambridge</div>
+                    <div class="route-meta">1h 30m • 60 mi</div>
+                </a>
+                <a href="/route/london-to-oxford/" class="route-card">
+                    <div class="route-title">London → Oxford</div>
+                    <div class="route-meta">1h 30m • 60 mi</div>
+                </a>
+                <a href="/route/birmingham-to-manchester/" class="route-card">
+                    <div class="route-title">Birmingham → Manchester</div>
+                    <div class="route-meta">1h 30m • 85 mi</div>
+                </a>
+                <a href="/route/edinburgh-to-glasgow/" class="route-card">
+                    <div class="route-title">Edinburgh → Glasgow</div>
+                    <div class="route-meta">1h • 45 mi</div>
+                </a>
             </div>
         </div>
-        
-        <div class="section">
-            <h2><svg style="width:24px;height:24px;vertical-align:middle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1,6 1,22 8,18 16,22 23,18 23,2 16,6 8,2 1,6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg> Regional (50-150 miles)</h2>
-            <div class="grid">
-                <a href="/route/swansea-to-nottingham/" class="card" data-search="Swansea Nottingham"><h3>Swansea → Nottingham</h3><div class="meta">2h 55min · 149 miles</div></a>
-                <a href="/route/nottingham-to-swansea/" class="card" data-search="Nottingham Swansea"><h3>Nottingham → Swansea</h3><div class="meta">2h 55min · 149 miles</div></a>
-                <a href="/route/basildon-to-sheffield/" class="card" data-search="Basildon Sheffield"><h3>Basildon → Sheffield</h3><div class="meta">2h 55min · 149 miles</div></a>
-                <a href="/route/sheffield-to-basildon/" class="card" data-search="Sheffield Basildon"><h3>Sheffield → Basildon</h3><div class="meta">2h 55min · 149 miles</div></a>
-                <a href="/route/hadrian's-wall-to-belfast/" class="card" data-search="Hadrian's Wall Belfast"><h3>Hadrian's Wall → Belfast</h3><div class="meta">2h 55min · 149 miles</div></a>
-                <a href="/route/belfast-to-hadrian's-wall/" class="card" data-search="Belfast Hadrian's Wall"><h3>Belfast → Hadrian's Wall</h3><div class="meta">2h 55min · 149 miles</div></a>
-                <a href="/route/belfast-international-to-edinburgh/" class="card" data-search="Belfast International Edinburgh"><h3>Belfast International → Edinburgh</h3><div class="meta">2h 55min · 149 miles</div></a>
-                <a href="/route/edinburgh-to-belfast-international/" class="card" data-search="Edinburgh Belfast International"><h3>Edinburgh → Belfast International</h3><div class="meta">2h 55min · 149 miles</div></a>
-                <a href="/route/portsmouth-to-nottingham/" class="card" data-search="Portsmouth Nottingham"><h3>Portsmouth → Nottingham</h3><div class="meta">2h 55min · 148 miles</div></a>
-                <a href="/route/nottingham-to-portsmouth/" class="card" data-search="Nottingham Portsmouth"><h3>Nottingham → Portsmouth</h3><div class="meta">2h 55min · 148 miles</div></a>
-                <a href="/route/woking-to-sheffield/" class="card" data-search="Woking Sheffield"><h3>Woking → Sheffield</h3><div class="meta">2h 55min · 148 miles</div></a>
-                <a href="/route/sheffield-to-woking/" class="card" data-search="Sheffield Woking"><h3>Sheffield → Woking</h3><div class="meta">2h 55min · 148 miles</div></a>
-                <a href="/route/swansea-to-manchester/" class="card" data-search="Swansea Manchester"><h3>Swansea → Manchester</h3><div class="meta">2h 55min · 147 miles</div></a>
-                <a href="/route/manchester-to-swansea/" class="card" data-search="Manchester Swansea"><h3>Manchester → Swansea</h3><div class="meta">2h 55min · 147 miles</div></a>
-                <a href="/route/dover-to-leicester/" class="card" data-search="Dover Leicester"><h3>Dover → Leicester</h3><div class="meta">2h 55min · 147 miles</div></a>
-                <a href="/route/leicester-to-dover/" class="card" data-search="Leicester Dover"><h3>Leicester → Dover</h3><div class="meta">2h 55min · 147 miles</div></a>
-                <a href="/route/basingstoke-to-sheffield/" class="card" data-search="Basingstoke Sheffield"><h3>Basingstoke → Sheffield</h3><div class="meta">2h 55min · 147 miles</div></a>
-                <a href="/route/sheffield-to-basingstoke/" class="card" data-search="Sheffield Basingstoke"><h3>Sheffield → Basingstoke</h3><div class="meta">2h 55min · 147 miles</div></a>
-                <a href="/route/isle-of-skye-to-edinburgh/" class="card" data-search="Isle of Skye Edinburgh"><h3>Isle of Skye → Edinburgh</h3><div class="meta">2h 55min · 147 miles</div></a>
-                <a href="/route/edinburgh-to-isle-of-skye/" class="card" data-search="Edinburgh Isle of Skye"><h3>Edinburgh → Isle of Skye</h3><div class="meta">2h 55min · 147 miles</div></a>
-                <a href="/route/folkestone-to-leicester/" class="card" data-search="Folkestone Leicester"><h3>Folkestone → Leicester</h3><div class="meta">2h 55min · 146 miles</div></a>
-                <a href="/route/leicester-to-folkestone/" class="card" data-search="Leicester Folkestone"><h3>Leicester → Folkestone</h3><div class="meta">2h 55min · 146 miles</div></a>
-                <a href="/route/manchester-to-newcastle/" class="card" data-search="Manchester Newcastle"><h3>Manchester → Newcastle</h3><div class="meta">2h 45min · 145 miles</div></a>
-                <a href="/route/glasgow-to-aberdeen/" class="card" data-search="Glasgow Aberdeen"><h3>Glasgow → Aberdeen</h3><div class="meta">2h 45min · 145 miles</div></a>
-                <a href="/route/newcastle-to-manchester/" class="card" data-search="Newcastle Manchester"><h3>Newcastle → Manchester</h3><div class="meta">2h 45min · 145 miles</div></a>
-                <a href="/route/aberdeen-to-glasgow/" class="card" data-search="Aberdeen Glasgow"><h3>Aberdeen → Glasgow</h3><div class="meta">2h 45min · 145 miles</div></a>
-                <a href="/route/dumfries-to-sheffield/" class="card" data-search="Dumfries Sheffield"><h3>Dumfries → Sheffield</h3><div class="meta">2h 50min · 145 miles</div></a>
-                <a href="/route/sheffield-to-dumfries/" class="card" data-search="Sheffield Dumfries"><h3>Sheffield → Dumfries</h3><div class="meta">2h 50min · 145 miles</div></a>
-                <a href="/route/carmarthen-to-leicester/" class="card" data-search="Carmarthen Leicester"><h3>Carmarthen → Leicester</h3><div class="meta">2h 50min · 145 miles</div></a>
-                <a href="/route/leicester-to-carmarthen/" class="card" data-search="Leicester Carmarthen"><h3>Leicester → Carmarthen</h3><div class="meta">2h 50min · 145 miles</div></a>
-                <a href="/route/titanic-belfast-to-liverpool/" class="card" data-search="Titanic Belfast Liverpool"><h3>Titanic Belfast → Liverpool</h3><div class="meta">2h 50min · 145 miles</div></a>
-                <a href="/route/liverpool-to-titanic-belfast/" class="card" data-search="Liverpool Titanic Belfast"><h3>Liverpool → Titanic Belfast</h3><div class="meta">2h 50min · 145 miles</div></a>
-                <a href="/route/london-city-airport-to-sheffield/" class="card" data-search="London City Airport Sheffield"><h3>London City Airport → Sheffield</h3><div class="meta">2h 50min · 145 miles</div></a>
-                <a href="/route/sheffield-to-london-city-airport/" class="card" data-search="Sheffield London City Airport"><h3>Sheffield → London City Airport</h3><div class="meta">2h 50min · 145 miles</div></a>
-                <a href="/route/cardiff-to-manchester/" class="card" data-search="Cardiff Manchester"><h3>Cardiff → Manchester</h3><div class="meta">2h 50min · 144 miles</div></a>
-                <a href="/route/manchester-to-cardiff/" class="card" data-search="Manchester Cardiff"><h3>Manchester → Cardiff</h3><div class="meta">2h 50min · 144 miles</div></a>
-                <a href="/route/belfast-city-airport-to-liverpool/" class="card" data-search="Belfast City Airport Liverpool"><h3>Belfast City Airport → Liverpool</h3><div class="meta">2h 50min · 144 miles</div></a>
-                <a href="/route/liverpool-to-belfast-city-airport/" class="card" data-search="Liverpool Belfast City Airport"><h3>Liverpool → Belfast City Airport</h3><div class="meta">2h 50min · 144 miles</div></a>
-                <a href="/route/bath-to-liverpool/" class="card" data-search="Bath Liverpool"><h3>Bath → Liverpool</h3><div class="meta">2h 50min · 143 miles</div></a>
-                <a href="/route/liverpool-to-bath/" class="card" data-search="Liverpool Bath"><h3>Liverpool → Bath</h3><div class="meta">2h 50min · 143 miles</div></a>
-                <a href="/route/norwich-to-leeds/" class="card" data-search="Norwich Leeds"><h3>Norwich → Leeds</h3><div class="meta">2h 50min · 143 miles</div></a>
-                <a href="/route/leeds-to-norwich/" class="card" data-search="Leeds Norwich"><h3>Leeds → Norwich</h3><div class="meta">2h 50min · 143 miles</div></a>
-                <a href="/route/ipswich-to-sheffield/" class="card" data-search="Ipswich Sheffield"><h3>Ipswich → Sheffield</h3><div class="meta">2h 50min · 143 miles</div></a>
-                <a href="/route/sheffield-to-ipswich/" class="card" data-search="Sheffield Ipswich"><h3>Sheffield → Ipswich</h3><div class="meta">2h 50min · 143 miles</div></a>
-                <a href="/route/eastbourne-to-leicester/" class="card" data-search="Eastbourne Leicester"><h3>Eastbourne → Leicester</h3><div class="meta">2h 50min · 143 miles</div></a>
-                <a href="/route/leicester-to-eastbourne/" class="card" data-search="Leicester Eastbourne"><h3>Leicester → Eastbourne</h3><div class="meta">2h 50min · 143 miles</div></a>
-                <a href="/route/hastings-to-bristol/" class="card" data-search="Hastings Bristol"><h3>Hastings → Bristol</h3><div class="meta">2h 50min · 143 miles</div></a>
-                <a href="/route/bristol-to-hastings/" class="card" data-search="Bristol Hastings"><h3>Bristol → Hastings</h3><div class="meta">2h 50min · 143 miles</div></a>
-                <a href="/route/hastings-to-leicester/" class="card" data-search="Hastings Leicester"><h3>Hastings → Leicester</h3><div class="meta">2h 50min · 143 miles</div></a>
-                <a href="/route/leicester-to-hastings/" class="card" data-search="Leicester Hastings"><h3>Leicester → Hastings</h3><div class="meta">2h 50min · 143 miles</div></a>
-            </div>
-        </div>
-        
-        <div class="section">
-            <h2><svg style="width:24px;height:24px;vertical-align:middle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg> Commutes (under 50 miles)</h2>
-            <div class="grid">
-                <a href="/route/wigan-to-sheffield/" class="card" data-search="Wigan Sheffield"><h3>Wigan → Sheffield</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/sheffield-to-wigan/" class="card" data-search="Sheffield Wigan"><h3>Sheffield → Wigan</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/shrewsbury-to-liverpool/" class="card" data-search="Shrewsbury Liverpool"><h3>Shrewsbury → Liverpool</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/liverpool-to-shrewsbury/" class="card" data-search="Liverpool Shrewsbury"><h3>Liverpool → Shrewsbury</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/blackburn-to-sheffield/" class="card" data-search="Blackburn Sheffield"><h3>Blackburn → Sheffield</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/sheffield-to-blackburn/" class="card" data-search="Sheffield Blackburn"><h3>Sheffield → Blackburn</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/leamington-spa-to-nottingham/" class="card" data-search="Leamington Spa Nottingham"><h3>Leamington Spa → Nottingham</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/nottingham-to-leamington-spa/" class="card" data-search="Nottingham Leamington Spa"><h3>Nottingham → Leamington Spa</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/mansfield-to-manchester/" class="card" data-search="Mansfield Manchester"><h3>Mansfield → Manchester</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/manchester-to-mansfield/" class="card" data-search="Manchester Mansfield"><h3>Manchester → Mansfield</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/bangor-to-liverpool/" class="card" data-search="Bangor Liverpool"><h3>Bangor → Liverpool</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/liverpool-to-bangor/" class="card" data-search="Liverpool Bangor"><h3>Liverpool → Bangor</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/brighton-to-bracknell/" class="card" data-search="Brighton Bracknell"><h3>Brighton → Bracknell</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/bracknell-to-brighton/" class="card" data-search="Bracknell Brighton"><h3>Bracknell → Brighton</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/plymouth-to-barnstaple/" class="card" data-search="Plymouth Barnstaple"><h3>Plymouth → Barnstaple</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/barnstaple-to-plymouth/" class="card" data-search="Barnstaple Plymouth"><h3>Barnstaple → Plymouth</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/cambridge-to-british-museum/" class="card" data-search="Cambridge British Museum"><h3>Cambridge → British Museum</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/british-museum-to-cambridge/" class="card" data-search="British Museum Cambridge"><h3>British Museum → Cambridge</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/cambridge-to-tower-of-london/" class="card" data-search="Cambridge Tower of London"><h3>Cambridge → Tower of London</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/tower-of-london-to-cambridge/" class="card" data-search="Tower of London Cambridge"><h3>Tower of London → Cambridge</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/york-to-burnley/" class="card" data-search="York Burnley"><h3>York → Burnley</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/burnley-to-york/" class="card" data-search="Burnley York"><h3>Burnley → York</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/york-to-grimsby/" class="card" data-search="York Grimsby"><h3>York → Grimsby</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/grimsby-to-york/" class="card" data-search="Grimsby York"><h3>Grimsby → York</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/bath-to-hereford/" class="card" data-search="Bath Hereford"><h3>Bath → Hereford</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/hereford-to-bath/" class="card" data-search="Hereford Bath"><h3>Hereford → Bath</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/bath-to-poole/" class="card" data-search="Bath Poole"><h3>Bath → Poole</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/poole-to-bath/" class="card" data-search="Poole Bath"><h3>Poole → Bath</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/wolverhampton-to-chatsworth-house/" class="card" data-search="Wolverhampton Chatsworth House"><h3>Wolverhampton → Chatsworth House</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/chatsworth-house-to-wolverhampton/" class="card" data-search="Chatsworth House Wolverhampton"><h3>Chatsworth House → Wolverhampton</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/stoke-on-trent-to-redditch/" class="card" data-search="Stoke-on-Trent Redditch"><h3>Stoke-on-Trent → Redditch</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/redditch-to-stoke-on-trent/" class="card" data-search="Redditch Stoke-on-Trent"><h3>Redditch → Stoke-on-Trent</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/derby-to-kidderminster/" class="card" data-search="Derby Kidderminster"><h3>Derby → Kidderminster</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/kidderminster-to-derby/" class="card" data-search="Kidderminster Derby"><h3>Kidderminster → Derby</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/luton-to-rugby/" class="card" data-search="Luton Rugby"><h3>Luton → Rugby</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/rugby-to-luton/" class="card" data-search="Rugby Luton"><h3>Rugby → Luton</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/northampton-to-cotswolds/" class="card" data-search="Northampton Cotswolds"><h3>Northampton → Cotswolds</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/cotswolds-to-northampton/" class="card" data-search="Cotswolds Northampton"><h3>Cotswolds → Northampton</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/swindon-to-legoland-windsor/" class="card" data-search="Swindon Legoland Windsor"><h3>Swindon → Legoland Windsor</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/legoland-windsor-to-swindon/" class="card" data-search="Legoland Windsor Swindon"><h3>Legoland Windsor → Swindon</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/ipswich-to-harlow/" class="card" data-search="Ipswich Harlow"><h3>Ipswich → Harlow</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/harlow-to-ipswich/" class="card" data-search="Harlow Ipswich"><h3>Harlow → Ipswich</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/peterborough-to-east-midlands-airport/" class="card" data-search="Peterborough East Midlands Airport"><h3>Peterborough → East Midlands Airport</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/east-midlands-airport-to-peterborough/" class="card" data-search="East Midlands Airport Peterborough"><h3>East Midlands Airport → Peterborough</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/hull-to-barnsley/" class="card" data-search="Hull Barnsley"><h3>Hull → Barnsley</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/barnsley-to-hull/" class="card" data-search="Barnsley Hull"><h3>Barnsley → Hull</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/doncaster-to-burnley/" class="card" data-search="Doncaster Burnley"><h3>Doncaster → Burnley</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/burnley-to-doncaster/" class="card" data-search="Burnley Doncaster"><h3>Burnley → Doncaster</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/doncaster-to-east-midlands-airport/" class="card" data-search="Doncaster East Midlands Airport"><h3>Doncaster → East Midlands Airport</h3><div class="meta">0h 55min · 49 miles</div></a>
-                <a href="/route/east-midlands-airport-to-doncaster/" class="card" data-search="East Midlands Airport Doncaster"><h3>East Midlands Airport → Doncaster</h3><div class="meta">0h 55min · 49 miles</div></a>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <div class="container">
-            <p>© 2026 <a href="/">HowLongDrive.uk</a> — UK Driving Times & Distances</p>
-        </div>
-    </footer>
-    
-    <script>
-    function toggleMenu() {
-        document.getElementById('nav').classList.toggle('active');
-        document.querySelector('.overlay').classList.toggle('active');
-    }
-    function filterRoutes() {
-        const q = document.getElementById('search').value.toLowerCase();
-        document.querySelectorAll('.card').forEach(card => {
-            const text = card.dataset.search.toLowerCase();
-            card.classList.toggle('hidden', q && !text.includes(q));
-        });
-    }
-    </script>
+    </main>
+    <footer>© 2026 <a href="/">HowLongDrive.uk</a></footer>
 </body>
 </html>
