@@ -3,265 +3,414 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UK Cities | HowLongDrive.uk</title>
-    <meta name="description" content="Browse 206 UK cities. Find driving routes from any city.">
+    <title>UK Cities - Driving Routes | HowLongDrive</title>
+    <meta name="description" content="Find driving routes from 213 UK cities. Calculate drive times, distances, and fuel costs.">
     <link rel="canonical" href="https://howlongdrive.uk/cities/">
-    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <style>
-        :root {
-            --primary: #4B6E93;
-            --primary-dark: #3a5775;
-            --accent: #10B981;
-            --bg: #f8fafc;
-            --card: #ffffff;
-            --text: #1e293b;
-            --muted: #64748b;
-            --border: #e2e8f0;
-        }
+        :root { --primary: #4B6E93; --green: #10B981; --bg: #f8fafc; --card: #fff; --text: #1e293b; --muted: #64748b; --border: #e2e8f0; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        body { font-family: system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
         .container { max-width: 1100px; margin: 0 auto; padding: 0 1rem; }
-        
         header { background: var(--card); border-bottom: 1px solid var(--border); padding: 0.25rem 0; }
         .header-inner { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-weight: 700; font-size: 1.5rem; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 0.75rem; }
-        .logo img { height: 180px; width: auto; }
-        .logo span { font-weight: 700; }
-        nav { display: flex; align-items: center; gap: 1.5rem; }
+        .logo img { height: 180px; }
+        nav { display: flex; gap: 1.5rem; }
         nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; }
-        nav a:hover { color: var(--primary); }
-        .ev-badge { background: var(--accent); color: white !important; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 600; }
-        .close-btn { display: none; }
-        .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
-        .hamburger svg { width: 24px; height: 24px; color: var(--text); }
-        .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 999; }
-        .overlay.active { display: block; }
-        
-        @media (max-width: 768px) {
-            .logo img { height: 70px; }
-            .logo span { display: none; }
-            nav { position: fixed; top: 0; right: -100%; width: 250px; height: 100vh; background: var(--card); flex-direction: column; justify-content: flex-start; padding: 5rem 2rem 2rem; box-shadow: -4px 0 20px rgba(0,0,0,0.1); transition: right 0.3s; z-index: 1000; }
-            nav.active { right: 0; }
-            nav a { font-size: 1.1rem; padding: 0.25rem 0; border-bottom: 1px solid var(--border); width: 100%; }
-            .hamburger { display: block; z-index: 1001; }
-            .close-btn { display: block; position: absolute; top: 1rem; right: 1rem; background: none; border: none; cursor: pointer; padding: 0.5rem; }
-            .close-btn svg { width: 24px; height: 24px; }
-        }
-        
-        .hero-section { text-align: center; padding: 3rem 1rem 2rem; }
-        h1 { font-size: 2rem; margin-bottom: 0.5rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
-        .subtitle { color: var(--muted); margin-bottom: 2rem; font-size: 1.1rem; }
-        .stats { display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
-        .stat { text-align: center; }
-        .stat-value { font-size: 1.75rem; font-weight: 700; color: var(--primary); }
-        .stat-label { font-size: 0.8rem; color: var(--muted); }
-        .search-box { max-width: 500px; margin: 0 auto 2rem; }
-        .search-box input { width: 100%; padding: 0.875rem 1rem; border: 2px solid var(--border); border-radius: 0.5rem; font-size: 1rem; }
-        .search-box input:focus { outline: none; border-color: var(--primary); }
-        .section { margin-bottom: 2.5rem; }
-        .section h2 { font-size: 1.25rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; color: var(--text); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
-        .card { background: var(--card); padding: 1.25rem; border-radius: 0.75rem; border: 1px solid var(--border); text-decoration: none; color: var(--text); transition: box-shadow 0.2s; }
-        .card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-        .card h3 { font-size: 1rem; margin-bottom: 0.25rem; color: var(--primary); }
-        .card .meta { font-size: 0.85rem; color: var(--muted); }
-        .hidden { display: none !important; }
-        footer { background: var(--card); border-top: 1px solid var(--border); text-align: center; padding: 2rem; color: var(--muted); font-size: 0.875rem; margin-top: 3rem; }
-        footer a { color: var(--primary); text-decoration: none; }
+        .ev-badge { background: var(--green); color: #fff; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem; }
+        @media (max-width: 768px) { .logo img { height: 144px; } nav { display: none; } }
+        h1 { font-size: 2rem; margin: 2rem 0 0.5rem; display: flex; align-items: center; gap: 0.75rem; }
+        h1 svg { width: 32px; height: 32px; color: var(--primary); }
+        .subtitle { color: var(--muted); margin-bottom: 1.5rem; }
+        .stat { font-size: 1.25rem; font-weight: 700; color: var(--primary); margin-bottom: 1.5rem; }
+        .section { margin-bottom: 2rem; }
+        .section h2 { font-size: 1rem; margin-bottom: 1rem; color: var(--muted); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+        .section h2 svg { width: 20px; height: 20px; color: var(--primary); }
+        .cities-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.5rem; }
+        .city-card { background: var(--card); border-radius: 0.5rem; padding: 0.75rem 1rem; text-decoration: none; color: inherit; border: 1px solid var(--border); }
+        .city-card:hover { border-color: var(--primary); background: #f0f9ff; }
+        .city-name { font-weight: 500; font-size: 0.9rem; }
+        .letter-nav { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
+        .letter-nav a { padding: 0.5rem 0.75rem; background: var(--card); border-radius: 0.25rem; text-decoration: none; color: var(--primary); font-weight: 600; border: 1px solid var(--border); }
+        .letter-nav a:hover { background: var(--primary); color: white; }
+        footer { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.875rem; }
     </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0YGF4HPVJ3"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-0YGF4HPVJ3")</script>
 </head>
 <body>
-    <header>
-        <div class="container header-inner">
-            <a href="/" class="logo">
-                <img src="/assets/logo-header.png" alt="HowLongDrive UK">
-                
-            </a>
-            <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
-            </button>
-            <div class="overlay" onclick="toggleMenu()"></div>
-            <nav id="nav">
-                <button class="close-btn" onclick="toggleMenu()" aria-label="Close">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-                </button>
-                <a href="/">Home</a>
-                <a href="/routes/">Routes</a>
-                <a href="/cities/">Cities</a>
-                <a href="/guides/">Guides</a>
-                <a href="/about/">About</a>
-                <a href="/ev/" class="ev-badge">⚡ EV Trips</a>
-            </nav>
-        </div>
-    </header>
-
-    <div class="container">
-        <div class="hero-section">
-            <h1><svg style="width:28px;height:28px;vertical-align:middle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4v18M13 21V3l6 3v15"/><path d="M9 9h1M9 13h1M9 17h1M17 9h1M17 13h1M17 17h1"/></svg> UK Cities</h1>
-            <p class="subtitle">Find driving routes from 206 cities</p>
-            
-            <div class="stats">
-                <div class="stat"><div class="stat-value">20</div><div class="stat-label">Major Cities</div></div>
-                <div class="stat"><div class="stat-value">244</div><div class="stat-label">Towns</div></div>
-                <div class="stat"><div class="stat-value">7746</div><div class="stat-label">Total Routes</div></div>
-            </div>
-            
-            <div class="search-box">
-                <input type="text" id="search" placeholder="Search cities..." oninput="filterCities()">
-            </div>
-        </div>
-        
+    <header><div class="container header-inner">
+        <a href="/" class="logo"><img src="/assets/logo-header.png" alt="HowLongDrive"></a>
+        <nav><a href="/">Home</a><a href="/routes/">Routes</a><a href="/cities/">Cities</a><a href="/guides/">Guides</a><a href="/ev/" class="ev-badge">⚡ EV Trips</a><a href="/about/">About</a></nav>
+    </div></header>
+    <main class="container">
+        <h1><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M9 8h1M9 12h1M9 16h1M14 8h1M14 12h1M14 16h1M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16"/></svg> UK Cities</h1>
+        <p class="subtitle">Find driving routes from 213 UK cities</p>
+        <div class="stat">213 Cities</div>
         <div class="section">
-            <h2><svg style="width:24px;height:24px;vertical-align:middle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M8 10h.01M16 10h.01M12 10h.01M8 14h.01M16 14h.01M12 14h.01"/></svg> Major Cities</h2>
-            <div class="grid" style="grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));">
-                <a href="/cities/london/" class="card" data-search="London" style="text-align:center"><h3>London</h3><div class="meta">145 routes</div></a>
-                <a href="/cities/manchester/" class="card" data-search="Manchester" style="text-align:center"><h3>Manchester</h3><div class="meta">133 routes</div></a>
-                <a href="/cities/birmingham/" class="card" data-search="Birmingham" style="text-align:center"><h3>Birmingham</h3><div class="meta">166 routes</div></a>
-                <a href="/cities/leeds/" class="card" data-search="Leeds" style="text-align:center"><h3>Leeds</h3><div class="meta">114 routes</div></a>
-                <a href="/cities/glasgow/" class="card" data-search="Glasgow" style="text-align:center"><h3>Glasgow</h3><div class="meta">49 routes</div></a>
-                <a href="/cities/edinburgh/" class="card" data-search="Edinburgh" style="text-align:center"><h3>Edinburgh</h3><div class="meta">54 routes</div></a>
-                <a href="/cities/liverpool/" class="card" data-search="Liverpool" style="text-align:center"><h3>Liverpool</h3><div class="meta">142 routes</div></a>
-                <a href="/cities/bristol/" class="card" data-search="Bristol" style="text-align:center"><h3>Bristol</h3><div class="meta">118 routes</div></a>
-                <a href="/cities/cardiff/" class="card" data-search="Cardiff" style="text-align:center"><h3>Cardiff</h3><div class="meta">100 routes</div></a>
-                <a href="/cities/newcastle/" class="card" data-search="Newcastle" style="text-align:center"><h3>Newcastle</h3><div class="meta">80 routes</div></a>
-                <a href="/cities/sheffield/" class="card" data-search="Sheffield" style="text-align:center"><h3>Sheffield</h3><div class="meta">172 routes</div></a>
-                <a href="/cities/belfast/" class="card" data-search="Belfast" style="text-align:center"><h3>Belfast</h3><div class="meta">40 routes</div></a>
-                <a href="/cities/aberdeen/" class="card" data-search="Aberdeen" style="text-align:center"><h3>Aberdeen</h3><div class="meta">12 routes</div></a>
-                <a href="/cities/dundee/" class="card" data-search="Dundee" style="text-align:center"><h3>Dundee</h3><div class="meta">17 routes</div></a>
-                <a href="/cities/nottingham/" class="card" data-search="Nottingham" style="text-align:center"><h3>Nottingham</h3><div class="meta">171 routes</div></a>
-                <a href="/cities/leicester/" class="card" data-search="Leicester" style="text-align:center"><h3>Leicester</h3><div class="meta">165 routes</div></a>
-                <a href="/cities/southampton/" class="card" data-search="Southampton" style="text-align:center"><h3>Southampton</h3><div class="meta">92 routes</div></a>
-                <a href="/cities/portsmouth/" class="card" data-search="Portsmouth" style="text-align:center"><h3>Portsmouth</h3><div class="meta">31 routes</div></a>
-                <a href="/cities/brighton/" class="card" data-search="Brighton" style="text-align:center"><h3>Brighton</h3><div class="meta">35 routes</div></a>
-                <a href="/cities/plymouth/" class="card" data-search="Plymouth" style="text-align:center"><h3>Plymouth</h3><div class="meta">21 routes</div></a>
+            <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> Popular Cities</h2>
+            <div class="cities-grid">
+                <a href="/cities/london/" class="city-card"><span class="city-name">London</span></a>
+                <a href="/cities/manchester/" class="city-card"><span class="city-name">Manchester</span></a>
+                <a href="/cities/birmingham/" class="city-card"><span class="city-name">Birmingham</span></a>
+                <a href="/cities/edinburgh/" class="city-card"><span class="city-name">Edinburgh</span></a>
+                <a href="/cities/glasgow/" class="city-card"><span class="city-name">Glasgow</span></a>
+                <a href="/cities/liverpool/" class="city-card"><span class="city-name">Liverpool</span></a>
+                <a href="/cities/bristol/" class="city-card"><span class="city-name">Bristol</span></a>
+                <a href="/cities/leeds/" class="city-card"><span class="city-name">Leeds</span></a>
+                <a href="/cities/sheffield/" class="city-card"><span class="city-name">Sheffield</span></a>
+                <a href="/cities/newcastle/" class="city-card"><span class="city-name">Newcastle</span></a>
+                <a href="/cities/brighton/" class="city-card"><span class="city-name">Brighton</span></a>
+                <a href="/cities/cardiff/" class="city-card"><span class="city-name">Cardiff</span></a>
+                <a href="/cities/nottingham/" class="city-card"><span class="city-name">Nottingham</span></a>
+                <a href="/cities/southampton/" class="city-card"><span class="city-name">Southampton</span></a>
+                <a href="/cities/oxford/" class="city-card"><span class="city-name">Oxford</span></a>
+                <a href="/cities/cambridge/" class="city-card"><span class="city-name">Cambridge</span></a>
+                <a href="/cities/york/" class="city-card"><span class="city-name">York</span></a>
+                <a href="/cities/bath/" class="city-card"><span class="city-name">Bath</span></a>
             </div>
         </div>
-        
-        <div class="section">
-            <h2><svg style="width:24px;height:24px;vertical-align:middle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg> Towns & Suburbs</h2>
-            <div class="grid" style="grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));">
-                <a href="/cities/alton-towers/" class="card" data-search="Alton Towers" style="text-align:center"><h3>Alton Towers</h3><div class="meta">58 routes</div></a>
-                <a href="/cities/stoke-on-trent/" class="card" data-search="Stoke-on-Trent" style="text-align:center"><h3>Stoke-on-Trent</h3><div class="meta">57 routes</div></a>
-                <a href="/cities/oxford/" class="card" data-search="Oxford" style="text-align:center"><h3>Oxford</h3><div class="meta">56 routes</div></a>
-                <a href="/cities/blenheim-palace/" class="card" data-search="Blenheim Palace" style="text-align:center"><h3>Blenheim Palace</h3><div class="meta">55 routes</div></a>
-                <a href="/cities/peak-district/" class="card" data-search="Peak District" style="text-align:center"><h3>Peak District</h3><div class="meta">54 routes</div></a>
-                <a href="/cities/chatsworth-house/" class="card" data-search="Chatsworth House" style="text-align:center"><h3>Chatsworth House</h3><div class="meta">54 routes</div></a>
-                <a href="/cities/milton-keynes/" class="card" data-search="Milton Keynes" style="text-align:center"><h3>Milton Keynes</h3><div class="meta">51 routes</div></a>
-                <a href="/cities/northampton/" class="card" data-search="Northampton" style="text-align:center"><h3>Northampton</h3><div class="meta">51 routes</div></a>
-                <a href="/cities/derby/" class="card" data-search="Derby" style="text-align:center"><h3>Derby</h3><div class="meta">51 routes</div></a>
-                <a href="/cities/aylesbury/" class="card" data-search="Aylesbury" style="text-align:center"><h3>Aylesbury</h3><div class="meta">51 routes</div></a>
-                <a href="/cities/cotswolds/" class="card" data-search="Cotswolds" style="text-align:center"><h3>Cotswolds</h3><div class="meta">51 routes</div></a>
-                <a href="/cities/luton/" class="card" data-search="Luton" style="text-align:center"><h3>Luton</h3><div class="meta">50 routes</div></a>
-                <a href="/cities/chesterfield/" class="card" data-search="Chesterfield" style="text-align:center"><h3>Chesterfield</h3><div class="meta">50 routes</div></a>
-                <a href="/cities/high-wycombe/" class="card" data-search="High Wycombe" style="text-align:center"><h3>High Wycombe</h3><div class="meta">49 routes</div></a>
-                <a href="/cities/stockport/" class="card" data-search="Stockport" style="text-align:center"><h3>Stockport</h3><div class="meta">48 routes</div></a>
-                <a href="/cities/swindon/" class="card" data-search="Swindon" style="text-align:center"><h3>Swindon</h3><div class="meta">48 routes</div></a>
-                <a href="/cities/east-midlands-airport/" class="card" data-search="East Midlands Airport" style="text-align:center"><h3>East Midlands Airport</h3><div class="meta">48 routes</div></a>
-                <a href="/cities/slough/" class="card" data-search="Slough" style="text-align:center"><h3>Slough</h3><div class="meta">47 routes</div></a>
-                <a href="/cities/guildford/" class="card" data-search="Guildford" style="text-align:center"><h3>Guildford</h3><div class="meta">47 routes</div></a>
-                <a href="/cities/woking/" class="card" data-search="Woking" style="text-align:center"><h3>Woking</h3><div class="meta">47 routes</div></a>
-                <a href="/cities/windsor/" class="card" data-search="Windsor" style="text-align:center"><h3>Windsor</h3><div class="meta">47 routes</div></a>
-                <a href="/cities/mansfield/" class="card" data-search="Mansfield" style="text-align:center"><h3>Mansfield</h3><div class="meta">47 routes</div></a>
-                <a href="/cities/legoland-windsor/" class="card" data-search="Legoland Windsor" style="text-align:center"><h3>Legoland Windsor</h3><div class="meta">47 routes</div></a>
-                <a href="/cities/windsor-castle/" class="card" data-search="Windsor Castle" style="text-align:center"><h3>Windsor Castle</h3><div class="meta">47 routes</div></a>
-                <a href="/cities/kew-gardens/" class="card" data-search="Kew Gardens" style="text-align:center"><h3>Kew Gardens</h3><div class="meta">47 routes</div></a>
-                <a href="/cities/coventry/" class="card" data-search="Coventry" style="text-align:center"><h3>Coventry</h3><div class="meta">46 routes</div></a>
-                <a href="/cities/newbury/" class="card" data-search="Newbury" style="text-align:center"><h3>Newbury</h3><div class="meta">46 routes</div></a>
-                <a href="/cities/hemel-hempstead/" class="card" data-search="Hemel Hempstead" style="text-align:center"><h3>Hemel Hempstead</h3><div class="meta">46 routes</div></a>
-                <a href="/cities/maidenhead/" class="card" data-search="Maidenhead" style="text-align:center"><h3>Maidenhead</h3><div class="meta">46 routes</div></a>
-                <a href="/cities/rugby/" class="card" data-search="Rugby" style="text-align:center"><h3>Rugby</h3><div class="meta">46 routes</div></a>
-                <a href="/cities/buckingham-palace/" class="card" data-search="Buckingham Palace" style="text-align:center"><h3>Buckingham Palace</h3><div class="meta">46 routes</div></a>
-                <a href="/cities/tamworth/" class="card" data-search="Tamworth" style="text-align:center"><h3>Tamworth</h3><div class="meta">45 routes</div></a>
-                <a href="/cities/basingstoke/" class="card" data-search="Basingstoke" style="text-align:center"><h3>Basingstoke</h3><div class="meta">45 routes</div></a>
-                <a href="/cities/bracknell/" class="card" data-search="Bracknell" style="text-align:center"><h3>Bracknell</h3><div class="meta">45 routes</div></a>
-                <a href="/cities/nuneaton/" class="card" data-search="Nuneaton" style="text-align:center"><h3>Nuneaton</h3><div class="meta">45 routes</div></a>
-                <a href="/cities/leamington-spa/" class="card" data-search="Leamington Spa" style="text-align:center"><h3>Leamington Spa</h3><div class="meta">45 routes</div></a>
-                <a href="/cities/loughborough/" class="card" data-search="Loughborough" style="text-align:center"><h3>Loughborough</h3><div class="meta">45 routes</div></a>
-                <a href="/cities/british-museum/" class="card" data-search="British Museum" style="text-align:center"><h3>British Museum</h3><div class="meta">45 routes</div></a>
-                <a href="/cities/london-city-airport/" class="card" data-search="London City Airport" style="text-align:center"><h3>London City Airport</h3><div class="meta">45 routes</div></a>
-                <a href="/cities/reading/" class="card" data-search="Reading" style="text-align:center"><h3>Reading</h3><div class="meta">44 routes</div></a>
-                <a href="/cities/solihull/" class="card" data-search="Solihull" style="text-align:center"><h3>Solihull</h3><div class="meta">44 routes</div></a>
-                <a href="/cities/sutton-coldfield/" class="card" data-search="Sutton Coldfield" style="text-align:center"><h3>Sutton Coldfield</h3><div class="meta">44 routes</div></a>
-                <a href="/cities/huddersfield/" class="card" data-search="Huddersfield" style="text-align:center"><h3>Huddersfield</h3><div class="meta">44 routes</div></a>
-                <a href="/cities/rotherham/" class="card" data-search="Rotherham" style="text-align:center"><h3>Rotherham</h3><div class="meta">44 routes</div></a>
-                <a href="/cities/cheltenham/" class="card" data-search="Cheltenham" style="text-align:center"><h3>Cheltenham</h3><div class="meta">44 routes</div></a>
-                <a href="/cities/stevenage/" class="card" data-search="Stevenage" style="text-align:center"><h3>Stevenage</h3><div class="meta">44 routes</div></a>
-                <a href="/cities/crawley/" class="card" data-search="Crawley" style="text-align:center"><h3>Crawley</h3><div class="meta">44 routes</div></a>
-                <a href="/cities/harry-potter-studios/" class="card" data-search="Harry Potter Studios" style="text-align:center"><h3>Harry Potter Studios</h3><div class="meta">44 routes</div></a>
-                <a href="/cities/tower-of-london/" class="card" data-search="Tower of London" style="text-align:center"><h3>Tower of London</h3><div class="meta">44 routes</div></a>
-                <a href="/cities/walsall/" class="card" data-search="Walsall" style="text-align:center"><h3>Walsall</h3><div class="meta">43 routes</div></a>
-                <a href="/cities/wakefield/" class="card" data-search="Wakefield" style="text-align:center"><h3>Wakefield</h3><div class="meta">43 routes</div></a>
-                <a href="/cities/bradford/" class="card" data-search="Bradford" style="text-align:center"><h3>Bradford</h3><div class="meta">43 routes</div></a>
-                <a href="/cities/wolverhampton/" class="card" data-search="Wolverhampton" style="text-align:center"><h3>Wolverhampton</h3><div class="meta">43 routes</div></a>
-                <a href="/cities/barnsley/" class="card" data-search="Barnsley" style="text-align:center"><h3>Barnsley</h3><div class="meta">43 routes</div></a>
-                <a href="/cities/worcester/" class="card" data-search="Worcester" style="text-align:center"><h3>Worcester</h3><div class="meta">43 routes</div></a>
-                <a href="/cities/basildon/" class="card" data-search="Basildon" style="text-align:center"><h3>Basildon</h3><div class="meta">43 routes</div></a>
-                <a href="/cities/stratford-upon-avon/" class="card" data-search="Stratford-upon-Avon" style="text-align:center"><h3>Stratford-upon-Avon</h3><div class="meta">43 routes</div></a>
-                <a href="/cities/oldham/" class="card" data-search="Oldham" style="text-align:center"><h3>Oldham</h3><div class="meta">42 routes</div></a>
-                <a href="/cities/dudley/" class="card" data-search="Dudley" style="text-align:center"><h3>Dudley</h3><div class="meta">42 routes</div></a>
-                <a href="/cities/halifax/" class="card" data-search="Halifax" style="text-align:center"><h3>Halifax</h3><div class="meta">42 routes</div></a>
-                <a href="/cities/warwick/" class="card" data-search="Warwick" style="text-align:center"><h3>Warwick</h3><div class="meta">42 routes</div></a>
-                <a href="/cities/telford/" class="card" data-search="Telford" style="text-align:center"><h3>Telford</h3><div class="meta">42 routes</div></a>
-                <a href="/cities/harlow/" class="card" data-search="Harlow" style="text-align:center"><h3>Harlow</h3><div class="meta">42 routes</div></a>
-                <a href="/cities/warwick-castle/" class="card" data-search="Warwick Castle" style="text-align:center"><h3>Warwick Castle</h3><div class="meta">42 routes</div></a>
-                <a href="/cities/rochdale/" class="card" data-search="Rochdale" style="text-align:center"><h3>Rochdale</h3><div class="meta">41 routes</div></a>
-                <a href="/cities/gloucester/" class="card" data-search="Gloucester" style="text-align:center"><h3>Gloucester</h3><div class="meta">41 routes</div></a>
-                <a href="/cities/redditch/" class="card" data-search="Redditch" style="text-align:center"><h3>Redditch</h3><div class="meta">40 routes</div></a>
-                <a href="/cities/doncaster/" class="card" data-search="Doncaster" style="text-align:center"><h3>Doncaster</h3><div class="meta">40 routes</div></a>
-                <a href="/cities/burnley/" class="card" data-search="Burnley" style="text-align:center"><h3>Burnley</h3><div class="meta">40 routes</div></a>
-                <a href="/cities/cambridge/" class="card" data-search="Cambridge" style="text-align:center"><h3>Cambridge</h3><div class="meta">39 routes</div></a>
-                <a href="/cities/warrington/" class="card" data-search="Warrington" style="text-align:center"><h3>Warrington</h3><div class="meta">39 routes</div></a>
-                <a href="/cities/harrogate/" class="card" data-search="Harrogate" style="text-align:center"><h3>Harrogate</h3><div class="meta">39 routes</div></a>
-                <a href="/cities/winchester/" class="card" data-search="Winchester" style="text-align:center"><h3>Winchester</h3><div class="meta">39 routes</div></a>
-                <a href="/cities/maidstone/" class="card" data-search="Maidstone" style="text-align:center"><h3>Maidstone</h3><div class="meta">39 routes</div></a>
-                <a href="/cities/blackburn/" class="card" data-search="Blackburn" style="text-align:center"><h3>Blackburn</h3><div class="meta">39 routes</div></a>
-                <a href="/cities/doncaster-sheffield-airport/" class="card" data-search="Doncaster Sheffield Airport" style="text-align:center"><h3>Doncaster Sheffield Airport</h3><div class="meta">39 routes</div></a>
-                <a href="/cities/bolton/" class="card" data-search="Bolton" style="text-align:center"><h3>Bolton</h3><div class="meta">38 routes</div></a>
-                <a href="/cities/shrewsbury/" class="card" data-search="Shrewsbury" style="text-align:center"><h3>Shrewsbury</h3><div class="meta">38 routes</div></a>
-                <a href="/cities/southend/" class="card" data-search="Southend" style="text-align:center"><h3>Southend</h3><div class="meta">38 routes</div></a>
-                <a href="/cities/grantham/" class="card" data-search="Grantham" style="text-align:center"><h3>Grantham</h3><div class="meta">38 routes</div></a>
-                <a href="/cities/stonehenge/" class="card" data-search="Stonehenge" style="text-align:center"><h3>Stonehenge</h3><div class="meta">38 routes</div></a>
-                <a href="/cities/southend-airport/" class="card" data-search="Southend Airport" style="text-align:center"><h3>Southend Airport</h3><div class="meta">38 routes</div></a>
-                <a href="/cities/york/" class="card" data-search="York" style="text-align:center"><h3>York</h3><div class="meta">37 routes</div></a>
-                <a href="/cities/wigan/" class="card" data-search="Wigan" style="text-align:center"><h3>Wigan</h3><div class="meta">37 routes</div></a>
-                <a href="/cities/st-helens/" class="card" data-search="St Helens" style="text-align:center"><h3>St Helens</h3><div class="meta">37 routes</div></a>
-                <a href="/cities/chester/" class="card" data-search="Chester" style="text-align:center"><h3>Chester</h3><div class="meta">37 routes</div></a>
-                <a href="/cities/kidderminster/" class="card" data-search="Kidderminster" style="text-align:center"><h3>Kidderminster</h3><div class="meta">37 routes</div></a>
-                <a href="/cities/newark/" class="card" data-search="Newark" style="text-align:center"><h3>Newark</h3><div class="meta">37 routes</div></a>
-                <a href="/cities/york-minster/" class="card" data-search="York Minster" style="text-align:center"><h3>York Minster</h3><div class="meta">37 routes</div></a>
-                <a href="/cities/salisbury/" class="card" data-search="Salisbury" style="text-align:center"><h3>Salisbury</h3><div class="meta">36 routes</div></a>
-                <a href="/cities/birkenhead/" class="card" data-search="Birkenhead" style="text-align:center"><h3>Birkenhead</h3><div class="meta">35 routes</div></a>
-                <a href="/cities/preston/" class="card" data-search="Preston" style="text-align:center"><h3>Preston</h3><div class="meta">35 routes</div></a>
-                <a href="/cities/hereford/" class="card" data-search="Hereford" style="text-align:center"><h3>Hereford</h3><div class="meta">35 routes</div></a>
-                <a href="/cities/wrexham/" class="card" data-search="Wrexham" style="text-align:center"><h3>Wrexham</h3><div class="meta">35 routes</div></a>
-                <a href="/cities/southampton-airport/" class="card" data-search="Southampton Airport" style="text-align:center"><h3>Southampton Airport</h3><div class="meta">34 routes</div></a>
-                <a href="/cities/scunthorpe/" class="card" data-search="Scunthorpe" style="text-align:center"><h3>Scunthorpe</h3><div class="meta">33 routes</div></a>
-                <a href="/cities/bath/" class="card" data-search="Bath" style="text-align:center"><h3>Bath</h3><div class="meta">32 routes</div></a>
-                <a href="/cities/lincoln/" class="card" data-search="Lincoln" style="text-align:center"><h3>Lincoln</h3><div class="meta">32 routes</div></a>
-                <a href="/cities/roman-baths/" class="card" data-search="Roman Baths" style="text-align:center"><h3>Roman Baths</h3><div class="meta">32 routes</div></a>
-                <a href="/cities/colchester/" class="card" data-search="Colchester" style="text-align:center"><h3>Colchester</h3><div class="meta">30 routes</div></a>
+        <div class="letter-nav">
+            <a href="#letter-A">A</a>
+            <a href="#letter-B">B</a>
+            <a href="#letter-C">C</a>
+            <a href="#letter-D">D</a>
+            <a href="#letter-E">E</a>
+            <a href="#letter-F">F</a>
+            <a href="#letter-G">G</a>
+            <a href="#letter-H">H</a>
+            <a href="#letter-I">I</a>
+            <a href="#letter-J">J</a>
+            <a href="#letter-K">K</a>
+            <a href="#letter-L">L</a>
+            <a href="#letter-M">M</a>
+            <a href="#letter-N">N</a>
+            <a href="#letter-O">O</a>
+            <a href="#letter-P">P</a>
+            <a href="#letter-R">R</a>
+            <a href="#letter-S">S</a>
+            <a href="#letter-T">T</a>
+            <a href="#letter-W">W</a>
+            <a href="#letter-Y">Y</a>
+        </div>
+        <div class="section" id="letter-A">
+            <h2>A</h2>
+            <div class="cities-grid">
+                <a href="/cities/aberdeen/" class="city-card"><span class="city-name">Aberdeen</span></a>
+                <a href="/cities/aberdeen-airport/" class="city-card"><span class="city-name">Aberdeen Airport</span></a>
+                <a href="/cities/aberystwyth/" class="city-card"><span class="city-name">Aberystwyth</span></a>
+                <a href="/cities/alton-towers/" class="city-card"><span class="city-name">Alton Towers</span></a>
+                <a href="/cities/aylesbury/" class="city-card"><span class="city-name">Aylesbury</span></a>
+                <a href="/cities/ayr/" class="city-card"><span class="city-name">Ayr</span></a>
             </div>
         </div>
-    </div>
-
-    <footer>
-        <div class="container">
-            <p>© 2026 <a href="/">HowLongDrive.uk</a> — UK Driving Times & Distances</p>
+        <div class="section" id="letter-B">
+            <h2>B</h2>
+            <div class="cities-grid">
+                <a href="/cities/bangor/" class="city-card"><span class="city-name">Bangor</span></a>
+                <a href="/cities/barnsley/" class="city-card"><span class="city-name">Barnsley</span></a>
+                <a href="/cities/barnstaple/" class="city-card"><span class="city-name">Barnstaple</span></a>
+                <a href="/cities/basildon/" class="city-card"><span class="city-name">Basildon</span></a>
+                <a href="/cities/basingstoke/" class="city-card"><span class="city-name">Basingstoke</span></a>
+                <a href="/cities/bath/" class="city-card"><span class="city-name">Bath</span></a>
+                <a href="/cities/belfast/" class="city-card"><span class="city-name">Belfast</span></a>
+                <a href="/cities/belfast-city-airport/" class="city-card"><span class="city-name">Belfast City Airport</span></a>
+                <a href="/cities/belfast-international/" class="city-card"><span class="city-name">Belfast International</span></a>
+                <a href="/cities/birkenhead/" class="city-card"><span class="city-name">Birkenhead</span></a>
+                <a href="/cities/birmingham/" class="city-card"><span class="city-name">Birmingham</span></a>
+                <a href="/cities/blackburn/" class="city-card"><span class="city-name">Blackburn</span></a>
+                <a href="/cities/blackpool/" class="city-card"><span class="city-name">Blackpool</span></a>
+                <a href="/cities/blackpool-tower/" class="city-card"><span class="city-name">Blackpool Tower</span></a>
+                <a href="/cities/blenheim-palace/" class="city-card"><span class="city-name">Blenheim Palace</span></a>
+                <a href="/cities/bolton/" class="city-card"><span class="city-name">Bolton</span></a>
+                <a href="/cities/boston/" class="city-card"><span class="city-name">Boston</span></a>
+                <a href="/cities/bournemouth/" class="city-card"><span class="city-name">Bournemouth</span></a>
+                <a href="/cities/bracknell/" class="city-card"><span class="city-name">Bracknell</span></a>
+                <a href="/cities/bradford/" class="city-card"><span class="city-name">Bradford</span></a>
+                <a href="/cities/brighton/" class="city-card"><span class="city-name">Brighton</span></a>
+                <a href="/cities/bristol/" class="city-card"><span class="city-name">Bristol</span></a>
+                <a href="/cities/british-museum/" class="city-card"><span class="city-name">British Museum</span></a>
+                <a href="/cities/buckingham-palace/" class="city-card"><span class="city-name">Buckingham Palace</span></a>
+                <a href="/cities/burnley/" class="city-card"><span class="city-name">Burnley</span></a>
+            </div>
         </div>
-    </footer>
-    
-    <script>
-    function toggleMenu() {
-        document.getElementById('nav').classList.toggle('active');
-        document.querySelector('.overlay').classList.toggle('active');
-    }
-    function filterCities() {
-        const q = document.getElementById('search').value.toLowerCase();
-        document.querySelectorAll('.card').forEach(card => {
-            const text = card.dataset.search.toLowerCase();
-            card.classList.toggle('hidden', q && !text.includes(q));
-        });
-    }
-    </script>
+        <div class="section" id="letter-C">
+            <h2>C</h2>
+            <div class="cities-grid">
+                <a href="/cities/cambridge/" class="city-card"><span class="city-name">Cambridge</span></a>
+                <a href="/cities/canterbury/" class="city-card"><span class="city-name">Canterbury</span></a>
+                <a href="/cities/canterbury-cathedral/" class="city-card"><span class="city-name">Canterbury Cathedral</span></a>
+                <a href="/cities/cardiff/" class="city-card"><span class="city-name">Cardiff</span></a>
+                <a href="/cities/cardiff-airport/" class="city-card"><span class="city-name">Cardiff Airport</span></a>
+                <a href="/cities/carlisle/" class="city-card"><span class="city-name">Carlisle</span></a>
+                <a href="/cities/carmarthen/" class="city-card"><span class="city-name">Carmarthen</span></a>
+                <a href="/cities/chatsworth-house/" class="city-card"><span class="city-name">Chatsworth House</span></a>
+                <a href="/cities/cheltenham/" class="city-card"><span class="city-name">Cheltenham</span></a>
+                <a href="/cities/chester/" class="city-card"><span class="city-name">Chester</span></a>
+                <a href="/cities/chesterfield/" class="city-card"><span class="city-name">Chesterfield</span></a>
+                <a href="/cities/colchester/" class="city-card"><span class="city-name">Colchester</span></a>
+                <a href="/cities/cornwall/" class="city-card"><span class="city-name">Cornwall</span></a>
+                <a href="/cities/cotswolds/" class="city-card"><span class="city-name">Cotswolds</span></a>
+                <a href="/cities/coventry/" class="city-card"><span class="city-name">Coventry</span></a>
+                <a href="/cities/crawley/" class="city-card"><span class="city-name">Crawley</span></a>
+                <a href="/cities/cwmbran/" class="city-card"><span class="city-name">Cwmbran</span></a>
+            </div>
+        </div>
+        <div class="section" id="letter-D">
+            <h2>D</h2>
+            <div class="cities-grid">
+                <a href="/cities/darlington/" class="city-card"><span class="city-name">Darlington</span></a>
+                <a href="/cities/derby/" class="city-card"><span class="city-name">Derby</span></a>
+                <a href="/cities/devon/" class="city-card"><span class="city-name">Devon</span></a>
+                <a href="/cities/doncaster/" class="city-card"><span class="city-name">Doncaster</span></a>
+                <a href="/cities/doncaster-sheffield-airport/" class="city-card"><span class="city-name">Doncaster Sheffield Airport</span></a>
+                <a href="/cities/dover/" class="city-card"><span class="city-name">Dover</span></a>
+                <a href="/cities/dudley/" class="city-card"><span class="city-name">Dudley</span></a>
+                <a href="/cities/dumfries/" class="city-card"><span class="city-name">Dumfries</span></a>
+                <a href="/cities/dundee/" class="city-card"><span class="city-name">Dundee</span></a>
+                <a href="/cities/dunfermline/" class="city-card"><span class="city-name">Dunfermline</span></a>
+                <a href="/cities/durham/" class="city-card"><span class="city-name">Durham</span></a>
+            </div>
+        </div>
+        <div class="section" id="letter-E">
+            <h2>E</h2>
+            <div class="cities-grid">
+                <a href="/cities/east-kilbride/" class="city-card"><span class="city-name">East Kilbride</span></a>
+                <a href="/cities/east-midlands-airport/" class="city-card"><span class="city-name">East Midlands Airport</span></a>
+                <a href="/cities/eastbourne/" class="city-card"><span class="city-name">Eastbourne</span></a>
+                <a href="/cities/eden-project/" class="city-card"><span class="city-name">Eden Project</span></a>
+                <a href="/cities/edinburgh/" class="city-card"><span class="city-name">Edinburgh</span></a>
+                <a href="/cities/edinburgh-airport/" class="city-card"><span class="city-name">Edinburgh Airport</span></a>
+                <a href="/cities/exeter/" class="city-card"><span class="city-name">Exeter</span></a>
+                <a href="/cities/exeter-airport/" class="city-card"><span class="city-name">Exeter Airport</span></a>
+            </div>
+        </div>
+        <div class="section" id="letter-F">
+            <h2>F</h2>
+            <div class="cities-grid">
+                <a href="/cities/falkirk/" class="city-card"><span class="city-name">Falkirk</span></a>
+                <a href="/cities/falmouth/" class="city-card"><span class="city-name">Falmouth</span></a>
+                <a href="/cities/folkestone/" class="city-card"><span class="city-name">Folkestone</span></a>
+            </div>
+        </div>
+        <div class="section" id="letter-G">
+            <h2>G</h2>
+            <div class="cities-grid">
+                <a href="/cities/gateshead/" class="city-card"><span class="city-name">Gateshead</span></a>
+                <a href="/cities/gatwick-airport/" class="city-card"><span class="city-name">Gatwick Airport</span></a>
+                <a href="/cities/giants-causeway/" class="city-card"><span class="city-name">Giants Causeway</span></a>
+                <a href="/cities/glasgow/" class="city-card"><span class="city-name">Glasgow</span></a>
+                <a href="/cities/glasgow-airport/" class="city-card"><span class="city-name">Glasgow Airport</span></a>
+                <a href="/cities/gloucester/" class="city-card"><span class="city-name">Gloucester</span></a>
+                <a href="/cities/grantham/" class="city-card"><span class="city-name">Grantham</span></a>
+                <a href="/cities/grimsby/" class="city-card"><span class="city-name">Grimsby</span></a>
+                <a href="/cities/guildford/" class="city-card"><span class="city-name">Guildford</span></a>
+            </div>
+        </div>
+        <div class="section" id="letter-H">
+            <h2>H</h2>
+            <div class="cities-grid">
+                <a href="/cities/hadrians-wall/" class="city-card"><span class="city-name">Hadrians Wall</span></a>
+                <a href="/cities/halifax/" class="city-card"><span class="city-name">Halifax</span></a>
+                <a href="/cities/hamilton/" class="city-card"><span class="city-name">Hamilton</span></a>
+                <a href="/cities/harlow/" class="city-card"><span class="city-name">Harlow</span></a>
+                <a href="/cities/harrogate/" class="city-card"><span class="city-name">Harrogate</span></a>
+                <a href="/cities/harry-potter-studios/" class="city-card"><span class="city-name">Harry Potter Studios</span></a>
+                <a href="/cities/hartlepool/" class="city-card"><span class="city-name">Hartlepool</span></a>
+                <a href="/cities/hastings/" class="city-card"><span class="city-name">Hastings</span></a>
+                <a href="/cities/heathrow-airport/" class="city-card"><span class="city-name">Heathrow Airport</span></a>
+                <a href="/cities/hemel-hempstead/" class="city-card"><span class="city-name">Hemel Hempstead</span></a>
+                <a href="/cities/hereford/" class="city-card"><span class="city-name">Hereford</span></a>
+                <a href="/cities/high-wycombe/" class="city-card"><span class="city-name">High Wycombe</span></a>
+                <a href="/cities/huddersfield/" class="city-card"><span class="city-name">Huddersfield</span></a>
+                <a href="/cities/hull/" class="city-card"><span class="city-name">Hull</span></a>
+            </div>
+        </div>
+        <div class="section" id="letter-I">
+            <h2>I</h2>
+            <div class="cities-grid">
+                <a href="/cities/inverness/" class="city-card"><span class="city-name">Inverness</span></a>
+                <a href="/cities/inverness-airport/" class="city-card"><span class="city-name">Inverness Airport</span></a>
+                <a href="/cities/ipswich/" class="city-card"><span class="city-name">Ipswich</span></a>
+                <a href="/cities/isle-of-skye/" class="city-card"><span class="city-name">Isle Of Skye</span></a>
+            </div>
+        </div>
+        <div class="section" id="letter-J">
+            <h2>J</h2>
+            <div class="cities-grid">
+                <a href="/cities/jurassic-coast/" class="city-card"><span class="city-name">Jurassic Coast</span></a>
+            </div>
+        </div>
+        <div class="section" id="letter-K">
+            <h2>K</h2>
+            <div class="cities-grid">
+                <a href="/cities/kew-gardens/" class="city-card"><span class="city-name">Kew Gardens</span></a>
+                <a href="/cities/kidderminster/" class="city-card"><span class="city-name">Kidderminster</span></a>
+                <a href="/cities/kilmarnock/" class="city-card"><span class="city-name">Kilmarnock</span></a>
+                <a href="/cities/kirkcaldy/" class="city-card"><span class="city-name">Kirkcaldy</span></a>
+            </div>
+        </div>
+        <div class="section" id="letter-L">
+            <h2>L</h2>
+            <div class="cities-grid">
+                <a href="/cities/lake-district/" class="city-card"><span class="city-name">Lake District</span></a>
+                <a href="/cities/lancaster/" class="city-card"><span class="city-name">Lancaster</span></a>
+                <a href="/cities/lands-end/" class="city-card"><span class="city-name">Lands End</span></a>
+                <a href="/cities/leamington-spa/" class="city-card"><span class="city-name">Leamington Spa</span></a>
+                <a href="/cities/leeds/" class="city-card"><span class="city-name">Leeds</span></a>
+                <a href="/cities/leeds-bradford-airport/" class="city-card"><span class="city-name">Leeds Bradford Airport</span></a>
+                <a href="/cities/legoland-windsor/" class="city-card"><span class="city-name">Legoland Windsor</span></a>
+                <a href="/cities/leicester/" class="city-card"><span class="city-name">Leicester</span></a>
+                <a href="/cities/lincoln/" class="city-card"><span class="city-name">Lincoln</span></a>
+                <a href="/cities/liverpool/" class="city-card"><span class="city-name">Liverpool</span></a>
+                <a href="/cities/liverpool-airport/" class="city-card"><span class="city-name">Liverpool Airport</span></a>
+                <a href="/cities/livingston/" class="city-card"><span class="city-name">Livingston</span></a>
+                <a href="/cities/llandudno/" class="city-card"><span class="city-name">Llandudno</span></a>
+                <a href="/cities/loch-ness/" class="city-card"><span class="city-name">Loch Ness</span></a>
+                <a href="/cities/london/" class="city-card"><span class="city-name">London</span></a>
+                <a href="/cities/london-city-airport/" class="city-card"><span class="city-name">London City Airport</span></a>
+                <a href="/cities/loughborough/" class="city-card"><span class="city-name">Loughborough</span></a>
+                <a href="/cities/luton/" class="city-card"><span class="city-name">Luton</span></a>
+                <a href="/cities/luton-airport/" class="city-card"><span class="city-name">Luton Airport</span></a>
+            </div>
+        </div>
+        <div class="section" id="letter-M">
+            <h2>M</h2>
+            <div class="cities-grid">
+                <a href="/cities/maidenhead/" class="city-card"><span class="city-name">Maidenhead</span></a>
+                <a href="/cities/maidstone/" class="city-card"><span class="city-name">Maidstone</span></a>
+                <a href="/cities/manchester/" class="city-card"><span class="city-name">Manchester</span></a>
+                <a href="/cities/manchester-airport/" class="city-card"><span class="city-name">Manchester Airport</span></a>
+                <a href="/cities/mansfield/" class="city-card"><span class="city-name">Mansfield</span></a>
+                <a href="/cities/margate/" class="city-card"><span class="city-name">Margate</span></a>
+                <a href="/cities/merthyr-tydfil/" class="city-card"><span class="city-name">Merthyr Tydfil</span></a>
+                <a href="/cities/middlesbrough/" class="city-card"><span class="city-name">Middlesbrough</span></a>
+                <a href="/cities/milton-keynes/" class="city-card"><span class="city-name">Milton Keynes</span></a>
+                <a href="/cities/motherwell/" class="city-card"><span class="city-name">Motherwell</span></a>
+            </div>
+        </div>
+        <div class="section" id="letter-N">
+            <h2>N</h2>
+            <div class="cities-grid">
+                <a href="/cities/newark/" class="city-card"><span class="city-name">Newark</span></a>
+                <a href="/cities/newbury/" class="city-card"><span class="city-name">Newbury</span></a>
+                <a href="/cities/newcastle/" class="city-card"><span class="city-name">Newcastle</span></a>
+                <a href="/cities/newcastle-airport/" class="city-card"><span class="city-name">Newcastle Airport</span></a>
+                <a href="/cities/newport/" class="city-card"><span class="city-name">Newport</span></a>
+                <a href="/cities/newquay-airport/" class="city-card"><span class="city-name">Newquay Airport</span></a>
+                <a href="/cities/northampton/" class="city-card"><span class="city-name">Northampton</span></a>
+                <a href="/cities/norwich/" class="city-card"><span class="city-name">Norwich</span></a>
+                <a href="/cities/nottingham/" class="city-card"><span class="city-name">Nottingham</span></a>
+                <a href="/cities/nuneaton/" class="city-card"><span class="city-name">Nuneaton</span></a>
+            </div>
+        </div>
+        <div class="section" id="letter-O">
+            <h2>O</h2>
+            <div class="cities-grid">
+                <a href="/cities/oldham/" class="city-card"><span class="city-name">Oldham</span></a>
+                <a href="/cities/oxford/" class="city-card"><span class="city-name">Oxford</span></a>
+            </div>
+        </div>
+        <div class="section" id="letter-P">
+            <h2>P</h2>
+            <div class="cities-grid">
+                <a href="/cities/paisley/" class="city-card"><span class="city-name">Paisley</span></a>
+                <a href="/cities/peak-district/" class="city-card"><span class="city-name">Peak District</span></a>
+                <a href="/cities/penzance/" class="city-card"><span class="city-name">Penzance</span></a>
+                <a href="/cities/perth/" class="city-card"><span class="city-name">Perth</span></a>
+                <a href="/cities/peterborough/" class="city-card"><span class="city-name">Peterborough</span></a>
+                <a href="/cities/plymouth/" class="city-card"><span class="city-name">Plymouth</span></a>
+                <a href="/cities/pontypridd/" class="city-card"><span class="city-name">Pontypridd</span></a>
+                <a href="/cities/poole/" class="city-card"><span class="city-name">Poole</span></a>
+                <a href="/cities/portsmouth/" class="city-card"><span class="city-name">Portsmouth</span></a>
+                <a href="/cities/preston/" class="city-card"><span class="city-name">Preston</span></a>
+            </div>
+        </div>
+        <div class="section" id="letter-R">
+            <h2>R</h2>
+            <div class="cities-grid">
+                <a href="/cities/reading/" class="city-card"><span class="city-name">Reading</span></a>
+                <a href="/cities/redditch/" class="city-card"><span class="city-name">Redditch</span></a>
+                <a href="/cities/rochdale/" class="city-card"><span class="city-name">Rochdale</span></a>
+                <a href="/cities/roman-baths/" class="city-card"><span class="city-name">Roman Baths</span></a>
+                <a href="/cities/rotherham/" class="city-card"><span class="city-name">Rotherham</span></a>
+                <a href="/cities/rugby/" class="city-card"><span class="city-name">Rugby</span></a>
+            </div>
+        </div>
+        <div class="section" id="letter-S">
+            <h2>S</h2>
+            <div class="cities-grid">
+                <a href="/cities/salisbury/" class="city-card"><span class="city-name">Salisbury</span></a>
+                <a href="/cities/scarborough/" class="city-card"><span class="city-name">Scarborough</span></a>
+                <a href="/cities/scottish-highlands/" class="city-card"><span class="city-name">Scottish Highlands</span></a>
+                <a href="/cities/scunthorpe/" class="city-card"><span class="city-name">Scunthorpe</span></a>
+                <a href="/cities/sheffield/" class="city-card"><span class="city-name">Sheffield</span></a>
+                <a href="/cities/shrewsbury/" class="city-card"><span class="city-name">Shrewsbury</span></a>
+                <a href="/cities/skegness/" class="city-card"><span class="city-name">Skegness</span></a>
+                <a href="/cities/slough/" class="city-card"><span class="city-name">Slough</span></a>
+                <a href="/cities/snowdonia/" class="city-card"><span class="city-name">Snowdonia</span></a>
+                <a href="/cities/solihull/" class="city-card"><span class="city-name">Solihull</span></a>
+                <a href="/cities/south-shields/" class="city-card"><span class="city-name">South Shields</span></a>
+                <a href="/cities/southampton/" class="city-card"><span class="city-name">Southampton</span></a>
+                <a href="/cities/southampton-airport/" class="city-card"><span class="city-name">Southampton Airport</span></a>
+                <a href="/cities/southend/" class="city-card"><span class="city-name">Southend</span></a>
+                <a href="/cities/southend-airport/" class="city-card"><span class="city-name">Southend Airport</span></a>
+                <a href="/cities/st-albans/" class="city-card"><span class="city-name">St Albans</span></a>
+                <a href="/cities/st-austell/" class="city-card"><span class="city-name">St Austell</span></a>
+                <a href="/cities/st-helens/" class="city-card"><span class="city-name">St Helens</span></a>
+                <a href="/cities/stansted-airport/" class="city-card"><span class="city-name">Stansted Airport</span></a>
+                <a href="/cities/stevenage/" class="city-card"><span class="city-name">Stevenage</span></a>
+                <a href="/cities/stirling/" class="city-card"><span class="city-name">Stirling</span></a>
+                <a href="/cities/stockport/" class="city-card"><span class="city-name">Stockport</span></a>
+                <a href="/cities/stockton/" class="city-card"><span class="city-name">Stockton</span></a>
+                <a href="/cities/stoke-on-trent/" class="city-card"><span class="city-name">Stoke On Trent</span></a>
+                <a href="/cities/stonehenge/" class="city-card"><span class="city-name">Stonehenge</span></a>
+                <a href="/cities/stratford-upon-avon/" class="city-card"><span class="city-name">Stratford Upon Avon</span></a>
+                <a href="/cities/sunderland/" class="city-card"><span class="city-name">Sunderland</span></a>
+                <a href="/cities/sutton-coldfield/" class="city-card"><span class="city-name">Sutton Coldfield</span></a>
+                <a href="/cities/swansea/" class="city-card"><span class="city-name">Swansea</span></a>
+                <a href="/cities/swindon/" class="city-card"><span class="city-name">Swindon</span></a>
+            </div>
+        </div>
+        <div class="section" id="letter-T">
+            <h2>T</h2>
+            <div class="cities-grid">
+                <a href="/cities/tamworth/" class="city-card"><span class="city-name">Tamworth</span></a>
+                <a href="/cities/taunton/" class="city-card"><span class="city-name">Taunton</span></a>
+                <a href="/cities/telford/" class="city-card"><span class="city-name">Telford</span></a>
+                <a href="/cities/titanic-belfast/" class="city-card"><span class="city-name">Titanic Belfast</span></a>
+                <a href="/cities/torquay/" class="city-card"><span class="city-name">Torquay</span></a>
+                <a href="/cities/tower-of-london/" class="city-card"><span class="city-name">Tower Of London</span></a>
+                <a href="/cities/truro/" class="city-card"><span class="city-name">Truro</span></a>
+            </div>
+        </div>
+        <div class="section" id="letter-W">
+            <h2>W</h2>
+            <div class="cities-grid">
+                <a href="/cities/wakefield/" class="city-card"><span class="city-name">Wakefield</span></a>
+                <a href="/cities/walsall/" class="city-card"><span class="city-name">Walsall</span></a>
+                <a href="/cities/warrington/" class="city-card"><span class="city-name">Warrington</span></a>
+                <a href="/cities/warwick/" class="city-card"><span class="city-name">Warwick</span></a>
+                <a href="/cities/warwick-castle/" class="city-card"><span class="city-name">Warwick Castle</span></a>
+                <a href="/cities/weymouth/" class="city-card"><span class="city-name">Weymouth</span></a>
+                <a href="/cities/whitby/" class="city-card"><span class="city-name">Whitby</span></a>
+                <a href="/cities/wigan/" class="city-card"><span class="city-name">Wigan</span></a>
+                <a href="/cities/winchester/" class="city-card"><span class="city-name">Winchester</span></a>
+                <a href="/cities/windsor/" class="city-card"><span class="city-name">Windsor</span></a>
+                <a href="/cities/windsor-castle/" class="city-card"><span class="city-name">Windsor Castle</span></a>
+                <a href="/cities/woking/" class="city-card"><span class="city-name">Woking</span></a>
+                <a href="/cities/wolverhampton/" class="city-card"><span class="city-name">Wolverhampton</span></a>
+                <a href="/cities/worcester/" class="city-card"><span class="city-name">Worcester</span></a>
+                <a href="/cities/wrexham/" class="city-card"><span class="city-name">Wrexham</span></a>
+            </div>
+        </div>
+        <div class="section" id="letter-Y">
+            <h2>Y</h2>
+            <div class="cities-grid">
+                <a href="/cities/york/" class="city-card"><span class="city-name">York</span></a>
+                <a href="/cities/york-minster/" class="city-card"><span class="city-name">York Minster</span></a>
+            </div>
+        </div>
+    </main>
+    <footer>© 2026 <a href="/">HowLongDrive.uk</a></footer>
 </body>
 </html>
