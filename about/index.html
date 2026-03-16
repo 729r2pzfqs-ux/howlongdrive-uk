@@ -1,102 +1,140 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - HowLongDrive.com | Driving Time Calculator</title>
-    <meta name="description" content="HowLongDrive.com helps you plan road trips with accurate driving times, distances, gas costs, and EV charging stops.">
-    <link rel="canonical" href="https://howlongdrive.com/about/">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <meta name="theme-color" content="#4B6E93">
+    <title>About HowLongDrive UK - UK Driving Times Calculator</title>
+    <meta name="description" content="About HowLongDrive UK - the free tool for calculating driving times and distances between UK cities. Plan your road trips with accurate journey estimates.">
+    <link rel="canonical" href="https://howlongdrive.uk/about/">
+    <link rel="icon" href="/favicon.ico">
+    <meta property="og:title" content="About HowLongDrive UK">
+    <meta property="og:description" content="The free UK driving times calculator. Plan road trips with accurate journey estimates.">
+    <meta property="og:url" content="https://howlongdrive.uk/about/">
+    <meta property="og:type" content="website">
     <style>
-        :root { --primary: #4B6E93; --accent: #10B981; --green: #10B981; --bg: #f8fafc; --card: #fff; --text: #1e293b; --muted: #64748b; --border: #e2e8f0; }
+        :root { --primary: #4B6E93; --accent: #10B981; --bg: #f8fafc; --card: #fff; --text: #1e293b; --muted: #64748b; --border: #e2e8f0; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        body { font-family: system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
         .container { max-width: 800px; margin: 0 auto; padding: 0 1rem; }
-        header { background: var(--card); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
-        .header-inner { display: flex; justify-content: space-between; align-items: center; max-width: 1000px; margin: 0 auto; padding: 0 1rem; }
+        
+        /* Header */
+        header { background: var(--card); border-bottom: 1px solid var(--border); padding: 0.25rem 0; }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
         .logo { font-weight: 700; font-size: 1.5rem; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 0.75rem; }
-        .logo img { height: 100px; width: auto; }
+        .logo img { height: 180px; width: auto; }
         nav { display: flex; align-items: center; gap: 1.5rem; }
         nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; }
-        .ev-badge { background: var(--green); color: white; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 600; }
-        .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+        nav a:hover { color: var(--primary); }
+        .ev-badge { background: var(--accent); color: white !important; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 600; }
         .close-btn { display: none; }
-        @media (max-width: 768px) { .logo img { height: 60px; } .logo span { display: none; } nav { position: fixed; top: 0; right: -100%; width: 250px; height: 100vh; background: var(--card); flex-direction: column; padding: 5rem 2rem; transition: right 0.3s; z-index: 1000; } nav.active { right: 0; } .hamburger { display: block; z-index: 1001; } .close-btn { display: block; position: absolute; top: 1rem; right: 1rem; background: none; border: none; } .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 999; } .overlay.active { display: block; } }
-        .content { background: var(--card); border-radius: 1rem; padding: 2.5rem; margin: 2rem 0; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
-        h1 { font-size: 2rem; margin-bottom: 1.5rem; }
-        h2 { font-size: 1.25rem; margin: 2rem 0 1rem; color: var(--text); display: flex; align-items: center; gap: 0.5rem; }
-        h2 svg { width: 24px; height: 24px; color: var(--primary); }
+        .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+        .hamburger svg { width: 24px; height: 24px; color: var(--text); }
+        .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 999; }
+        .overlay.active { display: block; }
+        
+        @media (max-width: 768px) {
+            .logo img { height: 144px; }
+            nav { position: fixed; top: 0; right: -100%; width: 250px; height: 100vh; background: var(--card); flex-direction: column; justify-content: flex-start; padding: 5rem 2rem 2rem; box-shadow: -4px 0 20px rgba(0,0,0,0.1); transition: right 0.3s; z-index: 1000; }
+            nav.active { right: 0; }
+            nav a { font-size: 1.1rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border); width: 100%; }
+            .hamburger { display: block; z-index: 1001; }
+            .close-btn { display: block; position: absolute; top: 1rem; right: 1rem; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+            .close-btn svg { width: 24px; height: 24px; }
+        }
+        
+        /* Content */
+        .content { padding: 3rem 0; }
+        h1 { font-size: 2rem; margin-bottom: 1.5rem; color: var(--primary); }
+        h2 { font-size: 1.4rem; margin: 2rem 0 1rem; color: var(--primary); }
         p { margin-bottom: 1rem; }
         ul { margin: 1rem 0 1rem 1.5rem; }
         li { margin-bottom: 0.5rem; }
-        .contact-box { background: var(--bg); border-radius: 0.75rem; padding: 1.5rem; margin-top: 2rem; }
-        .contact-box h3 { margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
-        .contact-box h3 svg { width: 20px; height: 20px; color: var(--primary); }
-        .email-link { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--primary); color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; }
-        .email-link svg { width: 18px; height: 18px; }
-        a { color: var(--primary); }
-        footer { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.875rem; margin-top: 2rem; }
+        .card { background: var(--card); border-radius: 1rem; padding: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 2rem; }
+        .highlight { background: linear-gradient(135deg, var(--primary), #5d8ab4); color: white; border-radius: 1rem; padding: 2rem; margin: 2rem 0; }
+        .highlight h2 { color: white; margin-top: 0; }
+        
+        footer { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.875rem; border-top: 1px solid var(--border); }
+        footer a { color: var(--primary); text-decoration: none; }
     </style>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0YGF4HPVJ3"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-0YGF4HPVJ3");</script></head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0YGF4HPVJ3"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-0YGF4HPVJ3");</script>
+</head>
 <body>
     <header>
         <div class="header-inner">
-            <a href="/" class="logo"><img src="/assets/logo-header.png" alt="HowLongDrive"><span>HowLongDrive</span></a>
-            <button class="hamburger" onclick="toggleMenu()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:24px;height:24px"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+            <a href="/" class="logo">
+                <img src="/assets/logo-header.png" alt="HowLongDrive UK">
+            </a>
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+            </button>
             <div class="overlay" onclick="toggleMenu()"></div>
             <nav id="nav">
-                <button class="close-btn" style="display:none" onclick="toggleMenu()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:24px;height:24px"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+                <button class="close-btn" onclick="toggleMenu()" aria-label="Close">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                </button>
                 <a href="/">Home</a>
                 <a href="/routes/">Routes</a>
                 <a href="/cities/">Cities</a>
-                <a href="/ev/" class="ev-badge">EV Trips</a>
-                <a href="/about/">About</a>
+                <a href="/guides/">Guides</a>
+                <a href="/ev/" class="ev-badge">⚡ EV Trips</a>
             </nav>
         </div>
     </header>
-    
-    <div class="container">
-        <div class="content">
-            <h1>About HowLongDrive</h1>
-            
-            <p>HowLongDrive.com is a free road trip planning tool that helps you find driving times, distances, and trip costs between cities across the United States.</p>
-            
-            <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9L18 10V6a2 2 0 00-2-2H8a2 2 0 00-2 2v4l-2.5 1.1C2.7 11.3 2 12.1 2 13v3c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg> What We Offer</h2>
-            <ul>
-                <li><strong>Driving Times</strong> - Accurate drive times between 300+ city pairs</li>
-                <li><strong>Distance Calculator</strong> - Miles and kilometers for every route</li>
-                <li><strong>Gas Cost Estimates</strong> - Based on current fuel prices and fuel efficiency</li>
-                <li><strong>Toll Estimates</strong> - Approximate toll costs for major routes</li>
-                <li><strong>Best Times to Drive</strong> - Avoid traffic with our timing recommendations</li>
-            </ul>
-            
-            <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> EV Trip Planner</h2>
-            <p>Planning a road trip in an electric vehicle? Our <a href="/ev/">EV Trip Planner</a> helps you:</p>
-            <ul>
-                <li>Calculate charging stops needed based on 250-mile range</li>
-                <li>Estimate total trip time including charging</li>
-                <li>Compare EV costs vs. gas vehicle costs</li>
-                <li>See how much you'll save driving electric</li>
-            </ul>
-            
-            <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M18 9l-5 5-4-4-3 3"/></svg> Our Data</h2>
-            <p>Driving times are based on typical highway speeds and normal traffic conditions. Actual times may vary based on traffic, weather, road conditions, and your driving speed.</p>
-            
-            <p>Gas costs are calculated assuming 30 MPG average fuel efficiency and $3.50/gallon gas price. EV costs assume $0.04/mile for electricity.</p>
-            
-            <div class="contact-box">
-                <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> Contact Us</h3>
-                <p>Have questions, suggestions, or feedback? We'd love to hear from you!</p>
-                <a href="mailto:hello@howlongdrive.com" class="email-link">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                    hello@howlongdrive.com
-                </a>
-            </div>
+
+    <div class="container content">
+        <h1>About HowLongDrive UK</h1>
+        
+        <div class="card">
+            <p><strong>HowLongDrive.uk</strong> is a free online tool that helps you quickly find driving times and distances between cities across the United Kingdom.</p>
+            <p>Whether you're planning a road trip, estimating commute times, or just curious how long it takes to drive somewhere, we've got you covered with accurate, easy-to-read journey information.</p>
+        </div>
+
+        <h2>What We Offer</h2>
+        <ul>
+            <li><strong>7,600+ Route Pages</strong> - Pre-calculated driving times for thousands of UK city pairs</li>
+            <li><strong>EV Trip Planning</strong> - Dedicated pages for electric vehicle journeys with charging considerations</li>
+            <li><strong>City Hub Pages</strong> - See all routes from any major UK city at a glance</li>
+            <li><strong>Road Trip Guides</strong> - Curated guides for popular UK driving routes</li>
+            <li><strong>Mobile Friendly</strong> - Works perfectly on phones, tablets, and desktops</li>
+        </ul>
+
+        <div class="highlight">
+            <h2>🚗 Plan Your Journey</h2>
+            <p>From quick trips like London to Brighton (1h 45m) to epic adventures like Land's End to John O'Groats (14+ hours), we help you plan with confidence.</p>
+        </div>
+
+        <h2>How It Works</h2>
+        <p>Simply search for your starting city and destination, or browse our routes by city. Each route page shows you:</p>
+        <ul>
+            <li>Estimated driving time</li>
+            <li>Distance in miles</li>
+            <li>Route overview on an interactive map</li>
+            <li>Fuel cost estimates</li>
+            <li>Useful FAQs about the journey</li>
+        </ul>
+
+        <h2>About the Data</h2>
+        <p>Our driving time estimates are based on typical road speeds for UK motorways, A-roads, and local roads. Actual journey times may vary depending on traffic, weather, roadworks, and your specific route.</p>
+        <p>We use mapping data to calculate realistic distances and times, but always allow extra time for your journey, especially during peak travel periods.</p>
+
+        <h2>Contact</h2>
+        <p>HowLongDrive.uk is a project built to help UK drivers plan their journeys. If you have suggestions, spot an error, or want to get in touch, feel free to reach out.</p>
+        
+        <div class="card">
+            <p><strong>Found this useful?</strong> Share HowLongDrive.uk with friends and family planning their next road trip!</p>
         </div>
     </div>
-    
-    <footer><p>© 2026 <a href="/" style="color:var(--primary);text-decoration:none">HowLongDrive.com</a></p></footer>
-    <script>function toggleMenu(){document.getElementById('nav').classList.toggle('active');document.querySelector('.overlay').classList.toggle('active');}</script>
+
+    <footer>
+        <p>&copy; 2026 HowLongDrive.uk | <a href="/">Home</a> | <a href="/routes/">Routes</a> | <a href="/cities/">Cities</a></p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('nav').classList.toggle('active');
+            document.querySelector('.overlay').classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
