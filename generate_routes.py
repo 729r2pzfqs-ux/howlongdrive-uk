@@ -122,6 +122,7 @@ template = '''<!DOCTYPE html>
                 <a href="/routes/">Routes</a>
                 <a href="/cities/">Cities</a>
                 <a href="/guides/">Guides</a>
+                <a href="/about/">About</a>
                 <a href="/ev/" class="ev-badge">EV Trips</a>
             </nav>
         </div>
