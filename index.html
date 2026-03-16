@@ -98,6 +98,10 @@
         
         footer { background: var(--card); border-top: 1px solid var(--border); padding: 2rem 0; text-align: center; color: var(--muted); font-size: 0.875rem; margin-top: 4rem; }
         footer a { color: var(--primary); text-decoration: none; }
+    
+        .stats-bar { display: flex; justify-content: center; gap: 2rem; margin-top: 1.5rem; flex-wrap: wrap; }
+        .stats-bar .stat { color: white; font-size: 0.9rem; }
+        .stats-bar .stat-num { font-weight: 700; font-size: 1.1rem; }
     </style>
     <script type="application/ld+json">
     {
@@ -168,6 +172,11 @@
                     </div>
                     <button class="search-btn" onclick="search()">Get Driving Time</button>
                 </div>
+            <div class="stats-bar">
+                <div class="stat"><span class="stat-num">7,692</span> Routes</div>
+                <div class="stat"><span class="stat-num">7,692</span> EV Routes</div>
+                <div class="stat"><span class="stat-num">213</span> Cities</div>
+            </div>
             </div>
         </section>
 
