@@ -25,6 +25,18 @@
         .stats { display: flex; gap: 2rem; margin: 1rem 0 2rem; flex-wrap: wrap; }
         .stat-value { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
         .stat-label { font-size: 0.8rem; color: var(--muted); }
+        .search-box { background: var(--card); padding: 1.5rem; border-radius: 0.75rem; margin-bottom: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+        .search-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .input-wrapper { flex: 1; min-width: 200px; position: relative; }
+        .search-input { width: 100%; padding: 0.875rem 1rem; border: 2px solid var(--border); border-radius: 0.5rem; font-size: 1rem; }
+        .search-input:focus { outline: none; border-color: var(--primary); }
+        .dropdown { position: absolute; top: 100%; left: 0; right: 0; background: var(--card); border: 1px solid var(--border); border-radius: 0.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.15); display: none; z-index: 100; max-height: 250px; overflow-y: auto; }
+        .dropdown.active { display: block; }
+        .dropdown-item { padding: 0.75rem 1rem; cursor: pointer; border-bottom: 1px solid var(--border); }
+        .dropdown-item:last-child { border-bottom: none; }
+        .dropdown-item:hover { background: var(--bg); color: var(--primary); }
+        .search-btn { background: var(--primary); color: white; border: none; padding: 0.875rem 1.5rem; border-radius: 0.5rem; font-size: 1rem; font-weight: 600; cursor: pointer; margin-top: 1rem; }
+        .search-btn:hover { background: #3d5a7a; }
         .section { margin-bottom: 2.5rem; }
         .section h2 { font-size: 1.1rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
         .section h2 svg { width: 20px; height: 20px; color: var(--primary); }
@@ -50,52 +62,74 @@
             <div class="stat"><div class="stat-value">7,692</div><div class="stat-label">EV Routes</div></div>
             <div class="stat"><div class="stat-value">213</div><div class="stat-label">Cities</div></div>
         </div>
+        <div class="search-box">
+            <div class="search-row">
+                <div class="input-wrapper">
+                    <input type="text" class="search-input" placeholder="From (e.g., London)" id="from" autocomplete="off">
+                    <div class="dropdown" id="from-dropdown"></div>
+                </div>
+                <div class="input-wrapper">
+                    <input type="text" class="search-input" placeholder="To (e.g., Manchester)" id="to" autocomplete="off">
+                    <div class="dropdown" id="to-dropdown"></div>
+                </div>
+            </div>
+            <button class="search-btn" onclick="search()">Get Driving Time</button>
+        </div>
         <div class="section">
             <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> Popular Routes</h2>
             <div class="routes-grid">
-                <a href="/route/london-to-manchester/" class="route-card">
-                    <div class="route-title">London → Manchester</div>
-                    <div class="route-meta">4h • 200 mi</div>
-                </a>
-                <a href="/route/london-to-edinburgh/" class="route-card">
-                    <div class="route-title">London → Edinburgh</div>
-                    <div class="route-meta">7h • 400 mi</div>
-                </a>
-                <a href="/route/london-to-birmingham/" class="route-card">
-                    <div class="route-title">London → Birmingham</div>
-                    <div class="route-meta">2h • 120 mi</div>
-                </a>
-                <a href="/route/manchester-to-liverpool/" class="route-card">
-                    <div class="route-title">Manchester → Liverpool</div>
-                    <div class="route-meta">1h • 35 mi</div>
-                </a>
-                <a href="/route/london-to-bristol/" class="route-card">
-                    <div class="route-title">London → Bristol</div>
-                    <div class="route-meta">2h • 120 mi</div>
-                </a>
-                <a href="/route/london-to-brighton/" class="route-card">
-                    <div class="route-title">London → Brighton</div>
-                    <div class="route-meta">1h 30m • 55 mi</div>
-                </a>
-                <a href="/route/london-to-cambridge/" class="route-card">
-                    <div class="route-title">London → Cambridge</div>
-                    <div class="route-meta">1h 30m • 60 mi</div>
-                </a>
-                <a href="/route/london-to-oxford/" class="route-card">
-                    <div class="route-title">London → Oxford</div>
-                    <div class="route-meta">1h 30m • 60 mi</div>
-                </a>
-                <a href="/route/birmingham-to-manchester/" class="route-card">
-                    <div class="route-title">Birmingham → Manchester</div>
-                    <div class="route-meta">1h 30m • 85 mi</div>
-                </a>
-                <a href="/route/edinburgh-to-glasgow/" class="route-card">
-                    <div class="route-title">Edinburgh → Glasgow</div>
-                    <div class="route-meta">1h • 45 mi</div>
-                </a>
+                <a href="/route/london-to-manchester/" class="route-card"><div class="route-title">London → Manchester</div><div class="route-meta">4h • 200 mi</div></a>
+                <a href="/route/london-to-edinburgh/" class="route-card"><div class="route-title">London → Edinburgh</div><div class="route-meta">7h • 400 mi</div></a>
+                <a href="/route/london-to-birmingham/" class="route-card"><div class="route-title">London → Birmingham</div><div class="route-meta">2h • 120 mi</div></a>
+                <a href="/route/manchester-to-liverpool/" class="route-card"><div class="route-title">Manchester → Liverpool</div><div class="route-meta">1h • 35 mi</div></a>
+                <a href="/route/london-to-bristol/" class="route-card"><div class="route-title">London → Bristol</div><div class="route-meta">2h • 120 mi</div></a>
+                <a href="/route/edinburgh-to-glasgow/" class="route-card"><div class="route-title">Edinburgh → Glasgow</div><div class="route-meta">1h • 45 mi</div></a>
             </div>
         </div>
     </main>
     <footer>© 2026 <a href="/">HowLongDrive.uk</a></footer>
+    <script>
+        const CITIES = ['Aberdeen', 'Aberdeen Airport', 'Aberystwyth', 'Alton Towers', 'Aylesbury', 'Ayr', 'Bangor', 'Barnsley', 'Barnstaple', 'Basildon', 'Basingstoke', 'Bath', 'Belfast', 'Belfast City Airport', 'Belfast International', 'Birkenhead', 'Birmingham', 'Blackburn', 'Blackpool', 'Blackpool Tower', 'Blenheim Palace', 'Bolton', 'Boston', 'Bournemouth', 'Bracknell', 'Bradford', 'Brighton', 'Bristol', 'British Museum', 'Buckingham Palace', 'Burnley', 'Cambridge', 'Canterbury', 'Canterbury Cathedral', 'Cardiff', 'Cardiff Airport', 'Carlisle', 'Carmarthen', 'Chatsworth House', 'Cheltenham', 'Chester', 'Chesterfield', 'Colchester', 'Cornwall', 'Cotswolds', 'Coventry', 'Crawley', 'Cwmbran', 'Darlington', 'Derby', 'Devon', 'Doncaster', 'Doncaster Sheffield Airport', 'Dover', 'Dudley', 'Dumfries', 'Dundee', 'Dunfermline', 'Durham', 'East Kilbride', 'East Midlands Airport', 'Eastbourne', 'Eden Project', 'Edinburgh', 'Edinburgh Airport', 'Exeter', 'Exeter Airport', 'Falkirk', 'Falmouth', 'Folkestone', 'Gateshead', 'Gatwick Airport', 'Giants Causeway', 'Glasgow', 'Glasgow Airport', 'Gloucester', 'Grantham', 'Grimsby', 'Guildford', 'Hadrians Wall', 'Halifax', 'Hamilton', 'Harlow', 'Harrogate', 'Harry Potter Studios', 'Hartlepool', 'Hastings', 'Heathrow Airport', 'Hemel Hempstead', 'Hereford', 'High Wycombe', 'Huddersfield', 'Hull', 'Inverness', 'Inverness Airport', 'Ipswich', 'Isle Of Skye', 'Jurassic Coast', 'Kew Gardens', 'Kidderminster', 'Kilmarnock', 'Kirkcaldy', 'Lake District', 'Lancaster', 'Lands End', 'Leamington Spa', 'Leeds', 'Leeds Bradford Airport', 'Legoland Windsor', 'Leicester', 'Lincoln', 'Liverpool', 'Liverpool Airport', 'Livingston', 'Llandudno', 'Loch Ness', 'London', 'London City Airport', 'Loughborough', 'Luton', 'Luton Airport', 'Maidenhead', 'Maidstone', 'Manchester', 'Manchester Airport', 'Mansfield', 'Margate', 'Merthyr Tydfil', 'Middlesbrough', 'Milton Keynes', 'Motherwell', 'Newark', 'Newbury', 'Newcastle', 'Newcastle Airport', 'Newport', 'Newquay Airport', 'Northampton', 'Norwich', 'Nottingham', 'Nuneaton', 'Oldham', 'Oxford', 'Paisley', 'Peak District', 'Penzance', 'Perth', 'Peterborough', 'Plymouth', 'Pontypridd', 'Poole', 'Portsmouth', 'Preston', 'Reading', 'Redditch', 'Rochdale', 'Roman Baths', 'Rotherham', 'Rugby', 'Salisbury', 'Scarborough', 'Scottish Highlands', 'Scunthorpe', 'Sheffield', 'Shrewsbury', 'Skegness', 'Slough', 'Snowdonia', 'Solihull', 'South Shields', 'Southampton', 'Southampton Airport', 'Southend', 'Southend Airport', 'St Albans', 'St Austell', 'St Helens', 'Stansted Airport', 'Stevenage', 'Stirling', 'Stockport', 'Stockton', 'Stoke On Trent', 'Stonehenge', 'Stratford Upon Avon', 'Sunderland', 'Sutton Coldfield', 'Swansea', 'Swindon', 'Tamworth', 'Taunton', 'Telford', 'Titanic Belfast', 'Torquay', 'Tower Of London', 'Truro', 'Wakefield', 'Walsall', 'Warrington', 'Warwick', 'Warwick Castle', 'Weymouth', 'Whitby', 'Wigan', 'Winchester', 'Windsor', 'Windsor Castle', 'Woking', 'Wolverhampton', 'Worcester', 'Wrexham', 'York', 'York Minster'];
+        
+        function setupAutocomplete(inputId, dropdownId) {
+            const input = document.getElementById(inputId);
+            const dropdown = document.getElementById(dropdownId);
+            
+            input.addEventListener('input', function() {
+                const val = this.value.toLowerCase();
+                dropdown.innerHTML = '';
+                if (val.length < 1) { dropdown.classList.remove('active'); return; }
+                
+                const matches = CITIES.filter(c => c.toLowerCase().includes(val)).slice(0, 8);
+                if (matches.length === 0) { dropdown.classList.remove('active'); return; }
+                
+                matches.forEach(city => {
+                    const div = document.createElement('div');
+                    div.className = 'dropdown-item';
+                    div.textContent = city;
+                    div.onclick = () => { input.value = city; dropdown.classList.remove('active'); };
+                    dropdown.appendChild(div);
+                });
+                dropdown.classList.add('active');
+            });
+            
+            document.addEventListener('click', e => {
+                if (!input.contains(e.target) && !dropdown.contains(e.target)) dropdown.classList.remove('active');
+            });
+        }
+        
+        setupAutocomplete('from', 'from-dropdown');
+        setupAutocomplete('to', 'to-dropdown');
+        
+        function search() {
+            const from = document.getElementById('from').value.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+            const to = document.getElementById('to').value.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+            if (from && to) window.location.href = '/route/' + from + '-to-' + to + '/';
+        }
+        
+        document.getElementById('to').addEventListener('keydown', e => {
+            if (e.key === 'Enter') search();
+        });
+    </script>
 </body>
 </html>
