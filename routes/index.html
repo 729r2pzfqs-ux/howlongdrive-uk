@@ -19,13 +19,13 @@
         nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; }
         .ev-badge { background: var(--green); color: #fff; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem; }
         @media (max-width: 768px) { .logo img { height: 144px; } nav { display: none; } }
-        h1 { font-size: 2rem; margin: 2rem 0 0.5rem; display: flex; align-items: center; gap: 0.75rem; }
+        h1 { font-size: 2rem; margin: 2rem 0 0.5rem; display: flex; align-items: center; justify-content: center; gap: 0.75rem; }
         h1 svg { width: 32px; height: 32px; color: var(--primary); }
-        .subtitle { color: var(--muted); margin-bottom: 1.5rem; }
-        .stats { display: flex; gap: 2rem; margin: 1rem 0 2rem; flex-wrap: wrap; }
+        .subtitle { color: var(--muted); margin-bottom: 1.5rem; text-align: center; }
+        .stats { display: flex; gap: 2rem; margin: 1rem 0 2rem; flex-wrap: wrap; justify-content: center; }
         .stat-value { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
         .stat-label { font-size: 0.8rem; color: var(--muted); }
-        .search-box { background: var(--card); padding: 1.5rem; border-radius: 0.75rem; margin-bottom: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+        .search-box { background: var(--card); padding: 1.5rem; border-radius: 0.75rem; margin-bottom: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); max-width: 700px; margin-left: auto; margin-right: auto; }
         .search-row { display: flex; gap: 1rem; flex-wrap: wrap; }
         .input-wrapper { flex: 1; min-width: 200px; position: relative; }
         .search-input { width: 100%; padding: 0.875rem 1rem; border: 2px solid var(--border); border-radius: 0.5rem; font-size: 1rem; }
@@ -35,7 +35,7 @@
         .dropdown-item { padding: 0.75rem 1rem; cursor: pointer; border-bottom: 1px solid var(--border); }
         .dropdown-item:last-child { border-bottom: none; }
         .dropdown-item:hover { background: var(--bg); color: var(--primary); }
-        .search-btn { background: var(--primary); color: white; border: none; padding: 0.875rem 1.5rem; border-radius: 0.5rem; font-size: 1rem; font-weight: 600; cursor: pointer; margin-top: 1rem; }
+        .search-btn { background: var(--primary); color: white; border: none; padding: 0.875rem 1.5rem; border-radius: 0.5rem; font-size: 1rem; font-weight: 600; cursor: pointer; margin-top: 1rem; display: block; width: 100%; }
         .search-btn:hover { background: #3d5a7a; }
         .section { margin-bottom: 2.5rem; }
         .section h2 { font-size: 1.1rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
