@@ -62,9 +62,10 @@
         .row span:last-child { font-weight: 500; }
         #map { height: 300px; border-radius: 0.75rem; margin-top: 1.5rem; }
         .map-note { text-align: center; font-size: 0.75rem; color: var(--muted); margin-top: 0.5rem; }
-        .maps-btn { background: #EFA24F !important; color: white; margin-left: 0.5rem; }
-        .cta { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1.25rem; padding: 0.6rem 1.25rem; background: var(--primary); color: white; border-radius: 0.5rem; text-decoration: none; font-weight: 600; font-size: 0.85rem; }
-        .ev-link { display: inline-flex; align-items: center; gap: 0.4rem; margin-left: 0.75rem; padding: 0.6rem 1.25rem; background: var(--green); color: white; border-radius: 0.5rem; text-decoration: none; font-weight: 600; font-size: 0.85rem; }
+        .maps-btn { background: #EFA24F !important; color: white; }
+        .btn-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; }
+        .cta { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.6rem 1.25rem; background: var(--primary); color: white; border-radius: 0.5rem; text-decoration: none; font-weight: 600; font-size: 0.85rem; flex: 1; justify-content: center; min-width: 0; }
+        .ev-link { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.6rem 1.25rem; background: var(--green); color: white; border-radius: 0.5rem; text-decoration: none; font-weight: 600; font-size: 0.85rem; flex: 1; justify-content: center; min-width: 0; }
         .faq { margin-top: 1.5rem; }
         .faq h2 { font-size: 1.1rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
         .faq h2 svg { width: 20px; height: 20px; color: var(--primary); }
@@ -114,9 +115,9 @@
                 <div class="stat"><div class="stat-value">£12</div><div class="stat-label">Petrol Cost</div></div>
                 <div class="stat"><div class="stat-value">£3</div><div class="stat-label">Tolls</div></div>
             </div>
-            <a href="https://www.google.com/maps/dir/Cardiff/Legoland Windsor" target="_blank" class="cta maps-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Google Maps</a>
+            <div class="btn-row"><a href="https://www.google.com/maps/dir/Cardiff/Legoland Windsor" target="_blank" class="cta maps-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Google Maps</a>
             <a href="/route/legoland-windsor-to-cardiff/" class="cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M9 14l-4-4 4-4"/><path d="M5 10h11a4 4 0 110 8h-1"/></svg> Reverse</a>
-            <a href="/ev/cardiff-to-legoland-windsor/" class="ev-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> EV Trip</a>
+            <a href="/ev/cardiff-to-legoland-windsor/" class="ev-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> EV Trip</a></div>
         </div>
         
         <div class="card" style="margin-top:1.5rem;margin-bottom:0">
