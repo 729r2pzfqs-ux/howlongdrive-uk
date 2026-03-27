@@ -201,17 +201,10 @@ template = '''<!DOCTYPE html>
 </body>
 </html>'''
 
-highways = {
-    "New York": "I-95", "Los Angeles": "I-10", "Chicago": "I-90", "Houston": "I-10",
-    "Phoenix": "I-10", "Philadelphia": "I-95", "San Antonio": "I-35", "San Diego": "I-5",
-    "Dallas": "I-35", "San Jose": "US-101", "Austin": "I-35", "Jacksonville": "I-95",
-    "San Francisco": "I-5", "Seattle": "I-5", "Denver": "I-70", "Washington DC": "I-95",
-    "Boston": "I-95", "Nashville": "I-40", "Detroit": "I-94", "Portland": "I-5",
-    "Las Vegas": "I-15", "Miami": "I-95", "Atlanta": "I-85", "Minneapolis": "I-94",
-    "Orlando": "I-4", "Tampa": "I-75", "Salt Lake City": "I-80", "New Orleans": "I-10"
-}
+# No US highways dict needed - we use route data's highway field
 
-best_times = ["Early morning (6-8 AM)", "Mid-morning (9-11 AM)", "Late evening (8-10 PM)", "Weekday mid-day"]
+best_times_short = ["Early morning (before 7 AM)", "Mid-morning (9-11 AM)", "Late evening (after 7 PM)", "Weekday mid-day"]
+best_times_long = ["Early morning (before 7 AM)", "Weekday off-peak (10 AM - 3 PM)", "Sunday morning", "Late evening (after 8 PM)"]
 
 count = 0
 processed = set()
@@ -231,19 +224,36 @@ for route in routes:
     
     reverse_slug = f"{to_city.lower().replace(' ', '-')}-to-{from_city.lower().replace(' ', '-')}"
     km = int(miles * 1.60934)
-    litres = round(miles / 30, 1)
-    petrol_cost = int(litres * 3.5)
-    tolls = min(50, max(0, int(miles * 0.03)))
-    highway = highways.get(from_city, "Interstate")
-    best_time = best_times[count % len(best_times)]
-    
-    # Toll answer
-    if tolls > 10:
-        toll_answer = f"Yes, expect approximately <strong>£{tolls}</strong> in tolls along this route. Consider getting an E-ZPass or similar transponder for faster toll payment."
-    elif tolls > 0:
-        toll_answer = f"There may be minor tolls (around <strong>£{tolls}</strong>) on parts of this route. Some sections have toll-free alternatives."
+    litres = round(miles * 4.546 / 40, 1)  # miles / 40 MPG, converted to litres
+    petrol_cost = round(litres * 1.40, 0)  # £1.40/litre
+    petrol_cost = int(petrol_cost) if petrol_cost > 0 else 1
+    highway = route.get('highway', 'A-roads')
+    if miles > 100:
+        best_time = best_times_long[count % len(best_times_long)]
     else:
-        toll_answer = "This route is primarily toll-free, though some bridges or tunnels may have small fees."
+        best_time = best_times_short[count % len(best_times_short)]
+    
+    # Toll answer - UK-specific
+    # UK has very few toll roads: M6 Toll, Dartford Crossing, Mersey tunnels, some bridges
+    m6_toll_cities = {'Birmingham', 'Birmingham Airport', 'Wolverhampton', 'Walsall', 'Tamworth',
+                      'Sutton Coldfield', 'Solihull', 'West Bromwich', 'Dudley', 'Bromsgrove',
+                      'Redditch', 'Kidderminster', 'Telford'}
+    dartford_cities = {'Dartford', 'Gravesend', 'Basildon', 'Southend', 'Southend Airport',
+                       'Chelmsford', 'Colchester', 'Ipswich', 'Norwich'}
+    
+    route_cities = {from_city, to_city}
+    has_m6_toll = bool((route_cities & m6_toll_cities) and highway in ('M6', 'M6/M1', 'M1/M6'))
+    has_dartford = bool((route_cities & dartford_cities))
+    
+    if has_m6_toll:
+        tolls = 7
+        toll_answer = f"The M6 Toll road near Birmingham charges around <strong>£{tolls}</strong> for cars. You can avoid it by using the regular M6, though expect heavier traffic."
+    elif 'Dartford' in {from_city, to_city} or ('M25' in highway):
+        tolls = 3
+        toll_answer = "The Dartford Crossing (M25) charges <strong>£3</strong> for cars via the Dart Charge system. Register online to avoid a fine."
+    else:
+        tolls = 0
+        toll_answer = "This route is toll-free. The UK has very few toll roads — the main ones are the M6 Toll near Birmingham and the Dartford Crossing on the M25."
     
     from_data = coords.get(from_city, {}); from_lat = from_data.get('lat', 0) if isinstance(from_data, dict) else from_data[0]; from_lng = from_data.get('lng', 0) if isinstance(from_data, dict) else from_data[1]
     to_data = coords.get(to_city, {}); to_lat = to_data.get('lat', 0) if isinstance(to_data, dict) else to_data[0]; to_lng = to_data.get('lng', 0) if isinstance(to_data, dict) else to_data[1]
