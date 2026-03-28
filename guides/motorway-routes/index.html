@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UK Motorway Routes Guide - M1, M4, M5, M6, M62 & A1(M) | HowLongDrive</title>
+    <meta name="description" content="Complete guide to major UK motorway routes. M1, M4, M5, M6, M62, A1(M) with service stations, speed limits, smart motorways, toll roads, and best times to travel.">
+    <link rel="canonical" href="https://howlongdrive.uk/guides/motorway-routes/">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <meta name="theme-color" content="#4B6E93">
+    <meta property="og:title" content="UK Motorway Routes Guide">
+    <meta property="og:description" content="Everything you need to know about Britain's major motorways: M1, M4, M5, M6, M62, A1(M), service stations, and traffic tips.">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"UK Motorway Routes Guide","dateModified":"2026-03-28","description":"Complete guide to major UK motorway routes including M1, M4, M5, M6, M62 and A1(M)."}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are the speed limits on UK motorways?","acceptedAnswer":{"@type":"Answer","text":"The national speed limit on UK motorways is 70 mph. Smart motorway sections may display variable speed limits (40-60 mph) on overhead gantries, which are legally enforceable. Some roadwork sections are limited to 50 mph with average speed cameras."}},{"@type":"Question","name":"What are smart motorways and are they safe?","acceptedAnswer":{"@type":"Answer","text":"Smart motorways use technology to manage traffic flow. All Lane Running (ALR) sections have no hard shoulder — emergency refuge areas are provided instead. Variable speed limits are displayed on overhead gantries. A red X means a lane is closed. There have been safety concerns about the lack of hard shoulder; always use emergency refuge areas if you break down."}},{"@type":"Question","name":"How much does the M6 Toll cost?","acceptedAnswer":{"@type":"Answer","text":"The M6 Toll costs approximately £7-8 for cars (prices vary by time of day). It's a 27-mile route that bypasses the heavily congested section of the M6 around Birmingham. During peak hours, it can save 30-60 minutes and is generally worth the cost."}},{"@type":"Question","name":"When are UK motorways busiest?","acceptedAnswer":{"@type":"Answer","text":"Busiest times are weekday mornings (7-9 AM) and evenings (4:30-7 PM) around major cities. Friday afternoons (3-7 PM) are the worst single period. Bank holiday weekends see severe congestion from Thursday evening. The M25 is busy almost constantly during daylight hours."}},{"@type":"Question","name":"How often are there service stations on UK motorways?","acceptedAnswer":{"@type":"Answer","text":"By law, motorway service stations must be no more than 28 miles apart. In practice, on busy motorways like the M1 and M6, they appear every 15-25 miles. Services typically include fuel, toilets, restaurants, and Costa/Starbucks. Most are open 24/7."}}]}</script>
+    <style>
+        :root { --primary: #4B6E93; --primary-dark: #3a5775; --accent: #EFA24F; --green: #10B981; --bg: #f8fafc; --card: #fff; --text: #1e293b; --muted: #64748b; --border: #e2e8f0; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 1rem; }
+        header { background: var(--card); border-bottom: 1px solid var(--border); padding: 0.25rem 0; }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 700; font-size: 1.5rem; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 0.75rem; }
+        .logo img { height: 180px; width: auto; }
+        nav { display: flex; align-items: center; gap: 1.5rem; }
+        nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; }
+        nav a:hover { color: var(--primary); }
+        .ev-badge { background: var(--green); color: white; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 600; }
+        .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+        .hamburger svg { width: 24px; height: 24px; color: var(--text); }
+        .close-btn { display: none; }
+        .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 999; }
+        .overlay.active { display: block; }
+        @media (max-width: 768px) {
+            .logo img { height: 144px; } .logo span { display: none; }
+            nav { position: fixed; top: 0; right: -100%; width: 250px; height: 100vh; background: var(--card); flex-direction: column; padding: 5rem 2rem; transition: right 0.3s; z-index: 1000; }
+            nav.active { right: 0; }
+            nav a { font-size: 1.1rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border); width: 100%; }
+            .hamburger { display: block; z-index: 1001; }
+            .close-btn { display: block; position: absolute; top: 1rem; right: 1rem; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+            .close-btn svg { width: 24px; height: 24px; }
+        }
+        .breadcrumb { font-size: 0.875rem; color: var(--muted); padding: 1rem 0; }
+        .breadcrumb a { color: var(--primary); text-decoration: none; }
+        .hero { background: linear-gradient(135deg, #374151 0%, #1f2937 100%); padding: 2rem; border-radius: 1rem; margin-bottom: 1.5rem; color: white; }
+        h1 { font-size: 1.75rem; margin-bottom: 0.5rem; font-weight: 700; }
+        .subtitle { opacity: 0.9; font-size: 0.95rem; }
+        .content { background: var(--card); padding: 2rem; border-radius: 0.75rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); margin-bottom: 1.5rem; }
+        .content h2 { font-size: 1.3rem; color: var(--primary); margin: 1.5rem 0 0.75rem; }
+        .content h2:first-child { margin-top: 0; }
+        .content h3 { font-size: 1.1rem; margin: 1.25rem 0 0.5rem; }
+        .content p { margin-bottom: 1rem; color: var(--text); font-size: 0.95rem; }
+        .content ul { margin-bottom: 1rem; padding-left: 1.5rem; }
+        .content li { margin-bottom: 0.5rem; font-size: 0.95rem; }
+        .mway-card { background: var(--bg); border-radius: 0.5rem; padding: 1.25rem; margin-bottom: 1rem; border-left: 4px solid var(--primary); }
+        .mway-card h3 { margin-top: 0; color: var(--primary); }
+        .mway-card .meta { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.5rem; font-weight: 600; }
+        .tip-box { background: #fffbeb; border: 1px solid #fcd34d; border-radius: 0.5rem; padding: 1rem 1.25rem; margin: 1rem 0; }
+        .tip-box strong { color: #92400e; }
+        .warning-box { background: #fef2f2; border: 1px solid #fca5a5; border-radius: 0.5rem; padding: 1rem 1.25rem; margin: 1rem 0; }
+        .warning-box strong { color: #991b1b; }
+        .related-links { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0; }
+        .related-links a { background: var(--bg); padding: 0.5rem 0.875rem; border-radius: 0.5rem; text-decoration: none; color: var(--text); font-size: 0.85rem; border: 1px solid var(--border); }
+        .related-links a:hover { border-color: var(--primary); color: var(--primary); }
+        .faq { margin-top: 1.5rem; }
+        .faq h2 { font-size: 1.1rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; color: var(--text); }
+        .faq-item { background: var(--card); border-radius: 0.5rem; margin-bottom: 0.75rem; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        .faq-q { font-weight: 600; padding: 1rem 1.25rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; }
+        .faq-q:hover { background: #f8fafc; }
+        .faq-q svg { width: 16px; height: 16px; color: var(--muted); transition: transform 0.2s; }
+        .faq-item.open .faq-q svg { transform: rotate(180deg); }
+        .faq-a { padding: 0 1.25rem 1rem; font-size: 0.875rem; color: var(--muted); display: none; }
+        .faq-item.open .faq-a { display: block; }
+        footer { text-align: center; padding: 2rem 1rem; color: var(--muted); font-size: 0.875rem; margin-top: 2rem; }
+        footer a { color: var(--primary); text-decoration: none; }
+    </style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0YGF4HPVJ3"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-0YGF4HPVJ3");</script>
+</head>
+<body>
+    <header>
+        <div class="container header-inner">
+            <a href="/" class="logo"><img src="/assets/logo-header.png" alt="HowLongDrive"></a>
+            <button class="hamburger" onclick="toggleMenu()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+            <div class="overlay" onclick="toggleMenu()"></div>
+            <nav id="nav">
+                <button class="close-btn" onclick="toggleMenu()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+                <a href="/">Home</a>
+                <a href="/routes/">Routes</a>
+                <a href="/cities/">Cities</a>
+                <a href="/guides/">Guides</a>
+                <a href="/about/">About</a>
+                <a href="/ev/" class="ev-badge">EV Trips</a>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <div class="breadcrumb"><a href="/">Home</a> › <a href="/guides/">Guides</a> › Motorway Routes</div>
+
+        <div class="hero">
+            <h1>🛣️ UK Motorway Routes Guide</h1>
+            <p class="subtitle">M1, M4, M5, M6, M62, A1(M) — service stations, speed limits, smart motorways, and traffic tips</p>
+        </div>
+
+        <div class="content">
+            <h2>Britain's Motorway Network</h2>
+            <p>Britain's motorway network connects all major cities and is the backbone of long-distance driving in the UK. While motorways may lack the romance of coastal roads, understanding them is essential for efficient travel. Choosing the right motorway, knowing when to travel, and understanding smart motorway rules can dramatically improve your journey.</p>
+            <p>The UK has approximately 2,300 miles of motorway, with the M1, M6, and M25 carrying the heaviest traffic. All motorways are toll-free except the M6 Toll near Birmingham and the Dartford Crossing on the M25.</p>
+
+            <h2>Major Motorway Routes</h2>
+
+            <div class="mway-card">
+                <h3>M1 — London to Leeds (190 miles)</h3>
+                <div class="meta">Connects: London → Luton → Milton Keynes → Northampton → Leicester → Nottingham/Derby → Sheffield → Leeds</div>
+                <p>Britain's first motorway (opened 1959), the M1 is the main artery connecting London to the East Midlands and Yorkshire. Smart motorway sections apply from J6A to J35A. Average speed cameras are widespread.</p>
+                <p><strong>Busiest sections:</strong> J1-J6 (approach to London), J21-J25 (Leicester/Nottingham), J32-J35 (Sheffield). Friday afternoons heading north are particularly grim.</p>
+                <p><strong>Key service stations:</strong> Toddington (J11-12), Newport Pagnell (J14-15), Leicester Forest East (J21-22), Meadowhall (J34), Woolley Edge (J38-39).</p>
+                <div class="related-links">
+                    <a href="/route/london-to-leeds/">London → Leeds</a>
+                    <a href="/route/london-to-sheffield/">London → Sheffield</a>
+                    <a href="/route/london-to-birmingham/">London → Birmingham</a>
+                </div>
+            </div>
+
+            <div class="mway-card">
+                <h3>A1(M) — London to Edinburgh (400 miles)</h3>
+                <div class="meta">Connects: London → Stevenage → Peterborough → Doncaster → Newcastle → Edinburgh</div>
+                <p>The A1(M) (and the A1 where it's not motorway standard) is the historic Great North Road linking London to Edinburgh via the east coast route. Not all sections are motorway — some are dual carriageway. Combined with the M1 (to J21A) and A1(M) north, this is the primary London-Edinburgh route on the east side.</p>
+                <p><strong>Key service stations:</strong> Baldock (near Stevenage), Peterborough, Wetherby, Scotch Corner, Washington (Tyne & Wear).</p>
+                <p><strong>Note:</strong> The A1 through Northumberland is not motorway standard and has some single carriageway sections — adjust expectations for journey time.</p>
+                <div class="related-links">
+                    <a href="/route/london-to-edinburgh/">London → Edinburgh</a>
+                    <a href="/route/london-to-cambridge/">London → Cambridge</a>
+                    <a href="/route/leeds-to-newcastle/">Leeds → Newcastle</a>
+                </div>
+            </div>
+
+            <div class="mway-card">
+                <h3>M4 — London to Cardiff (150 miles)</h3>
+                <div class="meta">Connects: London → Reading → Swindon → Bristol → Newport → Cardiff</div>
+                <p>The main route from London to South Wales, the M4 is generally well-flowing except around the Brynglas Tunnels near Newport. The Severn Bridge crossing into Wales is now toll-free (the toll was abolished in 2018). Smart motorway sections apply from J3 to J12.</p>
+                <p><strong>Busiest sections:</strong> J3-J4B (Heathrow area), J19-J20 (Bristol approach). Reading is a common bottleneck.</p>
+                <p><strong>Key service stations:</strong> Reading (J12), Membury (J14-15), Leigh Delamere (J17-18), Severn View (J21-22), Cardiff Gate (J30).</p>
+                <div class="related-links">
+                    <a href="/route/london-to-cardiff/">London → Cardiff</a>
+                    <a href="/route/london-to-bristol/">London → Bristol</a>
+                    <a href="/route/cardiff-to-london/">Cardiff → London</a>
+                </div>
+            </div>
+
+            <div class="mway-card">
+                <h3>M5 — Birmingham to Exeter (164 miles)</h3>
+                <div class="meta">Connects: Birmingham → Worcester → Gloucester → Bristol → Taunton → Exeter</div>
+                <p>The M5 is the gateway to the South West and generally one of Britain's more pleasant motorways — except during summer holiday changeover days when it becomes the "holiday highway" with enormous queues. The stretch through the Avon Gorge near Bristol is particularly scenic for a motorway.</p>
+                <p><strong>Busiest times:</strong> Saturday mornings in July/August (holiday traffic heading to Devon and Cornwall). The Almondsbury Interchange (M4/M5 junction near Bristol) is a notorious bottleneck.</p>
+                <p><strong>Key service stations:</strong> Strensham (J7-8), Michaelwood (J13-14), Gordano (J19), Sedgemoor (J21-22), Taunton Deane (J25-26), Exeter (J30).</p>
+                <div class="related-links">
+                    <a href="/route/birmingham-to-exeter/">Birmingham → Exeter</a>
+                    <a href="/route/bristol-to-exeter/">Bristol → Exeter</a>
+                    <a href="/route/london-to-cornwall/">London → Cornwall</a>
+                </div>
+            </div>
+
+            <div class="mway-card">
+                <h3>M6 — Birmingham to Carlisle (230 miles)</h3>
+                <div class="meta">Connects: Birmingham → Stoke-on-Trent → Manchester → Preston → Lancaster → Carlisle (and on to Scotland via M74)</div>
+                <p>The M6 is Britain's longest motorway and one of the busiest. It's the main route from the Midlands to the North West and Scotland. The section around Birmingham (J4-J11) is notoriously congested, which is why the M6 Toll was built as a bypass.</p>
+                <p><strong>M6 Toll:</strong> 27-mile bypass around Birmingham (J3A to J11A). Costs £7-8 for cars. Open 24/7. During peak hours, it genuinely saves 30-60 minutes and is worth every penny.</p>
+                <p><strong>Busiest sections:</strong> J4-J11 (Birmingham, if you don't take the Toll), J19-J21 (Manchester area), J31-J32 (Preston). The Thelwall Viaduct (J20-21) is a famous bottleneck.</p>
+                <p><strong>Key service stations:</strong> Hilton Park (J10A-11), Keele (J15-16), Knutsford (J18-19), Charnock Richard (J27-28), Lancaster (J32-33), Tebay (J38-39) — widely regarded as the best service station in Britain.</p>
+                <div class="related-links">
+                    <a href="/route/london-to-manchester/">London → Manchester</a>
+                    <a href="/route/birmingham-to-manchester/">Birmingham → Manchester</a>
+                    <a href="/route/manchester-to-edinburgh/">Manchester → Edinburgh</a>
+                </div>
+            </div>
+
+            <div class="mway-card">
+                <h3>M62 — Liverpool to Leeds (107 miles)</h3>
+                <div class="meta">Connects: Liverpool → Manchester → Huddersfield → Leeds → Hull (via M62/A63)</div>
+                <p>The M62 crosses the Pennines, connecting Liverpool and Manchester to Leeds and Hull. It's the highest motorway in England, reaching 1,221 feet at its summit near junction 22 — where there's a famously isolated farm between the carriageways.</p>
+                <p><strong>Busiest sections:</strong> J10-J12 (around Manchester), J25-J26 (approach to Leeds). Winter conditions can close the Pennine section — check conditions before travelling in snow.</p>
+                <p><strong>Key service stations:</strong> Birch (J18-19), Hartshead Moor (J25-26), Ferrybridge (J33 — shared with A1(M)).</p>
+                <div class="related-links">
+                    <a href="/route/liverpool-to-leeds/">Liverpool → Leeds</a>
+                    <a href="/route/manchester-to-leeds/">Manchester → Leeds</a>
+                    <a href="/route/liverpool-to-manchester/">Liverpool → Manchester</a>
+                </div>
+            </div>
+
+            <h2>Smart Motorways — What You Need to Know</h2>
+            <p>Smart motorways use technology to manage traffic flow. There are three types:</p>
+            <ul>
+                <li><strong>All Lane Running (ALR):</strong> No hard shoulder — all lanes are live traffic. Emergency refuge areas (ERAs) are spaced at intervals. If you break down, get to an ERA if possible.</li>
+                <li><strong>Controlled Motorway:</strong> Variable speed limits displayed on gantries, but with a permanent hard shoulder.</li>
+                <li><strong>Dynamic Hard Shoulder:</strong> The hard shoulder opens to traffic during busy periods (shown by overhead signs).</li>
+            </ul>
+
+            <div class="warning-box">
+                <strong>⚠️ Red X means STOP:</strong> A red X displayed above a lane on a smart motorway means the lane is closed. It's illegal to drive in a red X lane and you can be fined £100 with 3 penalty points. The lane may be closed due to a broken-down vehicle or debris.
+            </div>
+
+            <h2>Speed Limits &amp; Cameras</h2>
+            <ul>
+                <li><strong>National motorway limit:</strong> 70 mph (cars and motorcycles), 60 mph (cars towing caravans/trailers)</li>
+                <li><strong>Variable speed limits:</strong> Displayed on overhead gantries on smart motorways. These are legally enforceable.</li>
+                <li><strong>Average speed cameras:</strong> Common in roadwork zones (usually 50 mph). These calculate your average speed between two points — don't slow down at the camera then speed up.</li>
+                <li><strong>Speed cameras:</strong> Fixed cameras (yellow boxes) and HADECS cameras (grey, often on gantries) are used on smart motorway sections.</li>
+            </ul>
+
+            <h2>Toll Roads</h2>
+            <p><strong>M6 Toll:</strong> The UK's only toll motorway. 27 miles bypassing Birmingham (J3A to J11A). Cars: approximately £7-8. HGVs: £12-13. Pay by cash, card, or tag at toll plazas. Worth using during peak times to avoid severe M6 congestion around Birmingham.</p>
+            <p><strong>Dartford Crossing (M25):</strong> The crossing between Kent and Essex charges cars £2.50 (auto-charge via Dart Charge — register online or pay by midnight the day after crossing). No toll booths — cameras read your number plate.</p>
+            <p><strong>Mersey Gateway Bridge:</strong> Connects Runcorn to Widnes. £2 for cars (Merseyflow — pay online or via app within 48 hours). Local residents are exempt.</p>
+
+            <h2>Busiest Times to Avoid</h2>
+            <ul>
+                <li><strong>Monday-Friday 7-9 AM:</strong> Rush hour around all major cities. M25, M1 J6-J10, M6 J4-J11 worst affected.</li>
+                <li><strong>Monday-Friday 4:30-7 PM:</strong> Evening rush. Can extend to 8 PM on Fridays.</li>
+                <li><strong>Friday 3-7 PM:</strong> The single worst period on the UK motorway network. Weekend traffic combines with commuters.</li>
+                <li><strong>Bank holiday weekends:</strong> Thursday evening to Friday midday (outbound), Sunday 3 PM to Monday midday (return). The M5 southbound and M6 northbound are brutal.</li>
+                <li><strong>Best time to drive:</strong> Sunday to Thursday, 10 AM - 3 PM, or after 8 PM. Saturday mornings are surprisingly quiet before 9 AM.</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>💡 Pro Tip:</strong> Check National Highways' traffic information (nationalhighways.co.uk) before any long motorway journey. Planned roadworks are shown in advance, and you can often re-route to avoid major closures. Google Maps/Waze live traffic is essential for real-time conditions.
+            </div>
+
+            <h2>Service Station Tips</h2>
+            <ul>
+                <li><strong>Fuel is expensive:</strong> Motorway fuel prices are typically 10-20p/litre more than supermarket forecourts. Fill up before joining the motorway when possible.</li>
+                <li><strong>Rest every 2 hours:</strong> The Highway Code recommends a 15-minute break every 2 hours. Fatigue is a serious risk on long motorway drives.</li>
+                <li><strong>Tebay (M6) and Gloucester (M5):</strong> Independently run services with proper food and local produce — a world apart from the usual chains.</li>
+                <li><strong>Electric vehicle charging:</strong> Most major services now have rapid chargers (Gridserve, Tesla, Ionity, Osprey). Check availability on Zap-Map before relying on a specific stop.</li>
+            </ul>
+        </div>
+
+        <div class="faq">
+            <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px;color:var(--primary)"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> Frequently Asked Questions</h2>
+            <div class="faq-item open">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What are the speed limits on UK motorways?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+                <div class="faq-a">The national speed limit on UK motorways is <strong>70 mph</strong>. Smart motorway sections may display variable speed limits (40-60 mph) which are legally enforceable. Roadwork zones are typically 50 mph with average speed cameras.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What are smart motorways and are they safe?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+                <div class="faq-a">Smart motorways use technology to manage traffic. <strong>All Lane Running</strong> sections have no hard shoulder. Always use emergency refuge areas if you break down. A red X above a lane means it's closed — driving in it is illegal.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How much does the M6 Toll cost?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+                <div class="faq-a">The M6 Toll costs approximately <strong>£7-8 for cars</strong>. It's a 27-mile bypass around Birmingham that can save 30-60 minutes during peak hours.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">When are UK motorways busiest?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+                <div class="faq-a"><strong>Friday afternoons (3-7 PM)</strong> are the worst single period. Weekday rush hours (7-9 AM, 4:30-7 PM) and bank holiday weekends are also very busy. Best time to drive: Sunday-Thursday, 10 AM - 3 PM.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How often are there service stations on UK motorways?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+                <div class="faq-a">Service stations appear every <strong>15-25 miles</strong> on busy motorways. By law, they must be no more than 28 miles apart. Most are open 24/7 with fuel, food, and toilets.</div>
+            </div>
+        </div>
+    </div>
+    <footer><p>© 2026 <a href="/">HowLongDrive.uk</a></p></footer>
+    <script>function toggleMenu(){document.getElementById('nav').classList.toggle('active');document.querySelector('.overlay').classList.toggle('active');}</script>
+</body>
+</html>
