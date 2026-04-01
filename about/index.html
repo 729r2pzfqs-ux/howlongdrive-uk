@@ -11,6 +11,12 @@
     <meta property="og:description" content="The free UK driving times calculator. Plan road trips with accurate journey estimates.">
     <meta property="og:url" content="https://howlongdrive.uk/about/">
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="HowLongDrive.uk">
+    <meta property="og:locale" content="en_GB">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@howlongdrive">
+    <meta name="twitter:title" content="About HowLongDrive UK">
+    <meta name="twitter:description" content="The free UK driving times calculator. Plan road trips with accurate journey estimates.">
     <style>
         :root { --primary: #4B6E93; --accent: #10B981; --bg: #f8fafc; --card: #fff; --text: #1e293b; --muted: #64748b; --border: #e2e8f0; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -61,23 +67,24 @@
 </head>
 <body>
     <header>
-        <div class="container header-inner">
+        <div class="header-inner">
             <a href="/" class="logo">
                 <img src="/assets/logo-header.png" alt="HowLongDrive UK">
             </a>
             <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:24px;height:24px"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
             </button>
             <div class="overlay" onclick="toggleMenu()"></div>
             <nav id="nav">
-                <div class="nav-links">
-                    <a href="/">Home</a>
+                <button class="close-btn" onclick="toggleMenu()" aria-label="Close">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                </button>
+                <a href="/">Home</a>
                 <a href="/routes/">Routes</a>
                 <a href="/cities/">Cities</a>
                 <a href="/guides/">Guides</a>
                 <a href="/about/">About</a>
                 <a href="/ev/" class="ev-badge">⚡ EV Trips</a>
-                </div>
             </nav>
         </div>
     </header>
