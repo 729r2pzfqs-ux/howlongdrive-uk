@@ -32,5 +32,13 @@
 </div>
 </main>
 <footer>© 2026 <a href="/">HowLongDrive.uk</a></footer>
+<script>
+function toggleMenu() {
+    document.querySelector('.nav-links').classList.toggle('active');
+    var overlay = document.querySelector('.overlay');
+    if (overlay) overlay.classList.toggle('active');
+    document.body.style.overflow = document.querySelector('.nav-links').classList.contains('active') ? 'hidden' : '';
+}
+</script>
 </body>
 </html>
