@@ -188,9 +188,11 @@
         }
         
         function toggleMenu() {
-            document.getElementById('nav').classList.toggle('active');
-            document.querySelector('.overlay').classList.toggle('active');
-        }
+    document.querySelector('.nav-links').classList.toggle('active');
+    var overlay = document.querySelector('.overlay');
+    if (overlay) overlay.classList.toggle('active');
+    document.body.style.overflow = document.querySelector('.nav-links').classList.contains('active') ? 'hidden' : '';
+}
         
         setupAutocomplete('from', 'from-dropdown', () => cities);
         setupAutocomplete('to', 'to-dropdown', getValidDestinations);
