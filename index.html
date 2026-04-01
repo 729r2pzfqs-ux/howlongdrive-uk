@@ -50,19 +50,19 @@
         nav { display: flex; align-items: center; gap: 1.5rem; }
         nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; }
         nav a:hover { color: var(--primary); }
-        .ev-badge { background: var(--accent); color: white !important; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 600; }
+        .ev-badge { background: #10B981; color: white !important; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 600; }
         .close-btn { display: none; }
-        .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+        .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; margin-left: auto; }
         .hamburger svg { width: 24px; height: 24px; color: var(--text); }
         .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 999; }
         .overlay.active { display: block; }
         
         @media (max-width: 768px) {
-            .logo img { height: 144px; }
+            .logo img { height: 80px; }
             .logo span { display: none; }
             nav { position: fixed; top: 0; right: -100%; width: 250px; height: 100vh; background: var(--card); flex-direction: column; justify-content: flex-start; padding: 5rem 2rem 2rem; box-shadow: -4px 0 20px rgba(0,0,0,0.1); transition: right 0.3s; z-index: 1000; }
-            nav.active { right: 0; }
-            nav a { font-size: 1.1rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border); width: 100%; }
+            .nav-links.active { display: flex; right: 0; }
+            .nav-links a { font-size: 1.1rem; padding: 0.75rem 0; border-bottom: 1px solid #e2e8f0; width: 100%; color: #1e293b; text-decoration: none; }
             .hamburger { display: block; z-index: 1001; }
             .close-btn { display: block; position: absolute; top: 1rem; right: 1rem; background: none; border: none; cursor: pointer; padding: 0.5rem; }
             .close-btn svg { width: 24px; height: 24px; }
@@ -137,7 +137,7 @@
     <header>
         <div class="container header-inner">
             <a href="/" class="logo">
-                <img src="/assets/logo-header.png" alt="HowLongDrive UK">
+                <img src="/assets/logo-header.png" alt="HowLongDrive.uk">
             </a>
             <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:24px;height:24px"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
@@ -146,10 +146,11 @@
             <nav id="nav">
                 <div class="nav-links">
                     <a href="/">Home</a>
-                <a href="/routes/">Routes</a>
-                <a href="/cities/">Cities</a><a href="/guides/">Guides</a>
-                <a href="/about/">About</a>
-                <a href="/ev/" class="ev-badge">⚡ EV Trips</a>
+                    <a href="/routes/">Routes</a>
+                    <a href="/cities/">Cities</a>
+                    <a href="/guides/">Guides</a>
+                    <a href="/ev/" class="ev-badge">⚡ EV Trips</a>
+                    <a href="/about/">About</a>
                 </div>
             </nav>
         </div>

@@ -2,4 +2,23 @@
 <meta http-equiv="refresh" content="0;url=/route/london-to-hadrian's-wall/">
 <link rel="canonical" href="https://howlongdrive.uk/route/london-to-hadrian's-wall/">
 <title>Redirecting...</title></head>
-<body><p>Redirecting to <a href="/route/london-to-hadrian's-wall/">London to Hadrian's Wall</a></p></body></html>
+<body><p>Redirecting to <a href="/route/london-to-hadrian's-wall/">London to Hadrian's Wall</a></p><script>
+function toggleMenu() {
+    document.querySelector('.nav-links').classList.toggle('active');
+    var overlay = document.querySelector('.overlay');
+    if (overlay) overlay.classList.toggle('active');
+    document.body.style.overflow = document.querySelector('.nav-links').classList.contains('active') ? 'hidden' : '';
+}
+</script>
+<div id="cookie-consent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:rgba(0,0,0,0.85);color:#fff;padding:1rem;z-index:10000;font-size:0.9rem;text-align:center;">
+We use cookies for analytics to improve your experience. By clicking Accept, you consent to our use of cookies.
+<button onclick="acceptCookies()" style="margin-left:1rem;padding:0.4rem 1.2rem;background:#10B981;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:0.85rem;">Accept</button>
+<button onclick="declineCookies()" style="margin-left:0.5rem;padding:0.4rem 1.2rem;background:#666;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:0.85rem;">Decline</button>
+</div>
+<script>
+function loadGA(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-0YGF4HPVJ3';document.head.appendChild(s);s.onload=function(){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0YGF4HPVJ3');};}
+function acceptCookies(){localStorage.setItem('howlongdrive-uk-consent','accepted');document.getElementById('cookie-consent').style.display='none';loadGA();}
+function declineCookies(){localStorage.setItem('howlongdrive-uk-consent','declined');document.getElementById('cookie-consent').style.display='none';}
+(function(){var c=localStorage.getItem('howlongdrive-uk-consent');if(c==='accepted'){loadGA();}else if(c!=='declined'){document.getElementById('cookie-consent').style.display='block';}})();
+</script>
+</body></html>
