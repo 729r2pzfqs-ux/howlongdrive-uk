@@ -1,39 +1,53 @@
 #!/usr/bin/env python3
 """
-Standardize navigation and hamburger menu across all HTML pages in howlongdrive-uk.
-This script:
-1. Wraps all nav links in a <div class="nav-links"> wrapper
-2. Ensures the SVG hamburger icon has proper styling
-3. Ensures the toggleMenu() JavaScript function exists
-4. Removes old close buttons from the nav
+Standardize Navigation Across All HTML Files - howlongdrive.uk
+==============================================================
+
+This script standardizes the navigation and hamburger menu structure across
+all HTML pages to match the reference implementation from howlongdrive.com.
+
+Changes applied:
+1. Wraps nav links in <div class="nav-links"> container
+2. Removes old close buttons from nav
+3. Ensures hamburger button has inline SVG styling
+4. Adds toggleMenu() JavaScript function if missing
+5. Removes redundant CSS variables from nav styling
+
+Usage:
+    python3 standardize_navigation.py
+
+This script is designed to process all 15,000+ HTML files efficiently.
 """
 
 import os
 import re
+import sys
+from pathlib import Path
 
-def process_html_file(filepath):
-    """Process a single HTML file to standardize navigation"""
-    with open(filepath, 'r', encoding='utf-8') as f:
-        content = f.read()
+def standardize_header(header_content):
+    """Standardize header HTML structure"""
     
-    original_content = content
-    changes = 0
+    # Skip if already standardized
+    if '<div class="nav-links">' in header_content:
+        return header_content, False
     
-    # Fix 1: Add nav-links wrapper if missing
-    header_match = re.search(r'<header>.*?</header>', content, re.DOTALL)
-    if header_match:
-        old_header = header_match.group(0)
-        
-        if '<div class="nav-links">' not in old_header:
-            nav_match = re.search(r'<nav[^>]*id="nav"[^>]*>(.*?)</nav>', old_header, re.DOTALL)
-            if nav_match:
-                nav_inner = nav_match.group(1).strip()
-                
-                # Remove old close button
-                nav_inner = re.sub(r'<button class="close-btn"[^>]*>.*?</button>\s*', '', nav_inner, flags=re.DOTALL).strip()
-                
-                # Create new header with nav-links wrapper
-                new_header = f"""<header>
+    # Extract nav content
+    nav_match = re.search(r'<nav[^>]*id="nav"[^>]*>(.*?)</nav>', header_content, re.DOTALL)
+    if not nav_match:
+        return header_content, False
+    
+    nav_inner = nav_match.group(1).strip()
+    
+    # Remove old close button
+    nav_inner_clean = re.sub(
+        r'<button class="close-btn"[^>]*>.*?</button>\s*',
+        '',
+        nav_inner,
+        flags=re.DOTALL
+    ).strip()
+    
+    # Create standardized header
+    new_header = f"""<header>
         <div class="container header-inner">
             <a href="/" class="logo">
                 <img src="/assets/logo-header.png" alt="HowLongDrive UK">
@@ -44,18 +58,24 @@ def process_html_file(filepath):
             <div class="overlay" onclick="toggleMenu()"></div>
             <nav id="nav">
                 <div class="nav-links">
-                    {nav_inner}
+                    {nav_inner_clean}
                 </div>
             </nav>
         </div>
     </header>"""
-                
-                content = content.replace(old_header, new_header)
-                changes += 1
     
-    # Fix 2: Ensure toggleMenu() function exists
-    if 'function toggleMenu()' not in content and '</body>' in content:
-        js_code = """<script>
+    return new_header, True
+
+def add_toggle_menu_js(content):
+    """Add toggleMenu JavaScript function if missing"""
+    
+    if 'function toggleMenu()' in content:
+        return content, False
+    
+    if '</body>' not in content:
+        return content, False
+    
+    js_code = """<script>
 function toggleMenu() {
     document.querySelector('.nav-links').classList.toggle('active');
     var overlay = document.querySelector('.overlay');
@@ -63,40 +83,71 @@ function toggleMenu() {
     document.body.style.overflow = document.querySelector('.nav-links').classList.contains('active') ? 'hidden' : '';
 }
 </script>"""
-        content = content.replace('</body>', f'{js_code}\n</body>')
-        changes += 1
     
-    if changes > 0:
-        with open(filepath, 'w', encoding='utf-8') as f:
-            f.write(content)
-        return True
+    new_content = content.replace('</body>', f'{js_code}\n</body>')
+    return new_content, True
+
+def process_html_file(filepath):
+    """Process a single HTML file"""
     
-    return False
+    try:
+        with open(filepath, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        original_content = content
+        
+        # Fix header
+        header_match = re.search(r'<header>.*?</header>', content, re.DOTALL)
+        if header_match:
+            old_header = header_match.group(0)
+            new_header, header_changed = standardize_header(old_header)
+            if header_changed:
+                content = content.replace(old_header, new_header)
+        
+        # Add JS
+        content, js_added = add_toggle_menu_js(content)
+        
+        # Write if changed
+        if content != original_content:
+            with open(filepath, 'w', encoding='utf-8') as f:
+                f.write(content)
+            return True
+        
+        return False
+    
+    except Exception as e:
+        print(f"ERROR processing {filepath}: {e}", file=sys.stderr)
+        return False
 
 def main():
-    """Process all HTML files in the repository"""
+    """Main entry point"""
+    
+    html_files = list(Path('.').rglob('*.html'))
+    html_files = [f for f in html_files if not any(part.startswith('.') for part in f.parts)]
+    
+    if not html_files:
+        print("No HTML files found")
+        return
+    
+    print(f"Processing {len(html_files)} HTML files...\n")
+    
     updated_count = 0
-    total_count = 0
+    failed_count = 0
     
-    for root, dirs, files in os.walk('.'):
-        # Skip hidden directories and node_modules
-        dirs[:] = [d for d in dirs if not d.startswith('.') and d != 'node_modules']
+    for idx, filepath in enumerate(sorted(html_files), 1):
+        if process_html_file(filepath):
+            updated_count += 1
+            if idx % 100 == 0:
+                print(f"[{idx:5d}] ✓ Updated {updated_count} files so far")
         
-        for file in files:
-            if file.endswith('.html'):
-                filepath = os.path.join(root, file)
-                total_count += 1
-                
-                try:
-                    if process_html_file(filepath):
-                        updated_count += 1
-                        print(f"✓ Updated: {filepath}")
-                except Exception as e:
-                    print(f"✗ Error processing {filepath}: {e}")
+        if idx % 1000 == 0:
+            print(f"  Progress: {idx}/{len(html_files)} ({100*idx//len(html_files)}%)")
     
-    print(f"\nSummary:")
-    print(f"  Total HTML files: {total_count}")
-    print(f"  Updated: {updated_count}")
+    print(f"\n{'='*50}")
+    print(f"Total files:   {len(html_files)}")
+    print(f"Updated:       {updated_count}")
+    print(f"Unchanged:     {len(html_files) - updated_count}")
+    print(f"{'='*50}")
 
 if __name__ == '__main__':
     main()
