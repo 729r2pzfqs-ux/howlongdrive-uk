@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | HowLongDrive.uk</title>
+    <meta name="description" content="The page you're looking for could not be found.">
+    <link rel="icon" href="/favicon.ico">
+    <style>
+        :root {
+            --primary: #4B6E93;
+            --primary-dark: #3a5775;
+            --accent: #10B981;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --text: #1e293b;
+            --muted: #64748b;
+            --border: #e2e8f0;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 1rem; }
+        
+        /* Header */
+        header { background: var(--card); border-bottom: 1px solid var(--border); padding: 1rem 0; }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 700; font-size: 1.5rem; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 0.75rem; }
+        .logo img { height: 60px; width: auto; }
+        nav { display: flex; align-items: center; gap: 1.5rem; }
+        nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; }
+        nav a:hover { color: var(--primary); }
+        
+        /* Error Content */
+        .error-section { text-align: center; padding: 6rem 1rem; }
+        .error-code { font-size: 5rem; font-weight: 700; color: var(--primary); margin-bottom: 1rem; }
+        .error-title { font-size: 1.875rem; margin-bottom: 1rem; }
+        .error-message { color: var(--muted); font-size: 1.125rem; margin-bottom: 2rem; }
+        .error-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .btn { padding: 0.75rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; cursor: pointer; border: none; }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:hover { background: var(--primary-dark); }
+        .btn-secondary { background: var(--card); color: var(--primary); border: 2px solid var(--primary); }
+        .btn-secondary:hover { background: var(--bg); }
+        
+        footer { background: var(--card); border-top: 1px solid var(--border); padding: 2rem 0; text-align: center; color: var(--muted); font-size: 0.875rem; margin-top: 4rem; }
+        footer a { color: var(--primary); text-decoration: none; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <img src="/assets/logo-header.png" alt="HowLongDrive.uk">
+            </a>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/routes/">Routes</a>
+                <a href="/cities/">Cities</a>
+                <a href="/guides/">Guides</a>
+                <a href="/about/">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="error-section">
+            <div class="container">
+                <div class="error-code">404</div>
+                <h1 class="error-title">Page Not Found</h1>
+                <p class="error-message">Sorry, we couldn't find the page you're looking for. It might have been moved or deleted.</p>
+                <div class="error-actions">
+                    <a href="/" class="btn btn-primary">Go Home</a>
+                    <a href="/routes/" class="btn btn-secondary">Browse Routes</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 <a href="/">HowLongDrive.uk</a> — UK Driving Times & Distances</p>
+        </div>
+    </footer>
+</body>
+</html>
