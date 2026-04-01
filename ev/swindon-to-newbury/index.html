@@ -23,14 +23,14 @@
         nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; }
         nav a:hover { color: var(--primary); }
         .ev-badge { background: var(--primary); color: white; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 600; }
-        .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+        .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; margin-left: auto; }
         .hamburger svg { width: 24px; height: 24px; color: var(--text); }
         .close-btn { display: none; }
         @media (max-width: 768px) {
-            .logo img { height: 144px; } .logo span { display: none; }
-            nav { position: fixed; top: 0; right: -100%; width: 250px; height: 100vh; background: var(--card); flex-direction: column; padding: 5rem 2rem; transition: right 0.3s; z-index: 1000; }
-            nav.active { right: 0; }
-            nav a { font-size: 1.1rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border); width: 100%; }
+            .logo img { height: 80px; } .logo span { display: none; }
+            .nav-links { position: fixed; top: 0; right: -100%; width: 250px; height: 100vh; background: #ffffff; flex-direction: column; padding: 5rem 2rem; transition: right 0.3s ease; z-index: 1000; box-shadow: -2px 0 10px rgba(0,0,0,0.1); display: none; }
+            .nav-links.active { display: flex; right: 0; }
+            .nav-links a { font-size: 1.1rem; padding: 0.75rem 0; border-bottom: 1px solid #e2e8f0; width: 100%; color: #1e293b; text-decoration: none; }
             .hamburger { display: block; z-index: 1001; }
             .close-btn { display: block; position: absolute; top: 1rem; right: 1rem; background: none; border: none; cursor: pointer; padding: 0.5rem; }
             .close-btn svg { width: 24px; height: 24px; }
@@ -94,18 +94,26 @@
         .related-links a { background: var(--bg); padding: 0.5rem 0.875rem; border-radius: 0.5rem; text-decoration: none; color: var(--text); font-size: 0.85rem; border: 1px solid var(--border); }
         .related-links a:hover { border-color: var(--primary); color: var(--primary); }
     </style>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0YGF4HPVJ3"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-0YGF4HPVJ3");</script></head>
+</head>
 <body>
     <header>
         <div class="container header-inner">
-            <a href="/" class="logo"><img src="/assets/logo-header.png" alt="HowLongDrive"></a>
-            <button class="hamburger" onclick="toggleMenu()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:24px;height:24px"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+            <a href="/" class="logo">
+                <img src="/assets/logo-header.png" alt="HowLongDrive.uk">
+            </a>
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:24px;height:24px"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+            </button>
             <div class="overlay" onclick="toggleMenu()"></div>
             <nav id="nav">
-                <button class="close-btn" onclick="toggleMenu()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:24px;height:24px"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
-                <a href="/">Home</a>
-                <a href="/routes/">Routes</a>
-                <a href="/ev/" class="ev-badge">EV Trips</a>
+                <div class="nav-links">
+                    <a href="/">Home</a>
+                    <a href="/routes/">Routes</a>
+                    <a href="/cities/">Cities</a>
+                    <a href="/guides/">Guides</a>
+                    <a href="/ev/" class="ev-badge">⚡ EV Trips</a>
+                    <a href="/about/">About</a>
+                </div>
             </nav>
         </div>
     </header>
@@ -225,5 +233,16 @@
         var bounds = L.latLngBounds([[51.5558,-1.7797], [51.401,-1.323]]);
         map.fitBounds(bounds, {padding: [40, 40]});
     </script>
+<div id="cookie-consent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:rgba(0,0,0,0.85);color:#fff;padding:1rem;z-index:10000;font-size:0.9rem;text-align:center;">
+We use cookies for analytics to improve your experience. By clicking Accept, you consent to our use of cookies.
+<button onclick="acceptCookies()" style="margin-left:1rem;padding:0.4rem 1.2rem;background:#10B981;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:0.85rem;">Accept</button>
+<button onclick="declineCookies()" style="margin-left:0.5rem;padding:0.4rem 1.2rem;background:#666;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:0.85rem;">Decline</button>
+</div>
+<script>
+function loadGA(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-0YGF4HPVJ3';document.head.appendChild(s);s.onload=function(){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0YGF4HPVJ3');};}
+function acceptCookies(){localStorage.setItem('howlongdrive-uk-consent','accepted');document.getElementById('cookie-consent').style.display='none';loadGA();}
+function declineCookies(){localStorage.setItem('howlongdrive-uk-consent','declined');document.getElementById('cookie-consent').style.display='none';}
+(function(){var c=localStorage.getItem('howlongdrive-uk-consent');if(c==='accepted'){loadGA();}else if(c!=='declined'){document.getElementById('cookie-consent').style.display='block';}})();
+</script>
 </body>
 </html>
