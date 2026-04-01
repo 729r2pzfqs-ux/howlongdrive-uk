@@ -20,7 +20,11 @@
         nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; }
         .ev-badge { background: #10B981; color: white !important; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem; }
         .hamburger { display: none; background: none; border: none; cursor: pointer; }
-        @media (max-width: 768px) { .logo img { height: 50px; } nav { display: none; } .hamburger { display: block; } }
+        @media (max-width: 768px) { .logo img { height: 80px; } .nav-links { position: fixed; top: 0; right: -100%; width: 250px; height: 100vh; background: #ffffff; flex-direction: column; padding: 5rem 2rem; transition: right 0.3s ease; z-index: 1000; box-shadow: -2px 0 10px rgba(0,0,0,0.1); display: none; }
+            .nav-links.active { display: flex; right: 0; }
+            .nav-links a { font-size: 1.1rem; padding: 0.75rem 0; border-bottom: 1px solid #e2e8f0; width: 100%; color: #1e293b; text-decoration: none; }
+            .hamburger { display: block !important; z-index: 1001; }
+            nav { display: block; } .hamburger { display: block; } }
         .hero { text-align: center; padding: 3rem 1rem; background: white; border-radius: 1rem; margin: 2rem 0; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
         .hero h1 { font-size: 2rem; }
         .subtitle { color: var(--muted); margin-top: 0.5rem; }
