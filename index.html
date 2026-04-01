@@ -273,9 +273,11 @@
     <script src="/data/route_map.js"></script>
     <script>
         function toggleMenu() {
-            document.getElementById('nav').classList.toggle('active');
-            document.querySelector('.overlay').classList.toggle('active');
-        }
+    document.querySelector('.nav-links').classList.toggle('active');
+    var overlay = document.querySelector('.overlay');
+    if (overlay) overlay.classList.toggle('active');
+    document.body.style.overflow = document.querySelector('.nav-links').classList.contains('active') ? 'hidden' : '';
+}
         
         // Smart search - only show valid routes
         const cities = typeof ROUTE_MAP !== 'undefined' ? Object.keys(ROUTE_MAP).sort() : [];
