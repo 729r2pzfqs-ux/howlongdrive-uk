@@ -123,7 +123,10 @@
         "description": "Find driving times and distances between UK cities. Plan your road trip with accurate drive time estimates, petrol costs, and route information.",
         "potentialAction": {
             "@type": "SearchAction",
-            "target": "https://howlongdrive.uk/route/{search_term}/",
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://howlongdrive.uk/route/{search_term}/"
+            },
             "query-input": "required name=search_term"
         }
     }
