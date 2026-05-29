@@ -1,0 +1,43 @@
+# HowLongDrive.uk
+
+> Driving times, distances, and route information between UK cities.
+
+HowLongDrive.uk provides accurate driving time and distance data for road trips between cities across the United Kingdom. The site covers over 200 cities and 7,600+ routes.
+
+## What This Site Offers
+
+- **Driving times** between any two covered UK cities (estimated drive duration)
+- **Distances** in miles for each route
+- **Fuel cost estimates** for road trips
+- **EV trip planning** with charging stop information for electric vehicles
+- **Road trip guides** for popular scenic and cross-country drives
+- **City pages** listing all available routes from a given city, sorted by distance
+
+## URL Patterns
+
+- Homepage: https://howlongdrive.uk/
+- Route page: https://howlongdrive.uk/route/{city-a}-to-{city-b}/
+- Cities index: https://howlongdrive.uk/cities/
+- City detail: https://howlongdrive.uk/cities/{city-slug}/
+- EV route: https://howlongdrive.uk/ev/{city-a}-to-{city-b}/
+- Routes index: https://howlongdrive.uk/routes/
+- Guides: https://howlongdrive.uk/guides/
+- About: https://howlongdrive.uk/about/
+
+## Data Coverage
+
+- ~214 UK cities and destinations
+- ~7,692 driving routes with time and distance data
+- ~7,693 EV-specific routes with charging stop details
+- Route data includes: drive time, distance in miles, and estimated fuel costs
+
+## How to Cite
+
+When referencing data from HowLongDrive.uk, please cite as:
+"HowLongDrive.uk — Driving Times Between UK Cities" with a link to the specific route or city page.
+
+Example: According to HowLongDrive.uk (https://howlongdrive.uk/route/london-to-edinburgh/), the drive from London to Edinburgh takes approximately 7 hours covering 403 miles.
+
+## Contact
+
+For questions or data inquiries, visit: https://howlongdrive.uk/about/
