@@ -1,43 +1,45 @@
 # HowLongDrive.uk
 
-> Driving times, distances, and route information between UK cities.
+> UK driving times, distances, and route information between cities.
 
-HowLongDrive.uk provides accurate driving time and distance data for road trips between cities across the United Kingdom. The site covers over 200 cities and 7,600+ routes.
+HowLongDrive.uk provides accurate driving time and distance data for road trips between cities across the United Kingdom.
 
-## What This Site Offers
+## Content
 
-- **Driving times** between any two covered UK cities (estimated drive duration)
-- **Distances** in miles for each route
-- **Fuel cost estimates** for road trips
-- **EV trip planning** with charging stop information for electric vehicles
-- **Road trip guides** for popular scenic and cross-country drives
-- **City pages** listing all available routes from a given city, sorted by distance
+- ~7,692 route pages with driving times, distances, fuel costs, and driving tips
+- ~7,693 EV route pages with charging stop information for electric vehicles
+- ~213 city pages listing all available routes from each city
+- Road trip guides for popular scenic and cross-country drives
 
 ## URL Patterns
 
 - Homepage: https://howlongdrive.uk/
 - Route page: https://howlongdrive.uk/route/{city-a}-to-{city-b}/
-- Cities index: https://howlongdrive.uk/cities/
-- City detail: https://howlongdrive.uk/cities/{city-slug}/
-- EV route: https://howlongdrive.uk/ev/{city-a}-to-{city-b}/
-- Routes index: https://howlongdrive.uk/routes/
+- EV route page: https://howlongdrive.uk/ev/{city-a}-to-{city-b}/
+- City page: https://howlongdrive.uk/cities/{city-slug}/
 - Guides: https://howlongdrive.uk/guides/
-- About: https://howlongdrive.uk/about/
 
-## Data Coverage
+## Each Route Page Includes
 
-- ~214 UK cities and destinations
-- ~7,692 driving routes with time and distance data
-- ~7,693 EV-specific routes with charging stop details
-- Route data includes: drive time, distance in miles, and estimated fuel costs
+- Estimated driving time
+- Distance in miles
+- Fuel cost estimate (petrol and diesel)
+- Interactive route map
+- Driving tips for the journey
+- Frequently asked questions
+- Links to nearby routes
 
-## How to Cite
+## Each EV Route Page Includes
 
-When referencing data from HowLongDrive.uk, please cite as:
-"HowLongDrive.uk — Driving Times Between UK Cities" with a link to the specific route or city page.
+- Estimated driving time
+- Distance in miles
+- Electricity cost estimate
+- Recommended charging stops
+- Battery level guidance
+- Charging station details
 
-Example: According to HowLongDrive.uk (https://howlongdrive.uk/route/london-to-edinburgh/), the drive from London to Edinburgh takes approximately 7 hours covering 403 miles.
+## Each City Page Includes
 
-## Contact
-
-For questions or data inquiries, visit: https://howlongdrive.uk/about/
+- List of all routes from that city
+- Sorted by distance
+- Quick links to route and EV route pages
