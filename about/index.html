@@ -17,56 +17,7 @@
     <meta name="twitter:site" content="@howlongdrive">
     <meta name="twitter:title" content="About HowLongDrive UK">
     <meta name="twitter:description" content="The free UK driving times calculator. Plan road trips with accurate journey estimates.">
-    <style>
-        :root { --primary: #4B6E93; --accent: #10B981; --bg: #f8fafc; --card: #fff; --text: #1e293b; --muted: #64748b; --border: #e2e8f0; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-        .container { max-width: 800px; margin: 0 auto; padding: 0 1rem; }
-        
-        /* Header */
-        header { background: var(--card); border-bottom: 1px solid var(--border); padding: 0.25rem 0; }
-        .header-inner { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
-        .logo { font-weight: 700; font-size: 1.5rem; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 0.75rem; }
-        .logo img { height: 140px; width: auto; }
-        nav { display: flex; align-items: center; gap: 1.5rem; }
-        nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; }
-        nav a:hover { color: var(--primary); }
-        .ev-badge { background: #10B981; color: white !important; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 600; }
-        .close-btn { display: none; }
-        .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; margin-left: auto; }
-        .hamburger svg { width: 24px; height: 24px; color: var(--text); }
-        .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 999; }
-        .overlay.active { display: block; }
-        
-        @media (max-width: 768px) {
-            .logo img { height: 100px; }
-            .nav-links { position: fixed; top: 0; right: -100%; width: 250px; height: 100vh; background: #ffffff; flex-direction: column; padding: 5rem 2rem; transition: right 0.3s ease; z-index: 1000; box-shadow: -2px 0 10px rgba(0,0,0,0.1); display: none; }
-            nav { display: block; }
-            .nav-links { position: fixed; top: 0; right: -100%; width: 250px; height: 100vh; background: #ffffff; flex-direction: column; padding: 5rem 2rem; transition: right 0.3s ease; z-index: 1000; box-shadow: -2px 0 10px rgba(0,0,0,0.1); display: none; }
-            .nav-links.active { display: flex; right: 0; }
-            .nav-links a { font-size: 1.1rem; padding: 0.75rem 0; border-bottom: 1px solid #e2e8f0; width: 100%; color: #1e293b; text-decoration: none; }
-            .hamburger { display: block !important; z-index: 1001; }
-            .nav-links.active { display: flex; right: 0; }
-            .nav-links a { font-size: 1.1rem; padding: 0.75rem 0; border-bottom: 1px solid #e2e8f0; width: 100%; color: #1e293b; text-decoration: none; }
-            .hamburger { display: block; z-index: 1001; }
-            .close-btn { display: block; position: absolute; top: 1rem; right: 1rem; background: none; border: none; cursor: pointer; padding: 0.5rem; }
-            .close-btn svg { width: 24px; height: 24px; }
-        }
-        
-        /* Content */
-        .content { padding: 3rem 0; }
-        h1 { font-size: 2rem; margin-bottom: 1.5rem; color: var(--primary); }
-        h2 { font-size: 1.4rem; margin: 2rem 0 1rem; color: var(--primary); }
-        p { margin-bottom: 1rem; }
-        ul { margin: 1rem 0 1rem 1.5rem; }
-        li { margin-bottom: 0.5rem; }
-        .card { background: var(--card); border-radius: 1rem; padding: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 2rem; }
-        .highlight { background: linear-gradient(135deg, var(--primary), #5d8ab4); color: white; border-radius: 1rem; padding: 2rem; margin: 2rem 0; }
-        .highlight h2 { color: white; margin-top: 0; }
-        
-        footer { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.875rem; border-top: 1px solid var(--border); }
-        footer a { color: var(--primary); text-decoration: none; }
-    </style>
+    <style>:root{--primary:#4B6E93;--accent:#10B981;--bg:#f8fafc;--card:#fff;--text:#1e293b;--muted:#64748b;--border:#e2e8f0}*{margin:0;padding:0;box-sizing:border-box}body{font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}.container{max-width:800px;margin:0 auto;padding:0 1rem}header{background:var(--card);border-bottom:1px solid var(--border);padding:0.25rem 0}.header-inner{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;padding:0 1rem}.logo{font-weight:700;font-size:1.5rem;color:var(--primary);text-decoration:none;display:flex;align-items:center;gap:0.75rem}.logo img{height:140px;width:auto}nav{display:flex;align-items:center;gap:1.5rem}nav a{color:var(--muted);text-decoration:none;font-size:0.875rem}nav a:hover{color:var(--primary)}.ev-badge{background:#10B981;color:white !important;padding:0.25rem 0.75rem;border-radius:1rem;font-size:0.75rem;font-weight:600}.close-btn{display:none}.hamburger{display:none;background:none;border:none;cursor:pointer;padding:0.5rem;margin-left:auto}.hamburger svg{width:24px;height:24px;color:var(--text)}.overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:999}.overlay.active{display:block}@media (max-width:768px){.logo img{height:100px}.nav-links{position:fixed;top:0;right:-100%;width:250px;height:100vh;background:#ffffff;flex-direction:column;padding:5rem 2rem;transition:right 0.3s ease;z-index:1000;box-shadow:-2px 0 10px rgba(0,0,0,0.1);display:none}nav{display:block}.nav-links{position:fixed;top:0;right:-100%;width:250px;height:100vh;background:#ffffff;flex-direction:column;padding:5rem 2rem;transition:right 0.3s ease;z-index:1000;box-shadow:-2px 0 10px rgba(0,0,0,0.1);display:none}.nav-links.active{display:flex;right:0}.nav-links a{font-size:1.1rem;padding:0.75rem 0;border-bottom:1px solid #e2e8f0;width:100%;color:#1e293b;text-decoration:none}.hamburger{display:block !important;z-index:1001}.nav-links.active{display:flex;right:0}.nav-links a{font-size:1.1rem;padding:0.75rem 0;border-bottom:1px solid #e2e8f0;width:100%;color:#1e293b;text-decoration:none}.hamburger{display:block;z-index:1001}.close-btn{display:block;position:absolute;top:1rem;right:1rem;background:none;border:none;cursor:pointer;padding:0.5rem}.close-btn svg{width:24px;height:24px}}.content{padding:3rem 0}h1{font-size:2rem;margin-bottom:1.5rem;color:var(--primary)}h2{font-size:1.4rem;margin:2rem 0 1rem;color:var(--primary)}p{margin-bottom:1rem}ul{margin:1rem 0 1rem 1.5rem}li{margin-bottom:0.5rem}.card{background:var(--card);border-radius:1rem;padding:2rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);margin-bottom:2rem}.highlight{background:linear-gradient(135deg,var(--primary),#5d8ab4);color:white;border-radius:1rem;padding:2rem;margin:2rem 0}.highlight h2{color:white;margin-top:0}footer{text-align:center;padding:2rem;color:var(--muted);font-size:0.875rem;border-top:1px solid var(--border)}footer a{color:var(--primary);text-decoration:none}</style>
     
     
 </head>
@@ -144,24 +95,10 @@
     </footer>
 
     
-<script>
-// GDPR Cookie Consent
-(function(){const CONSENT_KEY='howlongdrive_analytics_consent';function loadGoogleAnalytics(){if(document.querySelector('script[src*="googletagmanager.com/gtag"]')){return;}var script=document.createElement('script');script.async=true;script.src='https://www.googletagmanager.com/gtag/js?id=G-0YGF4HPVJ3';document.head.appendChild(script);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0YGF4HPVJ3');}function showConsentBanner(){const consent=localStorage.getItem(CONSENT_KEY);if(consent!==null){if(consent==='accepted'){loadGoogleAnalytics();}return;}const banner=document.createElement('div');banner.id='cookie-consent-banner';banner.innerHTML=`<div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;"><p style="margin: 0; font-size: 14px;">We use cookies for analytics to improve your experience. By clicking Accept, you consent to our use of cookies.</p><div style="display: flex; gap: 10px; white-space: nowrap;"><button id="cookie-accept" style="padding: 8px 16px; background-color: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: 500;">Accept</button><button id="cookie-decline" style="padding: 8px 16px; background-color: #999; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: 500;">Decline</button></div></div>`;document.body.appendChild(banner);document.getElementById('cookie-accept').addEventListener('click',function(){localStorage.setItem(CONSENT_KEY,'accepted');loadGoogleAnalytics();banner.remove();});document.getElementById('cookie-decline').addEventListener('click',function(){localStorage.setItem(CONSENT_KEY,'declined');banner.remove();});}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',showConsentBanner);}else{showConsentBanner();}})();
-</script>
-<style>#cookie-consent-banner{position:fixed;bottom:0;left:0;right:0;background-color:rgba(0,0,0,0.85);color:white;padding:16px 20px;z-index:9999;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;}#cookie-consent-banner button:hover{opacity:0.9;}#cookie-consent-banner button:active{transform:scale(0.98);}</style>
-<script>
-(function(){const CONSENT_KEY='howlongdrive_analytics_consent';function loadGA(){if(document.querySelector('script[src*="googletagmanager.com/gtag"]')){return;}var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-0YGF4HPVJ3';document.head.appendChild(s);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0YGF4HPVJ3');}function showBanner(){const consent=localStorage.getItem(CONSENT_KEY);if(consent!==null){if(consent==='accepted')loadGA();return;}const b=document.createElement('div');b.id='ccb';b.innerHTML='<div style="display:flex;justify-content:space-between;align-items:center;gap:20px;"><p style="margin:0;font-size:14px;">We use cookies for analytics to improve your experience. By clicking Accept, you consent to our use of cookies.</p><div style="display:flex;gap:10px;white-space:nowrap;"><button id="cca" style="padding:8px 16px;background-color:#4CAF50;color:white;border:none;border-radius:4px;cursor:pointer;font-weight:500;">Accept</button><button id="ccd" style="padding:8px 16px;background-color:#999;color:white;border:none;border-radius:4px;cursor:pointer;font-weight:500;">Decline</button></div></div>';document.body.appendChild(b);document.getElementById('cca').addEventListener('click',function(){localStorage.setItem(CONSENT_KEY,'accepted');loadGA();b.remove();});document.getElementById('ccd').addEventListener('click',function(){localStorage.setItem(CONSENT_KEY,'declined');b.remove();});}document.readyState==='loading'?document.addEventListener('DOMContentLoaded',showBanner):showBanner();})();
-</script>
-<style>
-#ccb{position:fixed;bottom:0;left:0;right:0;background-color:rgba(0,0,0,0.85);color:white;padding:16px 20px;z-index:9999;font-family:system-ui,sans-serif;}#ccb button:hover{opacity:0.9;}
-</style>
-<script>
-function toggleMenu() {
-    document.querySelector('.nav-links').classList.toggle('active');
-    var overlay = document.querySelector('.overlay');
-    if (overlay) overlay.classList.toggle('active');
-    document.body.style.overflow = document.querySelector('.nav-links').classList.contains('active') ? 'hidden' : '';
-}
-</script>
+<script>(function (){const  CONSENT_KEY='howlongdrive_analytics_consent';function  loadGoogleAnalytics(){if (document.querySelector('script[src*="googletagmanager.com/gtag"]')){return ;}var  script=document.createElement('script');script.async=true;script.src='https://www.googletagmanager.com/gtag/js?id=G-0YGF4HPVJ3';document.head.appendChild(script);window.dataLayer=window.dataLayer||[];function  gtag(){dataLayer.push(arguments);}gtag('js',new  Date());gtag('config','G-0YGF4HPVJ3');}function  showConsentBanner(){const  consent=localStorage.getItem(CONSENT_KEY);if (consent!==null){if (consent==='accepted'){loadGoogleAnalytics();}return ;}const  banner=document.createElement('div');banner.id='cookie-consent-banner';banner.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center;gap:20px;"><p style="margin :0;font-size:14px;">We use cookies for  analytics to improve your experience. By clicking Accept,you consent to our use of  cookies.</p><div style="display:flex;gap:10px;white-space:nowrap;"><button id="cookie-accept" style="padding:8px 16px;background-color:#4CAF50;color:white;border:none;border-radius:4px;cursor:pointer;font-weight:500;">Accept</button><button id="cookie-decline" style="padding:8px 16px;background-color:#999;color:white;border:none;border-radius:4px;cursor:pointer;font-weight:500;">Decline</button></div></div>`;document.body.appendChild(banner);document.getElementById('cookie-accept').addEventListener('click',function (){localStorage.setItem(CONSENT_KEY,'accepted');loadGoogleAnalytics();banner.remove();});document.getElementById('cookie-decline').addEventListener('click',function (){localStorage.setItem(CONSENT_KEY,'declined');banner.remove();});}if (document.readyState==='loading'){document.addEventListener('DOMContentLoaded',showConsentBanner);}else {showConsentBanner();}})();</script>
+<style>#cookie-consent-banner{position:fixed;bottom:0;left:0;right:0;background-color:rgba(0,0,0,0.85);color:white;padding:16px 20px;z-index:9999;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif}#cookie-consent-banner button:hover{opacity:0.9}#cookie-consent-banner button:active{transform:scale(0.98)}</style>
+<script>(function (){const  CONSENT_KEY='howlongdrive_analytics_consent';function  loadGA(){if (document.querySelector('script[src*="googletagmanager.com/gtag"]')){return ;}var  s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-0YGF4HPVJ3';document.head.appendChild(s);window.dataLayer=window.dataLayer||[];function  gtag(){dataLayer.push(arguments);}gtag('js',new  Date());gtag('config','G-0YGF4HPVJ3');}function  showBanner(){const  consent=localStorage.getItem(CONSENT_KEY);if (consent!==null){if (consent==='accepted')loadGA();return ;}const  b=document.createElement('div');b.id='ccb';b.innerHTML='<div style="display:flex;justify-content:space-between;align-items:center;gap:20px;"><p style="margin :0;font-size:14px;">We use cookies for  analytics to improve your experience. By clicking Accept,you consent to our use of  cookies.</p><div style="display:flex;gap:10px;white-space:nowrap;"><button id="cca" style="padding:8px 16px;background-color:#4CAF50;color:white;border:none;border-radius:4px;cursor:pointer;font-weight:500;">Accept</button><button id="ccd" style="padding:8px 16px;background-color:#999;color:white;border:none;border-radius:4px;cursor:pointer;font-weight:500;">Decline</button></div></div>';document.body.appendChild(b);document.getElementById('cca').addEventListener('click',function (){localStorage.setItem(CONSENT_KEY,'accepted');loadGA();b.remove();});document.getElementById('ccd').addEventListener('click',function (){localStorage.setItem(CONSENT_KEY,'declined');b.remove();});}document.readyState==='loading'?document.addEventListener('DOMContentLoaded',showBanner):showBanner();})();</script>
+<style>#ccb{position:fixed;bottom:0;left:0;right:0;background-color:rgba(0,0,0,0.85);color:white;padding:16px 20px;z-index:9999;font-family:system-ui,sans-serif}#ccb button:hover{opacity:0.9}</style>
+<script>function  toggleMenu(){document.querySelector('.nav-links').classList.toggle('active');var  overlay=document.querySelector('.overlay');if (overlay)overlay.classList.toggle('active');document.body.style.overflow=document.querySelector('.nav-links').classList.contains('active')?'hidden':'';}</script>
 </body>
 </html>
