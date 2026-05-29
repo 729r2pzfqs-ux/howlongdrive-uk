@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Use - HowLongDrive.uk</title>
+    <style>
+        :root { --primary: #4B6E93; --accent: #10B981; --bg: #f8fafc; --card: #fff; --text: #1e293b; --muted: #64748b; --border: #e2e8f0; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 1rem; }
+        header { background: var(--card); border-bottom: 1px solid var(--border); padding: 0.25rem 0; }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+        .logo { font-weight: 700; font-size: 1.5rem; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 0.75rem; }
+        .logo img { height: 140px; width: auto; }
+        nav { display: flex; align-items: center; gap: 1.5rem; }
+        nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; }
+        nav a:hover { color: var(--primary); }
+        .ev-badge { background: #10B981; color: white !important; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 600; }
+        .close-btn { display: none; }
+        .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; margin-left: auto; }
+        .hamburger svg { width: 24px; height: 24px; color: var(--text); }
+        .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 999; }
+        .overlay.active { display: block; }
+        @media (max-width: 768px) {
+            .logo img { height: 100px; }
+            .nav-links { position: fixed; top: 0; right: -100%; width: 250px; height: 100vh; background: #ffffff; flex-direction: column; padding: 5rem 2rem; transition: right 0.3s ease; z-index: 1000; box-shadow: -2px 0 10px rgba(0,0,0,0.1); display: none; }
+            .nav-links.active { display: flex; right: 0; }
+            .nav-links a { font-size: 1.1rem; padding: 0.75rem 0; border-bottom: 1px solid #e2e8f0; width: 100%; color: #1e293b; text-decoration: none; }
+            .hamburger { display: block !important; z-index: 1001; }
+            .close-btn { display: block; position: absolute; top: 1rem; right: 1rem; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+            .close-btn svg { width: 24px; height: 24px; }
+        }
+        .content { padding: 3rem 0; }
+        h1 { font-size: 2rem; margin-bottom: 1.5rem; color: var(--primary); }
+        h2 { font-size: 1.4rem; margin: 2rem 0 1rem; color: var(--primary); }
+        p { margin-bottom: 1rem; }
+        ul { margin: 1rem 0 1rem 1.5rem; }
+        li { margin-bottom: 0.5rem; }
+        .card { background: var(--card); border-radius: 1rem; padding: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 2rem; }
+        .highlight { background: linear-gradient(135deg, var(--primary), #5d8ab4); color: white; border-radius: 1rem; padding: 2rem; margin: 2rem 0; }
+        .highlight h2 { color: white; margin-top: 0; }
+        footer { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.875rem; border-top: 1px solid var(--border); }
+        footer a { color: var(--primary); text-decoration: none; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <a href="/" class="logo">
+                <img src="/assets/logo-header.png" alt="HowLongDrive.uk">
+            </a>
+            <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('active');document.querySelector('.overlay').classList.toggle('active')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+            </button>
+            <div class="nav-links">
+                <button class="close-btn" onclick="document.querySelector('.nav-links').classList.remove('active');document.querySelector('.overlay').classList.remove('active')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                </button>
+                <a href="/">Home</a>
+                <a href="/routes/">Routes</a>
+                <a href="/cities/">Cities</a>
+                <a href="/guides/">Guides</a>
+                <a href="/ev/" class="ev-badge">⚡ EV Trips</a>
+                <a href="/about/">About</a>
+            </div>
+        </div>
+    </header>
+    <div class="overlay" onclick="document.querySelector('.nav-links').classList.remove('active');this.classList.remove('active')"></div>
+
+    <main class="content">
+        <div class="container">
+            <h1>Terms of Use</h1>
+
+            <h2>Acceptance of Terms</h2>
+            <p>By accessing and using HowLongDrive.uk, you agree to be bound by these Terms of Use. If you do not agree with any part of these terms, please do not use this website.</p>
+
+            <h2>Description of Service</h2>
+            <p>HowLongDrive.uk is a free reference tool that provides estimated driving times and distances between cities and towns across the United Kingdom. The service is provided for informational and planning purposes only.</p>
+
+            <h2>Accuracy of Information</h2>
+            <p>All driving times and distances displayed on HowLongDrive.uk are estimates based on typical driving conditions. Actual journey times may vary due to traffic, road works, weather, route selection, and other factors. You should always verify route information with a current navigation service before travelling. We do not guarantee the accuracy, completeness, or reliability of any information on this site.</p>
+
+            <h2>Use of Content</h2>
+            <p>The content on HowLongDrive.uk is provided for personal, non-commercial use. You are welcome to reference information from this site and link to it. However, systematic reproduction or redistribution of substantial portions of the content without prior written permission is not permitted.</p>
+
+            <h2>Intellectual Property</h2>
+            <p>The HowLongDrive name, logo, website design, and original content are the intellectual property of HowLongDrive.uk. All rights not expressly granted in these terms are reserved. You may not use our branding, trademarks, or design elements without prior written consent.</p>
+
+            <h2>Third-Party Links</h2>
+            <p>HowLongDrive.uk may contain links to third-party websites and services, such as Google Maps. These links are provided for your convenience. We have no control over and accept no responsibility for the content, privacy policies, or practices of any third-party sites. Use of third-party services is at your own risk.</p>
+
+            <h2>Limitation of Liability</h2>
+            <p>HowLongDrive.uk is provided on an "as is" and "as available" basis without warranties of any kind, whether express or implied. To the fullest extent permitted by law, we exclude all liability for any loss or damage arising from your use of, or inability to use, this website, including but not limited to:</p>
+            <ul>
+                <li>Reliance on any information provided on this site</li>
+                <li>Any errors, inaccuracies, or omissions in the content</li>
+                <li>Any interruption or cessation of the service</li>
+                <li>Any indirect, consequential, or incidental damages</li>
+            </ul>
+            <p>Nothing in these terms excludes or limits liability for death or personal injury caused by negligence, fraud or fraudulent misrepresentation, or any other liability that cannot be excluded or limited under the laws of England and Wales.</p>
+
+            <h2>User Conduct</h2>
+            <p>When using HowLongDrive.uk, you agree not to:</p>
+            <ul>
+                <li>Use automated tools, bots, or scrapers to extract data from the site without prior written permission</li>
+                <li>Interfere with or disrupt the operation of the website or its hosting infrastructure</li>
+                <li>Attempt to gain unauthorised access to any part of the site or its systems</li>
+                <li>Use the site for any unlawful purpose or in violation of any applicable laws or regulations</li>
+                <li>Reproduce, duplicate, or exploit any part of the site for commercial purposes without permission</li>
+            </ul>
+
+            <h2>Modifications to Terms</h2>
+            <p>We reserve the right to modify these Terms of Use at any time. Changes will be posted on this page with an updated revision date. Your continued use of the site following any changes constitutes acceptance of the revised terms. We encourage you to review these terms periodically.</p>
+
+            <h2>Governing Law</h2>
+            <p>These Terms of Use shall be governed by and construed in accordance with the laws of England and Wales. Any disputes arising from or relating to these terms or your use of HowLongDrive.uk shall be subject to the exclusive jurisdiction of the courts of England and Wales.</p>
+
+            <h2>Contact</h2>
+            <p>If you have any questions about these Terms of Use, please contact us at <a href="mailto:juhaporraskorpi@gmail.com">juhaporraskorpi@gmail.com</a>.</p>
+
+            <p><em>Last updated: 29 May 2026</em></p>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 HowLongDrive.uk | <a href="/">Home</a> | <a href="/routes/">Routes</a> | <a href="/cities/">Cities</a></p>
+    </footer>
+</body>
+</html>
