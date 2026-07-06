@@ -6,9 +6,9 @@ HowLongDrive.uk provides accurate driving time and distance data for road trips 
 
 ## Content
 
-- ~7,692 route pages with driving times, distances, fuel costs, and driving tips
-- ~7,693 EV route pages with charging stop information for electric vehicles
-- ~213 city pages listing all available routes from each city
+- ~7,693 route pages with driving times, distances, fuel costs, and driving tips
+- ~7,692 EV route pages with charging stop information for electric vehicles
+- ~262 city pages listing all available routes from each city
 - Road trip guides for popular scenic and cross-country drives
 
 ## URL Patterns
